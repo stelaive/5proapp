@@ -1,7 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
+import { motion } from 'framer-motion'
 
 // 업종 데이터
 const industries = [
@@ -68,6 +71,33 @@ const urgentJobs = [
   }
 ];
 
+// 애니메이션 variants
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const scaleIn = {
+  initial: { scale: 0.8, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  transition: { duration: 0.5 }
+};
+
+const slideIn = {
+  initial: { x: -20, opacity: 0 },
+  animate: { x: 0, opacity: 1 },
+  transition: { duration: 0.5 }
+};
+
 export default function Marketplace() {
   return (
     <main>
@@ -84,93 +114,148 @@ export default function Marketplace() {
           />
           <div className="absolute inset-0 bg-orange-500 bg-opacity-30"></div>
         </div>
-        <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          className="container mx-auto px-4 relative z-10"
+          initial="initial"
+          animate="animate"
+          variants={staggerContainer}
+        >
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight">
+            <motion.h1 
+              className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight"
+              variants={fadeInUp}
+            >
               일거리장터<br />
               <span className="text-3xl md:text-4xl">18개 업종이 모이는<br />현장형 커뮤니티</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8">
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl mb-8"
+              variants={fadeInUp}
+            >
               정보·기술·일거리, 필요한 건 여기서 해결!
-            </p>
+            </motion.p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 업종별 커뮤니티 섹션 */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-12 font-jalnan"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
             업종별 전문가를 만나보세요!
-          </h2>
-          <div className="grid grid-cols-3 gap-2 max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-3 gap-2 max-w-3xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
             {industries.map((industry, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-white rounded-lg p-2 shadow hover:shadow-md transition-all cursor-pointer group text-center"
+                variants={scaleIn}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               >
                 <div className="text-2xl mb-1">{industry.icon}</div>
                 <h3 className="text-sm font-medium truncate">{industry.name}</h3>
                 <div className="text-xs text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
                   {industry.posts.toLocaleString()}개
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 정보/기술/후기 허브 섹션 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-12 font-jalnan"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
             지식은 나눌수록 커집니다
-          </h2>
-          <div className="max-w-4xl mx-auto">
+          </motion.h2>
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
             <div className="flex mb-8 border-b">
               {boardTabs.map((tab, index) => (
-                <button
+                <motion.button
                   key={index}
                   className="px-6 py-3 font-bold text-lg hover:text-orange-500 transition-colors"
+                  variants={slideIn}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {tab.name}
-                </button>
+                </motion.button>
               ))}
             </div>
             <div className="space-y-4">
               {boardTabs[0].posts.map((post, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors"
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 >
                   <h3 className="font-bold mb-2">{post.title}</h3>
                   <div className="text-sm text-gray-600">
                     댓글 {post.comments} · 추천 {post.likes}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 일거리 매칭 섹션 */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-12 font-jalnan"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
             못 가는 현장, 동료에게 넘기세요
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          </motion.h2>
+          <motion.div 
+            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
             {urgentJobs.map((job, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-white rounded-xl p-6 shadow-lg"
+                variants={scaleIn}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <motion.span 
+                      className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+                      whileHover={{ scale: 1.1 }}
+                    >
                       급구
-                    </span>
+                    </motion.span>
                     <h3 className="text-xl font-bold mt-2">{job.type}</h3>
                   </div>
                   <div className="text-orange-500 font-bold">
@@ -182,36 +267,53 @@ export default function Marketplace() {
                   <p>📅 {job.date}</p>
                   <p>💰 {job.pay}</p>
                 </div>
-                <button className="w-full mt-4 bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors">
+                <motion.button 
+                  className="w-full mt-4 bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   지원하기
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* FAQ 섹션 */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-12 font-jalnan"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
             가입·글쓰기 3분이면 끝!
-          </h2>
-          <div className="max-w-2xl mx-auto space-y-4">
+          </motion.h2>
+          <motion.div 
+            className="max-w-2xl mx-auto space-y-4"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
             {[
               { q: '가입은 어떻게 하나요?', a: '앱 설치 후 휴대폰 번호로 간단히 가입할 수 있습니다.' },
               { q: '글은 누구나 쓸 수 있나요?', a: '네, 가입만 하시면 바로 글을 쓰실 수 있습니다.' },
               { q: '반장/팀장은 어떻게 되나요?', a: '활동 점수와 평판에 따라 자동으로 선정됩니다.' }
             ].map((faq, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-gray-50 rounded-lg p-4"
+                variants={fadeInUp}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
                 <h3 className="font-bold mb-2">Q. {faq.q}</h3>
                 <p className="text-gray-600">A. {faq.a}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 

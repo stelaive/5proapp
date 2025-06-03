@@ -351,4 +351,35 @@ nav.nav-scrolled .nav-menu-item:hover {
 
 nav.nav-scrolled #menuBtn {
     color: var(--primary-color);
+}
+
+/* Platform Swiper Styles */
+.platform-swiper {
+  padding: 20px 10px 40px !important;
+}
+
+.platform-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.platform-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  opacity: 1;
+}
+
+.platform-swiper .swiper-pagination-bullet-active {
+  background: #f97316;
+}
+
+.platform-swiper .swiper-button-next,
+.platform-swiper .swiper-button-prev {
+  color: #f97316;
+  transform: scale(0.7);
+}
+
+.platform-swiper .swiper-button-next:after,
+.platform-swiper .swiper-button-prev:after {
+  font-size: 24px;
 } 
