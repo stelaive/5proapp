@@ -26,7 +26,7 @@ export default function Home() {
               스카이차 쓰고 5%<br />
               돌려받고,<br />
               매월 100만원 행운<br />
-              까지!11
+              까지! 11
             </h2>
             <p className="text-lg md:text-xl mb-8 text-white">
               작업 완료 즉시 자동 페이백!<br />
