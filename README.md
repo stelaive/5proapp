@@ -1,6 +1,65 @@
 # 5프로돌려드리는스카이차
 
-스카이차 이용 시 5% 페이백과 매월 100만원 추첨 이벤트를 제공하는 홍보 웹사이트입니다.
+스카이차 쓰고 5% 돌려받고, 매월 100만원 행운까지!
+
+## 🚀 **즉시 실행 방법 (HTML처럼 바로!)**
+
+### 📱 **원클릭 실행 (가장 쉬움!)**
+
+**Windows 사용자:**
+1. `🚀_로컬서버실행.bat` 파일 더블클릭
+2. 자동으로 브라우저에서 http://localhost:3000 열림
+3. 파일 수정하면 즉시 반영! 🔥
+
+**브라우저 자동 열기:**
+1. `🌐_브라우저에서바로열기.bat` 더블클릭
+2. 서버 + 브라우저 동시 실행!
+
+**Mac/Linux 사용자:**
+```bash
+# 실행 권한 부여 (최초 1회)
+chmod +x 🚀_로컬서버실행.sh
+
+# 실행
+./🚀_로컬서버실행.sh
+```
+
+### ⚡ **명령어로 실행**
+
+```bash
+# 기본 실행
+npm run dev
+
+# 브라우저 자동 열기
+npm run 로컬실행
+
+# 터보 모드 (더 빠름)
+npm run 즉시확인
+```
+
+### 🎯 **HTML보다 빠른 실시간 개발**
+
+- ✅ **파일 저장 → 즉시 반영** (새로고침 없음)
+- ✅ **오류 발생 → 즉시 표시** (콘솔 확인)
+- ✅ **CSS 변경 → 즉시 적용** (Hot Reload)
+- ✅ **모바일 테스트**: http://localhost:3000
+- ✅ **오프라인 작업 가능**
+
+---
+
+## 🚀 개발 환경 설정
+
+```bash
+# 프로젝트 클론
+git clone https://github.com/QKRXOGNS/5-percent-reward-sky-car.git
+cd 5-percent-reward-sky-car
+
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+```
 
 ## 🚀 기능
 
@@ -9,6 +68,64 @@
 - **친구 초대 혜택**: 친구 추천 시 추가 혜택 제공
 - **반응형 디자인**: 모바일과 데스크톱 모두 최적화
 - **다크/라이트 네비게이션**: 스크롤에 따른 네비게이션 스타일 변경
+
+## 🚀 개발 환경 설정
+
+```bash
+# 프로젝트 클론
+git clone https://github.com/QKRXOGNS/5-percent-reward-sky-car.git
+cd 5-percent-reward-sky-car
+
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+```
+
+## 🌐 협업자를 위한 브랜치별 배포 가이드
+
+### 📋 작업 흐름
+
+1. **새 브랜치 생성 및 작업**
+```bash
+# 새 브랜치 생성
+git checkout -b feature/새기능명
+
+# 작업 후 커밋
+git add .
+git commit -m "새 기능 추가"
+
+# 브랜치 푸시
+git push origin feature/새기능명
+```
+
+2. **자동 배포 URL 확인**
+푸시 즉시 자동으로 생성되는 URL:
+```
+https://5-percent-reward-sky-car-git-feature-새기능명-pk6012345.vercel.app
+```
+
+### 🔗 배포 URL 목록
+
+- **메인 사이트**: https://5-percent-reward-sky-car.vercel.app
+- **개발 브랜치**: https://5-percent-reward-sky-car-git-develop-pk6012345.vercel.app
+- **각 기능 브랜치**: 푸시 후 GitHub 또는 Vercel에서 확인
+
+### 📱 실시간 확인 방법
+
+1. **Vercel 대시보드**: [vercel.com/dashboard](https://vercel.com/dashboard)
+2. **GitHub Actions**: 각 푸시마다 배포 상태 확인
+3. **PR 생성시**: 자동으로 Preview URL 생성
+
+### 🎯 권장 브랜치 네이밍
+
+```
+feature/로그인페이지     → 새 기능 개발
+fix/버튼오류수정       → 버그 수정  
+design/메인페이지개선   → 디자인 수정
+content/텍스트수정     → 컨텐츠 수정
+```
 
 ## 🛠️ 기술 스택
 
