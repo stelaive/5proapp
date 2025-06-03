@@ -5,24 +5,29 @@ import FloatingDownload from '@/components/FloatingDownload'
 
 // 업종 데이터
 const industries = [
-  { name: '건축', icon: '🏗️', posts: 12345, todayPosts: 56 },
-  { name: '전기', icon: '⚡', posts: 9876, todayPosts: 43 },
-  { name: '간판', icon: '🚧', posts: 7654, todayPosts: 32 },
-  { name: '통신', icon: '📡', posts: 6543, todayPosts: 28 },
-  { name: '설비', icon: '🔧', posts: 8765, todayPosts: 38 },
-  { name: '운송', icon: '🚛', posts: 5432, todayPosts: 25 },
-  { name: '중장비', icon: '🚜', posts: 4321, todayPosts: 22 },
-  { name: '도장', icon: '🎨', posts: 3456, todayPosts: 18 },
-  { name: '철거', icon: '🏚️', posts: 2345, todayPosts: 15 },
-  { name: '조경', icon: '🌳', posts: 3456, todayPosts: 20 },
+  { name: '에어컨', icon: '❄️', posts: 12345, todayPosts: 56 },
+  { name: '욕실리모델링', icon: '🚿', posts: 9876, todayPosts: 43 },
+  { name: '유품정리', icon: '📦', posts: 7654, todayPosts: 32 },
+  { name: 'CCTV', icon: '📹', posts: 6543, todayPosts: 28 },
+  { name: '건설', icon: '🏗️', posts: 8765, todayPosts: 38 },
+  { name: '철거', icon: '🏚️', posts: 5432, todayPosts: 25 },
+  { name: '닥트공사', icon: '🔧', posts: 4321, todayPosts: 22 },
+  { name: '전기공사', icon: '⚡', posts: 3456, todayPosts: 18 },
+  { name: '외벽청소', icon: '🧹', posts: 2345, todayPosts: 15 },
+  { name: '설비', icon: '🔨', posts: 3456, todayPosts: 20 },
   { name: '인테리어', icon: '🏠', posts: 7890, todayPosts: 35 },
-  { name: '토목', icon: '🌉', posts: 6789, todayPosts: 30 },
-  { name: '방수', icon: '💧', posts: 4567, todayPosts: 24 },
-  { name: '냉난방', icon: '❄️', posts: 5678, todayPosts: 27 },
-  { name: '소방', icon: '🚒', posts: 3456, todayPosts: 19 },
-  { name: '폐기물', icon: '♻️', posts: 2345, todayPosts: 16 },
-  { name: '청소', icon: '🧹', posts: 4321, todayPosts: 23 },
-  { name: '기타', icon: '🔨', posts: 3456, todayPosts: 21 }
+  { name: '조경공사', icon: '🌳', posts: 6789, todayPosts: 30 },
+  { name: '전등교체', icon: '💡', posts: 4567, todayPosts: 24 },
+  { name: '금속공사', icon: '⚒️', posts: 5678, todayPosts: 27 },
+  { name: '페인트', icon: '🎨', posts: 3456, todayPosts: 19 },
+  { name: '판넬', icon: '🏢', posts: 2345, todayPosts: 16 },
+  { name: '지붕공사', icon: '🏡', posts: 4321, todayPosts: 23 },
+  { name: '간판', icon: '🚧', posts: 3456, todayPosts: 21 },
+  { name: '실리콘코킹', icon: '🔨', posts: 3456, todayPosts: 21 },
+  { name: '태양광설치', icon: '☀️', posts: 3456, todayPosts: 21 },
+  { name: '타일시공', icon: '🔲', posts: 3456, todayPosts: 21 },
+  { name: '방수공사', icon: '💧', posts: 3456, todayPosts: 21 },
+  { name: '창호공사', icon: '🪟', posts: 3456, todayPosts: 21 }
 ];
 
 // 게시판 탭 데이터
@@ -88,14 +93,6 @@ export default function Marketplace() {
             <p className="text-xl md:text-2xl mb-8">
               정보·기술·일거리, 필요한 건 여기서 해결!
             </p>
-            <div className="flex gap-4">
-              <button className="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-all">
-                앱스토어에서 다운로드
-              </button>
-              <button className="bg-black text-white px-6 py-3 rounded-full font-bold border-2 border-white hover:bg-white hover:text-black transition-all">
-                플레이스토어에서 다운로드
-              </button>
-            </div>
           </div>
         </div>
       </section>
@@ -104,9 +101,9 @@ export default function Marketplace() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
-            18개 업종, 하나씩 클릭해보세요!
+            업종별 전문가를 만나보세요!
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {industries.map((industry, index) => (
               <div
                 key={index}
