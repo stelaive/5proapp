@@ -124,14 +124,14 @@ export default function Marketplace() {
         >
           <div className="max-w-4xl">
             <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight"
+              className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight text-white"
               variants={fadeInUp}
             >
               일거리장터<br />
-              <span className="text-3xl md:text-4xl">18개 업종이 모이는<br />현장형 커뮤니티</span>
+              <span className="text-3xl md:text-4xl text-white">18개 업종이 모이는<br />현장형 커뮤니티</span>
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl mb-8"
+              className="text-xl md:text-2xl mb-8 text-white"
               variants={fadeInUp}
             >
               정보·기술·일거리, 필요한 건 여기서 해결!
@@ -144,7 +144,7 @@ export default function Marketplace() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-4xl font-bold text-center mb-12 font-jalnan"
+            className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
             initial={fadeInUp.initial}
             whileInView={fadeInUp.animate}
             viewport={{ once: true }}
@@ -166,7 +166,7 @@ export default function Marketplace() {
                 whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
               >
                 <div className="text-2xl mb-1">{industry.icon}</div>
-                <h3 className="text-sm font-medium truncate">{industry.name}</h3>
+                <h3 className="text-sm font-medium truncate text-gray-800">{industry.name}</h3>
                 <div className="text-xs text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
                   {industry.posts.toLocaleString()}개
                 </div>
@@ -180,7 +180,7 @@ export default function Marketplace() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-4xl font-bold text-center mb-12 font-jalnan"
+            className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
             initial={fadeInUp.initial}
             whileInView={fadeInUp.animate}
             viewport={{ once: true }}
@@ -206,7 +206,7 @@ export default function Marketplace() {
               {boardTabs.map((tab, index) => (
                 <motion.button
                   key={index}
-                  className="px-6 py-3 font-bold text-lg hover:text-orange-500 transition-colors"
+                  className="px-6 py-3 font-bold text-lg text-gray-700 hover:text-orange-500 transition-colors"
                   variants={slideIn}
                   whileHover={{ scale: 1.05 }}
                 >
@@ -222,7 +222,7 @@ export default function Marketplace() {
                   variants={fadeInUp}
                   whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 >
-                  <h3 className="font-bold mb-2">{post.title}</h3>
+                  <h3 className="font-bold mb-2 text-gray-800">{post.title}</h3>
                   <div className="text-sm text-gray-600">
                     댓글 {post.comments} · 추천 {post.likes}
                   </div>
@@ -237,7 +237,7 @@ export default function Marketplace() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-4xl font-bold text-center mb-12 font-jalnan"
+            className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
             initial={fadeInUp.initial}
             whileInView={fadeInUp.animate}
             viewport={{ once: true }}
@@ -277,7 +277,7 @@ export default function Marketplace() {
                     >
                       급구
                     </motion.span>
-                    <h3 className="text-xl font-bold mt-2">{job.type}</h3>
+                    <h3 className="text-xl font-bold mt-2 text-gray-800">{job.type}</h3>
                   </div>
                   <div className="text-orange-500 font-bold">
                     마감 D-{job.deadline}
@@ -305,7 +305,7 @@ export default function Marketplace() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-4xl font-bold text-center mb-12 font-jalnan"
+            className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
             initial={fadeInUp.initial}
             whileInView={fadeInUp.animate}
             viewport={{ once: true }}
@@ -330,7 +330,7 @@ export default function Marketplace() {
                 variants={fadeInUp}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <h3 className="font-bold mb-2">Q. {faq.q}</h3>
+                <h3 className="font-bold mb-2 text-gray-800">Q. {faq.q}</h3>
                 <p className="text-gray-600">A. {faq.a}</p>
               </motion.div>
             ))}
@@ -341,7 +341,7 @@ export default function Marketplace() {
       {/* Footer CTA */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8 font-jalnan">
+          <h2 className="text-4xl font-bold mb-8 font-jalnan text-white">
             현장의 모든 이야기,<br />일거리장터에서!
           </h2>
           <div className="flex justify-center gap-4">

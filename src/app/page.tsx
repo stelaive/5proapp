@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
@@ -90,6 +91,14 @@ export default function Home() {
             <p className="text-xl text-sky-orange-600 font-bold mb-8">
               공정한 기회, 짜릿한 행운! 매달 1일, 기대해도 좋아요!
             </p>
+            <div className="mb-8">
+              <Link 
+                href="/million"
+                className="inline-block bg-gradient-to-r from-sky-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+              >
+                🎰 100만원 받으러 가기
+              </Link>
+            </div>
             <Image
               src="/images/100만원추첨기.png"
               alt="100만원 추첨"
@@ -120,6 +129,14 @@ export default function Home() {
               좋은 건 나누고, 현금은 쌓이고!<br />
               이게 바로 인싸 사장님의 길!
             </p>
+            <div className="mb-8">
+              <Link 
+                href="/reward"
+                className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+              >
+                👥 친구 초대하러 가기
+              </Link>
+            </div>
             <Image
               src="/images/친구초대이벤트.png"
               alt="친구 초대 이벤트"
