@@ -56,6 +56,13 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
     { href: '#support', label: '고객센터', key: 'support' },
   ]
 
+  const menuItems = [
+    { name: '홈', path: '/' },
+    { name: '리워드', path: '/reward' },
+    { name: '왜 스카이차인가?', path: '/whyhere' },
+    { name: '일거리 장터', path: '/marketplace' }
+  ];
+
   return (
     <>
       <nav className={`fixed w-full z-50 transition-all duration-300 ${

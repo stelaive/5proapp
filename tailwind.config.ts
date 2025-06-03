@@ -10,16 +10,13 @@ const config: Config = {
     extend: {
       colors: {
         'sky-orange': {
-          50: '#FFF7ED',
-          100: '#FFEDD5',
           500: '#F97316',
-          600: '#EA580C',
-          700: '#C2410C',
+          600: '#EA580C'
         }
       },
       fontFamily: {
-        'jalnan': ['Jalnan', 'sans-serif'],
-      },
+        'jalnan': ['Jalnan', 'sans-serif']
+      }
     },
   },
   plugins: [],
