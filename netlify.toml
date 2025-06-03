@@ -1,0 +1,16 @@
+[build]
+  publish = ".next"
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.branch-deploy]
+  command = "npm run build"
+
+# 모든 브랜치에서 배포 활성화
+[context."feature/*"]
+  command = "npm run build" 

@@ -1,0 +1,16 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "develop": true
+    }
+  },
+  "github": {
+    "autoAlias": true
+  },
+  "functions": {
+    "app/**": {
+      "maxDuration": 30
+    }
+  }
+} 
