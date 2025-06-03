@@ -9,7 +9,7 @@ export default function FloatingDownload() {
   const PLAY_STORE_URL = '#' // 플레이스토어 링크
 
   const isIOS = () => {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+    return /iPad|iPhone|iPod/.test(navigator.userAgent)
   }
 
   const toggleStoreButtons = () => {
