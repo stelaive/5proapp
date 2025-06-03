@@ -103,17 +103,16 @@ export default function Marketplace() {
           <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
             업종별 전문가를 만나보세요!
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-3 gap-2 max-w-3xl mx-auto">
             {industries.map((industry, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all cursor-pointer group"
+                className="bg-white rounded-lg p-2 shadow hover:shadow-md transition-all cursor-pointer group text-center"
               >
-                <div className="text-4xl mb-2">{industry.icon}</div>
-                <h3 className="font-bold mb-2">{industry.name}</h3>
-                <div className="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                  게시글 {industry.posts.toLocaleString()}<br />
-                  오늘 새 글 {industry.todayPosts}
+                <div className="text-2xl mb-1">{industry.icon}</div>
+                <h3 className="text-sm font-medium truncate">{industry.name}</h3>
+                <div className="text-xs text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                  {industry.posts.toLocaleString()}개
                 </div>
               </div>
             ))}
