@@ -52,7 +52,7 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
     { href: '/reward', label: '100만원받기', key: 'reward' },
     { href: '#invite', label: '친구초대', key: 'invite' },
     { href: '/marketplace', label: '일거리장터', key: 'market' },
-    { href: '#marketing', label: '업종별마케팅', key: 'marketing' },
+    { href: '/marketing', label: '업종별마케팅', key: 'marketing' },
     { href: '#support', label: '고객센터', key: 'support' },
   ]
 
@@ -60,7 +60,8 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
     { name: '홈', path: '/' },
     { name: '리워드', path: '/reward' },
     { name: '왜 스카이차인가?', path: '/whyhere' },
-    { name: '일거리 장터', path: '/marketplace' }
+    { name: '일거리 장터', path: '/marketplace' },
+    { name: '업종별 마케팅', path: '/marketing' }
   ];
 
   return (
