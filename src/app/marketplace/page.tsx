@@ -104,18 +104,20 @@ export default function Marketplace() {
       <Navigation currentPage="marketplace" />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-center">
+      <section className="relative pt-24 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-start">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/marketplace-hero.jpg"
+            src="/images/일거리장터히어로섹션.gif"
             alt="일거리 장터 배경"
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-60"
+            priority
+            unoptimized
           />
-          <div className="absolute inset-0 bg-orange-500 bg-opacity-30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-black/30"></div>
         </div>
         <motion.div 
-          className="container mx-auto px-4 relative z-10"
+          className="container mx-auto px-4 relative z-10 pt-16"
           initial="initial"
           animate="animate"
           variants={staggerContainer}
@@ -185,6 +187,14 @@ export default function Marketplace() {
           >
             지식은 나눌수록 커집니다
           </motion.h2>
+          <motion.div
+            className="text-center mb-8 text-gray-500"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
+            ※ 아래는 예시 게시글입니다. 실제 커뮤니티는 앱 출시 후 이용 가능합니다.
+          </motion.div>
           <motion.div 
             className="max-w-4xl mx-auto"
             variants={staggerContainer}
@@ -234,6 +244,14 @@ export default function Marketplace() {
           >
             못 가는 현장, 동료에게 넘기세요
           </motion.h2>
+          <motion.div
+            className="text-center mb-8 text-gray-500"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
+            ※ 아래는 예시 데이터입니다. 실제 일거리는 앱 출시 후 이용 가능합니다.
+          </motion.div>
           <motion.div 
             className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
             variants={staggerContainer}
@@ -244,10 +262,13 @@ export default function Marketplace() {
             {urgentJobs.map((job, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-lg"
+                className="bg-white rounded-xl p-6 shadow-lg relative"
                 variants={scaleIn}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
+                <div className="absolute top-0 right-0 bg-gray-200 text-gray-600 px-3 py-1 rounded-bl-lg rounded-tr-xl text-sm">
+                  예시
+                </div>
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <motion.span 
@@ -268,11 +289,11 @@ export default function Marketplace() {
                   <p>💰 {job.pay}</p>
                 </div>
                 <motion.button 
-                  className="w-full mt-4 bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="w-full mt-4 bg-gray-500 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition-colors cursor-not-allowed"
+                  whileHover={{ scale: 1 }}
+                  whileTap={{ scale: 1 }}
                 >
-                  지원하기
+                  앱 출시 후 이용 가능
                 </motion.button>
               </motion.div>
             ))}

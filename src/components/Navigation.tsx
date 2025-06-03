@@ -51,7 +51,7 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
     { href: '/whyhere', label: '여긴야?', key: 'whyhere' },
     { href: '/reward', label: '100만원받기', key: 'reward' },
     { href: '#invite', label: '친구초대', key: 'invite' },
-    { href: '/marketplace', label: '일거리장터', key: 'market' },
+    { href: '/marketplace', label: '일거리장터', key: 'marketplace' },
     { href: '/marketing', label: '업종별마케팅', key: 'marketing' },
     { href: '#support', label: '고객센터', key: 'support' },
   ]
