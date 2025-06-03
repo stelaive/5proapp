@@ -13,7 +13,7 @@ const PlatformSwiper = dynamic(() => import('@/components/PlatformSwiper'), {
 })
 
 // 플랫폼 데이터
-export const platforms = [
+const platforms = [
   {
     name: '네이버 지도',
     icon: '/images/location-marker-green.svg',
