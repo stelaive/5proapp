@@ -5,6 +5,53 @@ import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
+import { motion } from 'framer-motion'
+
+// 애니메이션 variants
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+}
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const scaleIn = {
+  initial: { scale: 0.8, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  transition: { duration: 0.6 }
+}
+
+const bounceIn = {
+  initial: { scale: 0, opacity: 0 },
+  animate: { 
+    scale: 1, 
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.6,
+      duration: 0.8
+    }
+  }
+}
+
+const slideInLeft = {
+  initial: { x: -50, opacity: 0 },
+  animate: { x: 0, opacity: 1 },
+  transition: { duration: 0.6 }
+}
+
+const slideInRight = {
+  initial: { x: 50, opacity: 0 },
+  animate: { x: 0, opacity: 1 },
+  transition: { duration: 0.6 }
+}
 
 export default function FriendInvitePage() {
   const [isAnimating, setIsAnimating] = useState(false)
@@ -53,54 +100,139 @@ https://play.google.com/store`
         <div className="absolute inset-0 z-0">
           {/* 여기에 8초 GIF 들어갈 예정 */}
           <div className="w-full h-full bg-gradient-to-br from-red-600/80 via-orange-500/80 to-yellow-400/80 flex items-center justify-center">
-            <div className="text-9xl animate-bounce">💰</div>
+            <motion.div 
+              className="text-9xl"
+              animate={{ 
+                scale: [1, 1.2, 1],
+                rotate: [0, 10, -10, 0]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              💰
+            </motion.div>
           </div>
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className={`mb-12 transform transition-all duration-500 ${isAnimating ? 'scale-110' : ''}`}>
-              <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-white font-jalnan">
+            <motion.div 
+              className={`mb-12 transform transition-all duration-500 ${isAnimating ? 'scale-110' : ''}`}
+              initial="initial"
+              animate="animate"
+              variants={staggerContainer}
+            >
+              <motion.h1 
+                className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-white font-jalnan"
+                variants={fadeInUp}
+              >
                 💥 친구 부르면<br />
                 현금 5만원! 💥
-              </h1>
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 mb-8 inline-block">
-                <p className="text-2xl md:text-3xl font-bold text-yellow-200 leading-relaxed">
+              </motion.h1>
+              <motion.div 
+                className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 mb-8 inline-block"
+                variants={bounceIn}
+              >
+                <motion.p 
+                  className="text-2xl md:text-3xl font-bold text-yellow-200 leading-relaxed"
+                  animate={{ 
+                    textShadow: [
+                      "0 0 10px rgba(255,255,255,0.5)",
+                      "0 0 20px rgba(255,255,255,0.8)",
+                      "0 0 10px rgba(255,255,255,0.5)"
+                    ]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
                   사장님을 위한 역대급 보너스 찬스!
-                </p>
-              </div>
-            </div>
+                </motion.p>
+              </motion.div>
+            </motion.div>
             
-            <p className="text-xl md:text-2xl mb-12 text-white leading-relaxed max-w-4xl mx-auto">
+            <motion.p 
+              className="text-xl md:text-2xl mb-12 text-white leading-relaxed max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               사장님! 주변에 일 잘~하는 동료분들 많으시죠?<br />
               이제 그 좋은 인맥으로 <span className="text-yellow-300 font-bold">대박 보너스</span>까지 챙겨가세요!
-            </p>
+            </motion.p>
 
             {/* 앱 다운로드 유도 */}
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 mb-12 max-w-lg mx-auto">
-              <h3 className="text-2xl font-bold mb-6">🚀 지금 바로 시작하세요!</h3>
+            <motion.div 
+              className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 mb-12 max-w-lg mx-auto"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <motion.h3 
+                className="text-2xl font-bold mb-6"
+                animate={{ 
+                  y: [0, -5, 0]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                🚀 지금 바로 시작하세요!
+              </motion.h3>
               <div className="text-center space-y-4">
-                <div className="text-3xl font-bold mb-3">앱 설치 후</div>
-                <div className="text-xl mb-6 leading-relaxed">친구 초대 메뉴에서 <span className="text-yellow-300 font-bold">내 초대 코드</span> 확인!</div>
-                <p className="text-lg leading-relaxed">
+                <motion.div 
+                  className="text-3xl font-bold mb-3"
+                  variants={scaleIn}
+                >
+                  앱 설치 후
+                </motion.div>
+                <motion.div 
+                  className="text-xl mb-6 leading-relaxed"
+                  variants={fadeInUp}
+                >
+                  친구 초대 메뉴에서 <span className="text-yellow-300 font-bold">내 초대 코드</span> 확인!
+                </motion.div>
+                <motion.p 
+                  className="text-lg leading-relaxed"
+                  variants={fadeInUp}
+                >
                   친구 5명 초대 완료 시 <span className="text-yellow-300 font-bold">현금 5만원 보장!</span>
-                </p>
+                </motion.p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button 
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-6 justify-center"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.button 
                 onClick={downloadApp}
-                className="bg-white text-red-600 px-12 py-5 rounded-full font-bold text-xl hover:bg-gray-100 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="bg-white text-red-600 px-12 py-5 rounded-full font-bold text-xl hover:bg-gray-100 hover:shadow-lg transition-all duration-300"
+                variants={scaleIn}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 📱 앱 다운로드하고 시작하기
-              </button>
-              <button 
+              </motion.button>
+              <motion.button 
                 onClick={shareMessage}
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300"
+                variants={scaleIn}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 📤 친구에게 공유하기
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -109,20 +241,52 @@ https://play.google.com/store`
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-red-600 font-jalnan">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-center mb-8 text-red-600 font-jalnan"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               🎉 이보다 더 쉬울 순 없다!
-            </h2>
-            <p className="text-2xl md:text-3xl text-center mb-20 text-gray-700 font-bold leading-relaxed">
+            </motion.h2>
+            <motion.p 
+              className="text-2xl md:text-3xl text-center mb-20 text-gray-700 font-bold leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               참여 방법: 앱 설치하고 바로 시작!
-            </p>
+            </motion.p>
             
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-10">
-                <div className="bg-gradient-to-r from-red-50 to-orange-50 p-10 rounded-2xl border-2 border-red-200">
+              <motion.div 
+                className="space-y-10"
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                <motion.div 
+                  className="bg-gradient-to-r from-red-50 to-orange-50 p-10 rounded-2xl border-2 border-red-200"
+                  variants={slideInLeft}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                >
                   <div className="flex items-start space-x-6">
-                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-2xl">
+                    <motion.div 
+                      className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-2xl"
+                      animate={{ 
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
                       1
-                    </div>
+                    </motion.div>
                     <div>
                       <h3 className="text-2xl md:text-3xl font-bold mb-4 text-red-600 leading-tight">앱 설치하고 회원가입!</h3>
                       <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
@@ -130,13 +294,28 @@ https://play.google.com/store`
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-10 rounded-2xl border-2 border-orange-200">
+                <motion.div 
+                  className="bg-gradient-to-r from-orange-50 to-yellow-50 p-10 rounded-2xl border-2 border-orange-200"
+                  variants={slideInLeft}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                >
                   <div className="flex items-start space-x-6">
-                    <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-2xl">
+                    <motion.div 
+                      className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-2xl"
+                      animate={{ 
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 0.2
+                      }}
+                    >
                       2
-                    </div>
+                    </motion.div>
                     <div>
                       <h3 className="text-2xl md:text-3xl font-bold mb-4 text-orange-600 leading-tight">초대 코드로 친구들 초대!</h3>
                       <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
@@ -144,13 +323,28 @@ https://play.google.com/store`
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="bg-gradient-to-r from-yellow-50 to-green-50 p-10 rounded-2xl border-2 border-yellow-200">
+                <motion.div 
+                  className="bg-gradient-to-r from-yellow-50 to-green-50 p-10 rounded-2xl border-2 border-yellow-200"
+                  variants={slideInLeft}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                >
                   <div className="flex items-start space-x-6">
-                    <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-2xl">
+                    <motion.div 
+                      className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-2xl"
+                      animate={{ 
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 0.4
+                      }}
+                    >
                       3
-                    </div>
+                    </motion.div>
                     <div>
                       <h3 className="text-2xl md:text-3xl font-bold mb-4 text-yellow-600 leading-tight">친구 5명 달성 시 현금 5만원!</h3>
                       <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
@@ -158,26 +352,56 @@ https://play.google.com/store`
                       </p>
                     </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
-              <div className="text-center">
-                <div className="bg-gradient-to-br from-red-100 to-yellow-100 rounded-3xl p-10 shadow-2xl">
-                  <div className="text-8xl mb-8">📱</div>
+              <motion.div 
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <motion.div 
+                  className="bg-gradient-to-br from-red-100 to-yellow-100 rounded-3xl p-10 shadow-2xl"
+                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                >
+                  <motion.div 
+                    className="text-8xl mb-8"
+                    animate={{ 
+                      rotate: [0, 10, -10, 0],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    📱
+                  </motion.div>
                   <h3 className="text-3xl md:text-4xl font-bold mb-6 text-red-600 leading-tight">앱에서 확인하세요!</h3>
-                  <div className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed space-y-2">
-                    <div>✓ 내 전용 초대 코드</div>
-                    <div>✓ 실시간 초대 현황</div>
-                    <div>✓ 보너스 지급 내역</div>
-                  </div>
-                  <button 
+                  <motion.div 
+                    className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed space-y-2"
+                    variants={staggerContainer}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true }}
+                  >
+                    <motion.div variants={fadeInUp}>✓ 내 전용 초대 코드</motion.div>
+                    <motion.div variants={fadeInUp}>✓ 실시간 초대 현황</motion.div>
+                    <motion.div variants={fadeInUp}>✓ 보너스 지급 내역</motion.div>
+                  </motion.div>
+                  <motion.button 
                     onClick={downloadApp}
                     className="bg-red-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-red-600 transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     📱 지금 앱 설치하기
-                  </button>
-                </div>
-              </div>
+                  </motion.button>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -187,57 +411,205 @@ https://play.google.com/store`
       <section className="py-20 bg-gradient-to-r from-red-50 to-orange-50">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-red-600 font-jalnan">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold mb-8 text-red-600 font-jalnan"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               😮 놀라운 건 🔥무한 반복 지급🔥
-            </h2>
-            <p className="text-2xl md:text-3xl mb-16 text-gray-700 leading-relaxed">
+            </motion.h2>
+            <motion.p 
+              className="text-2xl md:text-3xl mb-16 text-gray-700 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               사장님의 인맥이 곧 현금이 되는 마법!
-            </p>
+            </motion.p>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-white p-10 rounded-2xl shadow-lg">
-                <div className="text-6xl mb-6">👥</div>
+            <motion.div 
+              className="grid md:grid-cols-3 gap-8 mb-16"
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+            >
+              <motion.div 
+                className="bg-white p-10 rounded-2xl shadow-lg"
+                variants={scaleIn}
+                whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
+              >
+                <motion.div 
+                  className="text-6xl mb-6"
+                  animate={{ 
+                    y: [0, -10, 0]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  👥
+                </motion.div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-red-600">친구 5명</h3>
-                <p className="text-4xl md:text-5xl font-bold text-green-500 mb-4">₩50,000</p>
+                <motion.p 
+                  className="text-4xl md:text-5xl font-bold text-green-500 mb-4"
+                  animate={{ 
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  ₩50,000
+                </motion.p>
                 <p className="text-lg text-gray-600">첫 번째 보너스!</p>
-              </div>
+              </motion.div>
 
-              <div className="bg-white p-10 rounded-2xl shadow-lg">
-                <div className="text-6xl mb-6">🔄</div>
+              <motion.div 
+                className="bg-white p-10 rounded-2xl shadow-lg"
+                variants={scaleIn}
+                whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
+              >
+                <motion.div 
+                  className="text-6xl mb-6"
+                  animate={{ 
+                    rotate: [0, 360]
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                >
+                  🔄
+                </motion.div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-orange-600">30명 달성시</h3>
-                <p className="text-2xl font-bold text-blue-500 mb-4">리셋!</p>
+                <motion.p 
+                  className="text-2xl font-bold text-blue-500 mb-4"
+                  animate={{ 
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  리셋!
+                </motion.p>
                 <p className="text-lg text-gray-600">다시 처음부터 시작</p>
-              </div>
+              </motion.div>
 
-              <div className="bg-white p-10 rounded-2xl shadow-lg">
-                <div className="text-6xl mb-6">🚀</div>
+              <motion.div 
+                className="bg-white p-10 rounded-2xl shadow-lg"
+                variants={scaleIn}
+                whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
+              >
+                <motion.div 
+                  className="text-6xl mb-6"
+                  animate={{ 
+                    y: [0, -20, 0],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  🚀
+                </motion.div>
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 text-green-600">무한 반복</h3>
-                <p className="text-4xl md:text-5xl font-bold text-red-500 mb-4">∞</p>
+                <motion.p 
+                  className="text-4xl md:text-5xl font-bold text-red-500 mb-4"
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    color: ["#ef4444", "#f97316", "#ef4444"]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  ∞
+                </motion.p>
                 <p className="text-lg text-gray-600">제한 없는 수익!</p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="bg-gradient-to-r from-yellow-400 to-red-500 text-white p-10 rounded-2xl">
-              <h3 className="text-3xl md:text-4xl font-bold mb-8">💡 예시로 보는 수익 계산</h3>
-              <div className="grid md:grid-cols-4 gap-6 text-center">
-                <div className="bg-white/20 rounded-xl p-6">
+            <motion.div 
+              className="bg-gradient-to-r from-yellow-400 to-red-500 text-white p-10 rounded-2xl"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <motion.h3 
+                className="text-3xl md:text-4xl font-bold mb-8"
+                animate={{ 
+                  textShadow: [
+                    "0 0 10px rgba(255,255,255,0.5)",
+                    "0 0 20px rgba(255,255,255,0.8)",
+                    "0 0 10px rgba(255,255,255,0.5)"
+                  ]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                💡 예시로 보는 수익 계산
+              </motion.h3>
+              <motion.div 
+                className="grid md:grid-cols-4 gap-6 text-center"
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                <motion.div 
+                  className="bg-white/20 rounded-xl p-6"
+                  variants={bounceIn}
+                  whileHover={{ scale: 1.05 }}
+                >
                   <div className="text-2xl md:text-3xl font-bold mb-2">5명</div>
                   <div className="text-lg">5만원</div>
-                </div>
-                <div className="bg-white/20 rounded-xl p-6">
+                </motion.div>
+                <motion.div 
+                  className="bg-white/20 rounded-xl p-6"
+                  variants={bounceIn}
+                  whileHover={{ scale: 1.05 }}
+                >
                   <div className="text-2xl md:text-3xl font-bold mb-2">10명</div>
                   <div className="text-lg">10만원</div>
-                </div>
-                <div className="bg-white/20 rounded-xl p-6">
+                </motion.div>
+                <motion.div 
+                  className="bg-white/20 rounded-xl p-6"
+                  variants={bounceIn}
+                  whileHover={{ scale: 1.05 }}
+                >
                   <div className="text-2xl md:text-3xl font-bold mb-2">15명</div>
                   <div className="text-lg">15만원</div>
-                </div>
-                <div className="bg-white/20 rounded-xl p-6">
+                </motion.div>
+                <motion.div 
+                  className="bg-white/20 rounded-xl p-6"
+                  variants={bounceIn}
+                  whileHover={{ scale: 1.05 }}
+                >
                   <div className="text-2xl md:text-3xl font-bold mb-2">30명</div>
                   <div className="text-lg">30만원 + 리셋</div>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>

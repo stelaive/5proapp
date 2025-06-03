@@ -5,6 +5,53 @@ import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
+import { motion } from 'framer-motion'
+
+// 애니메이션 variants
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+}
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const scaleIn = {
+  initial: { scale: 0.8, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  transition: { duration: 0.6 }
+}
+
+const slideInLeft = {
+  initial: { x: -50, opacity: 0 },
+  animate: { x: 0, opacity: 1 },
+  transition: { duration: 0.6 }
+}
+
+const slideInRight = {
+  initial: { x: 50, opacity: 0 },
+  animate: { x: 0, opacity: 1 },
+  transition: { duration: 0.6 }
+}
+
+const bounceIn = {
+  initial: { scale: 0, opacity: 0 },
+  animate: { 
+    scale: 1, 
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.6,
+      duration: 0.8
+    }
+  }
+}
 
 export default function MillionPage() {
   const [currentParticipants, setCurrentParticipants] = useState(1247)
@@ -180,72 +227,105 @@ export default function MillionPage() {
         </div>
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white font-jalnan">
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={staggerContainer}
+            >
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white font-jalnan"
+                variants={fadeInUp}
+              >
                 1일마다 100만원,<br />
                 5%는 기본! 🎰
-              </h1>
-              <p className="text-lg md:text-xl mb-8 text-gray-200">
+              </motion.h1>
+              <motion.p 
+                className="text-lg md:text-xl mb-8 text-gray-200"
+                variants={fadeInUp}
+              >
                 오더 1건만 넘기면 500명 중 1명 확률 그대로<br />
                 매달 1일, 행운의 주인공이 되어보세요!
-              </p>
+              </motion.p>
               
               {/* D-Day 카운트다운 */}
-              <div className="bg-gradient-to-r from-red-600 to-orange-500 p-6 rounded-xl mb-8">
+              <motion.div 
+                className="bg-gradient-to-r from-red-600 to-orange-500 p-6 rounded-xl mb-8"
+                variants={bounceIn}
+              >
                 <h3 className="text-white text-xl font-bold mb-4">다음 추첨까지</h3>
-                <div className="grid grid-cols-4 gap-4 text-center">
-                  <div className="bg-white bg-opacity-20 rounded-lg p-3">
+                <motion.div 
+                  className="grid grid-cols-4 gap-4 text-center"
+                  variants={staggerContainer}
+                >
+                  <motion.div 
+                    className="bg-white bg-opacity-20 rounded-lg p-3"
+                    variants={bounceIn}
+                  >
                     <div className="text-2xl font-bold">{timeLeft.days}</div>
                     <div className="text-sm">일</div>
-                  </div>
-                  <div className="bg-white bg-opacity-20 rounded-lg p-3">
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white bg-opacity-20 rounded-lg p-3"
+                    variants={bounceIn}
+                  >
                     <div className="text-2xl font-bold">{timeLeft.hours}</div>
                     <div className="text-sm">시간</div>
-                  </div>
-                  <div className="bg-white bg-opacity-20 rounded-lg p-3">
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white bg-opacity-20 rounded-lg p-3"
+                    variants={bounceIn}
+                  >
                     <div className="text-2xl font-bold">{timeLeft.minutes}</div>
                     <div className="text-sm">분</div>
-                  </div>
-                  <div className="bg-white bg-opacity-20 rounded-lg p-3">
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white bg-opacity-20 rounded-lg p-3"
+                    variants={bounceIn}
+                  >
                     <div className="text-2xl font-bold">{timeLeft.seconds}</div>
                     <div className="text-sm">초</div>
-                  </div>
-                </div>
-              </div>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-100 hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                  <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                  </svg>
-                  앱 다운로드
-                </button>
-                <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
-                  친구 초대하고 기회 2배
-                </button>
+              <motion.button 
+                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300"
+                variants={scaleIn}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                🎰 지금 바로 참여하기
+              </motion.button>
+            </motion.div>
+
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-3xl p-8 text-center">
+                <motion.div 
+                  className="text-6xl mb-4"
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, -5, 0]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  📱
+                </motion.div>
+                <h3 className="text-2xl font-bold mb-4">스마트폰 목업</h3>
+                <p className="text-gray-300">
+                  앱 설치 후 바로 시작!<br />
+                  간단한 작업 1건으로 100만원 도전
+                </p>
               </div>
-            </div>
-            
-            {/* 스마트폰 목업 */}
-            <div className="relative">
-              <div className="relative mx-auto w-80 h-96 bg-gradient-to-b from-gray-800 to-black rounded-3xl p-2 shadow-2xl">
-                <div className="w-full h-full bg-white rounded-2xl overflow-hidden relative">
-                  <Image
-                    src="/images/100만원추첨기.png"
-                    alt="추첨 화면"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold mb-2">₩1,000,000</div>
-                      <div className="text-sm">매월 1일 추첨</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -311,106 +391,261 @@ export default function MillionPage() {
       </section>
 
       {/* 메인 섹션 2 - 100만원 이벤트 규칙 */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-sky-orange-600">
-              100만원 이벤트 규칙
-            </h2>
-            <p className="text-center text-gray-600 mb-12 text-lg">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800 font-jalnan"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              🎰 이벤트 규칙
+            </motion.h2>
+            <motion.p 
+              className="text-center text-gray-600 mb-16 text-xl leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               참여자가 늘수록 당첨자도 늘어나요! 하지만 당첨 확률은 언제나 동일합니다.
-            </p>
+            </motion.p>
 
             {/* 계단형 인포그래픽 */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className={`p-6 rounded-xl text-center transition-all duration-500 ${
-                  currentParticipants >= 300 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white animate-pulse' : 'bg-gray-100'
-                }`}>
-                  <div className="text-sm mb-2">300~500명</div>
-                  <div className="text-2xl font-bold">1명</div>
+            <motion.div 
+              className="bg-white rounded-2xl p-10 shadow-lg mb-12"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <motion.div 
+                className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                <motion.div 
+                  className={`p-8 rounded-xl text-center transition-all duration-500 ${
+                    currentParticipants >= 300 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white animate-pulse' : 'bg-gray-100'
+                  }`}
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-lg mb-3 font-semibold">300~500명</div>
+                  <div className="text-3xl font-bold mb-2">1명</div>
                   {currentParticipants >= 300 && currentParticipants <= 500 && (
-                    <div className="text-xs mt-2">현재 단계 ✨</div>
+                    <motion.div 
+                      className="text-sm mt-2"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      현재 단계 ✨
+                    </motion.div>
                   )}
-                </div>
-                <div className={`p-6 rounded-xl text-center transition-all duration-500 ${
-                  currentParticipants >= 501 && currentParticipants <= 1000 ? 'bg-gradient-to-r from-blue-400 to-blue-600 text-white animate-pulse' : 
-                  currentParticipants > 1000 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white' : 'bg-gray-100'
-                }`}>
-                  <div className="text-sm mb-2">501~1000명</div>
-                  <div className="text-2xl font-bold">2명</div>
+                </motion.div>
+                <motion.div 
+                  className={`p-8 rounded-xl text-center transition-all duration-500 ${
+                    currentParticipants >= 501 && currentParticipants <= 1000 ? 'bg-gradient-to-r from-blue-400 to-blue-600 text-white animate-pulse' : 
+                    currentParticipants > 1000 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white' : 'bg-gray-100'
+                  }`}
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-lg mb-3 font-semibold">501~1000명</div>
+                  <div className="text-3xl font-bold mb-2">2명</div>
                   {currentParticipants >= 501 && currentParticipants <= 1000 && (
-                    <div className="text-xs mt-2">현재 단계 ✨</div>
+                    <motion.div 
+                      className="text-sm mt-2"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      현재 단계 ✨
+                    </motion.div>
                   )}
-                </div>
-                <div className={`p-6 rounded-xl text-center transition-all duration-500 ${
-                  currentParticipants >= 1001 && currentParticipants <= 1500 ? 'bg-gradient-to-r from-purple-400 to-purple-600 text-white animate-pulse' :
-                  currentParticipants > 1500 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white' : 'bg-gray-100'
-                }`}>
-                  <div className="text-sm mb-2">1001~1500명</div>
-                  <div className="text-2xl font-bold">3명</div>
+                </motion.div>
+                <motion.div 
+                  className={`p-8 rounded-xl text-center transition-all duration-500 ${
+                    currentParticipants >= 1001 && currentParticipants <= 1500 ? 'bg-gradient-to-r from-purple-400 to-purple-600 text-white animate-pulse' :
+                    currentParticipants > 1500 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white' : 'bg-gray-100'
+                  }`}
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-lg mb-3 font-semibold">1001~1500명</div>
+                  <div className="text-3xl font-bold mb-2">3명</div>
                   {currentParticipants >= 1001 && currentParticipants <= 1500 && (
-                    <div className="text-xs mt-2">현재 단계 ✨</div>
+                    <motion.div 
+                      className="text-sm mt-2"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      현재 단계 ✨
+                    </motion.div>
                   )}
-                </div>
-                <div className={`p-6 rounded-xl text-center transition-all duration-500 ${
-                  currentParticipants >= 1501 ? 'bg-gradient-to-r from-orange-400 to-red-600 text-white animate-pulse' : 'bg-gray-100'
-                }`}>
-                  <div className="text-sm mb-2">1501명+</div>
-                  <div className="text-2xl font-bold">4명+</div>
+                </motion.div>
+                <motion.div 
+                  className={`p-8 rounded-xl text-center transition-all duration-500 ${
+                    currentParticipants >= 1501 ? 'bg-gradient-to-r from-orange-400 to-red-600 text-white animate-pulse' : 'bg-gray-100'
+                  }`}
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="text-lg mb-3 font-semibold">1501명+</div>
+                  <div className="text-3xl font-bold mb-2">4명+</div>
                   {currentParticipants >= 1501 && (
-                    <div className="text-xs mt-2">현재 단계 ✨</div>
+                    <motion.div 
+                      className="text-sm mt-2"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      현재 단계 ✨
+                    </motion.div>
                   )}
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
 
             {/* 현재 참여자 수 */}
-            <div className="bg-gradient-to-r from-sky-orange-500 to-red-500 text-white p-6 rounded-2xl text-center mb-8">
-              <h3 className="text-2xl font-bold mb-4">현재 참여자 현황</h3>
-              <div className="text-4xl font-bold mb-2">{currentParticipants.toLocaleString()}명</div>
-              <div className="text-lg mb-4">이번 달 당첨자: {currentWinners}명</div>
-              <div className="w-full bg-white bg-opacity-30 rounded-full h-4">
-                <div 
-                  className="bg-white h-4 rounded-full transition-all duration-1000"
-                  style={{ width: `${Math.min((currentParticipants / 2000) * 100, 100)}%` }}
-                ></div>
-              </div>
-              <p className="text-sm mt-2 opacity-90">참여자가 늘수록 당첨자도 증가!</p>
-            </div>
+            <motion.div 
+              className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-8 rounded-2xl text-center mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <motion.h3 
+                className="text-3xl font-bold mb-6"
+                initial={{ scale: 0.9 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+              >
+                현재 참여자 현황
+              </motion.h3>
+              <motion.div 
+                className="text-5xl font-bold mb-4"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 0.5,
+                  type: "spring",
+                  bounce: 0.4
+                }}
+              >
+                {currentParticipants.toLocaleString()}명
+              </motion.div>
+              <motion.div 
+                className="text-2xl mb-6"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 }}
+              >
+                이번 달 당첨자: {currentWinners}명
+              </motion.div>
+              <motion.div 
+                className="w-full bg-white bg-opacity-30 rounded-full h-6 mb-4"
+                initial={{ opacity: 0, scaleX: 0 }}
+                whileInView={{ opacity: 1, scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+              >
+                <motion.div 
+                  className="bg-white h-6 rounded-full"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${Math.min((currentParticipants / 2000) * 100, 100)}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1.5, delay: 0.8 }}
+                ></motion.div>
+              </motion.div>
+              <motion.p 
+                className="text-lg opacity-90"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 0.9 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.9 }}
+              >
+                참여자가 늘수록 당첨자도 증가!
+              </motion.p>
+            </motion.div>
 
             {/* 참고 TIP */}
-            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-xl">
+            <motion.div 
+              className="bg-yellow-50 border-l-4 border-yellow-400 p-8 rounded-r-xl"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <div className="flex items-start">
-                <div className="flex-shrink-0">
-                  <span className="text-2xl">💡</span>
-                </div>
-                <div className="ml-3">
-                  <h4 className="text-lg font-bold text-yellow-800 mb-2">참고 TIP</h4>
-                  <p className="text-yellow-700">
+                <motion.div 
+                  className="flex-shrink-0"
+                  animate={{ 
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, -5, 0]
+                  }}
+                  transition={{ 
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <span className="text-3xl">💡</span>
+                </motion.div>
+                <div className="ml-4">
+                  <h4 className="text-xl font-bold text-yellow-800 mb-3">참고 TIP</h4>
+                  <p className="text-yellow-700 leading-relaxed text-lg">
                     <strong>내 오더가 없어도 괜찮아요!</strong><br />
                     친구 초대로 추첨 티켓을 추가로 받을 수 있습니다. 친구 1명 초대 시 추가 티켓 1장!
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* 메인 섹션 3 - 앱 스크린샷 & 사용 흐름 */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-sky-orange-600">
-              앱 사용 흐름
-            </h2>
-            <p className="text-center text-gray-600 mb-12 text-lg">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800 font-jalnan"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              📱 앱 사용 흐름
+            </motion.h2>
+            <motion.p 
+              className="text-center text-gray-600 mb-16 text-xl leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               간단한 4단계로 100만원 추첨에 참여하세요
-            </p>
+            </motion.p>
 
             {/* 스와이프 슬라이더 */}
-            <div className="relative">
+            <motion.div 
+              className="relative"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               {/* 슬라이더 컨테이너 */}
               <div className="relative overflow-hidden rounded-2xl">
                 <div 
@@ -430,12 +665,21 @@ export default function MillionPage() {
                   onTouchEnd={handleTouchEnd}
                 >
                   {slides.map((slide, index) => (
-                    <div 
+                    <motion.div 
                       key={index}
                       className="flex-shrink-0 w-80 text-center"
                       style={{ scrollSnapAlign: 'start' }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.1 * index }}
+                      whileHover={{ y: -10, transition: { duration: 0.3 } }}
                     >
-                      <div className="bg-gray-100 rounded-2xl p-6 h-96 flex items-center justify-center mb-4">
+                      <motion.div 
+                        className="bg-gray-100 rounded-2xl p-6 h-96 flex items-center justify-center mb-4"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         {slide.image ? (
                           <Image
                             src={slide.image}
@@ -446,18 +690,31 @@ export default function MillionPage() {
                             unoptimized={slide.isGif}
                           />
                         ) : (
-                          <div className="text-6xl">{slide.emoji}</div>
+                          <motion.div 
+                            className="text-6xl"
+                            animate={{ 
+                              scale: [1, 1.1, 1],
+                              rotate: [0, 5, -5, 0]
+                            }}
+                            transition={{ 
+                              duration: 2, 
+                              repeat: Infinity,
+                              ease: "easeInOut"
+                            }}
+                          >
+                            {slide.emoji}
+                          </motion.div>
                         )}
-                      </div>
-                      <h3 className="text-xl font-bold mb-2">{slide.title}</h3>
+                      </motion.div>
+                      <h3 className="text-xl font-bold mb-2 text-gray-800">{slide.title}</h3>
                       <p className="text-gray-600">{slide.description}</p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
 
               {/* 화살표 네비게이션 */}
-              <button 
+              <motion.button 
                 onClick={prevSlide}
                 disabled={currentSlide === 0}
                 className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 ${
@@ -465,13 +722,19 @@ export default function MillionPage() {
                     ? 'opacity-50 cursor-not-allowed' 
                     : 'hover:shadow-xl hover:scale-110'
                 }`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: currentSlide === 0 ? 0.5 : 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                whileHover={{ scale: currentSlide === 0 ? 1 : 1.1 }}
+                whileTap={{ scale: currentSlide === 0 ? 1 : 0.9 }}
               >
                 <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-              </button>
-              
-              <button 
+              </motion.button>
+
+              <motion.button 
                 onClick={nextSlide}
                 disabled={currentSlide === slides.length - 1}
                 className={`absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 ${
@@ -479,36 +742,41 @@ export default function MillionPage() {
                     ? 'opacity-50 cursor-not-allowed' 
                     : 'hover:shadow-xl hover:scale-110'
                 }`}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: currentSlide === slides.length - 1 ? 0.5 : 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                whileHover={{ scale: currentSlide === slides.length - 1 ? 1 : 1.1 }}
+                whileTap={{ scale: currentSlide === slides.length - 1 ? 1 : 0.9 }}
               >
                 <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </button>
+              </motion.button>
 
               {/* 인디케이터 도트 */}
-              <div className="flex justify-center mt-6 space-x-2">
+              <motion.div 
+                className="flex justify-center space-x-2 mt-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 }}
+              >
                 {slides.map((_, index) => (
-                  <button
+                  <motion.button
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-200 ${
                       currentSlide === index 
-                        ? 'bg-sky-orange-500 scale-125' 
+                        ? 'bg-orange-500 w-8' 
                         : 'bg-gray-300 hover:bg-gray-400'
                     }`}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
                   />
                 ))}
-              </div>
-              
-              {/* 스와이프 인디케이터 */}
-              <div className="text-center mt-6">
-                <div className="inline-flex items-center text-gray-500">
-                  <span className="mr-2">👈</span>
-                  <span className="text-sm">좌우로 스와이프하거나 화살표를 클릭하세요</span>
-                  <span className="ml-2">👉</span>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>

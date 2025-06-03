@@ -103,13 +103,13 @@ export default function Marketing() {
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight text-white">
               업종별 마케팅 노하우<br />
-              <span className="text-3xl md:text-4xl">
+              <span className="text-3xl md:text-4xl text-white">
                 매출 상승의 비밀이 여기 있습니다
               </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8">
+            <p className="text-xl md:text-2xl mb-8 text-white">
               네이버·구글·카카오 마케팅 완벽 가이드
             </p>
             <button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all text-lg">
@@ -122,7 +122,7 @@ export default function Marketing() {
       {/* Overview Section */}
       <section id="overview" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
+          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800">
             3대 플랫폼 완벽 가이드
           </h2>
           {isMobile ? (
@@ -148,7 +148,7 @@ export default function Marketing() {
                   <p className="text-gray-600 mb-6">{platform.description}</p>
                   <ul className="space-y-2 text-left">
                     {platform.features.map((feature, i) => (
-                      <li key={i} className="flex items-center">
+                      <li key={i} className="flex items-center text-gray-700">
                         <span className="mr-2" style={{ color: platform.color }}>✓</span>
                         {feature}
                       </li>
@@ -164,7 +164,7 @@ export default function Marketing() {
       {/* Expert Tips Section */}
       <section id="tips" className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
+          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800">
             전문가 팁
           </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -174,7 +174,7 @@ export default function Marketing() {
                 className="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all"
               >
                 <div className="text-4xl mb-4">{tip.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{tip.title}</h3>
+                <h3 className="text-xl font-bold mb-2 text-gray-800">{tip.title}</h3>
                 <p className="text-gray-600">{tip.description}</p>
               </div>
             ))}
@@ -185,10 +185,10 @@ export default function Marketing() {
       {/* CTA Section */}
       <section id="signup-cta" className="py-20 bg-gradient-to-r from-blue-600 to-orange-500 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8 font-jalnan">
+          <h2 className="text-4xl font-bold mb-8 font-jalnan text-white">
             무료 마케팅 가이드 받기
           </h2>
-          <p className="text-xl mb-8">
+          <p className="text-xl mb-8 text-white">
             지금 다운로드하면 5% 캐시백 쿠폰 증정!
           </p>
           <div className="max-w-md mx-auto">
@@ -207,18 +207,15 @@ export default function Marketing() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-white">
+      <section id="faq" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan">
+          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800">
             자주 묻는 질문
           </h2>
-          <div className="max-w-2xl mx-auto space-y-4">
+          <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-lg p-6"
-              >
-                <h3 className="text-lg font-bold mb-2">Q. {faq.question}</h3>
+              <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                <h3 className="text-lg font-bold mb-2 text-gray-800">Q. {faq.question}</h3>
                 <p className="text-gray-600">A. {faq.answer}</p>
               </div>
             ))}
@@ -226,8 +223,62 @@ export default function Marketing() {
         </div>
       </section>
 
+      {/* Success Stories */}
+      <section id="success" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800">
+            성공 사례
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-8 shadow-lg">
+              <div className="text-4xl mb-4">🏗️</div>
+              <h3 className="text-xl font-bold mb-4 text-gray-800">건설업체 김 사장님</h3>
+              <p className="text-gray-600 mb-4">
+                "네이버 플레이스 최적화 후 문의가 300% 증가했어요!"
+              </p>
+              <div className="bg-white rounded-lg p-4">
+                <div className="text-2xl font-bold text-green-600">월 매출 2배 증가</div>
+                <div className="text-sm text-gray-500">3개월 만에 달성</div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8 shadow-lg">
+              <div className="text-4xl mb-4">⚡</div>
+              <h3 className="text-xl font-bold mb-4 text-gray-800">전기공사 이 사장님</h3>
+              <p className="text-gray-600 mb-4">
+                "구글 광고로 타겟 고객만 정확히 모시고 있어요!"
+              </p>
+              <div className="bg-white rounded-lg p-4">
+                <div className="text-2xl font-bold text-orange-600">광고비 50% 절약</div>
+                <div className="text-sm text-gray-500">효율적인 타겟팅으로</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer CTA */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-8 font-jalnan text-white">
+            지금 시작하세요!
+          </h2>
+          <p className="text-xl mb-8 text-white">
+            전문가의 마케팅 노하우로 매출을 올려보세요
+          </p>
+          <div className="flex justify-center gap-4">
+            <button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all">
+              앱 다운로드
+            </button>
+            <button className="bg-transparent text-white px-8 py-4 rounded-full font-bold border-2 border-white hover:bg-white hover:text-black transition-all">
+              상담 신청
+            </button>
+          </div>
+        </div>
+      </section>
+
       <FloatingDownload />
       <Footer />
     </main>
-  );
+  )
 } 
