@@ -1,0 +1,17 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+[요구사항]
+한국어로 대답해줘
+
+[개발도구]
+Next.js 개발
+vercel 배포
+
+[개발설명]
+데이터 베이스 X
+
+
+홍보를 위한 사이트
