@@ -48,7 +48,7 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
 
   const navItems = [
     { href: '/', label: '홈', key: 'home' },
-    { href: '/whyhere', label: '여긴뭐야?', key: 'whyhere' },
+    { href: '/whyhere', label: '여긴야?', key: 'whyhere' },
     { href: '/reward', label: '100만원받기', key: 'reward' },
     { href: '#invite', label: '친구초대', key: 'invite' },
     { href: '/marketplace', label: '일거리장터', key: 'market' },
