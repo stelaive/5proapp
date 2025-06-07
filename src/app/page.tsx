@@ -1,5 +1,4 @@
 'use client'
-
 import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -8,9 +7,12 @@ import { motion } from 'framer-motion'
 
 // 애니메이션 variants 정의
 const slideInFromRight = {
-  hidden: { x: 100, opacity: 0 },
-  visible: { 
-    x: 0, 
+  initial: { 
+    x: 100,
+    opacity: 0 
+  },
+  animate: { 
+    x: 0,
     opacity: 1,
     transition: {
       type: "spring",
@@ -77,8 +79,8 @@ export default function Home() {
               묻지도 따지지도 않고 사장님 손에 바로 현금으로!
             </p>
             <motion.div
-              initial="hidden"
-              whileInView="visible"
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
               variants={slideInFromRight}
             >
@@ -115,8 +117,8 @@ export default function Home() {
               공정한 기회, 짜릿한 행운! 매달 1일, 기대해도 좋아요!
             </p>
             <motion.div
-              initial="hidden"
-              whileInView="visible"
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
               variants={slideInFromRight}
             >
@@ -152,8 +154,8 @@ export default function Home() {
               이게 바로 인싸 사장님의 길!
             </p>
             <motion.div
-              initial="hidden"
-              whileInView="visible"
+              initial="initial"
+              whileInView="animate"
               viewport={{ once: true }}
               variants={slideInFromRight}
             >

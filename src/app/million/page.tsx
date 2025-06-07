@@ -645,9 +645,9 @@ export default function MillionPage() {
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Image
-                          src={slide.image}
-                          alt={slide.alt}
+                          <Image
+                            src={slide.image}
+                            alt={slide.alt}
                           width={280}
                           height={400}
                           className="rounded-xl shadow-lg object-contain"
