@@ -83,13 +83,14 @@ export default function Home() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={slideInFromRight}
+              className="relative w-full h-[400px]"
             >
               <Image
                 src="/images/포인트 확인하기.png"
                 alt="포인트 확인하기"
-                width={800}
-                height={400}
-                className="section-image mix-blend-multiply"
+                fill
+                className="object-contain"
+                priority
               />
             </motion.div>
           </div>
@@ -121,13 +122,14 @@ export default function Home() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={slideInFromRight}
+              className="relative w-full h-[400px]"
             >
               <Image
                 src="/images/100만원추첨기.png"
                 alt="100만원 추첨"
-                width={800}
-                height={400}
-                className="section-image mix-blend-multiply"
+                fill
+                className="object-contain"
+                priority
               />
             </motion.div>
           </div>
@@ -158,13 +160,14 @@ export default function Home() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={slideInFromRight}
+              className="relative w-full h-[400px]"
             >
               <Image
                 src="/images/친구초대이벤트.png"
                 alt="친구 초대 이벤트"
-                width={800}
-                height={400}
-                className="section-image mix-blend-multiply"
+                fill
+                className="object-contain"
+                priority
               />
             </motion.div>
           </div>
