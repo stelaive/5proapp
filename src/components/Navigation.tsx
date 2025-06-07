@@ -6,9 +6,10 @@ import Image from 'next/image'
 
 interface NavigationProps {
   currentPage?: string
+  isDarkMode?: boolean
 }
 
-export default function Navigation({ currentPage = 'home' }: NavigationProps) {
+export default function Navigation({ currentPage = 'home', isDarkMode = false }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
@@ -48,28 +49,28 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
 
   const navItems = [
     { href: '/', label: '홈', key: 'home' },
-    { href: '/whyhere', label: '여긴야?', key: 'whyhere' },
+    { href: '/whyhere', label: '여긴뭐야?', key: 'whyhere' },
     { href: '/million', label: '100만원받기', key: 'million' },
     { href: '/reward', label: '친구초대', key: 'reward' },
     { href: '/marketplace', label: '일거리장터', key: 'marketplace' },
     { href: '/marketing', label: '업종별마케팅', key: 'marketing' },
-    { href: '#support', label: '고객센터', key: 'support' },
+    { href: '/support', label: '고객센터', key: 'support' },
   ]
 
   const menuItems = [
     { name: '홈', path: '/' },
-    { name: '100만원받기', path: '/million' },
-    { name: '친구초대', path: '/reward' },
-    { name: '왜 스카이차인가?', path: '/whyhere' },
-    { name: '일거리 장터', path: '/marketplace' },
-    { name: '업종별 마케팅', path: '/marketing' }
+    { name: '리워드', path: '/reward' },
+    { name: '백만원이벤트', path: '/million' },
+    { name: '마켓플레이스', path: '/marketplace' },
+    { name: '마케팅', path: '/marketing' },
+    { name: '고객센터', path: '/support' },
   ];
 
   return (
     <>
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'nav-scrolled' : ''
-      } ${isHidden ? 'nav-hidden' : ''}`}>
+        isScrolled ? (isDarkMode ? 'bg-white' : 'nav-scrolled') : ''
+      } ${isHidden ? 'nav-hidden' : ''} ${isDarkMode ? 'bg-white' : ''}`}>
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center">
             <Image
@@ -79,7 +80,9 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
               height={32}
               className="mr-2"
             />
-            <h1 className="text-xl font-bold nav-text">5프로돌려드리는스카이차</h1>
+            <h1 className={`text-xl font-bold ${isDarkMode ? 'text-black' : 'nav-text'}`}>
+              5프로돌려드리는스카이차
+            </h1>
           </div>
           
           {/* 데스크톱 메뉴 */}
@@ -88,8 +91,14 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
               <Link
                 key={item.key}
                 href={item.href}
-                className={`nav-menu-item hover:text-sky-orange-500 ${
-                  currentPage === item.key ? 'text-sky-orange-500' : ''
+                className={`hover:text-sky-orange-500 transition-colors ${
+                  currentPage === item.key 
+                    ? 'text-sky-orange-500' 
+                    : isDarkMode 
+                      ? 'text-black' 
+                      : isScrolled 
+                        ? 'text-gray-900' 
+                        : 'text-white'
                 }`}
               >
                 {item.label}
@@ -102,7 +111,7 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
             <button
               id="menuBtn"
               onClick={toggleMenu}
-              className="text-white z-50 relative"
+              className={`z-50 relative ${isDarkMode ? 'text-black' : isScrolled ? 'text-gray-900' : 'text-white'}`}
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -134,7 +143,9 @@ export default function Navigation({ currentPage = 'home' }: NavigationProps) {
               className={`block py-3 text-lg hover:text-sky-orange-500 border-b border-gray-100 ${
                 currentPage === item.key 
                   ? 'text-sky-orange-500' 
-                  : 'text-gray-800'
+                  : isDarkMode 
+                    ? 'text-black' 
+                    : 'text-gray-800'
               }`}
             >
               {item.label}

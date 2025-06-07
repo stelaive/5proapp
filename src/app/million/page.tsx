@@ -69,30 +69,28 @@ export default function MillionPage() {
 
   const slides = [
     {
-      image: "/images/포인트 확인하기.png",
+      image: "/images/어플화면_390x844.png",
       title: "1. 앱 홈",
       description: "앱을 설치하고 회원가입",
       alt: "앱 홈 화면"
     },
     {
-      image: "/images/스동8.gif",
+      image: "/images/직통전화표시.PNG",
       title: "2. 오더 넘기기", 
       description: "스카이차 작업 1건 완료",
-      alt: "오더 넘기기",
-      isGif: true
+      alt: "오더 넘기기"
     },
     {
-      image: "/images/100만원추첨기.png",
+      image: "/images/오더접수확인하기.PNG",
       title: "3. 추첨표 확인",
       description: "자동으로 추첨 대상자 등록",
       alt: "추첨표"
     },
     {
-      image: null,
+      image: "/images/당첨 확인.PNG",
       title: "4. 당첨 알림",
       description: "매월 1일 당첨자 발표",
-      alt: "당첨 알림",
-      emoji: "🎉"
+      alt: "당첨 알림"
     }
   ]
 
@@ -217,7 +215,7 @@ export default function MillionPage() {
       <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden hero-section">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/스동8.gif"
+            src="/images/달력에서_D_Day_타이머로.gif"
             alt="배경 이미지"
             fill
             className="object-cover opacity-40"
@@ -578,39 +576,6 @@ export default function MillionPage() {
                 참여자가 늘수록 당첨자도 증가!
               </motion.p>
             </motion.div>
-
-            {/* 참고 TIP */}
-            <motion.div 
-              className="bg-yellow-50 border-l-4 border-yellow-400 p-8 rounded-r-xl"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <div className="flex items-start">
-                <motion.div 
-                  className="flex-shrink-0"
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, -5, 0]
-                  }}
-                  transition={{ 
-                    duration: 2, 
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  <span className="text-3xl">💡</span>
-                </motion.div>
-                <div className="ml-4">
-                  <h4 className="text-xl font-bold text-yellow-800 mb-3">참고 TIP</h4>
-                  <p className="text-yellow-700 leading-relaxed text-lg">
-                    <strong>내 오더가 없어도 괜찮아요!</strong><br />
-                    친구 초대로 추첨 티켓을 추가로 받을 수 있습니다. 친구 1명 초대 시 추가 티켓 1장!
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -676,35 +641,17 @@ export default function MillionPage() {
                       whileHover={{ y: -10, transition: { duration: 0.3 } }}
                     >
                       <motion.div 
-                        className="bg-gray-100 rounded-2xl p-6 h-96 flex items-center justify-center mb-4"
+                        className="bg-gray-100 rounded-2xl p-8 h-[450px] flex items-center justify-center mb-4 overflow-hidden"
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.2 }}
                       >
-                        {slide.image ? (
-                          <Image
-                            src={slide.image}
-                            alt={slide.alt}
-                            width={200}
-                            height={300}
-                            className="rounded-xl shadow-lg"
-                            unoptimized={slide.isGif}
-                          />
-                        ) : (
-                          <motion.div 
-                            className="text-6xl"
-                            animate={{ 
-                              scale: [1, 1.1, 1],
-                              rotate: [0, 5, -5, 0]
-                            }}
-                            transition={{ 
-                              duration: 2, 
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
-                          >
-                            {slide.emoji}
-                          </motion.div>
-                        )}
+                        <Image
+                          src={slide.image}
+                          alt={slide.alt}
+                          width={280}
+                          height={400}
+                          className="rounded-xl shadow-lg object-contain"
+                        />
                       </motion.div>
                       <h3 className="text-xl font-bold mb-2 text-gray-800">{slide.title}</h3>
                       <p className="text-gray-600">{slide.description}</p>
@@ -781,83 +728,7 @@ export default function MillionPage() {
         </div>
       </section>
 
-      {/* 메인 섹션 4 - 실시간 후기 & 당첨자 인증 */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-sky-orange-600">
-              실시간 후기 & 당첨자 인증
-            </h2>
-
-            {/* 사용자 후기 */}
-            <div className="mb-12">
-              <h3 className="text-2xl font-bold mb-6 text-center">사용자 후기</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-white p-6 rounded-xl shadow-md">
-                  <div className="flex items-center mb-4">
-                    <div className="flex text-yellow-400">
-                      ⭐⭐⭐⭐⭐
-                    </div>
-                    <span className="ml-2 text-sm text-gray-500">김**님 (서울)</span>
-                  </div>
-                  <p className="text-gray-700">"진짜 5% 바로 들어오네요! 100만원도 기대돼요 ㅎㅎ"</p>
-                </div>
-                <div className="bg-white p-6 rounded-xl shadow-md">
-                  <div className="flex items-center mb-4">
-                    <div className="flex text-yellow-400">
-                      ⭐⭐⭐⭐⭐
-                    </div>
-                    <span className="ml-2 text-sm text-gray-500">박**님 (부산)</span>
-                  </div>
-                  <p className="text-gray-700">"친구 추천했더니 정말 5만원 들어왔어요!"</p>
-                </div>
-                <div className="bg-white p-6 rounded-xl shadow-md">
-                  <div className="flex items-center mb-4">
-                    <div className="flex text-yellow-400">
-                      ⭐⭐⭐⭐⭐
-                    </div>
-                    <span className="ml-2 text-sm text-gray-500">이**님 (대구)</span>
-                  </div>
-                  <p className="text-gray-700">"매달 추첨 재미있어요. 언젠간 당첨될거라 믿어요!"</p>
-                </div>
-              </div>
-            </div>
-
-            {/* 당첨자 인증 */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-center">당첨자 인증</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="bg-white p-4 rounded-xl shadow-md text-center">
-                  <div className="text-4xl mb-2">🎉</div>
-                  <div className="font-bold text-sky-orange-600">최**님</div>
-                  <div className="text-sm text-gray-500">서울 강남구</div>
-                  <div className="text-xs text-gray-400 mt-2">2024.01.01 당첨</div>
-                </div>
-                <div className="bg-white p-4 rounded-xl shadow-md text-center">
-                  <div className="text-4xl mb-2">💰</div>
-                  <div className="font-bold text-sky-orange-600">김**님</div>
-                  <div className="text-sm text-gray-500">부산 해운대구</div>
-                  <div className="text-xs text-gray-400 mt-2">2024.01.01 당첨</div>
-                </div>
-                <div className="bg-white p-4 rounded-xl shadow-md text-center">
-                  <div className="text-4xl mb-2">🎊</div>
-                  <div className="font-bold text-sky-orange-600">박**님</div>
-                  <div className="text-sm text-gray-500">대구 중구</div>
-                  <div className="text-xs text-gray-400 mt-2">2024.02.01 당첨</div>
-                </div>
-                <div className="bg-white p-4 rounded-xl shadow-md text-center">
-                  <div className="text-4xl mb-2">🏆</div>
-                  <div className="font-bold text-sky-orange-600">이**님</div>
-                  <div className="text-sm text-gray-500">인천 남동구</div>
-                  <div className="text-xs text-gray-400 mt-2">2024.02.01 당첨</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 메인 섹션 5 - FAQ */}
+      {/* 메인 섹션 4 - FAQ */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

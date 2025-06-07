@@ -1,8 +1,24 @@
+'use client'
+
 import Image from 'next/image'
-import Link from 'next/link'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
+import { motion } from 'framer-motion'
+
+// 애니메이션 variants 정의
+const slideInFromRight = {
+  hidden: { x: 100, opacity: 0 },
+  visible: { 
+    x: 0, 
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1,
+      bounce: 0.3
+    }
+  }
+}
 
 export default function Home() {
   return (
@@ -27,7 +43,7 @@ export default function Home() {
               스카이차 쓰고 5%<br />
               돌려받고,<br />
               매월 100만원 행운<br />
-              까지! 11
+              까지!
             </h2>
             <p className="text-lg md:text-xl mb-8 text-white">
               작업 완료 즉시 자동 페이백!<br />
@@ -60,13 +76,20 @@ export default function Home() {
               스카이차 작업 끝나면, 이용료의 5%는<br />
               묻지도 따지지도 않고 사장님 손에 바로 현금으로!
             </p>
-            <Image
-              src="/images/포인트 확인하기.png"
-              alt="포인트 확인하기"
-              width={800}
-              height={400}
-              className="section-image mix-blend-multiply"
-            />
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={slideInFromRight}
+            >
+              <Image
+                src="/images/포인트 확인하기.png"
+                alt="포인트 확인하기"
+                width={800}
+                height={400}
+                className="section-image mix-blend-multiply"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -91,21 +114,20 @@ export default function Home() {
             <p className="text-xl text-sky-orange-600 font-bold mb-8">
               공정한 기회, 짜릿한 행운! 매달 1일, 기대해도 좋아요!
             </p>
-            <div className="mb-8">
-              <Link 
-                href="/million"
-                className="inline-block bg-gradient-to-r from-sky-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-              >
-                🎰 100만원 받으러 가기
-              </Link>
-            </div>
-            <Image
-              src="/images/100만원추첨기.png"
-              alt="100만원 추첨"
-              width={800}
-              height={400}
-              className="section-image mix-blend-multiply"
-            />
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={slideInFromRight}
+            >
+              <Image
+                src="/images/100만원추첨기.png"
+                alt="100만원 추첨"
+                width={800}
+                height={400}
+                className="section-image mix-blend-multiply"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -129,21 +151,20 @@ export default function Home() {
               좋은 건 나누고, 현금은 쌓이고!<br />
               이게 바로 인싸 사장님의 길!
             </p>
-            <div className="mb-8">
-              <Link 
-                href="/reward"
-                className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-bold hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-              >
-                👥 친구 초대하러 가기
-              </Link>
-            </div>
-            <Image
-              src="/images/친구초대이벤트.png"
-              alt="친구 초대 이벤트"
-              width={800}
-              height={400}
-              className="section-image mix-blend-multiply"
-            />
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={slideInFromRight}
+            >
+              <Image
+                src="/images/친구초대이벤트.png"
+                alt="친구 초대 이벤트"
+                width={800}
+                height={400}
+                className="section-image mix-blend-multiply"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
