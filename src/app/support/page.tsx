@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface FAQItem {
   category: string;
@@ -221,6 +222,7 @@ const faqData: FAQItem[] = [
 export default function SupportPage() {
   const [openQuestions, setOpenQuestions] = useState<{[key: string]: boolean}>({});
   const [activeCategory, setActiveCategory] = useState('app_usage');
+  const [showCategoryModal, setShowCategoryModal] = useState(false);
 
   const toggleQuestion = (categoryIndex: number, questionIndex: number) => {
     const key = `${categoryIndex}-${questionIndex}`;
@@ -232,6 +234,11 @@ export default function SupportPage() {
 
   const handleCategoryClick = (key: string) => {
     setActiveCategory(key);
+    setShowCategoryModal(false);
+  };
+
+  const openCategoryModal = () => {
+    setShowCategoryModal(true);
   };
 
   const filteredFaqData = faqData.filter(
@@ -247,19 +254,15 @@ export default function SupportPage() {
           <div className="max-w-7xl mx-auto px-4">
             <h1 className="text-3xl font-bold py-8 text-black">자주 하는 질문</h1>
             
-            {/* 모바일 선택상자 */}
+            {/* 모바일 카테고리 버튼 */}
             <div className="md:hidden mb-6">
-              <select
-                value={activeCategory}
-                onChange={(e) => handleCategoryClick(e.target.value)}
-                className="block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-black"
+              <button
+                onClick={openCategoryModal}
+                className="block w-full py-3 px-4 border border-gray-300 bg-white rounded-lg shadow-sm text-left text-black flex justify-between items-center"
               >
-                {headerMenus.map((menu) => (
-                  <option key={menu.key} value={menu.key} className="text-black">
-                    {menu.label}
-                  </option>
-                ))}
-              </select>
+                <span>{headerMenus.find(menu => menu.key === activeCategory)?.label}</span>
+                <span className="text-gray-400">▼</span>
+              </button>
             </div>
             
             {/* 데스크톱 메뉴 */}
@@ -327,13 +330,69 @@ export default function SupportPage() {
             <div className="text-white text-center">
               <p className="text-lg mb-2">문제가 아직 해결되지 않거나 궁금한게 있으시면 직통전화로 연락주세요</p>
               <p className="text-xl font-bold mb-1">5프로돌려드리는스카이차 고객센터</p>
-              <p className="text-2xl font-bold">1877 - 9001</p>
+              <a 
+                href="tel:18779001"
+                className="text-2xl font-bold hover:text-blue-200 transition-colors cursor-pointer inline-block"
+              >
+                1877 - 9001
+              </a>
             </div>
           </div>
         </div>
 
         <Footer />
       </div>
+
+      {/* 모바일 카테고리 모달 */}
+      <AnimatePresence>
+        {showCategoryModal && (
+          <>
+            {/* 배경 오버레이 */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowCategoryModal(false)}
+              className="fixed inset-0 bg-black/50 z-50 md:hidden"
+            />
+            
+            {/* 모달 컨텐츠 */}
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 500 }}
+              className="fixed bottom-0 left-0 right-0 bg-white rounded-t-xl z-50 md:hidden max-h-[80vh] overflow-y-auto"
+            >
+              <div className="p-6">
+                <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-6"></div>
+                <h3 className="text-lg font-bold text-black mb-4 text-center">분류</h3>
+                
+                <div className="space-y-2">
+                  {headerMenus.map((menu) => (
+                    <button
+                      key={menu.key}
+                      onClick={() => handleCategoryClick(menu.key)}
+                      className={`w-full py-3 px-4 text-left rounded-lg transition-colors ${
+                        activeCategory === menu.key
+                          ? 'bg-blue-500 text-white'
+                          : 'text-black hover:bg-gray-100'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>{menu.label}</span>
+                        {activeCategory === menu.key && (
+                          <span className="text-white">✓</span>
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </main>
   );
 } 
