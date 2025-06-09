@@ -48,21 +48,25 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 w-full z-[99999] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 w-full z-[999999] transition-all duration-300 ${
           isScrolled || isDarkMode
             ? 'bg-white/95 backdrop-blur-md shadow-lg' 
             : 'bg-white/10 backdrop-blur-sm'
         }`}
         style={{ 
-          zIndex: 99999,
+          zIndex: 999999,
           position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
-          width: '100%'
+          width: '100%',
+          pointerEvents: 'auto'
         }}
       >
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div className={`w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between md:px-4 md:pr-4 ${
+          currentPage === 'home' ? 'pr-16' : 'pr-4'
+        }`}>
+          {/* 모바일에서 오른쪽 여백 확보 */}
           <Link href="/" className="flex items-center">
             <Image
               src="/images/스로고1.png"
@@ -100,20 +104,23 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           </div>
 
           {/* 모바일 메뉴 버튼 */}
-          <div className="md:hidden relative">
+          <div className={`md:hidden relative ${
+            currentPage === 'home' ? 'mr-8' : 'mr-2'
+          }`}>
             <button
               onClick={toggleMenu}
-              className={`relative z-[100000] p-3 rounded-lg backdrop-blur-sm transition-all duration-300 shadow-lg ${
+              className={`relative z-[1000000] p-3 rounded-lg backdrop-blur-sm transition-all duration-300 shadow-lg ${
                 isScrolled || isDarkMode 
                   ? 'text-gray-900 hover:bg-gray-100 bg-white border border-gray-200' 
-                  : 'text-white bg-gray-900/80 hover:bg-gray-800/80 border border-white/30'
+                  : 'text-white bg-gray-900/90 hover:bg-gray-800/90 border-2 border-white/50'
               }`}
               style={{ 
-                zIndex: 100000,
+                zIndex: 1000000,
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                pointerEvents: 'auto'
               }}
             >
               <div className="w-6 h-6 relative">
@@ -147,18 +154,18 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       {/* 모바일 메뉴 오버레이 */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-[99998] md:hidden"
+          className="fixed inset-0 bg-black/50 z-[999998] md:hidden"
           onClick={closeMenu}
-          style={{ zIndex: 99998 }}
+          style={{ zIndex: 999998 }}
         />
       )}
 
       {/* 모바일 메뉴 */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-white z-[99999] transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-white z-[999999] transform transition-transform duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        style={{ zIndex: 99999 }}
+        style={{ zIndex: 999999 }}
       >
         <div className="pt-20 px-6">
           <div className="space-y-4">

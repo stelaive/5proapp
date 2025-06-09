@@ -1,4 +1,5 @@
 'use client'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navigation from '@/components/Navigation'
@@ -46,6 +47,14 @@ const slideInFromRight = {
 };
 
 export default function Home() {
+  // 메인페이지임을 body에 표시
+  React.useEffect(() => {
+    document.body.classList.add('home');
+    return () => {
+      document.body.classList.remove('home');
+    };
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -73,8 +82,8 @@ export default function Home() {
       <Navigation currentPage="home" />
       
       {/* 히어로 섹션 */}
-      <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden hero-section">
-        <div className="absolute inset-0 z-0">
+      <section className="relative pt-40 pb-20 bg-black text-white overflow-hidden hero-section">
+        <div className="absolute inset-0 z-0" style={{ zIndex: 1 }}>
           <Image
             src="/images/스동8.gif"
             alt="스카이차 작업 현장"
@@ -84,25 +93,25 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30"></div>
         </div>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 pr-6">
           <motion.div 
-            className="max-w-4xl relative z-10"
+            className="max-w-5xl relative z-10"
+            style={{ zIndex: 10 }}
             variants={staggerContainer}
             initial="initial"
             animate="animate"
           >
             <motion.h1 
-              className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white font-jalnan"
+              className="text-4xl md:text-5xl font-bold mb-6 text-white font-jalnan"
+              style={{ lineHeight: '1.8' }}
               variants={heroTextVariants}
               transition={{ duration: 0.8 }}
             >
-              스카이차 쓰고 <span className="text-red-500">5%</span><br />
-              돌려받고,<br />
-              매월 <span className="text-red-500">100만원</span> 행운<br />
-              까지!
+              스카이차 쓰고 <span className="text-red-500">5%</span> 돌려받고,<br />
+              매월 <span className="text-red-500">100만원</span> 행운까지!
             </motion.h1>
             <motion.p 
-              className="text-lg md:text-xl mb-8 text-white"
+              className="text-lg md:text-xl mb-8 text-white leading-relaxed"
               variants={heroTextVariants}
               transition={{ duration: 0.8, delay: 0.2 }}
             >

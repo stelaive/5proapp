@@ -88,6 +88,48 @@ section {
     border: 1px solid transparent;
 }
 
+/* 메인 페이지 네비게이션 강제 표시 */
+nav[style*="position: fixed"] {
+    z-index: 999999 !important;
+    position: fixed !important;
+}
+
+/* 햄버거 메뉴 강제 표시 */
+.md\:hidden button[style*="z-index"] {
+    z-index: 1000000 !important;
+    position: relative !important;
+    pointer-events: auto !important;
+}
+
+/* 메인페이지에서만 모바일 네비게이션 강제 여백 */
+@media (max-width: 768px) {
+    /* 메인페이지 body에 home 클래스가 있을 때만 적용 */
+    body.home nav > div {
+        padding-right: 4rem !important;
+    }
+    
+    body.home .md\:hidden {
+        margin-right: 2rem !important;
+    }
+    
+    /* FloatingDownload 버튼 메인페이지 조건부 여백 */
+    body.home div[class*="mr-20"] {
+        margin-right: 5rem !important;
+        right: 1rem !important;
+    }
+    
+    /* 메인페이지 플로팅 버튼 강제 위치 */
+    body.home div[style*="marginRight"] {
+        margin-right: 5rem !important;
+    }
+    
+    /* 메인페이지 모든 플로팅 버튼 안전장치 */
+    body.home div[class*="z-[50000]"] {
+        margin-right: 5rem !important;
+        right: 1rem !important;
+    }
+}
+
 /* 네비게이션 개선됨 - 컴포넌트에서 직접 처리 */
 
 /* 히어로 섹션 스타일 */
