@@ -102,7 +102,7 @@ export default function Home() {
             animate="animate"
           >
             <motion.h1 
-              className="text-4xl md:text-5xl font-bold mb-6 text-white font-jalnan"
+              className="text-3xl md:text-5xl font-bold mb-6 text-white font-jalnan"
               style={{ lineHeight: '1.8' }}
               variants={heroTextVariants}
               transition={{ duration: 0.8 }}
@@ -111,7 +111,7 @@ export default function Home() {
               매월 <span className="text-red-500">100만원</span> 행운까지!
             </motion.h1>
             <motion.p 
-              className="text-lg md:text-xl mb-8 text-white leading-relaxed"
+              className="text-base md:text-xl mb-8 text-white leading-relaxed"
               variants={heroTextVariants}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
