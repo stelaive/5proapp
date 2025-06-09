@@ -12,30 +12,18 @@ interface NavigationProps {
 export default function Navigation({ currentPage = 'home', isDarkMode = false }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isHidden, setIsHidden] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      const heroHeight = window.innerHeight
-
-      // 히어로 섹션을 지나면 스타일 변경
-      setIsScrolled(currentScrollY > heroHeight - 70)
-
-      // 스크롤 방향에 따른 네비게이션 숨김/표시
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsHidden(true)
-      } else {
-        setIsHidden(false)
-      }
-
-      setLastScrollY(currentScrollY)
+      
+      // 스크롤 시 배경 변경
+      setIsScrolled(currentScrollY > 50)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
+  }, [])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -57,22 +45,25 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     { href: '/support', label: '고객센터', key: 'support' },
   ]
 
-  const menuItems = [
-    { name: '홈', path: '/' },
-    { name: '리워드', path: '/reward' },
-    { name: '백만원이벤트', path: '/million' },
-    { name: '마켓플레이스', path: '/marketplace' },
-    { name: '마케팅', path: '/marketing' },
-    { name: '고객센터', path: '/support' },
-  ];
-
   return (
     <>
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? (isDarkMode ? 'bg-white' : 'nav-scrolled') : ''
-      } ${isHidden ? 'nav-hidden' : ''} ${isDarkMode ? 'bg-white' : ''}`}>
+      <nav 
+        className={`fixed top-0 left-0 right-0 w-full z-[99999] transition-all duration-300 ${
+          isScrolled || isDarkMode
+            ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+            : 'bg-white/10 backdrop-blur-sm'
+        }`}
+        style={{ 
+          zIndex: 99999,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          width: '100%'
+        }}
+      >
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               src="/images/스로고1.png"
               alt="스카이차 로고"
@@ -80,10 +71,14 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
               height={32}
               className="mr-2"
             />
-            <h1 className={`text-xl font-bold ${isDarkMode ? 'text-black' : 'nav-text'}`}>
+            <h1 className={`text-xl font-bold transition-colors duration-300 ${
+              isScrolled || isDarkMode 
+                ? 'text-gray-900' 
+                : 'text-white'
+            }`}>
               5프로돌려드리는스카이차
             </h1>
-          </div>
+          </Link>
           
           {/* 데스크톱 메뉴 */}
           <div className="hidden md:flex space-x-6">
@@ -91,14 +86,12 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
               <Link
                 key={item.key}
                 href={item.href}
-                className={`hover:text-sky-orange-500 transition-colors ${
+                className={`font-medium transition-colors duration-300 hover:text-orange-500 ${
                   currentPage === item.key 
-                    ? 'text-sky-orange-500' 
-                    : isDarkMode 
-                      ? 'text-black' 
-                      : isScrolled 
-                        ? 'text-gray-900' 
-                        : 'text-white'
+                    ? 'text-orange-500' 
+                    : isScrolled || isDarkMode
+                      ? 'text-gray-700' 
+                      : 'text-white'
                 }`}
               >
                 {item.label}
@@ -107,50 +100,83 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           </div>
 
           {/* 모바일 메뉴 버튼 */}
-          <div className="md:hidden">
+          <div className="md:hidden relative">
             <button
-              id="menuBtn"
               onClick={toggleMenu}
-              className={`z-50 relative ${isDarkMode ? 'text-black' : isScrolled ? 'text-gray-900' : 'text-white'}`}
+              className={`relative z-[100000] p-3 rounded-lg backdrop-blur-sm transition-all duration-300 shadow-lg ${
+                isScrolled || isDarkMode 
+                  ? 'text-gray-900 hover:bg-gray-100 bg-white border border-gray-200' 
+                  : 'text-white bg-gray-900/80 hover:bg-gray-800/80 border border-white/30'
+              }`}
+              style={{ 
+                zIndex: 100000,
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2.5"
-                  d="M4 6h16M4 12h16m-16 6h16"
-                />
-              </svg>
+              <div className="w-6 h-6 relative">
+                <span className={`absolute block w-6 h-0.5 transition-all duration-300 ${
+                  isScrolled || isDarkMode 
+                    ? 'bg-gray-900' 
+                    : 'bg-white'
+                } ${
+                  isMenuOpen ? 'rotate-45 top-3' : 'top-1'
+                }`}></span>
+                <span className={`absolute block w-6 h-0.5 transition-all duration-300 top-3 ${
+                  isScrolled || isDarkMode 
+                    ? 'bg-gray-900' 
+                    : 'bg-white'
+                } ${
+                  isMenuOpen ? 'opacity-0' : 'opacity-100'
+                }`}></span>
+                <span className={`absolute block w-6 h-0.5 transition-all duration-300 ${
+                  isScrolled || isDarkMode 
+                    ? 'bg-gray-900' 
+                    : 'bg-white'
+                } ${
+                  isMenuOpen ? '-rotate-45 top-3' : 'top-5'
+                }`}></span>
+              </div>
             </button>
           </div>
         </div>
       </nav>
 
       {/* 모바일 메뉴 오버레이 */}
-      <div
-        className={`mobile-menu-overlay ${isMenuOpen ? 'show' : ''}`}
-        onClick={closeMenu}
-      />
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-[99998] md:hidden"
+          onClick={closeMenu}
+          style={{ zIndex: 99998 }}
+        />
+      )}
 
       {/* 모바일 메뉴 */}
-      <div className={`mobile-menu ${isMenuOpen ? 'show' : ''}`}>
-        <div className="px-4 py-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.key}
-              href={item.href}
-              onClick={closeMenu}
-              className={`block py-3 text-lg hover:text-sky-orange-500 border-b border-gray-100 ${
-                currentPage === item.key 
-                  ? 'text-sky-orange-500' 
-                  : isDarkMode 
-                    ? 'text-black' 
-                    : 'text-gray-800'
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+      <div
+        className={`fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-white z-[99999] transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        style={{ zIndex: 99999 }}
+      >
+        <div className="pt-20 px-6">
+          <div className="space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.key}
+                href={item.href}
+                onClick={closeMenu}
+                className={`block py-3 px-4 text-lg font-medium rounded-lg transition-colors duration-200 ${
+                  currentPage === item.key 
+                    ? 'text-orange-500 bg-orange-50' 
+                    : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 interface FAQItem {
   category: string;
@@ -280,7 +281,7 @@ export default function SupportPage() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 pb-32">
+        <div className="max-w-4xl mx-auto px-4 pb-8">
           {filteredFaqData.map((section, sectionIndex) => (
             <div key={sectionIndex} className="mb-12">
               <div className="space-y-4">
@@ -318,18 +319,20 @@ export default function SupportPage() {
               </div>
             </div>
           ))}
+        </div>
 
-          {/* CTA 버튼 */}
-          <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-blue-500 rounded-lg p-6 text-white text-center">
-                <p className="text-lg mb-2">문제가 아직 해결되지 않거나 궁금한게 있으시면 직통전화로 연락주세요</p>
-                <p className="text-xl font-bold mb-1">5프로돌려드리는스카이차 고객센터</p>
-                <p className="text-2xl font-bold">1877 - 9001</p>
-              </div>
+        {/* CTA 섹션 */}
+        <div className="bg-blue-500 py-12">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="text-white text-center">
+              <p className="text-lg mb-2">문제가 아직 해결되지 않거나 궁금한게 있으시면 직통전화로 연락주세요</p>
+              <p className="text-xl font-bold mb-1">5프로돌려드리는스카이차 고객센터</p>
+              <p className="text-2xl font-bold">1877 - 9001</p>
             </div>
           </div>
         </div>
+
+        <Footer />
       </div>
     </main>
   );
