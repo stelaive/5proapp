@@ -106,7 +106,34 @@ nav[style*="position: fixed"] {
     /* 모든 페이지에서 네비게이션 개선 */
     nav {
         padding-left: 1rem !important;
-        padding-right:    1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* 네비게이션 내부 컨테이너 */
+    nav > div {
+        min-height: 60px !important;
+        align-items: center !important;
+    }
+    
+    /* 로고와 텍스트 컨테이너 */
+    nav a[class*="flex items-center"] {
+        max-width: calc(100vw - 100px) !important;
+        overflow: hidden !important;
+    }
+    
+    /* 네비게이션 타이틀 텍스트 */
+    nav h1 {
+        font-size: 1rem !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    @media (min-width: 640px) {
+        nav h1 {
+            font-size: 1.25rem !important;
+        }
     }
     
     /* 햄버거 메뉴 버튼 개선 */
@@ -114,7 +141,6 @@ nav[style*="position: fixed"] {
         z-index: 1000000 !important;
         position: relative !important;
         pointer-events: auto !important;
-        margin-right: 0.5rem !important;
     }
     
     /* 모바일 사이드바 개선 */

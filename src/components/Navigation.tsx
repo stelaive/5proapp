@@ -171,23 +171,23 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           pointerEvents: 'auto'
         }}
       >
-        <div className={`w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between md:px-4 md:pr-4 ${
-          currentPage === 'home' ? 'pr-16' : 'pr-4'
+        <div className={`w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between ${
+          currentPage === 'home' ? 'pr-16 md:pr-4' : 'pr-4'
         }`}>
-          {/* 모바일에서 오른쪽 여백 확보 */}
-          <Link href="/" className="flex items-center">
+          {/* 로고와 타이틀 */}
+          <Link href="/" className="flex items-center flex-shrink-0">
             <Image
               src="/images/스로고1.png"
               alt="스카이차 로고"
               width={32}
               height={32}
-              className="mr-2"
+              className="mr-2 flex-shrink-0"
             />
-            <h1 className={`text-xl font-bold transition-colors duration-300 ${
+            <h1 className={`font-bold transition-colors duration-300 whitespace-nowrap ${
               isScrolled || isDarkMode 
                 ? 'text-gray-900' 
                 : 'text-white'
-            }`}>
+            } text-lg sm:text-xl`}>
               5프로돌려드리는스카이차
             </h1>
           </Link>
@@ -198,7 +198,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
               <Link
                 key={item.key}
                 href={item.href}
-                className={`font-medium transition-colors duration-300 hover:text-orange-500 ${
+                className={`font-medium transition-colors duration-300 hover:text-orange-500 whitespace-nowrap ${
                   currentPage === item.key 
                     ? 'text-orange-500' 
                     : isScrolled || isDarkMode
@@ -212,23 +212,21 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           </div>
 
           {/* 모바일 메뉴 버튼 */}
-          <div className={`md:hidden relative ${
-            currentPage === 'home' ? 'mr-8' : 'mr-2'
-          }`}>
+          <div className="md:hidden flex-shrink-0">
             <button
               onClick={toggleMenu}
-              className={`relative z-[1000000] p-3 rounded-lg backdrop-blur-sm transition-all duration-300 shadow-lg ${
+              className={`relative z-[1000000] p-2 rounded-lg transition-all duration-300 ${
                 isScrolled || isDarkMode 
-                  ? 'text-gray-900 hover:bg-gray-100 bg-white border border-gray-200' 
-                  : 'text-white bg-gray-900/90 hover:bg-gray-800/90 border-2 border-white/50'
+                  ? 'text-gray-900 hover:bg-gray-100 bg-white/90 backdrop-blur-sm border border-gray-200' 
+                  : 'text-white bg-gray-900/80 hover:bg-gray-800/90 backdrop-blur-sm border border-white/30'
               }`}
               style={{ 
                 zIndex: 1000000,
-                position: 'relative',
+                minWidth: '44px',
+                minHeight: '44px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                pointerEvents: 'auto'
+                justifyContent: 'center'
               }}
             >
               <div className="w-6 h-6 relative">
