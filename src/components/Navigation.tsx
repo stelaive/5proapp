@@ -253,29 +253,37 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
 
       {/* 모바일 메뉴 */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-[999999] md:hidden shadow-2xl transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] md:hidden shadow-2xl ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ 
           zIndex: 999999,
-          maxWidth: 'min(320px, 85vw)',
-          width: '100%',
+          position: 'fixed',
+          top: 0,
+          right: 0,
+          height: '100vh',
+          width: 'min(320px, 85vw)',
+          maxWidth: '85vw',
+          backgroundColor: 'white',
+          // iOS Safari에서 확실한 표시를 위한 스타일
+          transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
+          transition: 'transform 0.3s ease-in-out',
           // iOS Safari 전용 스타일
           WebkitOverflowScrolling: 'touch',
           overflowY: 'auto',
           overflowX: 'hidden',
-          height: isIOS ? '100vh' : '100dvh',
-          paddingTop: 'env(safe-area-inset-top, 0)',
-          paddingBottom: 'env(safe-area-inset-bottom, 0)',
-          paddingRight: 'env(safe-area-inset-right, 0)',
+          paddingTop: isIOS ? 'env(safe-area-inset-top, 0)' : '0',
+          paddingBottom: isIOS ? 'env(safe-area-inset-bottom, 0)' : '0',
+          paddingRight: isIOS ? 'env(safe-area-inset-right, 0)' : '0',
           // 터치 액션 제한
           touchAction: 'pan-y',
           // 화면 축소 방지
           userSelect: 'none',
           WebkitUserSelect: 'none',
           WebkitTouchCallout: 'none',
-          // 가로 스크롤 완전 차단
-          minWidth: 0
+          // 사이드바 확실한 표시
+          boxShadow: '-4px 0 20px rgba(0, 0, 0, 0.1)',
+          border: '1px solid #e5e7eb'
         }}
         onTouchStart={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
