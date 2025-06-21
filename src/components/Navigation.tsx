@@ -27,19 +27,13 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     // 컴포넌트가 마운트되었음을 표시
     setIsMounted(true)
     
-    // iOS Safari에서 초기 상태 강제 설정 - 더 강력하게
+    // 초기 상태 설정
     setIsMenuOpen(false)
-    document.body.style.overflow = ''
-    document.body.style.position = ''
-    document.body.style.width = ''
-    document.body.style.height = ''
     
     // iOS에서 가로스크롤 방지
     if (detectIOS()) {
       document.documentElement.style.overflowX = 'hidden'
       document.body.style.overflowX = 'hidden'
-      document.body.style.width = '100vw'
-      document.body.style.maxWidth = '100vw'
     }
     
     const handleScroll = () => {
@@ -68,13 +62,6 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     window.addEventListener('scroll', handleScroll)
     document.addEventListener('touchstart', preventZoom, { passive: false })
     setViewportMeta()
-    
-    // iOS에서 페이지 로드 후 추가 처리
-    if (detectIOS()) {
-      setTimeout(() => {
-        setIsMenuOpen(false)
-      }, 100)
-    }
     
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -266,17 +253,13 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
 
       {/* 모바일 메뉴 */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-[999999] md:hidden shadow-2xl ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-[999999] md:hidden shadow-2xl transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ 
           zIndex: 999999,
           maxWidth: 'min(320px, 85vw)',
           width: '100%',
-          // iOS Safari에서 강제로 숨김/보임 처리
-          transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
-          visibility: isMenuOpen ? 'visible' : 'hidden',
-          opacity: isMenuOpen ? 1 : 0,
           // iOS Safari 전용 스타일
           WebkitOverflowScrolling: 'touch',
           overflowY: 'auto',
@@ -292,9 +275,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           WebkitUserSelect: 'none',
           WebkitTouchCallout: 'none',
           // 가로 스크롤 완전 차단
-          minWidth: 0,
-          // 전환 효과
-          transition: isIOS ? 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out' : 'transform 0.3s ease-in-out'
+          minWidth: 0
         }}
         onTouchStart={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
