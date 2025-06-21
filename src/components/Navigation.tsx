@@ -163,27 +163,64 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
 
       {/* 모바일 메뉴 */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-white z-[999999] transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-[999999] transform transition-transform duration-300 ease-in-out md:hidden shadow-2xl ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        style={{ zIndex: 999999 }}
+        style={{ 
+          zIndex: 999999,
+          maxWidth: 'min(320px, 85vw)',
+          width: '100%'
+        }}
       >
-        <div className="pt-20 px-6">
-          <div className="space-y-4">
+        {/* 닫기 버튼 추가 */}
+        <div className="absolute top-4 right-4 z-[1000000]">
+          <button
+            onClick={closeMenu}
+            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="pt-16 px-6 h-full overflow-y-auto">
+          <div className="space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
                 onClick={closeMenu}
-                className={`block py-3 px-4 text-lg font-medium rounded-lg transition-colors duration-200 ${
+                className={`block py-4 px-4 text-lg font-medium rounded-lg transition-all duration-200 ${
                   currentPage === item.key 
-                    ? 'text-orange-500 bg-orange-50' 
+                    ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' 
                     : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'
                 }`}
               >
                 {item.label}
               </Link>
             ))}
+          </div>
+          
+          {/* 앱 다운로드 버튼 추가 */}
+          <div className="mt-8 p-4 bg-orange-50 rounded-lg border-2 border-orange-200">
+            <h3 className="text-lg font-bold text-orange-800 mb-2">앱 다운로드</h3>
+            <p className="text-sm text-orange-600 mb-4">모바일 앱으로 더 편리하게 이용하세요</p>
+            <button
+              onClick={() => {
+                closeMenu();
+                // 앱 다운로드 로직
+                const userAgent = navigator.userAgent.toLowerCase();
+                if (userAgent.includes('iphone') || userAgent.includes('ipad')) {
+                  window.open('https://apps.apple.com/app/your-app-id', '_blank');
+                } else {
+                  window.open('https://play.google.com/store/apps/details?id=your.package.name', '_blank');
+                }
+              }}
+              className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-orange-600 transition-colors"
+            >
+              📱 앱 다운로드
+            </button>
           </div>
         </div>
       </div>

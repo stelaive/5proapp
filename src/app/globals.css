@@ -103,6 +103,32 @@ nav[style*="position: fixed"] {
 
 /* 메인페이지에서만 모바일 네비게이션 강제 여백 */
 @media (max-width: 768px) {
+    /* 모든 페이지에서 네비게이션 개선 */
+    nav {
+        padding-left: 1rem !important;
+        padding-right:    1rem !important;
+    }
+    
+    /* 햄버거 메뉴 버튼 개선 */
+    .md\:hidden button[style*="z-index"] {
+        z-index: 1000000 !important;
+        position: relative !important;
+        pointer-events: auto !important;
+        margin-right: 0.5rem !important;
+    }
+    
+    /* 모바일 사이드바 개선 */
+    div[class*="fixed"][class*="right-0"][class*="h-full"] {
+        max-width: min(320px, 85vw) !important;
+        width: 100% !important;
+        box-shadow: -10px 0 25px rgba(0, 0, 0, 0.25) !important;
+    }
+    
+    /* 사이드바 내용 스크롤 개선 */
+    div[class*="pt-16"][class*="px-6"][class*="h-full"] {
+        padding-bottom: 2rem !important;
+    }
+    
     /* 메인페이지 body에 home 클래스가 있을 때만 적용 */
     body.home nav > div {
         padding-right: 4rem !important;
@@ -127,6 +153,18 @@ nav[style*="position: fixed"] {
     body.home div[class*="z-[50000]"] {
         margin-right: 5rem !important;
         right: 1rem !important;
+    }
+    
+    /* 터치 영역 개선 */
+    button, a {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    /* 모바일 텍스트 가독성 개선 */
+    body {
+        -webkit-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
     }
 }
 
