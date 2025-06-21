@@ -251,43 +251,46 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
         />
       )}
 
-      {/* 모바일 메뉴 */}
-      <div
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] md:hidden shadow-2xl ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-        style={{ 
-          zIndex: 999999,
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          height: '100vh',
-          width: 'min(320px, 85vw)',
-          maxWidth: '85vw',
-          backgroundColor: 'white',
-          // iOS Safari에서 확실한 표시를 위한 스타일
-          transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'transform 0.3s ease-in-out',
-          // iOS Safari 전용 스타일
-          WebkitOverflowScrolling: 'touch',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          paddingTop: isIOS ? 'env(safe-area-inset-top, 0)' : '0',
-          paddingBottom: isIOS ? 'env(safe-area-inset-bottom, 0)' : '0',
-          paddingRight: isIOS ? 'env(safe-area-inset-right, 0)' : '0',
-          // 터치 액션 제한
-          touchAction: 'pan-y',
-          // 화면 축소 방지
-          userSelect: 'none',
-          WebkitUserSelect: 'none',
-          WebkitTouchCallout: 'none',
-          // 사이드바 확실한 표시
-          boxShadow: '-4px 0 20px rgba(0, 0, 0, 0.1)',
-          border: '1px solid #e5e7eb'
-        }}
-        onTouchStart={(e) => e.stopPropagation()}
-        onTouchMove={(e) => e.stopPropagation()}
-      >
+      {/* 모바일 메뉴 - iOS Safari 전용 처리 */}
+      {isMenuOpen && (
+        <div
+          className="md:hidden"
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            right: 0,
+            bottom: 0,
+            width: isIOS ? '320px' : 'min(320px, 85vw)',
+            maxWidth: '85vw',
+            height: '100vh',
+            backgroundColor: '#ffffff',
+            zIndex: 999999,
+            display: 'block',
+            visibility: 'visible',
+            opacity: 1,
+            WebkitOverflowScrolling: 'touch',
+            overflowY: 'auto',
+            overflowX: 'hidden',
+            paddingTop: isIOS ? 'max(env(safe-area-inset-top), 20px)' : '20px',
+            paddingBottom: isIOS ? 'max(env(safe-area-inset-bottom), 20px)' : '20px',
+            paddingLeft: '0',
+            paddingRight: isIOS ? 'max(env(safe-area-inset-right), 0px)' : '0',
+            touchAction: 'pan-y',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            WebkitTouchCallout: 'none',
+            boxShadow: '-4px 0 20px rgba(0, 0, 0, 0.15)',
+            borderLeft: '1px solid #e5e7eb',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+            WebkitPerspective: 1000,
+            perspective: 1000,
+            WebkitTransform: 'translateZ(0)',
+            willChange: 'transform'
+          }}
+          onTouchStart={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+        >
         {/* 닫기 버튼 추가 */}
         <div className="absolute top-4 right-4 z-[1000000]">
           <button
@@ -340,6 +343,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           </div>
         </div>
       </div>
+      )}
     </>
   )
 } 
