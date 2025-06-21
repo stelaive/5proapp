@@ -247,15 +247,16 @@ export default function MillionPage() {
           />
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         </div>
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
             <motion.div
               initial="initial"
               animate="animate"
               variants={staggerContainer}
+              className="text-center lg:text-left"
             >
               <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white font-jalnan"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 leading-tight text-white font-jalnan"
                 variants={fadeInUp}
               >
                 1일마다 100만원,<br />
@@ -270,7 +271,7 @@ export default function MillionPage() {
                 </p>
               </motion.div>
               <motion.p 
-                className="text-lg md:text-xl mb-8 text-gray-200"
+                className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 text-gray-200 leading-relaxed"
                 variants={fadeInUp}
               >
                 오더 1건만 넘기면 500명 중 1명 확률 그대로<br />

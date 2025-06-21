@@ -94,10 +94,10 @@ export default function PricingPage() {
                   {pricingData.map((item, index) => (
                     <tr key={index}>
                       <td className="font-bold text-gray-800">{item.equipment}</td>
-                      <td>{formatPrice(item.halfDay)}</td>
-                      <td>{formatPrice(item.fullDay)}</td>
-                      <td>{formatPrice(item.additional)}</td>
-                      <td>{formatPrice(item.monthly)}</td>
+                      <td className="text-gray-800">{formatPrice(item.halfDay)}</td>
+                      <td className="text-gray-800">{formatPrice(item.fullDay)}</td>
+                      <td className="text-gray-800">{formatPrice(item.additional)}</td>
+                      <td className="text-gray-800">{formatPrice(item.monthly)}</td>
                     </tr>
                   ))}
                 </tbody>

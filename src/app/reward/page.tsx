@@ -198,9 +198,9 @@ https://play.google.com/store`
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            {/* 메인 헤드라인 - 크기 축소 */}
+            {/* 메인 헤드라인 - 모바일 최적화 */}
             <motion.h1 
-              className="text-2xl md:text-5xl font-bold mb-8 leading-tight text-white font-jalnan"
+              className="text-xl sm:text-2xl md:text-5xl font-bold mb-6 sm:mb-8 leading-tight text-white font-jalnan px-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -210,13 +210,13 @@ https://play.google.com/store`
             
             {/* 서브카피 1 */}
             <motion.div 
-              className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8 inline-block"
+              className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 inline-block mx-2"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <motion.p 
-                className="text-lg md:text-2xl font-bold text-yellow-200 leading-relaxed"
+                className="text-sm sm:text-lg md:text-2xl font-bold text-yellow-200 leading-relaxed"
                 animate={{ 
                   textShadow: [
                     "0 0 10px rgba(255,255,255,0.5)",

@@ -139,13 +139,13 @@ export default function Marketing() {
             animate="animate"
           >
             <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight text-white"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-jalnan leading-tight text-white drop-shadow-lg"
               variants={heroTextVariants}
               transition={{ duration: 0.8 }}
             >
               일감을 부르는 지도 마케팅,<br />
               <motion.span 
-                className="text-3xl md:text-4xl text-white"
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white drop-shadow-lg"
                 variants={heroTextVariants}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
@@ -153,7 +153,7 @@ export default function Marketing() {
               </motion.span>
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl mb-8 text-white"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white drop-shadow-lg leading-relaxed"
               variants={heroTextVariants}
               transition={{ duration: 0.8, delay: 0.4 }}
             >

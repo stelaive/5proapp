@@ -93,7 +93,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30"></div>
         </div>
-        <div className="container mx-auto px-4 pr-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div 
             className="max-w-5xl relative z-10"
             style={{ zIndex: 10 }}
