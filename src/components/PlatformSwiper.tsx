@@ -1,7 +1,7 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation } from 'swiper/modules'
+import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -23,11 +23,16 @@ export default function PlatformSwiper({ platforms }: PlatformSwiperProps) {
   return (
     <div className="max-w-sm mx-auto">
       <Swiper
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
         pagination={{ clickable: true }}
         navigation
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
         className="platform-swiper"
       >
         {platforms.map((platform, index) => (

@@ -6,6 +6,15 @@ import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 import { motion } from 'framer-motion'
 
+// 스크롤바 숨기기 스타일 추가
+const scrollbarHideStyle = {
+  msOverflowStyle: 'none',
+  scrollbarWidth: 'none',
+  '&::-webkit-scrollbar': {
+    display: 'none'
+  }
+} as React.CSSProperties
+
 // 업종 데이터
 const industries = [
   { name: '에어컨', icon: '❄️', posts: 12345, todayPosts: 56 },
@@ -104,7 +113,7 @@ export default function Marketplace() {
       <Navigation currentPage="marketplace" />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-start">
+      <section className="relative pt-24 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/일거리장터히어로섹션.gif"
@@ -114,34 +123,40 @@ export default function Marketplace() {
             priority
             unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/40"></div>
         </div>
         <motion.div 
-          className="container mx-auto px-4 relative z-10 pt-16"
+          className="container mx-auto px-4 relative z-10"
           initial="initial"
           animate="animate"
           variants={staggerContainer}
         >
-          <div className="max-w-4xl">
+          <div className="max-w-4xl text-left md:text-left">
             <motion.h1 
-              className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight text-white"
+              className="text-6xl md:text-8xl font-extrabold mb-6 font-jalnan leading-tight text-white text-center md:text-left"
               variants={fadeInUp}
             >
-              일거리장터<br />
-              <span className="text-3xl md:text-4xl text-white">18개 업종이 모이는<br />현장형 커뮤니티</span>
+              일은 나누고<br />
+              기술은 더하는
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl mb-8 text-white"
+              className="text-lg md:text-2xl mb-8 font-medium leading-relaxed text-center md:text-left"
+              style={{ color: '#E0E0E0' }}
               variants={fadeInUp}
             >
-              정보·기술·일거리, 필요한 건 여기서 해결!
+              <span className="block md:hidden">
+                No.1 현장 전문가 커뮤니티,<br />일거리장터
+              </span>
+              <span className="hidden md:block">
+                대한민국 현장 전문가들의 필수 커뮤니티,<br />일거리장터
+              </span>
             </motion.p>
           </div>
         </motion.div>
       </section>
 
-      {/* 업종별 커뮤니티 섹션 */}
-      <section className="py-20 bg-gray-50">
+      {/* 메인 섹션 1: 핵심 기능 허브 */}
+      <section className="py-20" style={{ backgroundColor: '#F7F7F7' }}>
         <div className="container mx-auto px-4">
           <motion.h2 
             className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
@@ -149,10 +164,237 @@ export default function Marketplace() {
             whileInView={fadeInUp.animate}
             viewport={{ once: true }}
           >
-            업종별 전문가를 만나보세요!
+            사장님의 일감은 늘고, 고민은 줄어드는 공간
           </motion.h2>
+          {/* 데스크톱: 2열 그리드 */}
           <motion.div 
-            className="grid grid-cols-3 gap-2 max-w-3xl mx-auto"
+            className="hidden md:grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {/* 일거리 나누기 카드 */}
+            <motion.div
+              className="bg-white rounded-xl p-8 text-center cursor-pointer group"
+              style={{ boxShadow: '0 6px 20px rgba(0,0,0,0.08)' }}
+              variants={scaleIn}
+              whileHover={{ 
+                y: -5, 
+                boxShadow: '0 12px 35px rgba(0,0,0,0.15)',
+                transition: { duration: 0.3 }
+              }}
+            >
+              <div className="text-6xl mb-6 text-orange-500 transform group-hover:scale-110 transition-transform duration-300">🤝</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-orange-500 transition-colors">
+                일거리 나누기 (품앗이)
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                갑자기 못 가게 된 현장, 믿을 수 있는 동료에게 맡기세요. 내가 하기 힘든 일도 전문가 동료와 함께 해결해보세요.
+              </p>
+            </motion.div>
+
+            {/* 기술/정보 공유 카드 */}
+            <motion.div
+              className="bg-white rounded-xl p-8 text-center cursor-pointer group"
+              style={{ boxShadow: '0 6px 20px rgba(0,0,0,0.08)' }}
+              variants={scaleIn}
+              whileHover={{ 
+                y: -5, 
+                boxShadow: '0 12px 35px rgba(0,0,0,0.15)',
+                transition: { duration: 0.3 }
+              }}
+            >
+              <div className="text-6xl mb-6 text-orange-500 transform group-hover:scale-110 transition-transform duration-300">💡</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-orange-500 transition-colors">
+                기술/정보 공유
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                현장에서 막혔던 기술 문제, 궁금했던 정보들을 각 분야 전문가 동료들에게 바로 물어보고 명쾌한 답을 얻으세요.
+              </p>
+            </motion.div>
+          </motion.div>
+
+          {/* 모바일: 가로 스와이프 */}
+          <div className="md:hidden max-w-sm mx-auto">
+            <motion.div
+              className="flex overflow-x-auto space-x-4 pb-4 px-4"
+              style={{ 
+                scrollSnapType: 'x mandatory',
+                ...scrollbarHideStyle
+              }}
+              initial={fadeInUp.initial}
+              whileInView={fadeInUp.animate}
+              viewport={{ once: true }}
+            >
+              {/* 일거리 나누기 카드 */}
+              <motion.div
+                className="bg-white rounded-xl p-6 text-center flex-shrink-0 w-80"
+                style={{ 
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.08)',
+                  scrollSnapAlign: 'start'
+                }}
+                variants={scaleIn}
+              >
+                <div className="text-5xl mb-4 text-orange-500">🤝</div>
+                <h3 className="text-xl font-bold mb-3 text-gray-800">
+                  일거리 나누기 (품앗이)
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  갑자기 못 가게 된 현장, 믿을 수 있는 동료에게 맡기세요. 내가 하기 힘든 일도 전문가 동료와 함께 해결해보세요.
+                </p>
+              </motion.div>
+
+              {/* 기술/정보 공유 카드 */}
+              <motion.div
+                className="bg-white rounded-xl p-6 text-center flex-shrink-0 w-80"
+                style={{ 
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.08)',
+                  scrollSnapAlign: 'start'
+                }}
+                variants={scaleIn}
+              >
+                <div className="text-5xl mb-4 text-orange-500">💡</div>
+                <h3 className="text-xl font-bold mb-3 text-gray-800">
+                  기술/정보 공유
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  현장에서 막혔던 기술 문제, 궁금했던 정보들을 각 분야 전문가 동료들에게 바로 물어보고 명쾌한 답을 얻으세요.
+                </p>
+              </motion.div>
+            </motion.div>
+            
+            {/* 스와이프 힌트 */}
+            <div className="text-center mt-4">
+              <p className="text-gray-400 text-sm">← 옆으로 넘겨보세요 →</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 메인 섹션 2: 실시간 커뮤니티 피드 */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10">
+          <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
+            오늘, 현장 동료들은 이런 이야기를 나눕니다
+          </motion.h2>
+          
+          {/* 뉴스 티커 스타일 게시글 피드 */}
+          <motion.div 
+            className="bg-gray-50 rounded-xl p-6 max-w-4xl mx-auto overflow-hidden"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
+            {/* 자동 스크롤 애니메이션 컨테이너 */}
+            <div className="h-80 overflow-hidden relative">
+              <motion.div
+                className="space-y-3"
+                animate={{ y: [0, -400] }}
+                transition={{
+                  duration: 15,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "linear"
+                }}
+              >
+                {/* 첫 번째 세트 */}
+                {[
+                  { tag: '스카이 후기', color: 'bg-green-500', text: '군포시 OOO스카이 기사님, 시간 약속 칼이시네요!', time: '방금 전' },
+                  { tag: '긴급 품앗이', color: 'bg-orange-500', text: '내일 오전 안양에서 1톤 스카이 필요하신 분! (마감 임박)', time: '2분 전' },
+                  { tag: '질문답변', color: 'bg-blue-500', text: '이 모델 CCTV 부품 어디서 구하죠? (답변 3개)', time: '5분 전' },
+                  { tag: '정보공유', color: 'bg-purple-500', text: '욕실 리모델링 신소재 정보 공유드려요', time: '8분 전' },
+                  { tag: '기술문의', color: 'bg-red-500', text: '전기 배선 이상 증상, 어떻게 해결하셨나요?', time: '12분 전' },
+                  { tag: '현장후기', color: 'bg-teal-500', text: '성남 아파트 외벽청소 완료! 깨끗하게 잘 됐네요', time: '15분 전' },
+                  { tag: '품앗이', color: 'bg-orange-500', text: '수원 지역 철거 작업 도움 필요합니다', time: '18분 전' },
+                  { tag: '기술공유', color: 'bg-indigo-500', text: '방수공사 신기법 영상 공유합니다', time: '22분 전' }
+                ].map((post, index) => (
+                  <motion.div
+                    key={`first-${index}`}
+                    className="flex items-center space-x-3 p-3 hover:bg-white rounded-lg transition-all cursor-pointer group"
+                    whileHover={{ scale: 1.02 }}
+                    onClick={() => alert('로그인 후 확인하실 수 있습니다')}
+                  >
+                    <span className={`${post.color} text-white px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap`}>
+                      {post.tag}
+                    </span>
+                    <span className="text-gray-700 group-hover:text-orange-500 transition-colors flex-1 truncate">
+                      {post.text}
+                    </span>
+                    <span className="text-gray-400 text-sm whitespace-nowrap">{post.time}</span>
+                  </motion.div>
+                ))}
+                
+                {/* 두 번째 세트 (무한 루프를 위한 복사본) */}
+                {[
+                  { tag: '스카이 후기', color: 'bg-green-500', text: '군포시 OOO스카이 기사님, 시간 약속 칼이시네요!', time: '방금 전' },
+                  { tag: '긴급 품앗이', color: 'bg-orange-500', text: '내일 오전 안양에서 1톤 스카이 필요하신 분! (마감 임박)', time: '2분 전' },
+                  { tag: '질문답변', color: 'bg-blue-500', text: '이 모델 CCTV 부품 어디서 구하죠? (답변 3개)', time: '5분 전' },
+                  { tag: '정보공유', color: 'bg-purple-500', text: '욕실 리모델링 신소재 정보 공유드려요', time: '8분 전' },
+                  { tag: '기술문의', color: 'bg-red-500', text: '전기 배선 이상 증상, 어떻게 해결하셨나요?', time: '12분 전' },
+                  { tag: '현장후기', color: 'bg-teal-500', text: '성남 아파트 외벽청소 완료! 깨끗하게 잘 됐네요', time: '15분 전' },
+                  { tag: '품앗이', color: 'bg-orange-500', text: '수원 지역 철거 작업 도움 필요합니다', time: '18분 전' },
+                  { tag: '기술공유', color: 'bg-indigo-500', text: '방수공사 신기법 영상 공유합니다', time: '22분 전' }
+                ].map((post, index) => (
+                  <motion.div
+                    key={`second-${index}`}
+                    className="flex items-center space-x-3 p-3 hover:bg-white rounded-lg transition-all cursor-pointer group"
+                    whileHover={{ scale: 1.02 }}
+                    onClick={() => alert('로그인 후 확인하실 수 있습니다')}
+                  >
+                    <span className={`${post.color} text-white px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap`}>
+                      {post.tag}
+                    </span>
+                    <span className="text-gray-700 group-hover:text-orange-500 transition-colors flex-1 truncate">
+                      {post.text}
+                    </span>
+                    <span className="text-gray-400 text-sm whitespace-nowrap">{post.time}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+              
+              {/* 그라데이션 페이드 효과 */}
+              <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-gray-50 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none"></div>
+            </div>
+            
+            <div className="text-center mt-6 text-gray-500 text-sm">
+              ※ 위 게시글은 예시입니다. 실제 커뮤니티는 앱 출시 후 이용 가능합니다.
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 메인 섹션 3: 업종별 동료 찾기 */}
+      <section className="py-20" style={{ backgroundColor: '#F7F7F7' }}>
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            className="text-4xl font-bold text-center mb-6 font-jalnan text-gray-800"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
+            물론, 사장님의 업종 동료도 여기에!
+          </motion.h2>
+          <motion.p 
+            className="text-center text-gray-600 mb-12 text-lg"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
+            사장님의 업종을 선택하고 진짜 동료들의 이야기를 들어보세요.
+          </motion.p>
+          
+          <motion.div 
+            className="grid grid-cols-3 md:grid-cols-6 gap-4 max-w-4xl mx-auto"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -161,196 +403,74 @@ export default function Marketplace() {
             {industries.map((industry, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-lg p-2 shadow hover:shadow-md transition-all cursor-pointer group text-center"
+                className="bg-white rounded-lg p-4 text-center cursor-pointer group"
+                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
                 variants={scaleIn}
-                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                whileHover={{ 
+                  y: -2, 
+                  scale: 1.05,
+                  transition: { duration: 0.2 }
+                }}
+                onClick={() => alert(`현재 ${industry.name} 전문가 ${Math.floor(Math.random() * 200 + 50)}명이 활동 중입니다`)}
               >
-                <div className="text-2xl mb-1">{industry.icon}</div>
-                <h3 className="text-sm font-medium truncate text-gray-800">{industry.name}</h3>
-                <div className="text-xs text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {industry.posts.toLocaleString()}개
+                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">
+                  {industry.icon}
                 </div>
+                <h3 className="text-sm font-medium text-gray-800 group-hover:text-orange-500 transition-colors">
+                  {industry.name}
+                </h3>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* 정보/기술/후기 허브 섹션 */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
-            initial={fadeInUp.initial}
-            whileInView={fadeInUp.animate}
-            viewport={{ once: true }}
-          >
-            지식은 나눌수록 커집니다
-          </motion.h2>
-          <motion.div
-            className="text-center mb-8 text-gray-500"
-            initial={fadeInUp.initial}
-            whileInView={fadeInUp.animate}
-            viewport={{ once: true }}
-          >
-            ※ 아래는 예시 게시글입니다. 실제 커뮤니티는 앱 출시 후 이용 가능합니다.
-          </motion.div>
-          <motion.div 
-            className="max-w-4xl mx-auto"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <div className="flex mb-8 border-b">
-              {boardTabs.map((tab, index) => (
-                <motion.button
-                  key={index}
-                  className="px-6 py-3 font-bold text-lg text-gray-700 hover:text-orange-500 transition-colors"
-                  variants={slideIn}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {tab.name}
-                </motion.button>
-              ))}
-            </div>
-            <div className="space-y-4">
-              {boardTabs[0].posts.map((post, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors"
-                  variants={fadeInUp}
-                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-                >
-                  <h3 className="font-bold mb-2 text-gray-800">{post.title}</h3>
-                  <div className="text-sm text-gray-600">
-                    댓글 {post.comments} · 추천 {post.likes}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+      {/* 푸터 영역 및 최종 CTA */}
+      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#1C2A39' }}>
+        {/* 파티클 효과를 위한 배경 */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white opacity-30 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white opacity-20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-white opacity-25 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-1/3 right-1/4 w-1 h-1 bg-white opacity-30 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
         </div>
-      </section>
-
-      {/* 일거리 매칭 섹션 */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h2 
-            className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
+            className="text-4xl md:text-5xl font-bold mb-6 font-jalnan text-white"
             initial={fadeInUp.initial}
             whileInView={fadeInUp.animate}
             viewport={{ once: true }}
           >
-            못 가는 현장, 동료에게 넘기세요
+            든든한 동료 한 명이,<br />열 개의 장비보다 낫습니다.
           </motion.h2>
-          <motion.div
-            className="text-center mb-8 text-gray-500"
+          <motion.p 
+            className="text-lg md:text-xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed"
             initial={fadeInUp.initial}
             whileInView={fadeInUp.animate}
             viewport={{ once: true }}
           >
-            ※ 아래는 예시 데이터입니다. 실제 일거리는 앱 출시 후 이용 가능합니다.
-          </motion.div>
-          <motion.div 
-            className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {urgentJobs.map((job, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-lg relative"
-                variants={scaleIn}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              >
-                <div className="absolute top-0 right-0 bg-gray-200 text-gray-600 px-3 py-1 rounded-bl-lg rounded-tr-xl text-sm">
-                  예시
-                </div>
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <motion.span 
-                      className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      급구
-                    </motion.span>
-                    <h3 className="text-xl font-bold mt-2 text-gray-800">{job.type}</h3>
-                  </div>
-                  <div className="text-orange-500 font-bold">
-                    마감 D-{job.deadline}
-                  </div>
-                </div>
-                <div className="space-y-2 text-gray-600">
-                  <p>📍 {job.location}</p>
-                  <p>📅 {job.date}</p>
-                  <p>💰 {job.pay}</p>
-                </div>
-                <motion.button 
-                  className="w-full mt-4 bg-gray-500 text-white py-3 rounded-lg font-bold hover:bg-gray-600 transition-colors cursor-not-allowed"
-                  whileHover={{ scale: 1 }}
-                  whileTap={{ scale: 1 }}
-                >
-                  앱 출시 후 이용 가능
-                </motion.button>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* FAQ 섹션 */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.h2 
-            className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800"
+            지금 바로 '일거리장터'에 가입하고, 필요할 때 일을 맡아줄 동료, 막혔을 때 답을 줄 동료를 만나보세요.<br />
+            혼자 모든 것을 해결해야 했던 현장은 이제 끝입니다.
+          </motion.p>
+          
+          <motion.button 
+            className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-orange-600 transition-all inline-flex items-center gap-3"
+            whileHover={{ 
+              scale: 1.05,
+              transition: { duration: 0.2 }
+            }}
+            whileTap={{ scale: 0.95 }}
             initial={fadeInUp.initial}
             whileInView={fadeInUp.animate}
             viewport={{ once: true }}
           >
-            가입·글쓰기 3분이면 끝!
-          </motion.h2>
-          <motion.div 
-            className="max-w-2xl mx-auto space-y-4"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {[
-              { q: '가입은 어떻게 하나요?', a: '앱 설치 후 휴대폰 번호로 간단히 가입할 수 있습니다.' },
-              { q: '글은 누구나 쓸 수 있나요?', a: '네, 가입만 하시면 바로 글을 쓰실 수 있습니다.' },
-              { q: '반장/팀장은 어떻게 되나요?', a: '활동 점수와 평판에 따라 자동으로 선정됩니다.' }
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                className="bg-gray-50 rounded-lg p-4"
-                variants={fadeInUp}
-                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-              >
-                <h3 className="font-bold mb-2 text-gray-800">Q. {faq.q}</h3>
-                <p className="text-gray-600">A. {faq.a}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8 font-jalnan text-white">
-            현장의 모든 이야기,<br />일거리장터에서!
-          </h2>
-          <div className="flex justify-center gap-4">
-            <button className="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-all">
-              앱 설치하기
-            </button>
-            <button className="bg-transparent text-white px-6 py-3 rounded-full font-bold border-2 border-white hover:bg-white hover:text-black transition-all">
-              문의하기
-            </button>
+            <span>내 현장 동료 만나러 가입하기</span>
+            <span className="text-2xl">→</span>
+          </motion.button>
+          
+          <div className="mt-16 pt-8 border-t border-gray-700 text-gray-500 text-sm">
+            <p>© 2024 일거리장터. All rights reserved.</p>
           </div>
         </div>
       </section>
