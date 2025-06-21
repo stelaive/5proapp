@@ -157,7 +157,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     <>
       <nav 
         className={`fixed top-0 left-0 right-0 w-full z-[999999] transition-all duration-300 ${
-          isScrolled || isDarkMode || currentPage !== 'home'
+          isScrolled || isDarkMode
             ? 'bg-white/95 backdrop-blur-md shadow-lg' 
             : 'bg-white/10 backdrop-blur-sm'
         }`}
@@ -171,7 +171,9 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           pointerEvents: 'auto'
         }}
       >
-        <div className="w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className={`w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between ${
+          currentPage === 'home' ? 'pr-16 md:pr-4' : 'pr-4'
+        }`}>
           {/* 로고와 타이틀 */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image

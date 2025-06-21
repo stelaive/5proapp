@@ -155,6 +155,32 @@ nav[style*="position: fixed"] {
         padding-bottom: 2rem !important;
     }
     
+    /* 메인페이지 body에 home 클래스가 있을 때만 적용 */
+    body.home nav > div {
+        padding-right: 4rem !important;
+    }
+    
+    body.home .md\:hidden {
+        margin-right: 2rem !important;
+    }
+    
+    /* FloatingDownload 버튼 메인페이지 조건부 여백 */
+    body.home div[class*="mr-20"] {
+        margin-right: 5rem !important;
+        right: 1rem !important;
+    }
+    
+    /* 메인페이지 플로팅 버튼 강제 위치 */
+    body.home div[style*="marginRight"] {
+        margin-right: 5rem !important;
+    }
+    
+    /* 메인페이지 모든 플로팅 버튼 안전장치 */
+    body.home div[class*="z-[50000]"] {
+        margin-right: 5rem !important;
+        right: 1rem !important;
+    }
+    
     /* 터치 영역 개선 */
     button, a {
         min-height: 44px !important;

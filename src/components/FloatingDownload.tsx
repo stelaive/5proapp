@@ -34,12 +34,15 @@ export default function FloatingDownload() {
 
   return (
     <div 
-      className="fixed bottom-4 right-4 z-[50000] transition-all duration-300"
+      className={`fixed bottom-4 z-[50000] transition-all duration-300 ${
+        isHomePage ? 'right-4' : 'right-4'
+      }`}
       style={{ 
         zIndex: 50000,
         position: 'fixed',
         bottom: '1rem',
         right: '1rem',
+        marginRight: isHomePage ? 'clamp(1rem, 5vw, 5rem)' : '0',
         // 모바일에서 안전한 영역 확보
         paddingBottom: 'env(safe-area-inset-bottom, 0)',
         paddingRight: 'env(safe-area-inset-right, 0)'
@@ -47,17 +50,19 @@ export default function FloatingDownload() {
     >
       <button
         onClick={handleAppDownload}
-        className="flex items-center space-x-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 px-4 py-3 text-sm"
+        className={`flex items-center space-x-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 ${
+          isHomePage ? 'px-3 py-2 text-xs sm:px-4 sm:py-3 sm:text-sm' : 'px-4 py-3 text-sm'
+        }`}
         style={{
           // 터치 영역 최소 크기 보장
           minHeight: '44px',
           minWidth: '44px'
         }}
       >
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
+        <svg className={isHomePage ? "w-4 h-4 sm:w-5 sm:h-5" : "w-5 h-5 sm:w-6 sm:h-6"} fill="currentColor" viewBox="0 0 24 24">
           <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
         </svg>
-        <span className="font-bold">
+        <span className={`font-bold ${isHomePage ? 'hidden xs:inline sm:inline' : ''}`}>
           앱 다운로드
         </span>
       </button>
