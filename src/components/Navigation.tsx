@@ -171,9 +171,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           pointerEvents: 'auto'
         }}
       >
-        <div className={`w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between ${
-          currentPage === 'home' ? 'pr-16 md:pr-4' : 'pr-4'
-        }`}>
+        <div className="w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           {/* 로고와 타이틀 */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image

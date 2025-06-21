@@ -47,14 +47,6 @@ const slideInFromRight = {
 };
 
 export default function Home() {
-  // 메인페이지임을 body에 표시
-  React.useEffect(() => {
-    document.body.classList.add('home');
-    return () => {
-      document.body.classList.remove('home');
-    };
-  }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
