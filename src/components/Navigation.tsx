@@ -13,19 +13,37 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
+  const [isIOS, setIsIOS] = useState(false)
 
   useEffect(() => {
+    // iOS 감지
+    const detectIOS = () => {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+    }
+    
+    setIsIOS(detectIOS())
+    
     // 컴포넌트가 마운트되었음을 표시
     setIsMounted(true)
     
-    // iOS Safari에서 초기 상태 강제 설정
+    // iOS Safari에서 초기 상태 강제 설정 - 더 강력하게
     setIsMenuOpen(false)
     document.body.style.overflow = ''
+    document.body.style.position = ''
+    document.body.style.width = ''
+    document.body.style.height = ''
+    
+    // iOS에서 가로스크롤 방지
+    if (detectIOS()) {
+      document.documentElement.style.overflowX = 'hidden'
+      document.body.style.overflowX = 'hidden'
+      document.body.style.width = '100vw'
+      document.body.style.maxWidth = '100vw'
+    }
     
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      
-      // 스크롤 시 배경 변경
       setIsScrolled(currentScrollY > 50)
     }
 
@@ -36,17 +54,27 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       }
     }
 
-    // iOS Safari용 뷰포트 고정
+    // iOS Safari용 뷰포트 고정 - 더 강력하게
     const setViewportMeta = () => {
-      const viewport = document.querySelector('meta[name=viewport]')
-      if (viewport) {
-        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover')
+      let viewport = document.querySelector('meta[name=viewport]')
+      if (!viewport) {
+        viewport = document.createElement('meta')
+        viewport.setAttribute('name', 'viewport')
+        document.head.appendChild(viewport)
       }
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no')
     }
 
     window.addEventListener('scroll', handleScroll)
     document.addEventListener('touchstart', preventZoom, { passive: false })
     setViewportMeta()
+    
+    // iOS에서 페이지 로드 후 추가 처리
+    if (detectIOS()) {
+      setTimeout(() => {
+        setIsMenuOpen(false)
+      }, 100)
+    }
     
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -58,33 +86,60 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     const newState = !isMenuOpen
     setIsMenuOpen(newState)
     
-    // iOS Safari용 바디 스크롤 처리
+    // iOS Safari용 바디 스크롤 처리 - 더 강력하게
     if (newState) {
+      const scrollY = window.scrollY
       document.body.style.overflow = 'hidden'
       document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
       document.body.style.width = '100%'
       document.body.style.height = '100%'
+      document.body.setAttribute('data-scroll-y', scrollY.toString())
     } else {
+      const scrollY = document.body.getAttribute('data-scroll-y')
       document.body.style.overflow = ''
       document.body.style.position = ''
+      document.body.style.top = ''
       document.body.style.width = ''
       document.body.style.height = ''
+      document.body.removeAttribute('data-scroll-y')
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY))
+      }
     }
   }
 
   const closeMenu = () => {
     setIsMenuOpen(false)
     
-    // iOS Safari용 바디 스크롤 복원
+    // iOS Safari용 바디 스크롤 복원 - 더 강력하게
+    const scrollY = document.body.getAttribute('data-scroll-y')
     document.body.style.overflow = ''
     document.body.style.position = ''
+    document.body.style.top = ''
     document.body.style.width = ''
     document.body.style.height = ''
+    document.body.removeAttribute('data-scroll-y')
+    if (scrollY) {
+      window.scrollTo(0, parseInt(scrollY))
+    }
   }
 
-  // 마운트되지 않았으면 사이드바 숨김
+  // 마운트되지 않았으면 아무것도 렌더링하지 않음
   if (!isMounted) {
-    return null
+    return (
+      <nav className="fixed top-0 left-0 right-0 w-full z-[999999] bg-white/95 backdrop-blur-md shadow-lg">
+        <div className="w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center">
+            <div className="w-8 h-8 bg-gray-200 rounded mr-2"></div>
+            <div className="h-6 bg-gray-200 rounded w-48"></div>
+          </div>
+          <div className="md:hidden">
+            <div className="w-10 h-10 bg-gray-200 rounded"></div>
+          </div>
+        </div>
+      </nav>
+    )
   }
 
   const navItems = [
@@ -215,17 +270,22 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
 
       {/* 모바일 메뉴 */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-[999999] transform transition-transform duration-300 ease-in-out md:hidden shadow-2xl ${
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-[999999] md:hidden shadow-2xl ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ 
           zIndex: 999999,
           maxWidth: 'min(320px, 85vw)',
           width: '100%',
+          // iOS Safari에서 강제로 숨김/보임 처리
+          transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)',
+          visibility: isMenuOpen ? 'visible' : 'hidden',
+          opacity: isMenuOpen ? 1 : 0,
           // iOS Safari 전용 스타일
           WebkitOverflowScrolling: 'touch',
           overflowY: 'auto',
-          height: '100dvh', // 동적 뷰포트 높이 (iOS Safari 호환)
+          overflowX: 'hidden',
+          height: isIOS ? '100vh' : '100dvh',
           paddingTop: 'env(safe-area-inset-top, 0)',
           paddingBottom: 'env(safe-area-inset-bottom, 0)',
           paddingRight: 'env(safe-area-inset-right, 0)',
@@ -234,7 +294,11 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           // 화면 축소 방지
           userSelect: 'none',
           WebkitUserSelect: 'none',
-          WebkitTouchCallout: 'none'
+          WebkitTouchCallout: 'none',
+          // 가로 스크롤 완전 차단
+          minWidth: 0,
+          // 전환 효과
+          transition: isIOS ? 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out' : 'transform 0.3s ease-in-out'
         }}
         onTouchStart={(e) => e.stopPropagation()}
         onTouchMove={(e) => e.stopPropagation()}
