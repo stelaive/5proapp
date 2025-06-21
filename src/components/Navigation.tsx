@@ -12,8 +12,16 @@ interface NavigationProps {
 export default function Navigation({ currentPage = 'home', isDarkMode = false }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    // 컴포넌트가 마운트되었음을 표시
+    setIsMounted(true)
+    
+    // iOS Safari에서 초기 상태 강제 설정
+    setIsMenuOpen(false)
+    document.body.style.overflow = ''
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       
@@ -21,18 +29,62 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       setIsScrolled(currentScrollY > 50)
     }
 
+    // iOS Safari용 터치 이벤트 방지
+    const preventZoom = (e: TouchEvent) => {
+      if (e.touches.length > 1) {
+        e.preventDefault()
+      }
+    }
+
+    // iOS Safari용 뷰포트 고정
+    const setViewportMeta = () => {
+      const viewport = document.querySelector('meta[name=viewport]')
+      if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover')
+      }
+    }
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    document.addEventListener('touchstart', preventZoom, { passive: false })
+    setViewportMeta()
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('touchstart', preventZoom)
+    }
   }, [])
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-    document.body.style.overflow = !isMenuOpen ? 'hidden' : ''
+    const newState = !isMenuOpen
+    setIsMenuOpen(newState)
+    
+    // iOS Safari용 바디 스크롤 처리
+    if (newState) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
+      document.body.style.height = '100%'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
+      document.body.style.height = ''
+    }
   }
 
   const closeMenu = () => {
     setIsMenuOpen(false)
+    
+    // iOS Safari용 바디 스크롤 복원
     document.body.style.overflow = ''
+    document.body.style.position = ''
+    document.body.style.width = ''
+    document.body.style.height = ''
+  }
+
+  // 마운트되지 않았으면 사이드바 숨김
+  if (!isMounted) {
+    return null
   }
 
   const navItems = [
@@ -169,8 +221,23 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
         style={{ 
           zIndex: 999999,
           maxWidth: 'min(320px, 85vw)',
-          width: '100%'
+          width: '100%',
+          // iOS Safari 전용 스타일
+          WebkitOverflowScrolling: 'touch',
+          overflowY: 'auto',
+          height: '100dvh', // 동적 뷰포트 높이 (iOS Safari 호환)
+          paddingTop: 'env(safe-area-inset-top, 0)',
+          paddingBottom: 'env(safe-area-inset-bottom, 0)',
+          paddingRight: 'env(safe-area-inset-right, 0)',
+          // 터치 액션 제한
+          touchAction: 'pan-y',
+          // 화면 축소 방지
+          userSelect: 'none',
+          WebkitUserSelect: 'none',
+          WebkitTouchCallout: 'none'
         }}
+        onTouchStart={(e) => e.stopPropagation()}
+        onTouchMove={(e) => e.stopPropagation()}
       >
         {/* 닫기 버튼 추가 */}
         <div className="absolute top-4 right-4 z-[1000000]">

@@ -421,4 +421,88 @@ nav.nav-scrolled #menuBtn {
 .platform-swiper .swiper-button-next:after,
 .platform-swiper .swiper-button-prev:after {
   font-size: 24px;
+}
+
+/* iOS Safari 전용 스타일 */
+@supports (-webkit-touch-callout: none) {
+    /* iOS Safari에서만 적용되는 스타일 */
+    
+    /* 사이드바 초기 상태 강제 설정 */
+    div[class*="translate-x-full"] {
+        transform: translateX(100%) !important;
+        visibility: hidden !important;
+    }
+    
+    div[class*="translate-x-0"]:not([class*="translate-x-full"]) {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+    }
+    
+    /* 터치 스크롤 개선 */
+    * {
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* 줌 방지 및 터치 액션 제한 */
+    html {
+        -webkit-text-size-adjust: 100% !important;
+        -ms-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
+        touch-action: manipulation !important;
+    }
+    
+    /* 사이드바 터치 영역 제한 */
+    div[class*="fixed"][class*="right-0"][class*="h-full"] {
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        touch-action: pan-y !important;
+    }
+    
+    /* 메뉴 오버레이 터치 처리 */
+    div[class*="fixed"][class*="inset-0"][class*="bg-black"] {
+        touch-action: none !important;
+        -webkit-touch-callout: none !important;
+    }
+    
+    /* 햄버거 메뉴 버튼 터치 영역 */
+    button[class*="z-[1000000]"] {
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+}
+
+/* 메인페이지에서만 모바일 네비게이션 강제 여백 */
+@media (max-width: 768px) {
+    body.home nav > div {
+        padding-right: 4rem !important;
+    }
+    
+    body.home .md\:hidden {
+        margin-right: 2rem !important;
+    }
+    
+    body.home div[class*="mr-20"] {
+        margin-right: 5rem !important;
+        right: 1rem !important;
+    }
+    
+    body.home div[style*="marginRight"] {
+        margin-right: 5rem !important;
+    }
+    
+    body.home div[class*="z-[50000]"] {
+        margin-right: 5rem !important;
+        right: 1rem !important;
+    }
+    
+    button, a {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    body {
+        -webkit-text-size-adjust: 100% !important;
+        text-size-adjust: 100% !important;
+    }
 } 
