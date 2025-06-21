@@ -1,22 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 export default function FloatingDownload() {
-  const [isHomePage, setIsHomePage] = useState(false)
-
-  useEffect(() => {
-    // 현재 페이지가 홈페이지인지 확인
-    const checkHomePage = () => {
-      setIsHomePage(window.location.pathname === '/')
-    }
-    
-    checkHomePage()
-    
-    // 페이지 변경 감지
-    window.addEventListener('popstate', checkHomePage)
-    return () => window.removeEventListener('popstate', checkHomePage)
-  }, [])
   const handleAppDownload = () => {
     const userAgent = navigator.userAgent.toLowerCase();
     
@@ -34,24 +18,19 @@ export default function FloatingDownload() {
 
   return (
     <div 
-      className={`fixed bottom-4 z-[50000] ${
-        isHomePage ? 'mr-20 right-4' : 'right-4'
-      }`}
+      className="fixed bottom-4 right-4 z-[50000]"
       style={{ 
         zIndex: 50000,
         position: 'fixed',
         bottom: '1rem',
-        right: '1rem',
-        marginRight: isHomePage ? '5rem' : '0'
+        right: '1rem'
       }}
     >
       <button
         onClick={handleAppDownload}
-        className={`flex items-center space-x-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 ${
-          isHomePage ? 'px-3 py-2 text-xs' : 'px-4 py-3 text-sm'
-        }`}
+        className="flex items-center space-x-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 px-4 py-3 text-sm"
       >
-        <svg className={isHomePage ? "w-5 h-5" : "w-6 h-6"} fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
           <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
         </svg>
         <span className="font-bold">앱 다운로드</span>

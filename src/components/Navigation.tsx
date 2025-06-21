@@ -64,9 +64,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           pointerEvents: 'auto'
         }}
       >
-        <div className={`w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between md:px-4 md:pr-4 ${
-          currentPage === 'home' ? 'pr-16' : 'pr-4'
-        }`}>
+        <div className={`w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between md:px-4`}>
           {/* 모바일에서 오른쪽 여백 확보 */}
           <Link href="/" className="flex items-center">
             <Image
@@ -105,9 +103,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           </div>
 
           {/* 모바일 메뉴 버튼 */}
-          <div className={`md:hidden relative ${
-            currentPage === 'home' ? 'mr-8' : 'mr-2'
-          }`}>
+          <div className="md:hidden relative">
             <button
               onClick={toggleMenu}
               className={`relative z-[1000000] p-3 rounded-lg backdrop-blur-sm transition-all duration-300 shadow-lg ${
