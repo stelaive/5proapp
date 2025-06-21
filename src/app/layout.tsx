@@ -4,6 +4,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: '5프로돌려드리는스카이차',
   description: '스카이차 쓰고 5% 돌려받고, 매월 100만원 행운까지!',
+  icons: {
+    icon: '/images/logo_favicon.ico',
+  }
 }
 
 export default function RootLayout({

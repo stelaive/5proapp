@@ -134,7 +134,7 @@ export default function Home() {
                 className="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
               >
                 <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                 </svg>
                 앱 다운로드
               </button>
@@ -374,10 +374,12 @@ export default function Home() {
                 <span className="text-red-500 font-bold">소중한 나침반</span>이 되어줄 거예요!
               </p>
               <div className="bg-red-50 p-6 rounded-lg">
-                <p className="text-xl font-bold text-red-500 mb-2">특별 혜택!</p>
+                <p className="text-xl font-bold text-red-500 mb-2">명예의 전당 👑</p>
                 <p className="text-gray-700">
-                  첫 후기를 남겨주신 사장님께는<br />
-                  <span className="text-red-500 font-bold">추가 페이백 + 특별 선물</span>을 준비했습니다!
+                  첫 후기를 남겨주신 사장님은 저희 서비스의 역사에<br />
+                  <span className="text-red-500 font-bold">'최초의 개척자'</span>로 기록되며,<br />
+                  커뮤니티의 <span className="text-red-500 font-bold">'명예의 전당'</span>에<br />
+                  가장 먼저 이름을 올리게 됩니다.
                 </p>
               </div>
             </div>

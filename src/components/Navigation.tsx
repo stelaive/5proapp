@@ -38,6 +38,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
   const navItems = [
     { href: '/', label: '홈', key: 'home' },
     { href: '/whyhere', label: '여긴뭐야?', key: 'whyhere' },
+    { href: '/pricing', label: '스카이차가격표', key: 'pricing' },
     { href: '/million', label: '100만원받기', key: 'million' },
     { href: '/reward', label: '친구초대', key: 'reward' },
     { href: '/marketplace', label: '일거리장터', key: 'marketplace' },
