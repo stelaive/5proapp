@@ -83,21 +83,21 @@ export default function PricingPage() {
               <table className="pricing-table">
                 <thead>
                   <tr>
-                    <th>장비 구분</th>
-                    <th>반나절<br />(오전/오후)</th>
-                    <th>하루<br />(8시간)</th>
-                    <th>추가<br />(시간당)</th>
-                    <th>월 단위<br />(월대)</th>
+                    <th style={{ color: '#fff !important' }}>장비 구분</th>
+                    <th style={{ color: '#fff !important' }}>반나절<br />(오전/오후)</th>
+                    <th style={{ color: '#fff !important' }}>하루<br />(8시간)</th>
+                    <th style={{ color: '#fff !important' }}>추가<br />(시간당)</th>
+                    <th style={{ color: '#fff !important' }}>월 단위<br />(월대)</th>
                   </tr>
                 </thead>
                 <tbody>
                   {pricingData.map((item, index) => (
                     <tr key={index}>
-                      <td className="font-bold text-gray-800">{item.equipment}</td>
-                      <td>{formatPrice(item.halfDay)}</td>
-                      <td>{formatPrice(item.fullDay)}</td>
-                      <td>{formatPrice(item.additional)}</td>
-                      <td>{formatPrice(item.monthly)}</td>
+                      <td className="font-bold" style={{ color: '#000 !important' }}>{item.equipment}</td>
+                      <td style={{ color: '#000 !important' }}>{formatPrice(item.halfDay)}</td>
+                      <td style={{ color: '#000 !important' }}>{formatPrice(item.fullDay)}</td>
+                      <td style={{ color: '#000 !important' }}>{formatPrice(item.additional)}</td>
+                      <td style={{ color: '#000 !important' }}>{formatPrice(item.monthly)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -262,16 +262,27 @@ export default function PricingPage() {
         }
         
         /* 모든 표 텍스트 강제 색상 지정 */
-        .pricing-table * {
-          color: inherit !important;
+        .pricing-table tbody td {
+          color: #000000 !important;
+          font-weight: 500;
         }
         
-        .pricing-table tbody td {
-          color: #1c1c1e !important;
+        .pricing-table tbody td.font-bold {
+          color: #000000 !important;
+          font-weight: 700;
         }
         
         .pricing-table thead th {
-          color: #fff !important;
+          color: #ffffff !important;
+          font-weight: 600;
+        }
+        
+        .pricing-table thead th * {
+          color: #ffffff !important;
+        }
+        
+        .pricing-table tbody td * {
+          color: #000000 !important;
         }
 
         /* ======= 헤더 ======= */
@@ -294,21 +305,21 @@ export default function PricingPage() {
         .pricing-table tbody td {
           padding: 16px 12px;
           font-size: 0.93rem;
-          color: #1c1c1e !important;
+          color: #000000 !important;
           border-right: 1px solid #e6eaf3;
           border-bottom: 1px solid #e6eaf3;
           background-color: #fff;
         }
         .pricing-table tbody tr:nth-child(even) td {
           background-color: var(--secondary-50);
-          color: #1c1c1e !important;
+          color: #000000 !important;
         }
         .pricing-table tbody td:last-child {border-right: none;}
 
         /* ======= 호버 & 인터랙션 ======= */
         .pricing-table tbody tr:hover td {
           background-color: rgba(48, 84, 196, 0.08);
-          color: #1c1c1e !important;
+          color: #000000 !important;
           transition: background-color 0.25s ease;
         }
 
