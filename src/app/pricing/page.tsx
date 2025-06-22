@@ -208,7 +208,7 @@ export default function PricingPage() {
                   👉 사장님 통장으로 입금될 캐시백: {calculateCashback(selectedPrice.price).toLocaleString()}원!
                 </div>
                 <div className="text-lg text-gray-600">
-                  실제 부담액: <span className="font-bold text-green-600">
+                  실제 사용액: <span className="font-bold text-green-600">
                     {(selectedPrice.price - calculateCashback(selectedPrice.price)).toLocaleString()}원
                   </span>
                 </div>
