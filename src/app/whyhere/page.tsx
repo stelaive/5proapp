@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function WhyHere() {
   return (
-    <main>
+    <main style={{ color: '#374151' }}>
       <Navigation currentPage="whyhere" />
       
       {/* 히어로 섹션 */}
@@ -447,31 +447,39 @@ export default function WhyHere() {
               </motion.p>
 
               <motion.div 
-                className="bg-gray-50 p-12 rounded-2xl mb-16"
+                className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 p-12 rounded-2xl mb-16 shadow-lg"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <p className="text-3xl font-black text-sky-orange-600 mb-6">
-                  <span className="text-red-500">5</span>프로돌려드리는스카이차에 오신 것을 환영합니다.
-                </p>
-                <p className="text-xl text-gray-600" style={{ lineHeight: '1.7' }}>
-                  오늘도 안전한 작업을 진심으로 응원합니다!
-                </p>
+                <div className="text-center">
+                  <div className="text-8xl sm:text-9xl font-black text-red-500 mb-4 leading-none">
+                    5
+                  </div>
+                  <p className="text-2xl sm:text-3xl font-black text-gray-800 mb-6">
+                    프로돌려드리는스카이차에<br className="sm:hidden" />오신 것을 환영합니다.
+                  </p>
+                  <p className="text-lg sm:text-xl text-gray-700 font-medium" style={{ lineHeight: '1.7' }}>
+                    오늘도 안전한 작업을 진심으로 응원합니다!
+                  </p>
+                </div>
               </motion.div>
 
               {/* 감성적 행동 유도 문구 */}
               <motion.div 
-                className="mb-8"
+                className="mb-8 bg-white border-l-4 border-orange-500 p-6 rounded-r-lg shadow-md"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <p className="text-xl sm:text-2xl text-gray-700 font-medium italic">
-                  "저의 진심이 사장님의 현장에 닿기를 바랍니다."
-                </p>
+                <div className="flex items-center justify-center">
+                  <div className="text-3xl mr-4">💝</div>
+                  <p className="text-lg sm:text-xl text-gray-800 font-medium italic">
+                    "저의 진심이 사장님의 현장에 닿기를 바랍니다."
+                  </p>
+                </div>
               </motion.div>
 
               <motion.div 
@@ -482,21 +490,21 @@ export default function WhyHere() {
                 viewport={{ once: true }}
               >
                 <motion.button 
-                  className="inline-block bg-sky-orange-500 text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-sky-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-12 py-6 rounded-full text-xl font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl border-2 border-white"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   animate={{ 
                     boxShadow: [
-                      "0 10px 25px rgba(249, 115, 22, 0.3)",
-                      "0 15px 35px rgba(249, 115, 22, 0.4)",
-                      "0 10px 25px rgba(249, 115, 22, 0.3)"
+                      "0 10px 30px rgba(249, 115, 22, 0.4)",
+                      "0 15px 40px rgba(249, 115, 22, 0.5)",
+                      "0 10px 30px rgba(249, 115, 22, 0.4)"
                     ]
                   }}
                   transition={{ 
                     boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
                   }}
                 >
-                  지금 바로 시작하기
+                  🚀 지금 바로 시작하기
                 </motion.button>
               </motion.div>
             </div>
