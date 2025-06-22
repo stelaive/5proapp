@@ -83,11 +83,46 @@ export default function PricingPage() {
               <table className="pricing-table">
                 <thead>
                   <tr>
-                    <th style={{ color: '#fff !important' }}>장비 구분</th>
-                    <th style={{ color: '#fff !important' }}>반나절<br />(오전/오후)</th>
-                    <th style={{ color: '#fff !important' }}>하루<br />(8시간)</th>
-                    <th style={{ color: '#fff !important' }}>추가<br />(시간당)</th>
-                    <th style={{ color: '#fff !important' }}>월 단위<br />(월대)</th>
+                    <th style={{ 
+                      color: '#ffffff', 
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+                      fontSize: '14px'
+                    }}>
+                      장비 구분
+                    </th>
+                    <th style={{ 
+                      color: '#ffffff', 
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+                      fontSize: '14px'
+                    }}>
+                      반나절<br />(오전/오후)
+                    </th>
+                    <th style={{ 
+                      color: '#ffffff', 
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+                      fontSize: '14px'
+                    }}>
+                      하루<br />(8시간)
+                    </th>
+                    <th style={{ 
+                      color: '#ffffff', 
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+                      fontSize: '14px'
+                    }}>
+                      추가<br />(시간당)
+                    </th>
+                    <th style={{ 
+                      color: '#ffffff', 
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+                      fontSize: '14px'
+                    }}>
+                      월 단위<br />(월대)
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -277,28 +312,67 @@ export default function PricingPage() {
           font-weight: 600;
         }
         
-        .pricing-table thead th * {
-          color: #ffffff !important;
-        }
-        
-        .pricing-table tbody td * {
-          color: #000000 !important;
-        }
+                .pricing-table thead th * {
+           color: #ffffff !important;
+         }
+         
+         .pricing-table tbody td * {
+           color: #000000 !important;
+         }
+         
+         /* 최종 강제 적용 - 모든 가능한 선택자 */
+         table.pricing-table thead th {
+           color: #ffffff !important;
+           background: #1f3c88 !important;
+           font-weight: 700 !important;
+           font-size: 14px !important;
+           text-align: center !important;
+         }
+         
+         .pricing-table-wrapper table thead th {
+           color: #ffffff !important;
+           background: #1f3c88 !important;
+           font-weight: 700 !important;
+         }
 
         /* ======= 헤더 ======= */
         .pricing-table thead th {
-          padding: 18px 12px;
-          font-weight: 600;
-          font-size: 0.95rem;
-          line-height: 1.4;
-          color: #fff !important;
-          background: linear-gradient(90deg, var(--primary-500) 0%, var(--primary-400) 100%);
-          border-right: 1px solid rgba(255,255,255,0.25);
+          padding: 18px 12px !important;
+          font-weight: 700 !important;
+          font-size: 14px !important;
+          line-height: 1.4 !important;
+          color: #ffffff !important;
+          background: linear-gradient(90deg, var(--primary-500) 0%, var(--primary-400) 100%) !important;
+          border-right: 1px solid rgba(255,255,255,0.25) !important;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+          text-align: center !important;
         }
-        .pricing-table thead th:first-child {border-top-left-radius: 12px;}
+        
+        .pricing-table thead th,
+        .pricing-table thead th *,
+        .pricing-table thead th br {
+          color: #ffffff !important;
+          font-weight: 700 !important;
+        }
+        .pricing-table thead th:first-child {
+          border-top-left-radius: 12px;
+          color: #ffffff !important;
+          background: #1f3c88 !important;
+        }
         .pricing-table thead th:last-child {
           border-top-right-radius: 12px;
           border-right: none;
+          color: #ffffff !important;
+          background: #3054c4 !important;
+        }
+        
+        /* 전체 헤더에 강제 스타일 적용 */
+        .pricing-table thead {
+          background: linear-gradient(90deg, #1f3c88 0%, #3054c4 100%) !important;
+        }
+        
+        .pricing-table thead tr {
+          background: linear-gradient(90deg, #1f3c88 0%, #3054c4 100%) !important;
         }
 
         /* ======= 바디 ======= */
