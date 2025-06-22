@@ -117,7 +117,7 @@ export default function Marketing() {
   };
 
   return (
-    <main>
+    <main style={{ color: '#374151' }}>
       <Navigation currentPage="marketing" />
       
       {/* Hero Section */}
@@ -216,6 +216,7 @@ export default function Marketing() {
              </motion.div>
             <motion.div 
               className="bg-white rounded-xl p-8 shadow-lg"
+              style={{ color: '#374151' }}
               {...fadeInUp}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
@@ -251,6 +252,7 @@ export default function Marketing() {
                 <motion.div
                   key={index}
                   className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all"
+                  style={{ color: '#374151' }}
                   variants={{
                     initial: { opacity: 0, y: 50 },
                     animate: { opacity: 1, y: 0 }
@@ -274,7 +276,7 @@ export default function Marketing() {
                     {platform.features.map((feature, i) => (
                       <li key={i} className="flex items-start text-gray-700 text-sm">
                         <span className="mr-2 mt-1 flex-shrink-0" style={{ color: platform.color }}>✓</span>
-                        <span>{feature}</span>
+                        <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -303,7 +305,7 @@ export default function Marketing() {
                 {...fadeInUp}
                 transition={{ duration: 0.8 }}
               >
-                <div className="bg-gray-100 rounded-xl p-8 mb-4 shadow-lg">
+                <div className="bg-gray-100 rounded-xl p-8 mb-4 shadow-lg" style={{ color: '#374151' }}>
                   <div className="text-6xl mb-4">😞</div>
                   <div className="space-y-2 text-left">
                     <div className="text-gray-400">⭐ 별점 없음</div>
@@ -344,7 +346,7 @@ export default function Marketing() {
                 transition={{ duration: 1, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-8 mb-4 shadow-lg">
+                <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-8 mb-4 shadow-lg" style={{ color: '#374151' }}>
                   <div className="text-6xl mb-4">🤩</div>
                   <div className="space-y-2 text-left">
                     <div className="text-green-600">⭐ 별점 4.8</div>
@@ -380,6 +382,7 @@ export default function Marketing() {
             </motion.h2>
             <motion.div 
               className="bg-white rounded-xl p-8 md:p-12 shadow-lg"
+              style={{ color: '#374151' }}
               {...fadeInUp}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
@@ -429,6 +432,7 @@ export default function Marketing() {
               <motion.div 
                 key={index} 
                 className="bg-gray-50 rounded-xl shadow-lg overflow-hidden"
+                style={{ color: '#374151' }}
                 variants={{
                   initial: { opacity: 0, y: 30 },
                   animate: { opacity: 1, y: 0 }

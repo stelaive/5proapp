@@ -37,7 +37,7 @@ export default function PlatformSwiper({ platforms }: PlatformSwiperProps) {
       >
         {platforms.map((platform, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-white rounded-xl p-6 shadow-lg text-center mb-8">
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center mb-8" style={{ color: '#374151' }}>
               <div className="w-16 h-16 mx-auto mb-4 relative">
                 <Image
                   src={platform.icon}
@@ -54,9 +54,9 @@ export default function PlatformSwiper({ platforms }: PlatformSwiperProps) {
               </p>
               <ul className="space-y-2 text-left text-sm">
                 {platform.features.map((feature, i) => (
-                  <li key={i} className="flex items-center">
+                  <li key={i} className="flex items-center text-gray-700">
                     <span className="mr-2" style={{ color: platform.color }}>✓</span>
-                    {feature}
+                    <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
               </ul>
