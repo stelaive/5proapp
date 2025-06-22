@@ -183,7 +183,7 @@ https://play.google.com/store`
       <Navigation currentPage="reward" />
       
       {/* 히어로 섹션 */}
-      <section className="relative min-h-screen flex items-center text-white overflow-hidden pt-24 md:pt-32">
+      <section className="relative min-h-screen flex items-center text-white overflow-hidden pt-16 md:pt-20">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/친구초대히어로섹션.gif"
@@ -196,11 +196,11 @@ https://play.google.com/store`
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-6 relative z-10 py-8 md:py-16">
           <div className="max-w-5xl mx-auto text-center">
             {/* 메인 헤드라인 - 모바일 최적화 */}
             <motion.h1 
-              className="text-xl sm:text-2xl md:text-5xl font-bold mb-6 md:mb-8 leading-tight text-white font-jalnan px-2"
+              className="text-xl sm:text-2xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight text-white font-jalnan px-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -210,7 +210,7 @@ https://play.google.com/store`
             
             {/* 서브카피 1 */}
             <motion.div 
-              className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6 mb-6 md:mb-8 inline-block mx-2"
+              className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6 mb-4 md:mb-6 inline-block mx-2"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -236,7 +236,7 @@ https://play.google.com/store`
             
             {/* 설명 문구 */}
             <motion.p 
-              className="text-sm sm:text-base md:text-xl mb-6 md:mb-8 text-white leading-relaxed max-w-4xl mx-auto px-4"
+              className="text-sm sm:text-base md:text-xl mb-4 md:mb-6 text-white leading-relaxed max-w-4xl mx-auto px-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -247,7 +247,7 @@ https://play.google.com/store`
 
             {/* 앱 다운로드 유도 박스 */}
             <motion.div 
-              className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6 mb-6 md:mb-8 max-w-lg mx-auto mx-4"
+              className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 md:p-6 mb-4 md:mb-6 max-w-lg mx-auto mx-4"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
