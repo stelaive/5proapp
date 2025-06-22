@@ -260,6 +260,19 @@ export default function PricingPage() {
           color: var(--text-dark);
           overflow: hidden;
         }
+        
+        /* 모든 표 텍스트 강제 색상 지정 */
+        .pricing-table * {
+          color: inherit !important;
+        }
+        
+        .pricing-table tbody td {
+          color: #1c1c1e !important;
+        }
+        
+        .pricing-table thead th {
+          color: #fff !important;
+        }
 
         /* ======= 헤더 ======= */
         .pricing-table thead th {
@@ -267,7 +280,7 @@ export default function PricingPage() {
           font-weight: 600;
           font-size: 0.95rem;
           line-height: 1.4;
-          color: #fff;
+          color: #fff !important;
           background: linear-gradient(90deg, var(--primary-500) 0%, var(--primary-400) 100%);
           border-right: 1px solid rgba(255,255,255,0.25);
         }
@@ -281,18 +294,21 @@ export default function PricingPage() {
         .pricing-table tbody td {
           padding: 16px 12px;
           font-size: 0.93rem;
+          color: #1c1c1e !important;
           border-right: 1px solid #e6eaf3;
           border-bottom: 1px solid #e6eaf3;
           background-color: #fff;
         }
         .pricing-table tbody tr:nth-child(even) td {
           background-color: var(--secondary-50);
+          color: #1c1c1e !important;
         }
         .pricing-table tbody td:last-child {border-right: none;}
 
         /* ======= 호버 & 인터랙션 ======= */
         .pricing-table tbody tr:hover td {
           background-color: rgba(48, 84, 196, 0.08);
+          color: #1c1c1e !important;
           transition: background-color 0.25s ease;
         }
 
