@@ -841,7 +841,7 @@ export default function MillionPage() {
                   🔒 공정한 추첨을 약속합니다
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  매달 1일 오후 8시, 유튜브 생방송을 통해<br />
+                  매달 1일 오후 7시, 유튜브 생방송을 통해<br />
                   모든 추첨 과정을 실시간으로 공개합니다.
                 </p>
                 <div className="mt-8">
