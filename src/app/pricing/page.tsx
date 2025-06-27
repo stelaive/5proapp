@@ -254,16 +254,31 @@ export default function PricingPage() {
                 </p>
                 <a 
                   href="tel:18779001"
-                  className="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-all"
+                  className="phone-button-custom"
                   style={{ 
+                    backgroundColor: '#f97316 !important',
                     color: '#ffffff !important',
                     textDecoration: 'none !important',
                     display: 'inline-block !important',
-                    zIndex: 10,
-                    position: 'relative'
+                    padding: '12px 24px !important',
+                    borderRadius: '8px !important',
+                    fontWeight: 'bold !important',
+                    fontSize: '16px !important',
+                    zIndex: 999,
+                    position: 'relative',
+                    border: 'none !important',
+                    outline: 'none !important',
+                    textShadow: 'none !important',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1) !important'
                   }}
                 >
-                  <span style={{ color: '#ffffff !important', fontWeight: 'bold !important', fontSize: '16px !important' }}>
+                  <span style={{ 
+                    color: '#ffffff !important', 
+                    fontWeight: 'bold !important', 
+                    fontSize: '16px !important',
+                    textShadow: 'none !important',
+                    display: 'inline-block !important'
+                  }}>
                     1877-9001
                   </span>
                 </a>
@@ -415,10 +430,61 @@ export default function PricingPage() {
           transition: background-color 0.25s ease;
         }
 
+        /* ======= 전화번호 버튼 강제 스타일 ======= */
+        .phone-button-custom {
+          background-color: #f97316 !important;
+          color: #ffffff !important;
+          text-decoration: none !important;
+          display: inline-block !important;
+          padding: 12px 24px !important;
+          border-radius: 8px !important;
+          font-weight: bold !important;
+          font-size: 16px !important;
+          z-index: 999 !important;
+          position: relative !important;
+          border: none !important;
+          outline: none !important;
+          text-shadow: none !important;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+          transition: all 0.3s ease !important;
+        }
+        
+        .phone-button-custom:hover {
+          background-color: #ea580c !important;
+          color: #ffffff !important;
+          text-decoration: none !important;
+          transform: translateY(-1px) !important;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        }
+        
+        .phone-button-custom span {
+          color: #ffffff !important;
+          font-weight: bold !important;
+          font-size: 16px !important;
+          text-shadow: none !important;
+          display: inline-block !important;
+        }
+        
+        .phone-button-custom:visited,
+        .phone-button-custom:link,
+        .phone-button-custom:active {
+          color: #ffffff !important;
+          text-decoration: none !important;
+        }
+
         /* ======= 반응형 텍스트 조정 ======= */
         @media (max-width: 480px) {
           .pricing-table thead th,
           .pricing-table tbody td {padding: 12px 8px; font-size: 0.85rem;}
+          
+          .phone-button-custom {
+            padding: 10px 20px !important;
+            font-size: 14px !important;
+          }
+          
+          .phone-button-custom span {
+            font-size: 14px !important;
+          }
         }
       `}</style>
     </main>
