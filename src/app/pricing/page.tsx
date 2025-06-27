@@ -255,8 +255,17 @@ export default function PricingPage() {
                 <a 
                   href="tel:18779001"
                   className="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-all"
+                  style={{ 
+                    color: '#ffffff !important',
+                    textDecoration: 'none !important',
+                    display: 'inline-block !important',
+                    zIndex: 10,
+                    position: 'relative'
+                  }}
                 >
-                  1877-9001
+                  <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>
+                    1877-9001
+                  </span>
                 </a>
               </div>
             </div>
