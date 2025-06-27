@@ -2,12 +2,15 @@ import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
+import AnimatedSection from '@/components/AnimatedSection'
+import AnimatedCard from '@/components/AnimatedCard'
+import AnimatedButton from '@/components/AnimatedButton'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '일거리장터 - 현장 전문가들의 소통 공간',
-  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,강남스카이차.송파스카이차.서초스카이차.강북스카이차.성북스카이차,인천스카이차.수원.화성,용인.평택.안성.성남,경기도광주,부천,부평,일산,파주,고양.',
-  keywords: ['일거리장터', '일나누기', '품앗이', '기술공유', '정보공유', '현장커뮤니티', '전문가네트워크', '현장노하우'],
+  title: '일거리장터 - 전국 건설현장 네트워킹 플랫폼',
+  description: '전국 건설현장의 동료들과 소통하고 일거리를 주고받는 네트워킹 플랫폼. 어려운 현장 문제도 함께 해결하고, 새로운 기회도 만나보세요.',
+  keywords: ['일거리장터', '건설현장네트워킹', '동료찾기', '현장문제해결', '건설업정보'],
   
   openGraph: {
     title: '일거리장터 - 현장 전문가들의 소통 공간',
@@ -117,237 +120,290 @@ export default function Marketplace() {
     <main>
       <Navigation currentPage="marketplace" />
       
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-center">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/일거리장터히어로섹션.gif"
-            alt="일거리 장터 배경"
-            fill
-            className="object-cover opacity-60"
-            priority
-            unoptimized
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/40"></div>
+      {/* 히어로 섹션 */}
+      <section className="relative pt-40 pb-20 overflow-hidden">
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+          <div className="absolute inset-0 bg-black/20"></div>
         </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl text-left md:text-left">
-            <h1 className="text-6xl md:text-8xl font-extrabold mb-6 font-jalnan leading-tight text-white text-center md:text-left">
-              일은 나누고<br />
-              기술은 더하는
+        
+        {/* 배경 파티클 효과 */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white opacity-20 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-300 opacity-30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-purple-300 opacity-25 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-indigo-300 opacity-20 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <AnimatedSection
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white font-jalnan">
+              전국 건설현장이<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
+                하나로 연결됩니다
+              </span>
             </h1>
-            <p className="text-lg md:text-2xl mb-8 font-medium leading-relaxed text-center md:text-left" style={{ color: '#E0E0E0' }}>
-              <span className="block md:hidden">
-                No.1 현장 전문가 커뮤니티,<br />일거리장터
-              </span>
-              <span className="hidden md:block">
-                대한민국 현장 전문가들의 필수 커뮤니티,<br />일거리장터
-              </span>
+            <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed max-w-4xl mx-auto">
+              혼자 해결하기 어려운 현장 문제, 부족한 장비나 인력...<br />
+              이제 전국의 동료들과 함께 해결하세요
             </p>
-          </div>
+          </AnimatedSection>
+
+          <AnimatedSection
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-6 max-w-md mx-auto mb-8">
+              <p className="text-yellow-300 font-bold text-lg mb-2">✨ 현재 가입자</p>
+              <p className="text-white text-3xl font-bold">2,847명</p>
+              <p className="text-white/80 text-sm">매일 증가하는 현장 동료들</p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedButton
+            className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-4 rounded-full text-xl font-bold shadow-2xl"
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
+            지금 동료들 만나러 가기 🚀
+          </AnimatedButton>
         </div>
       </section>
 
-      {/* 메인 섹션 1: 핵심 기능 허브 */}
-      <section className="py-20" style={{ backgroundColor: '#F7F7F7' }}>
+      {/* 히어로 이미지 섹션 */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800">
-            사장님의 일감은 늘고, 고민은 줄어드는 공간
-          </h2>
-          {/* 데스크톱: 2열 그리드 */}
-          <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* 일거리 나누기 카드 */}
-            <div
-              className="bg-white rounded-xl p-8 text-center cursor-pointer group"
-              style={{ boxShadow: '0 6px 20px rgba(0,0,0,0.08)' }}
-            >
-              <div className="text-6xl mb-6 text-orange-500 transform group-hover:scale-110 transition-transform duration-300">🤝</div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-orange-500 transition-colors">
-                일거리 나누기 (품앗이)
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                갑자기 못 가게 된 현장, 믿을 수 있는 동료에게 맡기세요. 내가 하기 힘든 일도 전문가 동료와 함께 해결해보세요.
-              </p>
-            </div>
-
-            {/* 기술/정보 공유 카드 */}
-            <div
-              className="bg-white rounded-xl p-8 text-center cursor-pointer group"
-              style={{ boxShadow: '0 6px 20px rgba(0,0,0,0.08)' }}
-            >
-              <div className="text-6xl mb-6 text-orange-500 transform group-hover:scale-110 transition-transform duration-300">💡</div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-orange-500 transition-colors">
-                기술/정보 공유
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                현장에서 막혔던 기술 문제, 궁금했던 정보들을 각 분야 전문가 동료들에게 바로 물어보고 명쾌한 답을 얻으세요.
-              </p>
-            </div>
-          </div>
-
-          {/* 모바일: 가로 스와이프 */}
-          <div className="md:hidden max-w-sm mx-auto">
-            <div
-              className="flex overflow-x-auto space-x-4 pb-4 px-4"
-              style={{ 
-                scrollSnapType: 'x mandatory',
-                ...scrollbarHideStyle
-              }}
-            >
-              {/* 일거리 나누기 카드 */}
-              <div
-                className="bg-white rounded-xl p-6 text-center flex-shrink-0 w-80"
-                style={{ 
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.08)',
-                  scrollSnapAlign: 'start'
-                }}
-              >
-                <div className="text-5xl mb-4 text-orange-500">🤝</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">
-                  일거리 나누기 (품앗이)
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-sm">
-                  갑자기 못 가게 된 현장, 믿을 수 있는 동료에게 맡기세요. 내가 하기 힘든 일도 전문가 동료와 함께 해결해보세요.
-                </p>
-              </div>
-
-              {/* 기술/정보 공유 카드 */}
-              <div
-                className="bg-white rounded-xl p-6 text-center flex-shrink-0 w-80"
-                style={{ 
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.08)',
-                  scrollSnapAlign: 'start'
-                }}
-              >
-                <div className="text-5xl mb-4 text-orange-500">💡</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-800">
-                  기술/정보 공유
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-sm">
-                  현장에서 막혔던 기술 문제, 궁금했던 정보들을 각 분야 전문가 동료들에게 바로 물어보고 명쾌한 답을 얻으세요.
-                </p>
-              </div>
-            </div>
-            
-            {/* 스와이프 힌트 */}
-            <div className="text-center mt-4">
-              <p className="text-gray-400 text-sm">← 옆으로 넘겨보세요 →</p>
-            </div>
-          </div>
+          <AnimatedSection
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <Image
+              src="/images/일거리장터히어로섹션.gif"
+              alt="일거리장터 히어로"
+              width={1000}
+              height={600}
+              className="mx-auto rounded-2xl shadow-2xl"
+              unoptimized
+            />
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* 메인 섹션 2: 실시간 커뮤니티 피드 */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-10">
-          <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200"></div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl font-bold text-center mb-12 font-jalnan text-gray-800">
-            오늘, 현장 동료들은 이런 이야기를 나눕니다
-          </h2>
-          
-          {/* 뉴스 티커 스타일 게시글 피드 */}
-          <div className="bg-gray-50 rounded-xl p-6 max-w-4xl mx-auto overflow-hidden">
-            {/* 자동 스크롤 애니메이션 컨테이너 */}
-            <div className="h-80 overflow-hidden relative">
-              <div
-                className="space-y-3"
-              >
-                {/* 첫 번째 세트 */}
-                {[
-                  { tag: '스카이 후기', color: 'bg-green-500', text: '군포시 OOO스카이 기사님, 시간 약속 칼이시네요!', time: '방금 전' },
-                  { tag: '긴급 품앗이', color: 'bg-orange-500', text: '내일 오전 안양에서 1톤 스카이 필요하신 분! (마감 임박)', time: '2분 전' },
-                  { tag: '질문답변', color: 'bg-blue-500', text: '이 모델 CCTV 부품 어디서 구하죠? (답변 3개)', time: '5분 전' },
-                  { tag: '정보공유', color: 'bg-purple-500', text: '욕실 리모델링 신소재 정보 공유드려요', time: '8분 전' },
-                  { tag: '기술문의', color: 'bg-red-500', text: '전기 배선 이상 증상, 어떻게 해결하셨나요?', time: '12분 전' },
-                  { tag: '현장후기', color: 'bg-teal-500', text: '성남 아파트 외벽청소 완료! 깨끗하게 잘 됐네요', time: '15분 전' },
-                  { tag: '품앗이', color: 'bg-orange-500', text: '수원 지역 철거 작업 도움 필요합니다', time: '18분 전' },
-                  { tag: '기술공유', color: 'bg-indigo-500', text: '방수공사 신기법 영상 공유합니다', time: '22분 전' }
-                ].map((post, index) => (
-                  <div
-                    key={`first-${index}`}
-                    className="flex items-center space-x-3 p-3 hover:bg-white rounded-lg transition-all cursor-pointer group"
-                  >
-                    <span className={`${post.color} text-white px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap`}>
-                      {post.tag}
-                    </span>
-                    <span className="text-gray-700 group-hover:text-orange-500 transition-colors flex-1 truncate">
-                      {post.text}
-                    </span>
-                    <span className="text-gray-400 text-sm whitespace-nowrap">{post.time}</span>
-                  </div>
-                ))}
-                
-                {/* 두 번째 세트 (무한 루프를 위한 복사본) */}
-                {[
-                  { tag: '스카이 후기', color: 'bg-green-500', text: '군포시 OOO스카이 기사님, 시간 약속 칼이시네요!', time: '방금 전' },
-                  { tag: '긴급 품앗이', color: 'bg-orange-500', text: '내일 오전 안양에서 1톤 스카이 필요하신 분! (마감 임박)', time: '2분 전' },
-                  { tag: '질문답변', color: 'bg-blue-500', text: '이 모델 CCTV 부품 어디서 구하죠? (답변 3개)', time: '5분 전' },
-                  { tag: '정보공유', color: 'bg-purple-500', text: '욕실 리모델링 신소재 정보 공유드려요', time: '8분 전' },
-                  { tag: '기술문의', color: 'bg-red-500', text: '전기 배선 이상 증상, 어떻게 해결하셨나요?', time: '12분 전' },
-                  { tag: '현장후기', color: 'bg-teal-500', text: '성남 아파트 외벽청소 완료! 깨끗하게 잘 됐네요', time: '15분 전' },
-                  { tag: '품앗이', color: 'bg-orange-500', text: '수원 지역 철거 작업 도움 필요합니다', time: '18분 전' },
-                  { tag: '기술공유', color: 'bg-indigo-500', text: '방수공사 신기법 영상 공유합니다', time: '22분 전' }
-                ].map((post, index) => (
-                  <div
-                    key={`second-${index}`}
-                    className="flex items-center space-x-3 p-3 hover:bg-white rounded-lg transition-all cursor-pointer group"
-                  >
-                    <span className={`${post.color} text-white px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap`}>
-                      {post.tag}
-                    </span>
-                    <span className="text-gray-700 group-hover:text-orange-500 transition-colors flex-1 truncate">
-                      {post.text}
-                    </span>
-                    <span className="text-gray-400 text-sm whitespace-nowrap">{post.time}</span>
-                  </div>
-                ))}
-              </div>
-              
-              {/* 그라데이션 페이드 효과 */}
-              <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-gray-50 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none"></div>
-            </div>
-            
-            <div className="text-center mt-6 text-gray-500 text-sm">
-              ※ 위 게시글은 예시입니다. 실제 커뮤니티는 앱 출시 후 이용 가능합니다.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 메인 섹션 3: 업종별 동료 찾기 */}
-      <section className="py-20" style={{ backgroundColor: '#F7F7F7' }}>
+      {/* 핵심 기능 섹션 */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-6 font-jalnan text-gray-800">
-            물론, 사장님의 업종 동료도 여기에!
-          </h2>
-          <p className="text-center text-gray-600 mb-12 text-lg">
-            사장님의 업종을 선택하고 진짜 동료들의 이야기를 들어보세요.
-          </p>
-          
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4 max-w-4xl mx-auto">
-            {industries.map((industry, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg p-4 text-center cursor-pointer group"
-                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-jalnan text-gray-800">
+              현장 동료들과 함께하는 새로운 방식
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              전국의 건설현장 전문가들이 모여 정보를 공유하고 서로 도움을 주고받습니다
+            </p>
+          </AnimatedSection>
 
-              >
-                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">
-                  {industry.icon}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <AnimatedCard className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100">
+              <div className="text-6xl mb-6 text-center">🤝</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-800 font-jalnan text-center">동료 네트워킹</h3>
+              <p className="text-gray-600 leading-relaxed text-center">
+                전국의 건설현장 전문가들과<br />
+                연결되어 정보를 공유하세요
+              </p>
+            </AnimatedCard>
+
+            <AnimatedCard 
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100"
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="text-6xl mb-6 text-center">💼</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-800 font-jalnan text-center">일거리 공유</h3>
+              <p className="text-gray-600 leading-relaxed text-center">
+                남는 일거리는 공유하고<br />
+                필요한 일거리는 요청하세요
+              </p>
+            </AnimatedCard>
+
+            <AnimatedCard 
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100"
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="text-6xl mb-6 text-center">❓</div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-800 font-jalnan text-center">현장 Q&A</h3>
+              <p className="text-gray-600 leading-relaxed text-center">
+                어려운 현장 문제를<br />
+                동료들과 함께 해결하세요
+              </p>
+            </AnimatedCard>
+          </div>
+        </div>
+      </section>
+
+      {/* 첫 번째 이미지 섹션 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <AnimatedSection
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <Image
+              src="/images/일거리장터첫번째.PNG"
+              alt="일거리장터 첫번째 기능"
+              width={800}
+              height={600}
+              className="mx-auto rounded-2xl shadow-2xl"
+              unoptimized
+            />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* 실제 후기 섹션 */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-jalnan text-gray-800">
+              실제 동료들의 후기
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              일거리장터를 통해 새로운 기회를 만난 동료들의 진솔한 이야기
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <AnimatedCard className="bg-white p-8 rounded-2xl shadow-lg">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl font-bold mr-4">
+                  김○○
                 </div>
-                <h3 className="text-sm font-medium text-gray-800 group-hover:text-orange-500 transition-colors">
-                  {industry.name}
-                </h3>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-800">김○○ 사장님</h3>
+                  <p className="text-gray-600">서울 강서구 / 3.5톤 스카이차</p>
+                </div>
               </div>
+              <p className="text-gray-700 leading-relaxed italic">
+                "혼자 감당하기 어려운 대형 현장이 있었는데, 일거리장터에서 만난 동료 덕분에 무사히 완료했습니다. 
+                이제는 서로 도움을 주고받는 든든한 파트너가 되었어요!"
+              </p>
+              <div className="flex items-center mt-4">
+                <div className="flex text-yellow-400">
+                  {'★★★★★'.split('').map((star, i) => (
+                    <span key={i} className="text-xl">{star}</span>
+                  ))}
+                </div>
+                <span className="ml-2 text-sm text-gray-500">5.0/5.0</span>
+              </div>
+            </AnimatedCard>
+
+            <AnimatedCard 
+              className="bg-white p-8 rounded-2xl shadow-lg"
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-xl font-bold mr-4">
+                  박○○
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-800">박○○ 사장님</h3>
+                  <p className="text-gray-600">인천 부평구 / 25톤 크레인</p>
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed italic">
+                "일이 없는 날이 많아 고민이었는데, 일거리장터 덕분에 일감을 꾸준히 받을 수 있게 되었습니다. 
+                매출이 30% 이상 늘었어요!"
+              </p>
+              <div className="flex items-center mt-4">
+                <div className="flex text-yellow-400">
+                  {'★★★★★'.split('').map((star, i) => (
+                    <span key={i} className="text-xl">{star}</span>
+                  ))}
+                </div>
+                <span className="ml-2 text-sm text-gray-500">5.0/5.0</span>
+              </div>
+            </AnimatedCard>
+          </div>
+        </div>
+      </section>
+
+      {/* 두 번째 이미지 섹션 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <AnimatedSection
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <Image
+              src="/images/일거리장터두번째.PNG"
+              alt="일거리장터 두번째 기능"
+              width={800}
+              height={600}
+              className="mx-auto rounded-2xl shadow-2xl"
+              unoptimized
+            />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* 가입 혜택 섹션 */}
+      <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-jalnan text-gray-800">
+              가입하면 이런 혜택이!
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: "🎁", title: "가입 즉시", desc: "환영 포인트 1만원" },
+              { icon: "🏆", title: "첫 거래", desc: "성공 보너스 2만원" },
+              { icon: "👥", title: "친구 추천", desc: "건당 5천원 적립" },
+              { icon: "⭐", title: "우수 회원", desc: "매월 특별 혜택" }
+            ].map((benefit, index) => (
+              <AnimatedCard 
+                key={index}
+                className="bg-white p-6 rounded-xl shadow-lg text-center"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className="text-4xl mb-4">{benefit.icon}</div>
+                <h3 className="text-lg font-bold mb-2 text-gray-800">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.desc}</p>
+              </AnimatedCard>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 푸터 영역 및 최종 CTA */}
+      {/* 세 번째 이미지 섹션 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <AnimatedSection
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <Image
+              src="/images/일거리장터세번째.PNG"
+              alt="일거리장터 세번째 기능"
+              width={800}
+              height={600}
+              className="mx-auto rounded-2xl shadow-2xl"
+              unoptimized
+            />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* 마지막 CTA 섹션 */}
       <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#1C2A39' }}>
         {/* 파티클 효과를 위한 배경 */}
         <div className="absolute inset-0">
@@ -358,18 +414,23 @@ export default function Marketplace() {
         </div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-jalnan text-white">
-            든든한 동료 한 명이,<br />열 개의 장비보다 낫습니다.
-          </h2>
-          <p className="text-lg md:text-xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            지금 바로 '일거리장터'에 가입하고, 필요할 때 일을 맡아줄 동료, 막혔을 때 답을 줄 동료를 만나보세요.<br />
-            혼자 모든 것을 해결해야 했던 현장은 이제 끝입니다.
-          </p>
+          <AnimatedSection>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-jalnan text-white">
+              든든한 동료 한 명이,<br />열 개의 장비보다 낫습니다.
+            </h2>
+            <p className="text-lg md:text-xl mb-12 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              지금 바로 '일거리장터'에 가입하고, 필요할 때 일을 맡아줄 동료, 막혔을 때 답을 줄 동료를 만나보세요.<br />
+              혼자 모든 것을 해결해야 했던 현장은 이제 끝입니다.
+            </p>
+          </AnimatedSection>
           
-          <button className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-orange-600 transition-all inline-flex items-center gap-3">
+          <AnimatedButton 
+            className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-orange-600 transition-all inline-flex items-center gap-3"
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
             <span>내 현장 동료 만나러 가입하기</span>
             <span className="text-2xl">→</span>
-          </button>
+          </AnimatedButton>
           
           <div className="mt-16 pt-8 border-t border-gray-700 text-gray-500 text-sm">
             <p>© 2024 일거리장터. All rights reserved.</p>
