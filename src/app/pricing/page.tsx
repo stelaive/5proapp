@@ -263,7 +263,7 @@ export default function PricingPage() {
                     position: 'relative'
                   }}
                 >
-                  <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>
+                  <span style={{ color: '#ffffff !important', fontWeight: 'bold !important', fontSize: '16px !important' }}>
                     1877-9001
                   </span>
                 </a>
