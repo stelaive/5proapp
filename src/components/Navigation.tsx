@@ -173,7 +173,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
                 ? 'text-gray-900' 
                 : 'text-white'
             } text-lg sm:text-xl`}>
-              5프로돌려드리는스카이차
+              5프로돌려주는스카이차
             </h1>
           </Link>
           

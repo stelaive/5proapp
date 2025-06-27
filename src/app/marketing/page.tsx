@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -7,6 +5,41 @@ import FloatingDownload from '@/components/FloatingDownload'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '업종별 마케팅 노하우 - 스카이차 사업 성장 비법',
+  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,강남스카이차.송파스카이차.서초스카이차.강북스카이차.성북스카이차,인천스카이차.수원.화성,용인.평택.안성.성남,경기도광주,부천,부평,일산,파주,고양.',
+  keywords: ['업종별마케팅', '스카이차', '마케팅노하우', '네이버지도', '구글맵', '카카오맵', '지도마케팅', '사업성장', '홍보'],
+  
+  openGraph: {
+    title: '업종별 마케팅 노하우 - 스카이차 사업 성장 비법',
+    description: '일감을 부르는 지도 마케팅, 사장님도 할 수 있습니다!',
+    type: 'website',
+    url: 'https://xn--5-w30fr74e.com/marketing',
+    images: [
+      {
+        url: '/images/업종별마케팅노하우섹션.png',
+        width: 1200,
+        height: 630,
+        alt: '업종별 마케팅 노하우',
+      }
+    ],
+    locale: 'ko_KR',
+    siteName: '5프로돌려주는스카이차',
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    title: '업종별 마케팅 노하우 - 스카이차 사업 성장',
+    description: '일감을 부르는 지도 마케팅 비법',
+    images: ['/images/업종별마케팅노하우섹션.png'],
+  },
+  
+  alternates: {
+    canonical: 'https://xn--5-w30fr74e.com/marketing',
+  },
+}
 
 // Swiper 관련 import를 클라이언트 사이드에서만 로드
 const PlatformSwiper = dynamic(() => import('@/components/PlatformSwiper'), {
@@ -90,6 +123,7 @@ const heroTextVariants = {
   animate: { opacity: 1, y: 0 }
 };
 
+'use client'
 export default function Marketing() {
   const [isMobile, setIsMobile] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);

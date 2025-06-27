@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 > nul
-title 초간단 실행 - 5프로돌려드리는스카이차
+title 초간단 실행 - 5프로돌려주는스카이차
 
 REM 기존 서버 모두 종료
 taskkill /F /IM node.exe >nul 2>&1

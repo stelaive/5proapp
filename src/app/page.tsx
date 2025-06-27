@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 import { motion } from 'framer-motion'
+import type { Metadata } from 'next'
 
 // 애니메이션 variants 정의
 const fadeInUp = {
@@ -45,6 +46,49 @@ const slideInFromRight = {
   },
   viewport: { once: true }
 };
+
+export const metadata: Metadata = {
+  // ✏️ 수정하세요: 메인 페이지 제목 (구글 검색 결과에 나타남)
+  title: '5프로돌려주는스카이차 - 스카이차 렌탈 5% 캐시백 + 매월 100만원 추첨',
+  // ✏️ 수정하세요: 메인 페이지 설명 (구글 검색 결과 제목 아래 나타남)
+  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,강남스카이차.송파스카이차.서초스카이차.강북스카이차.성북스카이차,인천스카이차.수원.화성,용인.평택.안성.성남,경기도광주,부천,부평,일산,파주,고양.',
+  // ✏️ 수정하세요: 메인 페이지 검색 키워드들
+  keywords: ['스카이차', '크레인', '고소작업차', '렌탈', '캐시백', '5%', '100만원', '추첨', '이벤트', '친구초대', '건설장비', '외벽작업'],
+  
+  openGraph: {
+    title: '5프로돌려주는스카이차 - 스카이차 렌탈 5% 캐시백',
+    description: '스카이차 렌탈하고 5% 돌려받고, 매월 100만원 추첨까지! 지금 바로 시작하세요.',
+    type: 'website',
+    url: 'https://xn--5-w30fr74e.com',
+    images: [
+      {
+        url: '/images/스로고1.png',
+        width: 1200,
+        height: 630,
+        alt: '5프로돌려주는스카이차 메인 화면',
+      }
+    ],
+    locale: 'ko_KR',
+    siteName: '5프로돌려주는스카이차',
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    title: '5프로돌려주는스카이차 - 스카이차 렌탈 5% 캐시백',
+    description: '스카이차 렌탈하고 5% 돌려받고, 매월 100만원 추첨까지!',
+    images: ['/images/스로고1.png'],
+  },
+  
+  alternates: {
+    canonical: 'https://xn--5-w30fr74e.com',
+  },
+  
+  other: {
+    'application-name': '5프로스카이차',
+    'msapplication-TileColor': '#f97316',
+    'theme-color': '#f97316',
+  }
+}
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {

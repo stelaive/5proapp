@@ -1,10 +1,43 @@
-'use client'
-
 import Image from 'next/image'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 import { motion } from 'framer-motion'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '일거리장터 - 스카이차 작업 정보 공유 커뮤니티',
+  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,강남스카이차.송파스카이차.서초스카이차.강북스카이차.성북스카이차,인천스카이차.수원.화성,용인.평택.안성.성남,경기도광주,부천,부평,일산,파주,고양.',
+  keywords: ['일거리장터', '스카이차', '크레인', '작업정보', '커뮤니티', '품앗이', '일감공유', '건설장비', '고소작업'],
+  
+  openGraph: {
+    title: '일거리장터 - 스카이차 작업 정보 공유 커뮤니티',
+    description: '현장 전문가들의 필수 커뮤니티, 일은 나누고 기술은 더하는 공간',
+    type: 'website',
+    url: 'https://xn--5-w30fr74e.com/marketplace',
+    images: [
+      {
+        url: '/images/일거리장터히어로섹션.gif',
+        width: 1200,
+        height: 630,
+        alt: '일거리장터 커뮤니티',
+      }
+    ],
+    locale: 'ko_KR',
+    siteName: '5프로돌려주는스카이차',
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    title: '일거리장터 - 스카이차 작업 정보 공유',
+    description: '현장 전문가들의 필수 커뮤니티',
+    images: ['/images/일거리장터히어로섹션.gif'],
+  },
+  
+  alternates: {
+    canonical: 'https://xn--5-w30fr74e.com/marketplace',
+  },
+}
 
 // 스크롤바 숨기기 스타일 추가
 const scrollbarHideStyle = {
@@ -107,6 +140,7 @@ const slideIn = {
   transition: { duration: 0.5 }
 };
 
+'use client'
 export default function Marketplace() {
   return (
     <main>

@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 import { motion } from 'framer-motion'
+import type { Metadata } from 'next'
 
 // 애니메이션 variants 정의
 const fadeInUp = {
@@ -23,6 +24,49 @@ const pricingData = [
   { equipment: '3톤 굴절', halfDay: 600000, fullDay: 800000, additional: '협의', monthly: '협의' },
   { equipment: '5톤 굴절', halfDay: 800000, fullDay: 1000000, additional: '협의', monthly: '협의' },
 ]
+
+export const metadata: Metadata = {
+  // ✏️ 수정하세요: 가격표 페이지 제목
+  title: '스카이차 렌탈 가격표 - 전국 최저가 + 5% 캐시백 보장',
+  // ✏️ 수정하세요: 가격표 페이지 설명
+  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,강남스카이차.송파스카이차.서초스카이차.강북스카이차.성북스카이차,인천스카이차.수원.화성,용인.평택.안성.성남,경기도광주,부천,부평,일산,파주,고양.',
+  // ✏️ 수정하세요: 가격표 관련 검색 키워드들
+  keywords: ['스카이차', '가격표', '렌탈료', '크레인', '고소작업차', '최저가', '캐시백', '배차', '24시간', '전국'],
+  
+  openGraph: {
+    title: '스카이차 렌탈 가격표 - 전국 최저가 + 5% 캐시백',
+    description: '투명한 가격 공개! 스카이차 렌탈 후 5% 현금 돌려받기',
+    type: 'website',
+    url: 'https://xn--5-w30fr74e.com/pricing',
+    images: [
+      {
+        url: '/images/스카이차수정3.png',
+        width: 1200,
+        height: 630,
+        alt: '스카이차 렌탈 가격표',
+      }
+    ],
+    locale: 'ko_KR',
+    siteName: '5프로돌려주는스카이차',
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    title: '스카이차 렌탈 가격표 - 전국 최저가 + 5% 캐시백',
+    description: '투명한 가격 공개! 렌탈 후 5% 현금 돌려받기',
+    images: ['/images/스카이차수정3.png'],
+  },
+  
+  alternates: {
+    canonical: 'https://xn--5-w30fr74e.com/pricing',
+  },
+  
+  other: {
+    'service-area': '전국',
+    'service-hours': '24시간',
+    'cashback-rate': '5%',
+  }
+}
 
 export default function PricingPage() {
   const [selectedPrice, setSelectedPrice] = useState<{ price: number; type: string } | null>(null)

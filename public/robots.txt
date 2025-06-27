@@ -1,0 +1,51 @@
+# 🤖 검색엔진들에게 우리 사이트 규칙을 알려주는 파일
+
+# 모든 검색엔진 봇들아, 우리 사이트 자유롭게 구경해도 돼!
+User-agent: *
+Allow: /
+
+# ✏️ 중요! 수정하세요: 실제 도메인 주소로 바꾸기
+# 우리 사이트 지도는 여기 있어!
+Sitemap: https://xn--5-w30fr74e.com/sitemap.xml
+
+# 네이버봇아, 1초에 한 번씩만 와줘 (서버 부담 줄이기)
+User-agent: Naverbot
+Crawl-delay: 1
+
+# 구글봇아, 1초에 한 번씩만 와줘
+User-agent: Googlebot
+Crawl-delay: 1
+
+# 빙봇아, 1초에 한 번씩만 와줘
+User-agent: Bingbot
+Crawl-delay: 1
+
+# 🚫 이런 폴더들은 들어오지 마!
+Disallow: /api/          # API 폴더는 비공개
+Disallow: /_next/        # Next.js 시스템 폴더는 비공개
+Disallow: /admin/        # 관리자 페이지는 비공개 (있다면)
+Disallow: /private/      # 비공개 폴더
+Disallow: *.json$        # JSON 파일들은 숨기기
+Disallow: /*.json        # JSON 확장자 파일들 차단
+
+# ✅ 이런 파일들은 꼭 봐줘!
+Allow: /images/          # 이미지들은 모두 공개
+Allow: /fonts/           # 폰트 파일들도 공개
+Allow: /manifest.json    # 앱 매니페스트는 공개
+Allow: /sitemap.xml      # 사이트맵은 공개
+
+# 📱 모바일 전용 봇들도 환영!
+User-agent: Googlebot-Mobile
+Crawl-delay: 1
+
+# 🔍 검색 결과에 잘 나타날 수 있게!
+User-agent: Googlebot-Image
+Allow: /images/
+
+# 📰 구글 뉴스봇 (뉴스 관련 페이지가 있다면)
+User-agent: Googlebot-News
+Allow: /
+
+# ✏️ 중요! 수정하세요: 실제 도메인 주소로 바꾸기
+# Host: 우리 메인 도메인 주소
+Host: https://xn--5-w30fr74e.com 

@@ -1,0 +1,124 @@
+{
+  "// ✏️ 수정하세요": "앱의 전체 이름 (스마트폰에 설치될 때 보이는 이름)",
+  "name": "5프로돌려주는스카이차 - 스카이차 렌탈 5% 캐시백",
+  "// ✏️ 수정하세요": "앱의 짧은 이름 (홈화면 아이콘 아래 보이는 이름, 12글자 이하 권장)",
+  "short_name": "5프로스카이차",
+  "// ✏️ 수정하세요": "앱 설명 (앱스토어에서 보이는 설명 같은 것)",
+  "description": "스카이차/크레인 렌탈 후 5% 현금 캐시백! 매월 100만원 추첨 이벤트, 친구 초대시 5만원 보너스까지.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f97316",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "ko",
+  
+  "// ✏️ 수정하세요": "앱 아이콘들 (실제 이미지 파일 경로로 바꾸세요)",
+  "icons": [
+    {
+      "// ✏️ 수정하세요": "작은 아이콘 파일 경로",
+      "src": "/images/logo_favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "// ✏️ 수정하세요": "중간 크기 아이콘 파일 경로 (192x192 픽셀)",
+      "src": "/images/스로고1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "// ✏️ 수정하세요": "큰 아이콘 파일 경로 (512x512 픽셀)",
+      "src": "/images/스로고1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  
+  "shortcuts": [
+    {
+      "name": "100만원 이벤트",
+      "short_name": "100만원",
+      "description": "매월 100만원 추첨 이벤트 참여하기",
+      "url": "/million",
+      "icons": [
+        {
+          "src": "/images/100만원추첨기.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "// ✏️ 수정하세요": "친구초대 이벤트 바로가기 메뉴",
+      "name": "친구 초대",
+      "short_name": "친구초대", 
+      "description": "친구 5명 초대하고 5만원 받기",
+      "url": "/reward",
+      "icons": [
+        {
+          "src": "/images/친구초대이벤트.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "가격표",
+      "short_name": "가격표",
+      "description": "스카이차 렌탈 가격 확인하기",
+      "url": "/pricing",
+      "icons": [
+        {
+          "src": "/images/스카이차수정3.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "고객지원",
+      "short_name": "지원",
+      "description": "1877-9001 전화상담",
+      "url": "/support",
+      "icons": [
+        {
+          "src": "/images/대표번호전화(수정).PNG",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  
+  "prefer_related_applications": false,
+  "related_applications": [],
+  
+  "iarc_rating_id": "",
+  
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  
+  "screenshots": [
+    {
+      "src": "/images/어플화면_390x844.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "5프로스카이차 앱 메인 화면"
+    },
+    {
+      "src": "/images/100만원추첨기.png",
+      "sizes": "800x600",
+      "type": "image/png", 
+      "form_factor": "wide",
+      "label": "100만원 추첨 이벤트 화면"
+    }
+  ]
+} 

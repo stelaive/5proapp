@@ -10,6 +10,61 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import type { Metadata } from 'next'
+
+// ✏️ 수정하세요: 친구 초대 이벤트 페이지 SEO 설정
+export const metadata: Metadata = {
+  // ✏️ 수정하세요: 친구초대 페이지 제목 (구글 검색 결과에 나타남)
+  title: '친구 5명 초대하고 5만원 받기 - 친구초대 이벤트',
+  // ✏️ 수정하세요: 친구초대 페이지 설명 (구글 검색 결과 제목 아래 나타남)
+  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,강남스카이차.송파스카이차.서초스카이차.강북스카이차.성북스카이차,인천스카이차.수원.화성,용인.평택.안성.성남,경기도광주,부천,부평,일산,파주,고양.',
+  // ✏️ 수정하세요: 친구초대 관련 검색 키워드들
+  keywords: ['친구초대', '5만원', '이벤트', '추천', '보너스', '스카이차', '현금', '혜택', '바이럴', '공유'],
+  
+  openGraph: {
+    // ✏️ 수정하세요: 페이스북/카카오톡에서 공유될 때 보이는 제목
+    title: '친구 5명 초대하고 5만원 받기!',
+    // ✏️ 수정하세요: 페이스북/카카오톡에서 공유될 때 보이는 설명
+    description: '좋은 건 나누고 현금은 쌓이고! 친구초대 이벤트 참여하세요',
+    type: 'website',
+    // ✏️ 중요! 수정하세요: 실제 도메인 주소로 바꾸기
+    url: 'https://xn--5-w30fr74e.com/reward',
+    images: [
+      {
+        // ✏️ 수정하세요: 친구초대 이벤트 대표 이미지 경로
+        url: '/images/친구초대이벤트.png',
+        width: 1200,
+        height: 630,
+        // ✏️ 수정하세요: 이미지 설명
+        alt: '친구 초대 이벤트',
+      }
+    ],
+    locale: 'ko_KR',
+    siteName: '5프로돌려주는스카이차',
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    // ✏️ 수정하세요: 트위터에서 공유될 때 보이는 제목
+    title: '친구 5명 초대하고 5만원 받기!',
+    // ✏️ 수정하세요: 트위터에서 공유될 때 보이는 설명
+    description: '좋은 건 나누고 현금은 쌓이고! 친구초대 이벤트',
+    // ✏️ 수정하세요: 트위터용 이미지
+    images: ['/images/친구초대이벤트.png'],
+  },
+  
+  alternates: {
+    // ✏️ 중요! 수정하세요: 실제 도메인 주소로 바꾸기
+    canonical: 'https://xn--5-w30fr74e.com/reward',
+  },
+  
+  other: {
+    // 이벤트 관련 메타 정보
+    'referral-bonus': '50000 KRW',
+    'referral-count': '5',
+    'event-type': 'referral',
+  }
+}
 
 // Swiper 커스텀 스타일
 const swiperStyles = `

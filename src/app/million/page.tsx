@@ -6,6 +6,51 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 import { motion } from 'framer-motion'
+import type { Metadata } from 'next'
+
+// 메타데이터 추가 (이 페이지가 검색에서 잘 나오게!)
+export const metadata: Metadata = {
+  // ✏️ 수정하세요: 100만원 이벤트 페이지 제목
+  title: '매월 100만원 추첨 이벤트 - 스카이차 1건으로 100만원 도전!',
+  // ✏️ 수정하세요: 100만원 이벤트 페이지 설명
+  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,강남스카이차.송파스카이차.서초스카이차.강북스카이차.성북스카이차,인천스카이차.수원.화성,용인.평택.안성.성남,경기도광주,부천,부평,일산,파주,고양.',
+  // ✏️ 수정하세요: 100만원 이벤트 관련 검색 키워드들
+  keywords: ['100만원', '추첨', '이벤트', '스카이차', '렌탈', '당첨', '생방송', '현금', '매월', '500명'],
+  
+  openGraph: {
+    title: '매월 100만원 추첨 이벤트 - 500명 중 1명!',
+    description: '스카이차 1건으로 100만원 도전! 매월 1일 유튜브 생방송 추첨',
+    type: 'website',
+    url: 'https://xn--5-w30fr74e.com/million',
+    images: [
+      {
+        url: '/images/100만원추첨기.png',
+        width: 1200,
+        height: 630,
+        alt: '100만원 추첨 이벤트',
+      }
+    ],
+    locale: 'ko_KR',
+    siteName: '5프로돌려주는스카이차',
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    title: '매월 100만원 추첨 이벤트 - 스카이차 1건으로 도전!',
+    description: '500명 중 1명 확률로 매월 100만원! 지금 바로 참여하세요.',
+    images: ['/images/100만원추첨기.png'],
+  },
+  
+  alternates: {
+    canonical: 'https://xn--5-w30fr74e.com/million',
+  },
+  
+  other: {
+    'event-date': '2025-08-01',
+    'event-type': 'lottery',
+    'prize-amount': '1000000 KRW',
+  }
+}
 
 // 애니메이션 variants
 const fadeInUp = {

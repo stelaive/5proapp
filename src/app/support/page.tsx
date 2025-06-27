@@ -6,6 +6,41 @@ import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '자주 하는 질문 - 5프로돌려주는스카이차 고객센터',
+  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,강남스카이차.송파스카이차.서초스카이차.강북스카이차.성북스카이차,인천스카이차.수원.화성,용인.평택.안성.성남,경기도광주,부천,부평,일산,파주,고양.',
+  keywords: ['고객센터', 'FAQ', '자주하는질문', '스카이차', '5%페이백', '100만원추첨', '친구초대', '1877-9001', '고객지원'],
+  
+  openGraph: {
+    title: '자주 하는 질문 - 5프로돌려주는스카이차 고객센터',
+    description: '스카이차 이용 관련 궁금한 점들을 빠르게 해결하세요',
+    type: 'website',
+    url: 'https://xn--5-w30fr74e.com/support',
+    images: [
+      {
+        url: '/images/스로고1.png',
+        width: 1200,
+        height: 630,
+        alt: '5프로돌려주는스카이차 고객센터',
+      }
+    ],
+    locale: 'ko_KR',
+    siteName: '5프로돌려주는스카이차',
+  },
+  
+  twitter: {
+    card: 'summary_large_image',
+    title: '자주 하는 질문 - 5프로 고객센터',
+    description: '스카이차 이용 관련 궁금한 점 해결',
+    images: ['/images/스로고1.png'],
+  },
+  
+  alternates: {
+    canonical: 'https://xn--5-w30fr74e.com/support',
+  },
+};
 
 interface FAQItem {
   category: string;
@@ -20,7 +55,7 @@ const headerMenus = [
   { label: '앱 이용', key: 'app_usage', isActive: true },
   { label: '5%페이백', key: 'payback', isActive: false },
   { label: '100만원받기', key: 'million', isActive: false },
-  { label: '친구초대', key: 'friend', isActive: false },
+  { label: '친구초대', key: 'reward', isActive: false },
   { label: '일거리장터', key: 'marketplace', isActive: false },
   { label: '앱기능', key: 'features', isActive: false },
   { label: '고객센터', key: 'support', isActive: false },
@@ -40,7 +75,7 @@ const categoryMapping = {
   app_usage: '⚙️ 앱 기본 정보 및 이용 단가',
   payback: '💰 5% 페이백 시스템',
   million: '🥳 매월 100만원 추첨 이벤트',
-  friend: '🤝 친구 초대',
+  reward: '🤝 친구 초대',
   marketplace: '🛠️ 일거리 장터',
   features: '✨ 앱 주요 기능 활용법',
   support: '📞 고객센터 이용',
@@ -329,7 +364,7 @@ export default function SupportPage() {
           <div className="max-w-4xl mx-auto px-4">
             <div className="text-white text-center">
               <p className="text-lg mb-2">문제가 아직 해결되지 않거나 궁금한게 있으시면 직통전화로 연락주세요</p>
-              <p className="text-xl font-bold mb-1">5프로돌려드리는스카이차 고객센터</p>
+              <p className="text-xl font-bold mb-1">5프로돌려주는스카이차 고객센터</p>
               <a 
                 href="tel:18779001"
                 className="text-2xl font-bold hover:text-blue-200 transition-colors cursor-pointer inline-block"
