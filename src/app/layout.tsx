@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     'naver-site-verification': '4fc9b9362b72353bc8c2b24b198eaa923c817b92', // ✅ 네이버 웹마스터도구 인증 완료
     
     // 구글 검색 최적화  
-    'google-site-verification': '', // 👈 구글 서치 콘솔에서 발급받은 코드 입력
+    'google-site-verification': 'te3IEkTW_tAwD9_x-F3rFSRd-AmUforuP8PXyyhjvJI', // ✅ 구글 서치 콘솔 인증 완료
     
     // 카카오톡 공유 최적화
     'og:locale': 'ko_KR',
