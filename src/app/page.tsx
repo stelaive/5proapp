@@ -118,17 +118,31 @@ export default function Home() {
               <button 
                 onClick={() => scrollToSection('core-features')}
                 className="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                style={{ 
+                  color: '#ffffff !important',
+                  zIndex: 10,
+                  position: 'relative'
+                }}
               >
-                자세히 알아보기
+                <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>
+                  자세히 알아보기
+                </span>
               </button>
               <button 
                 onClick={handleAppDownload}
                 className="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
+                style={{ 
+                  color: '#ffffff !important',
+                  zIndex: 10,
+                  position: 'relative'
+                }}
               >
-                <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" style={{ color: '#ffffff !important' }}>
                   <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                 </svg>
-                앱 다운로드
+                <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>
+                  앱 다운로드
+                </span>
               </button>
             </motion.div>
           </motion.div>
@@ -379,8 +393,15 @@ export default function Home() {
             <button 
               onClick={handleAppDownload}
               className="bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transform hover:scale-105 transition-all"
+              style={{ 
+                color: '#ffffff !important',
+                zIndex: 10,
+                position: 'relative'
+              }}
             >
-              첫 번째 후기 주인공 되기
+              <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>
+                첫 번째 후기 주인공 되기
+              </span>
             </button>
           </motion.div>
         </div>
@@ -440,8 +461,17 @@ export default function Home() {
             <a 
               href="tel:18779001"
               className="inline-block bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transform hover:scale-105 transition-all"
+              style={{ 
+                color: '#ffffff !important',
+                textDecoration: 'none !important',
+                display: 'inline-block !important',
+                zIndex: 10,
+                position: 'relative'
+              }}
             >
-              지금 바로 전화하기
+              <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>
+                지금 바로 전화하기
+              </span>
             </a>
           </motion.div>
         </div>
