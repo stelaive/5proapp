@@ -5,6 +5,9 @@ Allow: /
 Sitemap: https://xn--5-w30fr74e.com/sitemap.xml
 Sitemap: https://xn--5-w30fr74e.com/sitemap
 
+# 다음 웹마스터도구 인증
+# DaumWebMasterTool:73c2a16dbb7123490b3b95a5794b367ad3a3b770799505ab91e4ffcdf769a401:RZel8WlFO02Iq5vV3kXCwg==
+
 # 크롤링 속도 조절 (1초에 1번)
 Crawl-delay: 1
 
