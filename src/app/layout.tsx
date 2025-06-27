@@ -101,7 +101,7 @@ export const metadata: Metadata = {
     'google-site-verification': 'te3IEkTW_tAwD9_x-F3rFSRd-AmUforuP8PXyyhjvJI', // ✅ 구글 서치 콘솔 인증 완료
     
     // 다음 검색 최적화
-    'daum-site-verification': '4c8f1d199ab2aecf13efa0b5970ad713f27c7f20462016903e7464eec04a75b8', // ✅ 다음 웹마스터도구 인증
+    'daum-site-verification': 'df9c78b2b3f9f757715352f6fbe9734b44ad99773f7f4d63e00418a12b8ef11a', // ✅ 다음 웹마스터도구 인증
     
     // 카카오톡 공유 최적화
     'og:locale': 'ko_KR',
