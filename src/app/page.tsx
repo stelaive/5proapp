@@ -427,13 +427,13 @@ export default function Home() {
             className="max-w-4xl mx-auto text-center"
             {...fadeInUp}
           >
-            <h2 className="text-3xl font-bold mb-8 font-jalnan">
+            <h2 className="text-3xl font-bold mb-8 font-jalnan text-white">
               어? 영상을 봐도 모르겠다구요? 갸우뚱❓
             </h2>
             <p className="text-xl font-bold text-red-500 mb-4">
-              괜찮아요! 그럴 땐 주저 말고 <span className="text-3xl">1877-9001</span>로 바로 전화 주세요! 📞
+              괜찮아요! 그럴 땐 주저 말고 <span className="text-3xl text-yellow-400">1877-9001</span>로 바로 전화 주세요! 📞
             </p>
-            <p className="text-lg mb-8">
+            <p className="text-lg mb-8 text-white">
               친절한 저희가 처음부터 끝까지! 시원~하게 도와드릴게요. 🤗<br />
               여러분의 즐거운 앱 생활, 저희가 책임지고 응원합니다! 파이팅! 💪
             </p>

@@ -128,11 +128,11 @@ export default function PricingPage() {
                 <tbody>
                   {pricingData.map((item, index) => (
                     <tr key={index}>
-                      <td className="font-bold" style={{ color: '#000 !important' }}>{item.equipment}</td>
-                      <td style={{ color: '#000 !important' }}>{formatPrice(item.halfDay)}</td>
-                      <td style={{ color: '#000 !important' }}>{formatPrice(item.fullDay)}</td>
-                      <td style={{ color: '#000 !important' }}>{formatPrice(item.additional)}</td>
-                      <td style={{ color: '#000 !important' }}>{formatPrice(item.monthly)}</td>
+                      <td className="font-bold" style={{ color: '#1a1a1a !important', fontWeight: '700 !important' }}>{item.equipment}</td>
+                      <td style={{ color: '#1a1a1a !important', fontWeight: '600 !important' }}>{formatPrice(item.halfDay)}</td>
+                      <td style={{ color: '#1a1a1a !important', fontWeight: '600 !important' }}>{formatPrice(item.fullDay)}</td>
+                      <td style={{ color: '#1a1a1a !important', fontWeight: '600 !important' }}>{formatPrice(item.additional)}</td>
+                      <td style={{ color: '#1a1a1a !important', fontWeight: '600 !important' }}>{formatPrice(item.monthly)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -298,18 +298,21 @@ export default function PricingPage() {
         
         /* 모든 표 텍스트 강제 색상 지정 */
         .pricing-table tbody td {
-          color: #000000 !important;
-          font-weight: 500;
+          color: #1a1a1a !important;
+          font-weight: 600;
+          text-shadow: none !important;
         }
         
         .pricing-table tbody td.font-bold {
-          color: #000000 !important;
+          color: #1a1a1a !important;
           font-weight: 700;
+          text-shadow: none !important;
         }
         
         .pricing-table thead th {
           color: #ffffff !important;
-          font-weight: 600;
+          font-weight: 700;
+          text-shadow: 1px 1px 2px rgba(0,0,0,0.7) !important;
         }
         
                 .pricing-table thead th * {
@@ -378,22 +381,28 @@ export default function PricingPage() {
         /* ======= 바디 ======= */
         .pricing-table tbody td {
           padding: 16px 12px;
-          font-size: 0.93rem;
-          color: #000000 !important;
+          font-size: 0.95rem;
+          color: #1a1a1a !important;
+          font-weight: 600 !important;
           border-right: 1px solid #e6eaf3;
           border-bottom: 1px solid #e6eaf3;
           background-color: #fff;
+          text-shadow: none !important;
         }
         .pricing-table tbody tr:nth-child(even) td {
-          background-color: var(--secondary-50);
-          color: #000000 !important;
+          background-color: #f8fafc;
+          color: #1a1a1a !important;
+          font-weight: 600 !important;
+          text-shadow: none !important;
         }
         .pricing-table tbody td:last-child {border-right: none;}
 
         /* ======= 호버 & 인터랙션 ======= */
         .pricing-table tbody tr:hover td {
-          background-color: rgba(48, 84, 196, 0.08);
-          color: #000000 !important;
+          background-color: rgba(249, 115, 22, 0.1);
+          color: #1a1a1a !important;
+          font-weight: 600 !important;
+          text-shadow: none !important;
           transition: background-color 0.25s ease;
         }
 
