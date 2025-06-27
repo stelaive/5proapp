@@ -244,11 +244,82 @@ export default function RootLayout({
               scroll-behavior: smooth;
             }
             
-            /* 전화번호 링크 스타일 */
+            /* 전화번호 링크 스타일 - 강제 가시성 보장 */
             a[href^="tel:"] {
-              color: #F97316;
-              text-decoration: none;
-              font-weight: bold;
+              color: #ffffff !important;
+              background-color: #F97316 !important;
+              text-decoration: none !important;
+              font-weight: bold !important;
+              padding: 8px 16px !important;
+              border-radius: 6px !important;
+              display: inline-block !important;
+              z-index: 999 !important;
+              position: relative !important;
+              text-shadow: none !important;
+              border: none !important;
+              outline: none !important;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+            }
+            
+            /* 전화번호 링크 호버 효과 */
+            a[href^="tel:"]:hover {
+              background-color: #ea580c !important;
+              color: #ffffff !important;
+              text-decoration: none !important;
+              transform: translateY(-1px) !important;
+              box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+            }
+            
+            /* 전화번호 링크 내부 텍스트 강제 스타일 */
+            a[href^="tel:"] span,
+            a[href^="tel:"] * {
+              color: #ffffff !important;
+              font-weight: bold !important;
+              text-shadow: none !important;
+              display: inline !important;
+            }
+            
+            /* 모든 상태에서 전화번호 링크 텍스트 보장 */
+            a[href^="tel:"]:visited,
+            a[href^="tel:"]:link,
+            a[href^="tel:"]:active,
+            a[href^="tel:"]:focus {
+              color: #ffffff !important;
+              text-decoration: none !important;
+            }
+            
+            /* CTA 버튼 전역 스타일 강화 */
+            .bg-orange-500,
+            button.bg-orange-500,
+            a.bg-orange-500 {
+              color: #ffffff !important;
+              background-color: #f97316 !important;
+              text-decoration: none !important;
+              z-index: 10 !important;
+              position: relative !important;
+            }
+            
+            .bg-orange-500 span,
+            button.bg-orange-500 span,
+            a.bg-orange-500 span {
+              color: #ffffff !important;
+              font-weight: bold !important;
+              text-shadow: none !important;
+              display: inline !important;
+            }
+            
+            /* 오렌지 버튼 호버 상태 */
+            .bg-orange-500:hover,
+            button.bg-orange-500:hover,
+            a.bg-orange-500:hover {
+              background-color: #ea580c !important;
+              color: #ffffff !important;
+            }
+            
+            .bg-orange-500:hover span,
+            button.bg-orange-500:hover span,
+            a.bg-orange-500:hover span {
+              color: #ffffff !important;
             }
           `
         }} />
