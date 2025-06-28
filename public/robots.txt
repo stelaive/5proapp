@@ -1,12 +1,24 @@
 # 다음 웹마스터도구 인증
 DaumWebMasterTool:eede9f91b4192228798b9b62714e601d161895bda451fae7ecd9b20ff91d7a4c:RZel8WlFO02Iq5vV3kXCwg==
 
+# 모든 검색엔진 로봇 허용
 User-agent: *
+Allow: /
+
+# 네이버 검색로봇 명시적 허용
+User-agent: Yeti
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+# 구글 검색로봇 허용
+User-agent: Googlebot
 Allow: /
 
 # 사이트맵 위치 알려주기
 Sitemap: https://xn--5-w30fr74e.com/sitemap.xml
-Sitemap: https://xn--5-w30fr74e.com/sitemap
+Sitemap: https://5프로.com/sitemap.xml
 
 # 크롤링 속도 조절 (1초에 1번)
 Crawl-delay: 1
