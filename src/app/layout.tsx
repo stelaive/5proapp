@@ -6,7 +6,7 @@ import './globals.css'
 // ============================================
 const SITE_INFO = {
   // 사이트 제목 (브라우저 탭에 나오는 제목)
-  title: '5프로돌려드리는스카이차 ',
+  title: '5프로.com',
   
   // 사이트 간단 설명 (검색결과에 나오는 설명)
   description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,수원,용인,화성,평택,성남,시흥,인천,부평,남동구,파주,일산,남양주,경기도광주스카이차',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   // 기본 제목과 설명
   title: {
     default: SITE_INFO.title,
-    template: '%s | 5프로돌려드리는스카이차' // 페이지별 제목 형식
+    template: '%s | 5프로.com' // 페이지별 제목 형식
   },
   description: SITE_INFO.description,
   keywords: SITE_INFO.keywords,
@@ -193,7 +193,7 @@ export default function RootLayout({
         {/* ============================================ */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="5프로스카이차" />
+        <meta name="apple-mobile-web-app-title" content="5프로.com" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#F97316" />
         
