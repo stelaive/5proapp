@@ -6,7 +6,7 @@ import './globals.css'
 // ============================================
 const SITE_INFO = {
   // 사이트 제목 (브라우저 탭에 나오는 제목)
-  title: '5프로.com',
+  title: '5프로돌려주는스카이차',
   
   // 사이트 간단 설명 (검색결과에 나오는 설명)
   description: '경기도 스카이차 대여 최저가! 1톤~5톤 스카이차 요금표, 수원·용인·화성·평택 당일 출동, 5% 현금 페이백',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   // 기본 제목과 설명
   title: {
     default: SITE_INFO.title,
-    template: '%s | 5프로.com' // 페이지별 제목 형식
+    template: '%s | 5프로돌려주는스카이차' // 페이지별 제목 형식
   },
   description: SITE_INFO.description,
   keywords: SITE_INFO.keywords,
@@ -193,7 +193,7 @@ export default function RootLayout({
         {/* ============================================ */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="5프로.com" />
+        <meta name="apple-mobile-web-app-title" content="5프로돌려주는스카이차" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#F97316" />
         
