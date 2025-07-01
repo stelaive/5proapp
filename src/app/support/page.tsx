@@ -329,7 +329,7 @@ export default function SupportPage() {
           <div className="max-w-4xl mx-auto px-4">
             <div className="text-white text-center">
               <p className="text-lg mb-2">문제가 아직 해결되지 않거나 궁금한게 있으시면 직통전화로 연락주세요</p>
-              <p className="text-xl font-bold mb-1">5프로돌려드리는스카이차 고객센터</p>
+              <p className="text-xl font-bold mb-1">5프로돌려주는스카이차 고객센터</p>
               <a 
                 href="tel:18779001"
                 className="text-2xl font-bold hover:text-blue-200 transition-colors cursor-pointer inline-block"

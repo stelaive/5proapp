@@ -458,7 +458,7 @@ export default function WhyHere() {
                     5
                   </div>
                   <p className="text-2xl sm:text-3xl font-black text-gray-800 mb-6">
-                    프로돌려드리는스카이차에<br className="sm:hidden" />오신 것을 환영합니다.
+                    프로돌려주는스카이차에<br className="sm:hidden" />오신 것을 환영합니다.
                   </p>
                   <p className="text-lg sm:text-xl text-gray-700 font-medium" style={{ lineHeight: '1.7' }}>
                     오늘도 안전한 작업을 진심으로 응원합니다!

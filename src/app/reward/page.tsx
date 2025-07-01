@@ -159,7 +159,7 @@ export default function FriendInvitePage() {
   const shareMessage = () => {
     const message = `💥 친구 부르면 현금 5만원! 💥
 
-사장님! 5%돌려드리는스카이차 써보세요!
+사장님! 5%돌려주는스카이차 써보세요!
 친구 5명이 각각 1건씩만 작업하면 
 사장님 통장에 현금 5만원 입금! 💰
 
@@ -513,7 +513,7 @@ https://play.google.com/store`
                     </motion.div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-6 text-red-600 leading-tight">앱 설치하고 회원가입!</h3>
                     <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                      5%돌려드리는스카이차 앱을 설치하고 회원가입을 완료하세요. 앱 내 '친구 초대' 메뉴에서 내 전용 초대 코드를 확인할 수 있어요!
+                      5%돌려주는스카이차 앱을 설치하고 회원가입을 완료하세요. 앱 내 '친구 초대' 메뉴에서 내 전용 초대 코드를 확인할 수 있어요!
                     </p>
                   </motion.div>
                 </SwiperSlide>
@@ -1048,7 +1048,7 @@ https://play.google.com/store`
                 <ul className="space-y-6 text-lg md:text-xl">
                   <li className="flex items-start">
                     <span className="text-green-500 mr-4 text-2xl">✅</span>
-                    <span className="text-gray-700 leading-relaxed">믿음직한 5%돌려드리는스카이차 소개</span>
+                    <span className="text-gray-700 leading-relaxed">믿음직한 5%돌려주는스카이차 소개</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-4 text-2xl">✅</span>

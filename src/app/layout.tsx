@@ -18,7 +18,7 @@ const SITE_INFO = {
   ogImage: '/images/5프로.png', // ✅ 새로운 대표 이미지로 설정 완료!
   
   // 회사/서비스 정보
-  businessName: '5프로돌려드리는스카이차',
+  businessName: '5프로돌려주는스카이차',
   businessPhone: '1877-9001',
   businessEmail: 'man7866@naver.com',
   
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
         url: SITE_INFO.ogImage,
         width: 1200,
         height: 630,
-        alt: '5프로돌려드리는스카이차 서비스 소개',
+        alt: '5프로돌려주는스카이차 서비스 소개',
       }
     ],
   },
@@ -109,8 +109,8 @@ export const metadata: Metadata = {
     'og:article:author': SITE_INFO.businessName,
     
     // 모바일 앱 연결 (나중에 앱 출시시)
-    'al:ios:app_name': '5프로돌려드리는스카이차',
-    'al:android:app_name': '5프로돌려드리는스카이차',
+    'al:ios:app_name': '5프로돌려주는스카이차',
+    'al:android:app_name': '5프로돌려주는스카이차',
     
     // 전화번호 자동 링크 방지 (원하지 않을 때)
     'format-detection': 'telephone=no',

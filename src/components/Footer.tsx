@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-2xl font-bold mb-6 main-heading text-sky-orange-500">
-                5프로돌려드리는스카이차
+                5프로돌려주는스카이차
               </h3>
             </div>
             <div>
@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center">
             <p className="text-gray-400">
-              &copy; 2024 5프로돌려드리는스카이차. All rights reserved.
+              &copy; 2024 5프로돌려주는스카이차. All rights reserved.
             </p>
           </div>
         </div>
