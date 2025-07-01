@@ -20,6 +20,9 @@ Allow: /
 Sitemap: https://xn--5-w30fr74e.com/sitemap.xml
 Sitemap: https://5프로.com/sitemap.xml
 
+# RSS 피드 위치
+# RSS: https://xn--5-w30fr74e.com/rss.xml
+
 # 크롤링 속도 조절 (1초에 1번)
 Crawl-delay: 1
 
