@@ -357,6 +357,7 @@ export default function MillionPage() {
 
               <div className="flex justify-center">
                 <motion.button 
+                  onClick={handleAppDownload}
                   className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300"
                   variants={scaleIn}
                   whileHover={{ scale: 1.05 }}
@@ -682,6 +683,7 @@ export default function MillionPage() {
                 </div>
               </div>
               <motion.button
+                onClick={handleAppDownload}
                 className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

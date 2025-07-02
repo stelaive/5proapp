@@ -6,6 +6,22 @@ import Footer from '@/components/Footer'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function WhyHere() {
+  // 앱 다운로드 함수
+  const handleAppDownload = () => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    
+    if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod')) {
+      // iOS 기기 - 앱스토어로 이동
+      window.open('https://apps.apple.com/kr/app/5-%EB%8F%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%B0%A8/id6747275589', '_blank');
+    } else if (userAgent.includes('android')) {
+      // Android 기기 - 플레이스토어로 이동
+      window.open('https://play.google.com/store/apps/details?id=your.package.name', '_blank');
+    } else {
+      // 데스크톱이나 기타 기기 - 안드로이드 스토어로 기본 이동
+      window.open('https://play.google.com/store/apps/details?id=your.package.name', '_blank');
+    }
+  };
+
   return (
     <main style={{ color: '#374151' }}>
       <Navigation currentPage="whyhere" />
@@ -489,23 +505,24 @@ export default function WhyHere() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <motion.button 
-                  className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-12 py-6 rounded-full text-xl font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl border-2 border-white"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{ 
-                    boxShadow: [
-                      "0 10px 30px rgba(249, 115, 22, 0.4)",
-                      "0 15px 40px rgba(249, 115, 22, 0.5)",
-                      "0 10px 30px rgba(249, 115, 22, 0.4)"
-                    ]
-                  }}
-                  transition={{ 
-                    boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
-                  }}
-                >
-                  🚀 지금 바로 시작하기
-                </motion.button>
+                              <motion.button 
+                onClick={handleAppDownload}
+                className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-12 py-6 rounded-full text-xl font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl border-2 border-white"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ 
+                  boxShadow: [
+                    "0 10px 30px rgba(249, 115, 22, 0.4)",
+                    "0 15px 40px rgba(249, 115, 22, 0.5)",
+                    "0 10px 30px rgba(249, 115, 22, 0.4)"
+                  ]
+                }}
+                transition={{ 
+                  boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                }}
+              >
+                🚀 지금 바로 시작하기
+              </motion.button>
               </motion.div>
             </div>
           </div>
