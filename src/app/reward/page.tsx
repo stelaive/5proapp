@@ -608,13 +608,13 @@ https://play.google.com/store`
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="aspect-square bg-gray-100 rounded-xl mb-6 overflow-hidden">
+                  <div className="aspect-[9/16] bg-gray-100 rounded-xl mb-6 overflow-hidden">
                     <Image
                       src="/images/친구초대.gif"
                       alt="카카오톡으로 친구초대하는 과정"
-                      width={300}
-                      height={300}
-                      className="w-full h-full object-cover"
+                      width={270}
+                      height={480}
+                      className="w-full h-full object-contain"
                       unoptimized
                     />
                   </div>
@@ -634,13 +634,13 @@ https://play.google.com/store`
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="aspect-square bg-gray-100 rounded-xl mb-6 overflow-hidden">
+                  <div className="aspect-[9/16] bg-gray-100 rounded-xl mb-6 overflow-hidden">
                     <Image
-                      src="/images/초대내역확인.gif"
+                      src="/images/초대내역.gif"
                       alt="실시간 초대 현황 확인하는 화면"
-                      width={300}
-                      height={300}
-                      className="w-full h-full object-cover"
+                      width={270}
+                      height={480}
+                      className="w-full h-full object-contain"
                       unoptimized
                     />
                   </div>
@@ -660,13 +660,13 @@ https://play.google.com/store`
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="aspect-square bg-gray-100 rounded-xl mb-6 overflow-hidden">
+                  <div className="aspect-[9/16] bg-gray-100 rounded-xl mb-6 overflow-hidden">
                     <Image
                       src="/images/출금신청.gif"
                       alt="출금 신청하는 화면"
-                      width={300}
-                      height={300}
-                      className="w-full h-full object-cover"
+                      width={270}
+                      height={480}
+                      className="w-full h-full object-contain"
                       unoptimized
                     />
                   </div>
