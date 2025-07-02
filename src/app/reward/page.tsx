@@ -608,12 +608,15 @@ https://play.google.com/store`
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl mb-6 flex items-center justify-center">
-                    {/* 실제 GIF가 들어갈 자리 */}
-                    <div className="text-white text-center">
-                      <div className="text-4xl mb-2">💬</div>
-                      <p className="text-sm font-bold">카카오톡 공유 GIF</p>
-                    </div>
+                  <div className="aspect-square bg-gray-100 rounded-xl mb-6 overflow-hidden">
+                    <Image
+                      src="/images/친구초대.gif"
+                      alt="카카오톡으로 친구초대하는 과정"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                      unoptimized
+                    />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-gray-800">카카오톡으로 쉽게 공유</h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -631,12 +634,15 @@ https://play.google.com/store`
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="aspect-square bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl mb-6 flex items-center justify-center">
-                    {/* 실제 GIF가 들어갈 자리 */}
-                    <div className="text-white text-center">
-                      <div className="text-4xl mb-2">📊</div>
-                      <p className="text-sm font-bold">대시보드 GIF</p>
-                    </div>
+                  <div className="aspect-square bg-gray-100 rounded-xl mb-6 overflow-hidden">
+                    <Image
+                      src="/images/초대내역확인.gif"
+                      alt="실시간 초대 현황 확인하는 화면"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                      unoptimized
+                    />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-gray-800">실시간 초대 현황 확인</h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -654,12 +660,15 @@ https://play.google.com/store`
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="aspect-square bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl mb-6 flex items-center justify-center">
-                    {/* 실제 GIF가 들어갈 자리 */}
-                    <div className="text-white text-center">
-                      <div className="text-4xl mb-2">💳</div>
-                      <p className="text-sm font-bold">출금 신청 GIF</p>
-                    </div>
+                  <div className="aspect-square bg-gray-100 rounded-xl mb-6 overflow-hidden">
+                    <Image
+                      src="/images/출금신청.gif"
+                      alt="출금 신청하는 화면"
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover"
+                      unoptimized
+                    />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-gray-800">간편한 출금 신청</h3>
                   <p className="text-gray-600 leading-relaxed">
