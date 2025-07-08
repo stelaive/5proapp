@@ -155,7 +155,7 @@ export default function FriendInvitePage() {
   }
 
   const openPlayStore = () => {
-    window.open('https://play.google.com/store', '_blank')
+    window.open('https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaignid=web_share', '_blank')
     setShowStoreModal(false)
   }
 
@@ -172,7 +172,7 @@ export default function FriendInvitePage() {
 사장님 통장에 현금 5만원 입금! 💰
 
 지금 바로 앱 다운로드하고 시작하세요! 👇
-https://play.google.com/store`
+https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaignid=web_share`
     
     if (navigator.share) {
       navigator.share({
