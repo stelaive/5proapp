@@ -41,6 +41,15 @@ body {
       rgb(var(--background-start-rgb));
 }
 
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-white text-gray-800 antialiased;
+  }
+}
+
 @layer utilities {
     .text-balance {
         text-wrap: balance;
@@ -143,8 +152,8 @@ nav[style*="position: fixed"] {
         pointer-events: auto !important;
     }
     
-    /* 모바일 사이드바 개선 */
-    div[class*="fixed"][class*="right-0"][class*="h-full"] {
+    /* 모바일 사이드바 개선 - 선택자를 더 구체적으로 변경 */
+    nav > div > div[class*="fixed"][class*="right-0"][class*="h-full"] {
         max-width: min(320px, 85vw) !important;
         width: 100% !important;
         box-shadow: -10px 0 25px rgba(0, 0, 0, 0.25) !important;
@@ -306,6 +315,21 @@ nav[style*="position: fixed"] {
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-down {
+    animation: slideDown 0.3s ease-out;
 }
 
 /* 모바일 메뉴 개선됨 - 컴포넌트에서 직접 처리 */
@@ -555,3 +579,19 @@ nav.nav-scrolled #menuBtn {
         text-size-adjust: 100% !important;
     }
 } 
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200;
+  }
+}

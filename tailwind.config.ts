@@ -8,45 +8,47 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      screens: {
-        'xs': '475px', // 작은 모바일 디바이스용
-      },
       fontFamily: {
-        'jalnan': ['Jalnan', 'sans-serif'],
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        sans: ['Pretendard', 'sans-serif'],
+        jalnan: ['Jalnan2', 'sans-serif'],
       },
       colors: {
         primary: {
-          50: '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#f97316', // 메인 오렌지
-          600: '#ea580c',
-          700: '#c2410c',
-          800: '#9a3412',
-          900: '#7c2d12',
-        }
+          DEFAULT: '#FF6A00', // 5프로 오렌지
+          '50': '#FFF3E0', '100': '#FFE0B2', '200': '#FFCC80', '300': '#FFB74D',
+          '400': '#FFA726', '500': '#FF9800', '600': '#FB8C00', '700': '#F57C00',
+          '800': '#EF6C00', '900': '#E65100',
+        },
+        secondary: {
+          DEFAULT: '#004CFF', // 신뢰 블루
+          '50': '#E7EEFF', '100': '#C0D3FF', '200': '#98B7FF', '300': '#719CFF',
+          '400': '#4A80FF', '500': '#2364FF', '600': '#004CFF', '700': '#003FE6',
+          '800': '#0032BF', '900': '#002599',
+        },
+        gray: {
+          '50': '#F9FAFB', '100': '#F3F4F6', '200': '#E5E7EB', '300': '#D1D5DB',
+          '400': '#9CA3AF', '500': '#6B7280', '600': '#4B5563', '700': '#374151',
+          '800': '#1F2937', '900': '#111827',
+        },
+        gold: '#FFBA00', // 골드 옐로우 색상 추가
       },
-      animation: {
-        'fade-in-up': 'fadeInUp 0.6s ease-out',
-        'slide-in-right': 'slideInRight 0.6s ease-out',
+      borderRadius: {
+        '2xl': '1rem', // 16px
+        '3xl': '1.5rem', // 24px
+      },
+      spacing: {
+        '2': '0.5rem', '4': '1rem', '8': '2rem', '16': '4rem', '24': '6rem', 
+        '32': '8rem', '48': '12rem', '64': '16rem', '96': '24rem'
       },
       keyframes: {
-        fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        slideIn: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(0)' },
         },
-        slideInRight: {
-          '0%': { opacity: '0', transform: 'translateX(30px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        }
-      }
+      },
+      animation: {
+        slideIn: 'slideIn 0.5s ease-out forwards',
+      },
     },
   },
   plugins: [],

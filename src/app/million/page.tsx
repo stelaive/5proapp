@@ -65,7 +65,7 @@ export default function MillionPage() {
 
   // 타이머 계산 함수
   const calculateTimeLeft = () => {
-    const targetDate = new Date('2025-08-01T20:00:00+09:00'); // 한국 시간 2025년 8월 1일 오후 8시
+    const targetDate = new Date('2025-08-31T20:00:00+09:00'); // 한국 시간 2025년 8월 31일 오후 8시
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
     
@@ -298,7 +298,7 @@ export default function MillionPage() {
                 className="bg-gradient-to-r from-red-600 to-orange-500 p-6 rounded-xl mb-8"
                 variants={bounceIn}
               >
-                <h3 className="text-white text-xl font-bold mb-4">8월 1일 첫 추첨까지</h3>
+                <h3 className="text-white text-xl font-bold mb-4">8월 31일 첫 추첨까지</h3>
                               {!isEventStarted ? (
                 <motion.div 
                   className="grid grid-cols-4 gap-4 text-center"

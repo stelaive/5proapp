@@ -1,8 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { LOCATIONS_DATA } from '@/lib/locationsData'
+import { ChevronDownIcon } from './icons/ChevronDownIcon';
 
 interface NavigationProps {
   currentPage?: string
@@ -14,6 +16,10 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const [isIOS, setIsIOS] = useState(false)
+  const [locationMenuOpen, setLocationMenuOpen] = useState(false);
+  const [mobileLocationMenuOpen, setMobileLocationMenuOpen] = useState(false);
+  const locationMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
 
   useEffect(() => {
     // iOS 감지
@@ -96,8 +102,22 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     }
   }
 
+  const handleLocationMenuEnter = () => {
+    if (locationMenuTimeoutRef.current) {
+      clearTimeout(locationMenuTimeoutRef.current);
+    }
+    setLocationMenuOpen(true);
+  };
+
+  const handleLocationMenuLeave = () => {
+    locationMenuTimeoutRef.current = setTimeout(() => {
+      setLocationMenuOpen(false);
+    }, 200);
+  };
+
   const closeMenu = () => {
     setIsMenuOpen(false)
+    setMobileLocationMenuOpen(false);
     
     // iOS Safari용 바디 스크롤 복원 - 더 강력하게
     const scrollY = document.body.getAttribute('data-scroll-y')
@@ -132,6 +152,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
   const navItems = [
     { href: '/', label: '홈', key: 'home' },
     { href: '/whyhere', label: '여긴뭐야?', key: 'whyhere' },
+    // '전국 스카이차 찾기'는 별도 처리
     { href: '/pricing', label: '스카이차가격표', key: 'pricing' },
     { href: '/million', label: '100만원받기', key: 'million' },
     { href: '/reward', label: '친구초대', key: 'reward' },
@@ -139,6 +160,15 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     { href: '/marketing', label: '업종별마케팅', key: 'marketing' },
     { href: '/support', label: '고객센터', key: 'support' },
   ]
+
+  const navLinkClasses = (key: string) => 
+    `font-medium transition-colors duration-300 hover:text-orange-500 whitespace-nowrap ${
+      currentPage === key 
+        ? 'text-orange-500' 
+        : isScrolled || isDarkMode
+          ? 'text-gray-700' 
+          : 'text-white'
+    }`;
 
   return (
     <>
@@ -160,36 +190,68 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       >
         <div className="w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           {/* 로고와 타이틀 */}
-          <Link href="/" className="flex items-center flex-shrink-0">
+          <a href="https://5프로.com" target="_blank" rel="noopener noreferrer" className="flex items-center flex-shrink-0 group">
             <Image
               src="/images/스로고1.png"
               alt="스카이차 로고"
               width={32}
               height={32}
-              className="mr-2 flex-shrink-0"
+              className="mr-2 flex-shrink-0 transition-transform duration-200 group-hover:scale-105"
             />
-            <h1 className={`font-bold transition-colors duration-300 whitespace-nowrap ${
+            <h1 className={`font-bold transition-colors duration-300 whitespace-nowrap group-hover:opacity-80 ${
               isScrolled || isDarkMode 
                 ? 'text-gray-900' 
                 : 'text-white'
             } text-lg sm:text-xl`}>
               5프로돌려주는스카이차
             </h1>
-          </Link>
+          </a>
           
           {/* 데스크톱 메뉴 */}
-          <div className="hidden md:flex space-x-6">
-            {navItems.map((item) => (
+          <div className="hidden md:flex items-center space-x-6">
+            <Link href="/" className={navLinkClasses('home')}>홈</Link>
+            <Link href="/whyhere" className={navLinkClasses('whyhere')}>여긴뭐야?</Link>
+            
+            {/* 전국 스카이차 찾기 드롭다운 */}
+            <div 
+              className="relative"
+              onMouseEnter={handleLocationMenuEnter}
+              onMouseLeave={handleLocationMenuLeave}
+            >
+              <button
+                type="button"
+                className={`${navLinkClasses('locations')} flex items-center`}
+                aria-haspopup="true"
+                aria-expanded={locationMenuOpen}
+              >
+                전국 스카이차 찾기
+                <ChevronDownIcon className={`ml-1 w-4 h-4 transition-transform duration-200 ${locationMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              <div 
+                className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white rounded-lg shadow-xl overflow-hidden z-50 transition-opacity duration-300 ${locationMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+              >
+                <ul className="py-1">
+                  {LOCATIONS_DATA.map((location) => (
+                    <li key={location.id}>
+                      <Link 
+                        href={`/locations/${location.slug}`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-100 hover:text-orange-600 transition-colors duration-150"
+                        onClick={() => setLocationMenuOpen(false)}
+                      >
+                        {location.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {navItems.slice(2).map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
-                className={`font-medium transition-colors duration-300 hover:text-orange-500 whitespace-nowrap ${
-                  currentPage === item.key 
-                    ? 'text-orange-500' 
-                    : isScrolled || isDarkMode
-                      ? 'text-gray-700' 
-                      : 'text-white'
-                }`}
+                className={navLinkClasses(item.key)}
               >
                 {item.label}
               </Link>
@@ -214,7 +276,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
                 justifyContent: 'center'
               }}
             >
-              <div className="w-6 h-6 relative">
+              <div aria-hidden="true" className="w-6 h-6 flex flex-col justify-around">
                 <span className={`absolute block w-6 h-0.5 transition-all duration-300 ${
                   isScrolled || isDarkMode 
                     ? 'bg-gray-900' 
@@ -243,107 +305,52 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       </nav>
 
       {/* 모바일 메뉴 오버레이 */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-[999998] md:hidden"
-          onClick={closeMenu}
-          style={{ zIndex: 999998 }}
-        />
-      )}
+      <div
+        className={`fixed inset-0 bg-black/60 z-[999998] md:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+        onClick={closeMenu}
+        aria-hidden={!isMenuOpen}
+      />
+      <div
+        className={`fixed top-0 right-0 h-full w-72 max-w-[80vw] bg-white shadow-2xl p-6 overflow-y-auto z-[999999] md:hidden transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+      >
+        <div className="flex flex-col space-y-4">
+          {navItems.slice(0, 2).map((item) => (
+              <Link key={item.key} href={item.href} onClick={closeMenu} className="text-gray-800 hover:text-orange-500 font-semibold py-2 text-lg">{item.label}</Link>
+          ))}
 
-      {/* 모바일 메뉴 - iOS Safari 전용 처리 */}
-      {isMenuOpen && (
-        <div
-          className="md:hidden"
-          style={{ 
-            position: 'fixed',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            width: isIOS ? '320px' : 'min(320px, 85vw)',
-            maxWidth: '85vw',
-            height: '100vh',
-            backgroundColor: '#ffffff',
-            zIndex: 999999,
-            display: 'block',
-            visibility: 'visible',
-            opacity: 1,
-            WebkitOverflowScrolling: 'touch',
-            overflowY: 'auto',
-            overflowX: 'hidden',
-            paddingTop: isIOS ? 'max(env(safe-area-inset-top), 20px)' : '20px',
-            paddingBottom: isIOS ? 'max(env(safe-area-inset-bottom), 20px)' : '20px',
-            paddingLeft: '0',
-            paddingRight: isIOS ? 'max(env(safe-area-inset-right), 0px)' : '0',
-            touchAction: 'pan-y',
-            userSelect: 'none',
-            WebkitUserSelect: 'none',
-            WebkitTouchCallout: 'none',
-            boxShadow: '-4px 0 20px rgba(0, 0, 0, 0.15)',
-            borderLeft: '1px solid #e5e7eb',
-            WebkitBackfaceVisibility: 'hidden',
-            backfaceVisibility: 'hidden',
-            WebkitPerspective: 1000,
-            perspective: 1000,
-            WebkitTransform: 'translateZ(0)',
-            willChange: 'transform'
-          }}
-          onTouchStart={(e) => e.stopPropagation()}
-          onTouchMove={(e) => e.stopPropagation()}
-        >
-        {/* 닫기 버튼 추가 */}
-        <div className="absolute top-4 right-4 z-[1000000]">
-          <button
-            onClick={closeMenu}
-            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-full transition-colors"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        <div className="pt-16 px-6 h-full overflow-y-auto">
-          <div className="space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.key}
-                href={item.href}
-                onClick={closeMenu}
-                className={`block py-4 px-4 text-lg font-medium rounded-lg transition-all duration-200 ${
-                  currentPage === item.key 
-                    ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' 
-                    : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-          
-          {/* 앱 다운로드 버튼 추가 */}
-          <div className="mt-8 p-4 bg-orange-50 rounded-lg border-2 border-orange-200">
-            <h3 className="text-lg font-bold text-orange-800 mb-2">앱 다운로드</h3>
-            <p className="text-sm text-orange-600 mb-4">모바일 앱으로 더 편리하게 이용하세요</p>
-            <button
-              onClick={() => {
-                closeMenu();
-                // 앱 다운로드 로직
-                const userAgent = navigator.userAgent.toLowerCase();
-                if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod')) {
-                  window.open('https://apps.apple.com/kr/app/5-%EB%8F%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%B0%A8/id6747275589', '_blank');
-                } else {
-                  window.open('https://play.google.com/store/apps/details?id=your.package.name', '_blank');
-                }
-              }}
-              className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-orange-600 transition-colors"
+          {/* 모바일 전국 스카이차 찾기 아코디언 */}
+          <div>
+            <button 
+              onClick={() => setMobileLocationMenuOpen(!mobileLocationMenuOpen)}
+              className="w-full flex justify-between items-center text-gray-800 hover:text-orange-500 font-semibold py-2 text-lg"
             >
-              📱 앱 다운로드
+              <span>전국 스카이차 찾기</span>
+              <ChevronDownIcon className={`w-5 h-5 transition-transform duration-200 ${mobileLocationMenuOpen ? 'rotate-180' : ''}`} />
             </button>
+            {mobileLocationMenuOpen && (
+              <div className="pl-4 mt-2 flex flex-col space-y-2 border-l-2 border-orange-200">
+                {LOCATIONS_DATA.map((location) => (
+                  <Link 
+                    key={location.id} 
+                    href={`/locations/${location.slug}`} 
+                    onClick={closeMenu}
+                    className="text-gray-600 hover:text-orange-500 py-1 pl-2"
+                  >
+                    {location.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
+
+          {navItems.slice(2).map((item) => (
+            <Link key={item.key} href={item.href} onClick={closeMenu} className="text-gray-800 hover:text-orange-500 font-semibold py-2 text-lg">{item.label}</Link>
+          ))}
         </div>
       </div>
-      )}
     </>
   )
 } 
