@@ -15,7 +15,7 @@ const SITE_INFO = {
   siteUrl: 'https://xn--5-w30fr74e.com', // ✅ 실제 도메인 설정 완료!
   
   // 대표 이미지 (SNS 공유시 나타나는 이미지)
-  ogImage: '/images/5프로.png', // ✅ 새로운 대표 이미지로 설정 완료!
+  ogImage: '/images/스로고1.png', // ✅ 새로운 로고 이미지로 업데이트!
   
   // 회사/서비스 정보
   businessName: '5프로돌려주는스카이차',
@@ -76,10 +76,10 @@ export const metadata: Metadata = {
     description: SITE_INFO.description,
     images: [
       {
-        url: SITE_INFO.ogImage,
+        url: `${SITE_INFO.siteUrl}${SITE_INFO.ogImage}`,
         width: 1200,
         height: 630,
-        alt: '5프로돌려주는스카이차 서비스 소개',
+        alt: '5프로돌려주는스카이차 - 5% 현금 페이백과 100만원 추첨 이벤트',
       }
     ],
   },
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: SITE_INFO.title,
     description: SITE_INFO.description,
-    images: [SITE_INFO.ogImage],
+    images: [`${SITE_INFO.siteUrl}${SITE_INFO.ogImage}`],
   },
   
   // 추가 메타 태그들
