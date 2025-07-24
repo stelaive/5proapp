@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: '100만원 현금 추첨 이벤트 | 5프로돌려주는스카이차',
@@ -23,6 +24,9 @@ export const metadata: Metadata = {
     description: '가장 저렴한 스카이차 찾았다! 1건 작업시 100만원 현금 추첨 자동 참여 + 5% 페이백까지!',
     images: ['/images/5프로.png'],
   },
+  alternates: {
+    canonical: 'https://5프로.com/million',
+  },
 }
 
 export default function MillionLayout({
@@ -30,8 +34,31 @@ export default function MillionLayout({
 }: {
   children: React.ReactNode
 }) {
+  const eventJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: '100만원 현금 추첨 이벤트',
+    startDate: '2025-08-31T20:00:00+09:00',
+    eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+    location: {
+      '@type': 'VirtualLocation',
+      url: 'https://5프로.com/million',
+    },
+    description: '스카이차 작업 1건 완료 시 자동 응모! 5% 페이백과 함께 매달 100만원 당첨의 행운을 잡아보세요.',
+    organizer: {
+      '@type': 'Organization',
+      name: '5프로돌려주는스카이차',
+      url: 'https://5프로.com',
+    },
+  };
   return (
     <>
+      {/* Event 구조화 데이터 */}
+      <Script
+        id="ld-json-event"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
       {children}
     </>
   )
