@@ -21,11 +21,4 @@ Sitemap: https://xn--5-w30fr74e.com/sitemap.xml
 Sitemap: https://5프로.com/sitemap.xml
 
 # RSS 피드 위치
-# RSS: https://xn--5-w30fr74e.com/rss.xml
-
-# 크롤링 속도 조절 (1초에 1번)
-Crawl-delay: 1
-
-# 특정 파일/폴더 제외 (필요시)
-# Disallow: /admin/
-# Disallow: /private/ 
+# RSS: https://xn--5-w30fr74e.com/rss.xml 
