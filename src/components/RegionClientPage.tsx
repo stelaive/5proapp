@@ -97,6 +97,8 @@ export default function RegionClientPage({ location }: RegionClientPageProps) {
                         href = '/locations/anyang';
                       } else if (city.slug === 'gunpo') {
                         href = '/locations/gunpo';
+                      } else if (city.slug === 'suwon') {
+                        href = '/locations/suwon';
                       } else {
                         href = `/locations/${location.slug}/${city.slug}`;
                       }
@@ -125,6 +127,8 @@ export default function RegionClientPage({ location }: RegionClientPageProps) {
                   href = '/locations/anyang';
                 } else if (city.slug === 'gunpo') {
                   href = '/locations/gunpo';
+                } else if (city.slug === 'suwon') {
+                  href = '/locations/suwon';
                 } else {
                   href = `/locations/${location.slug}/${city.slug}`;
                 }

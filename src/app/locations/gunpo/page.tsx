@@ -4,12 +4,15 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import { CheckCircle, Zap, Gift, Clock } from 'lucide-react'
+import { motion } from 'framer-motion'
+import Footer from '@/components/Footer'
 
 // 컴포넌트 동적 임포트
 const Hero = dynamic(() => import('@/components/common/Hero'))
 const Benefits = dynamic(() => import('@/components/common/BenefitCards'))
 const VehicleSelector = dynamic(() => import('@/components/gunpo/VehicleSelector'))
 const ExpertProfile = dynamic(() => import('@/components/common/ExpertProfile'))
+
 const PriceTable = dynamic(() => import('@/components/common/PriceTable'))
 const Gallery = dynamic(() => import('@/components/common/Gallery'))
 const Testimonials = dynamic(() => import('@/components/common/Testimonials'))

@@ -114,7 +114,7 @@ export default function MillionPage() {
     {
       image: "/images/당첨 확인.PNG",
       title: "4. 당첨 알림",
-      description: "매월 1일 당첨자 발표",
+      description: "매월 말일 당첨자 발표",
       alt: "당첨 알림"
     }
   ]
@@ -274,7 +274,7 @@ export default function MillionPage() {
                 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white font-jalnan"
                 variants={fadeInUp}
               >
-                1일마다 100만원,<br />
+                말일마다 100만원,<br />
                 5%는 기본! 🎰
               </motion.h1>
               <motion.div 
@@ -290,7 +290,7 @@ export default function MillionPage() {
                 variants={fadeInUp}
               >
                 오더 1건만 넘기면 500명 중 1명 확률 그대로<br />
-                매달 1일, 행운의 주인공이 되어보세요!
+                매달 말일, 행운의 주인공이 되어보세요!
               </motion.p>
               
               {/* D-Day 카운트다운 */}
@@ -431,7 +431,7 @@ export default function MillionPage() {
                     <span className="text-3xl text-white">🎰</span>
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                    매달 1일 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">100만원</span> 추첨
+                    매달 말일 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">100만원</span> 추첨
                   </h3>
                   <p className="text-gray-600">
                     500명 중 1명 확률<br />
@@ -859,7 +859,7 @@ export default function MillionPage() {
                   🔒 공정한 추첨을 약속합니다
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  매달 1일 오후 7시, 유튜브 생방송을 통해<br />
+                  매달 말일 오후 7시, 유튜브 생방송을 통해<br />
                   모든 추첨 과정을 실시간으로 공개합니다.
                 </p>
                 <div className="mt-8">
@@ -904,7 +904,7 @@ export default function MillionPage() {
               />
               <FAQItem 
                 question="추첨은 언제, 어떤 방식으로 진행되나요?"
-                answer="추첨은 매달 1일 저녁 8시에 유튜브 채널 생방송으로 진행됩니다. 실제 로또 추첨기를 사용하여 모든 분들이 보시는 앞에서 사장님의 회원번호를 공정하게 추첨합니다."
+                answer="추첨은 매달 말일 저녁 8시에 유튜브 채널 생방송으로 진행됩니다. 실제 로또 추첨기를 사용하여 모든 분들이 보시는 앞에서 사장님의 회원번호를 공정하게 추첨합니다."
               />
               <FAQItem 
                 question="당첨자 수는 왜 매번 달라지나요?"
@@ -916,7 +916,7 @@ export default function MillionPage() {
               />
               <FAQItem 
                 question="당첨금은 언제, 어떻게 지급되나요?"
-                answer="매월 1일 추첨 생방송 직후, 당첨되신 사장님께 개별적으로 연락을 드립니다. 간단한 본인 확인 절차를 거친 후 3~5 영업일 이내에 등록된 계좌로 당첨금 100만원을 입금해 드립니다."
+                answer="매월 말일 추첨 생방송 직후, 당첨되신 사장님께 개별적으로 연락을 드립니다. 간단한 본인 확인 절차를 거친 후 3~5 영업일 이내에 등록된 계좌로 당첨금 100만원을 입금해 드립니다."
               />
             </div>
           </div>
