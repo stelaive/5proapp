@@ -400,7 +400,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
         </div>
       </section>
 
-      {/* 30초 사용 방법 영상 섹션 */}
+      {/* 20초 사용 방법 영상 섹션 */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -411,7 +411,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              🎬 30초로 보는 사용법
+              🎬 20초로 보는 사용법
             </motion.h2>
             <motion.div 
               className="aspect-video bg-black rounded-2xl shadow-2xl overflow-hidden"
@@ -420,14 +420,14 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {/* 실제 mp4 영상이 들어갈 자리 */}
-              <div className="w-full h-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white">
-                <div className="text-center">
-                  <div className="text-6xl mb-4">🎥</div>
-                  <p className="text-xl font-bold">30초 사용법 영상</p>
-                  <p className="text-sm opacity-80 mt-2">설치 → 코드 공유 → 보상 수령</p>
-                </div>
-              </div>
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/qOmOjKmwbnk"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             </motion.div>
           </div>
         </div>
