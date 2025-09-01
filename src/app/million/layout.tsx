@@ -38,7 +38,7 @@ export default function MillionLayout({
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: '100만원 현금 추첨 이벤트',
-    startDate: '2025-08-31T20:00:00+09:00',
+    startDate: '2025-08-31T19:00:00+09:00',
     eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
     location: {
       '@type': 'VirtualLocation',

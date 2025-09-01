@@ -63,11 +63,23 @@ export default function MillionPage() {
     seconds: 0
   });
 
-  // 타이머 계산 함수
-  const calculateTimeLeft = () => {
-    const targetDate = new Date('2025-08-31T20:00:00+09:00'); // 한국 시간 2025년 8월 31일 오후 8시
+  // 다음 추첨일(매달 말일 19:00 KST 기준)을 계산
+  const getNextDrawDate = () => {
     const now = new Date();
-    const difference = targetDate.getTime() - now.getTime();
+    // 현지 시간 기준 말일 19:00으로 설정
+    const drawThisMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 19, 0, 0);
+    if (now.getTime() <= drawThisMonth.getTime()) return drawThisMonth;
+    return new Date(now.getFullYear(), now.getMonth() + 2, 0, 19, 0, 0);
+  };
+
+  const [targetDate, setTargetDate] = useState<Date>(getNextDrawDate());
+
+  const formatKoreanDate = (date: Date) => `${date.getMonth() + 1}월 ${date.getDate()}일`;
+
+  // 타이머 계산 함수
+  const calculateTimeLeft = (target: Date) => {
+    const now = new Date();
+    const difference = target.getTime() - now.getTime();
     
     if (difference <= 0) {
       setIsEventStarted(true);
@@ -130,16 +142,25 @@ export default function MillionPage() {
 
   // 카운트다운 타이머
   useEffect(() => {
-    // 컴포넌트가 마운트되자마자 초기 시간 설정
-    setTimeLeft(calculateTimeLeft());
+    // 초기 시간 설정
+    setTimeLeft(calculateTimeLeft(targetDate));
 
     const timer = setInterval(() => {
-      const newTimeLeft = calculateTimeLeft();
-      setTimeLeft(newTimeLeft);
+      setTimeLeft(calculateTimeLeft(targetDate));
+
+      // 이벤트가 지나면 다음 달 말일로 자동 갱신
+      const now = new Date();
+      if (now.getTime() > targetDate.getTime() + 60 * 60 * 1000) {
+        const next = getNextDrawDate();
+        if (next.getTime() !== targetDate.getTime()) {
+          setTargetDate(next);
+          setIsEventStarted(false);
+        }
+      }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [])
+  }, [targetDate])
 
   // 슬라이더 기능들
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -298,7 +319,7 @@ export default function MillionPage() {
                 className="bg-gradient-to-r from-red-600 to-orange-500 p-6 rounded-xl mb-8"
                 variants={bounceIn}
               >
-                <h3 className="text-white text-xl font-bold mb-4">8월 31일 첫 추첨까지</h3>
+                <h3 className="text-white text-xl font-bold mb-4">{formatKoreanDate(targetDate)} 추첨까지</h3>
                               {!isEventStarted ? (
                 <motion.div 
                   className="grid grid-cols-4 gap-4 text-center"
@@ -904,7 +925,7 @@ export default function MillionPage() {
               />
               <FAQItem 
                 question="추첨은 언제, 어떤 방식으로 진행되나요?"
-                answer="추첨은 매달 말일 저녁 8시에 유튜브 채널 생방송으로 진행됩니다. 실제 로또 추첨기를 사용하여 모든 분들이 보시는 앞에서 사장님의 회원번호를 공정하게 추첨합니다."
+                answer="추첨은 매달 말일 오후 7시에 유튜브 채널 생방송으로 진행됩니다. 실제 로또 추첨기를 사용하여 모든 분들이 보시는 앞에서 사장님의 회원번호를 공정하게 추첨합니다."
               />
               <FAQItem 
                 question="당첨자 수는 왜 매번 달라지나요?"
