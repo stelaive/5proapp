@@ -376,6 +376,26 @@ export default function MillionPage() {
               )}
               </motion.div>
 
+              {/* 당첨자 축하 섹션 */}
+              <motion.div 
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6 text-center"
+                variants={fadeInUp}
+              >
+                <p className="text-lg md:text-xl text-yellow-300 font-bold mb-3">
+                  🎉 지난달 당첨자 <span className="text-white">108번 박OO</span>님, 진심으로 축하드립니다! 🎉
+                </p>
+                <motion.a
+                  href="https://www.youtube.com/live/yuFJ_K5u2VE?si=M5fsSfsJJSrZWNPi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  🎬 당첨 영상 보기
+                </motion.a>
+              </motion.div>
+
               <div className="flex justify-center">
                 <motion.button 
                   onClick={handleAppDownload}
