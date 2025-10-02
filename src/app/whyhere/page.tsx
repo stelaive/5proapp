@@ -89,7 +89,7 @@ export default function WhyHere() {
             </motion.p>
           </div>
           <motion.div 
-            className="absolute bottom-[15%] sm:bottom-12 left-0 right-0 sm:left-4 sm:right-auto z-20 text-center sm:text-left"
+            className="absolute bottom-[15%] sm:bottom-12 left-0 right-0 z-20 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 3 }}
