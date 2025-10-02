@@ -382,10 +382,10 @@ export default function MillionPage() {
                 variants={fadeInUp}
               >
                 <p className="text-lg md:text-xl text-yellow-300 font-bold mb-3">
-                  🎉 지난달 당첨자 <span className="text-white">108번 박OO</span>님, 진심으로 축하드립니다! 🎉
+                  🎉 제2회 당첨자 <span className="text-white">226번 김OO</span>님, 진심으로 축하드립니다! 🎉
                 </p>
                 <motion.a
-                  href="https://www.youtube.com/live/yuFJ_K5u2VE?si=M5fsSfsJJSrZWNPi"
+                  href="https://youtu.be/B5AzSMFVfp8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300"
