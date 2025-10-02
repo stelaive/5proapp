@@ -54,7 +54,7 @@ const bounceIn = {
 }
 
 export default function MillionPage() {
-  const [currentParticipants, setCurrentParticipants] = useState(1247)
+  const [currentParticipants, setCurrentParticipants] = useState(300)
   const [isEventStarted, setIsEventStarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -134,7 +134,10 @@ export default function MillionPage() {
   // 실시간 참여자 수 업데이트 시뮬레이션
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentParticipants(prev => prev + Math.floor(Math.random() * 3))
+      setCurrentParticipants(prev => {
+        const increase = Math.floor(Math.random() * 2) // 0 또는 1 증가
+        return Math.min(prev + increase, 500) // 최대 500명까지만
+      })
     }, 30000) // 30초마다 증가
 
     return () => clearInterval(interval)
@@ -291,6 +294,80 @@ export default function MillionPage() {
               animate="animate"
               variants={staggerContainer}
             >
+              {/* 역대 당첨자 명단 - 히어로 섹션 상단 */}
+              <motion.div 
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-5 mb-6 border-2 border-yellow-400/30"
+                variants={fadeInUp}
+              >
+                <h4 className="text-center text-yellow-300 font-black text-xl mb-4 flex items-center justify-center">
+                  <span className="mr-2">🏆</span>
+                  실제 당첨자 명단
+                  <span className="ml-2">🏆</span>
+                </h4>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <motion.div 
+                    className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-lg p-5 text-center border-2 border-yellow-400/50"
+                    whileHover={{ scale: 1.03, borderColor: "rgba(250, 204, 21, 0.8)" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-yellow-300 font-bold text-base mb-2">🥇 제1회</div>
+                    <div className="text-white font-black text-xl mb-3">108번 박OO님</div>
+                    <motion.a
+                      href="https://www.youtube.com/live/yuFJ_K5u2VE?si=M5fsSfsJJSrZWNPi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-bold text-sm transition-all duration-300"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      🎬 추첨 영상 보기
+                    </motion.a>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-lg p-5 text-center border-2 border-red-400/50 relative overflow-hidden"
+                    whileHover={{ scale: 1.03, borderColor: "rgba(248, 113, 113, 0.8)" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
+                      NEW
+                    </div>
+                    <div className="text-yellow-300 font-bold text-base mb-2">🥈 제2회</div>
+                    <div className="text-white font-black text-xl mb-3">226번 김OO님</div>
+                    <motion.a
+                      href="https://youtu.be/B5AzSMFVfp8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 shadow-lg"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      animate={{ 
+                        boxShadow: [
+                          "0 0 20px rgba(239, 68, 68, 0.5)",
+                          "0 0 30px rgba(239, 68, 68, 0.8)",
+                          "0 0 20px rgba(239, 68, 68, 0.5)"
+                        ]
+                      }}
+                      transition={{ 
+                        boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                      }}
+                    >
+                      🎬 최신 추첨 영상 보기
+                    </motion.a>
+                  </motion.div>
+                </div>
+                <p className="text-center text-yellow-200 text-sm mt-4 font-semibold">
+                  ✨ 유튜브 생방송으로 투명하게 공개된 추첨 과정!
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 px-4 py-2 rounded-full mb-4"
+                variants={fadeInUp}
+              >
+                <span className="text-black font-black text-sm md:text-base">
+                  🔥 제3회 진행 중 | 역대 2명 당첨!
+                </span>
+              </motion.div>
               <motion.h1 
                 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white font-jalnan"
                 variants={fadeInUp}
@@ -376,24 +453,41 @@ export default function MillionPage() {
               )}
               </motion.div>
 
-              {/* 당첨자 축하 섹션 */}
+              {/* 제3회 진행 중 배너 */}
               <motion.div 
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6 text-center"
+                className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-xl p-6 mb-6 text-center relative overflow-hidden"
                 variants={fadeInUp}
+                animate={{ 
+                  boxShadow: [
+                    "0 0 20px rgba(251, 191, 36, 0.5)",
+                    "0 0 40px rgba(251, 191, 36, 0.8)",
+                    "0 0 20px rgba(251, 191, 36, 0.5)"
+                  ]
+                }}
+                transition={{ 
+                  boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                }}
               >
-                <p className="text-lg md:text-xl text-yellow-300 font-bold mb-3">
-                  🎉 제2회 당첨자 <span className="text-white">226번 김OO</span>님, 진심으로 축하드립니다! 🎉
-                </p>
-                <motion.a
-                  href="https://youtu.be/B5AzSMFVfp8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-full font-semibold text-sm transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  🎬 당첨 영상 보기
-                </motion.a>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                <div className="relative z-10">
+                  <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full mb-3">
+                    <span className="text-white font-bold text-sm">🔥 현재 진행 중</span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
+                    ⭐ 제3회 100만원 추첨 이벤트 ⭐
+                  </h3>
+                  <p className="text-white/90 text-base md:text-lg font-semibold mb-3">
+                    지금 참여하면 당신이 다음 주인공!
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                    <span className="text-white text-sm font-medium bg-black/20 px-3 py-1 rounded-full">
+                      💰 역대 당첨자 2명 배출!
+                    </span>
+                    <span className="text-white text-sm font-medium bg-black/20 px-3 py-1 rounded-full">
+                      🎯 다음은 당신 차례!
+                    </span>
+                  </div>
+                </div>
               </motion.div>
 
               <div className="flex justify-center">
@@ -541,16 +635,28 @@ export default function MillionPage() {
               >
                 <motion.div 
                   className={`p-8 rounded-xl text-center transition-all duration-500 ${
-                    currentParticipants >= 300 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white animate-pulse' : 'bg-gray-100'
+                    currentParticipants >= 300 && currentParticipants <= 500 
+                      ? 'bg-gradient-to-r from-green-400 to-green-600 text-white animate-pulse shadow-xl' 
+                      : currentParticipants > 500
+                      ? 'bg-gradient-to-r from-green-300 to-green-500 text-white opacity-80'
+                      : 'bg-white border-3 border-gray-300 text-gray-600'
                   }`}
                   variants={scaleIn}
                   whileHover={{ scale: 1.05 }}
+                  style={currentParticipants < 300 ? { 
+                    borderWidth: '3px',
+                    borderStyle: 'solid'
+                  } : {}}
                 >
-                  <div className="text-lg mb-3 font-semibold">300~500명</div>
-                  <div className="text-3xl font-bold mb-2">1명</div>
+                  <div className={`text-lg mb-3 font-bold ${currentParticipants >= 300 ? 'text-white' : 'text-gray-600'}`}>
+                    300~500명
+                  </div>
+                  <div className={`text-3xl font-black mb-2 ${currentParticipants >= 300 ? 'text-white' : 'text-gray-800'}`}>
+                    1명
+                  </div>
                   {currentParticipants >= 300 && currentParticipants <= 500 && (
                     <motion.div 
-                      className="text-sm mt-2"
+                      className="text-sm mt-2 text-white font-bold"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
@@ -558,20 +664,36 @@ export default function MillionPage() {
                       현재 단계 ✨
                     </motion.div>
                   )}
+                  {currentParticipants > 500 && (
+                    <div className="text-xs mt-2 text-white font-medium">
+                      완료 ✓
+                    </div>
+                  )}
                 </motion.div>
                 <motion.div 
                   className={`p-8 rounded-xl text-center transition-all duration-500 ${
-                    currentParticipants >= 501 && currentParticipants <= 1000 ? 'bg-gradient-to-r from-blue-400 to-blue-600 text-white animate-pulse' : 
-                    currentParticipants > 1000 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white' : 'bg-gray-100'
+                    currentParticipants >= 501 && currentParticipants <= 1000 
+                      ? 'bg-gradient-to-r from-blue-400 to-blue-600 text-white animate-pulse shadow-xl' 
+                      : currentParticipants > 1000 
+                      ? 'bg-gradient-to-r from-blue-300 to-blue-500 text-white opacity-80' 
+                      : 'bg-white border-3 border-gray-300 text-gray-600'
                   }`}
                   variants={scaleIn}
                   whileHover={{ scale: 1.05 }}
+                  style={currentParticipants < 501 ? { 
+                    borderWidth: '3px',
+                    borderStyle: 'solid'
+                  } : {}}
                 >
-                  <div className="text-lg mb-3 font-semibold">501~1000명</div>
-                  <div className="text-3xl font-bold mb-2">2명</div>
+                  <div className={`text-lg mb-3 font-bold ${currentParticipants >= 501 ? 'text-white' : 'text-gray-600'}`}>
+                    501~1000명
+                  </div>
+                  <div className={`text-3xl font-black mb-2 ${currentParticipants >= 501 ? 'text-white' : 'text-gray-800'}`}>
+                    2명
+                  </div>
                   {currentParticipants >= 501 && currentParticipants <= 1000 && (
                     <motion.div 
-                      className="text-sm mt-2"
+                      className="text-sm mt-2 text-white font-bold"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
@@ -579,20 +701,41 @@ export default function MillionPage() {
                       현재 단계 ✨
                     </motion.div>
                   )}
+                  {currentParticipants > 1000 && (
+                    <div className="text-xs mt-2 text-white font-medium">
+                      완료 ✓
+                    </div>
+                  )}
+                  {currentParticipants < 501 && (
+                    <div className="text-xs mt-2 text-gray-500 font-medium">
+                      다음 단계
+                    </div>
+                  )}
                 </motion.div>
                 <motion.div 
                   className={`p-8 rounded-xl text-center transition-all duration-500 ${
-                    currentParticipants >= 1001 && currentParticipants <= 1500 ? 'bg-gradient-to-r from-purple-400 to-purple-600 text-white animate-pulse' :
-                    currentParticipants > 1500 ? 'bg-gradient-to-r from-green-400 to-green-600 text-white' : 'bg-gray-100'
+                    currentParticipants >= 1001 && currentParticipants <= 1500 
+                      ? 'bg-gradient-to-r from-purple-400 to-purple-600 text-white animate-pulse shadow-xl' 
+                      : currentParticipants > 1500 
+                      ? 'bg-gradient-to-r from-purple-300 to-purple-500 text-white opacity-80' 
+                      : 'bg-white border-3 border-gray-300 text-gray-600'
                   }`}
                   variants={scaleIn}
                   whileHover={{ scale: 1.05 }}
+                  style={currentParticipants < 1001 ? { 
+                    borderWidth: '3px',
+                    borderStyle: 'solid'
+                  } : {}}
                 >
-                  <div className="text-lg mb-3 font-semibold">1001~1500명</div>
-                  <div className="text-3xl font-bold mb-2">3명</div>
+                  <div className={`text-lg mb-3 font-bold ${currentParticipants >= 1001 ? 'text-white' : 'text-gray-600'}`}>
+                    1001~1500명
+                  </div>
+                  <div className={`text-3xl font-black mb-2 ${currentParticipants >= 1001 ? 'text-white' : 'text-gray-800'}`}>
+                    3명
+                  </div>
                   {currentParticipants >= 1001 && currentParticipants <= 1500 && (
                     <motion.div 
-                      className="text-sm mt-2"
+                      className="text-sm mt-2 text-white font-bold"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
@@ -600,25 +743,50 @@ export default function MillionPage() {
                       현재 단계 ✨
                     </motion.div>
                   )}
+                  {currentParticipants > 1500 && (
+                    <div className="text-xs mt-2 text-white font-medium">
+                      완료 ✓
+                    </div>
+                  )}
+                  {currentParticipants < 1001 && (
+                    <div className="text-xs mt-2 text-gray-500 font-medium">
+                      다음 단계
+                    </div>
+                  )}
                 </motion.div>
                 <motion.div 
                   className={`p-8 rounded-xl text-center transition-all duration-500 ${
-                    currentParticipants >= 1501 ? 'bg-gradient-to-r from-orange-400 to-red-600 text-white animate-pulse' : 'bg-gray-100'
+                    currentParticipants >= 1501 
+                      ? 'bg-gradient-to-r from-orange-400 to-red-600 text-white animate-pulse border-2 border-orange-500' 
+                      : 'bg-white border-3 border-dashed border-gray-400 text-gray-700'
                   }`}
                   variants={scaleIn}
                   whileHover={{ scale: 1.05 }}
+                  style={currentParticipants < 1501 ? { 
+                    borderWidth: '3px',
+                    borderStyle: 'dashed'
+                  } : {}}
                 >
-                  <div className="text-lg mb-3 font-semibold">1501명+</div>
-                  <div className="text-3xl font-bold mb-2">4명+</div>
+                  <div className={`text-lg mb-3 font-bold ${currentParticipants >= 1501 ? 'text-white' : 'text-gray-600'}`}>
+                    1501명+
+                  </div>
+                  <div className={`text-3xl font-black mb-2 ${currentParticipants >= 1501 ? 'text-white' : 'text-gray-800'}`}>
+                    4명+
+                  </div>
                   {currentParticipants >= 1501 && (
                     <motion.div 
-                      className="text-sm mt-2"
+                      className="text-sm mt-2 text-white"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
                     >
                       현재 단계 ✨
                     </motion.div>
+                  )}
+                  {currentParticipants < 1501 && (
+                    <div className="text-xs mt-2 text-gray-500 font-medium">
+                      다음 단계
+                    </div>
                   )}
                 </motion.div>
               </motion.div>
@@ -632,6 +800,15 @@ export default function MillionPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
+              <motion.div
+                className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full mb-4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+              >
+                <span className="text-white font-bold text-sm">🎯 제3회 이벤트</span>
+              </motion.div>
               <motion.h3 
                 className="text-3xl font-bold mb-6"
                 initial={{ scale: 0.9 }}
@@ -703,25 +880,50 @@ export default function MillionPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
+              <motion.div
+                className="inline-block bg-yellow-400 text-purple-900 px-5 py-2 rounded-full mb-6 font-black"
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                ⚡ 제3회 참여자 모집 중!
+              </motion.div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                🌟 첫 주인공의 기회, 바로 당신일 수 있습니다!
+                🌟 제3회 주인공, 바로 당신일 수 있습니다!
               </h2>
               <div className="grid md:grid-cols-3 gap-8 mb-12">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                <motion.div 
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="text-4xl mb-4">💫</div>
-                  <h3 className="text-xl font-bold mb-2">매달 찾아오는 새로운 기회</h3>
-                  <p>하루하루가 당신의 행운의 순간이 될 수 있습니다</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                  <h3 className="text-xl font-bold mb-2">매달 새로운 기회</h3>
+                  <p className="text-white/80">제1회, 제2회 당첨자 배출!<br />제3회는 당신 차례!</p>
+                </motion.div>
+                <motion.div 
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-yellow-400/50"
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="text-4xl mb-4">🎯</div>
-                  <h3 className="text-xl font-bold mb-2">단 1건의 오더로</h3>
-                  <p>복잡한 조건 없이, 오더 한 건이면 바로 참여 완료!</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                  <h3 className="text-xl font-bold mb-2 text-yellow-300">단 1건의 오더로</h3>
+                  <p className="text-white/80">복잡한 조건 없이<br />오더 1건이면 참여 완료!</p>
+                </motion.div>
+                <motion.div 
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="text-4xl mb-4">🎊</div>
-                  <h3 className="text-xl font-bold mb-2">100만원의 행운</h3>
-                  <p>당첨되는 순간, 당신의 일상이 특별해집니다</p>
-                </div>
+                  <h3 className="text-xl font-bold mb-2">실제 100만원 지급</h3>
+                  <p className="text-white/80">허위 없음! 영상으로<br />당첨 과정 100% 공개</p>
+                </motion.div>
               </div>
               <motion.button
                 onClick={handleAppDownload}
