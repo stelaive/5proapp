@@ -357,52 +357,132 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 첫 번째 후기 이벤트 섹션 */}
-      <section className="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+      {/* 100만원 당첨자 섹션 */}
+      <section id="lotto-winner-section" className="py-20 bg-[#FFF8F2] relative overflow-hidden">
+        {/* Confetti decorations */}
+        <div className="absolute top-10 left-10 text-4xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>🎊</div>
+        <div className="absolute top-20 right-20 text-3xl animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}>✨</div>
+        <div className="absolute bottom-20 left-20 text-3xl animate-bounce" style={{ animationDelay: '1s', animationDuration: '2.8s' }}>🎉</div>
+        <div className="absolute bottom-10 right-10 text-4xl animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '3.2s' }}>💫</div>
+        
         <div className="container mx-auto px-4">
           <motion.div 
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-5xl mx-auto text-center"
             {...fadeInUp}
           >
-            <div className="text-6xl mb-8">🎁</div>
-            <h2 className="text-4xl font-bold mb-8 text-gray-800 font-jalnan">
-              사장님, <span className="text-red-500">첫 번째 후기</span>의 주인공이 되어주세요!
-            </h2>
-            
-            <div className="bg-white rounded-xl p-8 md:p-12 shadow-lg mb-8">
-              <div className="text-5xl mb-6">⭐⭐⭐⭐⭐</div>
-              <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                <span className="text-red-500 font-bold">"5프로스카이"</span>가 드디어 6월, 사장님들을 찾아갑니다!<br />
-                첫 출시와 함께, 가장 먼저 리뷰를 남겨주실 특별한 사장님을 찾고 있어요.
+            {/* Title area */}
+            <div className="mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 font-jalnan">
+                🎉 이번 달 100만원 주인공이 탄생했습니다!
+              </h2>
+              <p className="text-xl text-gray-600">
+                누군가는 꿈이 아닌 현실로!
               </p>
-              <p className="text-lg text-gray-600 mb-8">
-                솔직한 후기 하나가 다른 동료 사장님들에게는<br />
-                <span className="text-red-500 font-bold">소중한 나침반</span>이 되어줄 거예요!
-              </p>
-              <div className="bg-red-50 p-6 rounded-lg">
-                <p className="text-xl font-bold text-red-500 mb-2">명예의 전당 👑</p>
-                <p className="text-gray-700">
-                  첫 후기를 남겨주신 사장님은 저희 서비스의 역사에<br />
-                  <span className="text-red-500 font-bold">'최초의 개척자'</span>로 기록되며,<br />
-                  커뮤니티의 <span className="text-red-500 font-bold">'명예의 전당'</span>에<br />
-                  가장 먼저 이름을 올리게 됩니다.
-                </p>
-              </div>
             </div>
-            
-            <button 
+
+            {/* Review Cards */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* 1회 당첨자 */}
+              <motion.div 
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                variants={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 }
+                }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-6 relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                    1
+                  </div>
+                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">👑</div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  박○○ 사장님
+                </h3>
+                <p className="text-sm text-[#FF6B00] font-bold mb-4">
+                  경기 | 건설업
+                </p>
+                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-700 leading-relaxed">
+                  "처음엔 반신반의했는데 정말 100만원을 받았어요! 
+                  5프로 페이백에 이런 혜택까지, 이제 스카이차는 우리 회사 필수템입니다."
+                </p>
+              </motion.div>
+
+              {/* 2회 당첨자 */}
+              <motion.div 
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                variants={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 }
+                }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-6 relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B00] to-[#FF9234] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                    2
+                  </div>
+                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🏆</div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  김○○ 사장님
+                </h3>
+                <p className="text-sm text-[#FF6B00] font-bold mb-4">
+                  서울 | 에어컨 설치업
+                </p>
+                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-700 leading-relaxed">
+                  "평소처럼 스카이차 이용했을 뿐인데, 100만원 당첨 연락을 받고 깜짝 놀랐습니다. 
+                  5% 페이백도 좋은데, 이런 이벤트까지 있다니 앞으로도 계속 이용할 겁니다."
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Reward explanation */}
+            <motion.div
+              className="bg-gradient-to-r from-[#FFD9A0] to-[#FFE8C7] rounded-2xl p-6 mb-8 shadow-md"
+              variants={{
+                initial: { opacity: 0, y: 30 },
+                whileInView: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xl md:text-2xl font-bold text-gray-800">
+                💰 매달 말일, <span className="text-[#FF6B00]">1건 이상 작업자</span> 중 <span className="text-[#FF6B00]">1분께 100만원</span> 증정!
+              </p>
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.button
               onClick={handleAppDownload}
-              className="bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transform hover:scale-105 transition-all"
-              style={{ 
-                color: '#ffffff !important',
-                zIndex: 10,
-                position: 'relative'
+              className="relative overflow-hidden bg-gradient-to-r from-[#FF6B00] to-[#FF9234] text-white px-12 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+              variants={{
+                initial: { opacity: 0, y: 30 },
+                whileInView: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                boxShadow: "0 0 30px rgba(255, 107, 0, 0.6)" 
               }}
             >
-              <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>
-                첫 번째 후기 주인공 되기
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                🔥 다음 100만원 주인공 도전하기
               </span>
-            </button>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FF9234] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </motion.button>
+
+            {/* Celebration coins animation hint */}
+            <div className="mt-8 flex justify-center gap-4">
+              <span className="text-4xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '2s' }}>💰</span>
+              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.2s', animationDuration: '2.2s' }}>💸</span>
+              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.4s', animationDuration: '2.4s' }}>💵</span>
+              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.6s', animationDuration: '2.6s' }}>💴</span>
+            </div>
           </motion.div>
         </div>
       </section>
