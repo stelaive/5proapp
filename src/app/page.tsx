@@ -381,7 +381,7 @@ export default function Home() {
             </div>
 
             {/* Review Cards */}
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
               {/* 1회 당첨자 */}
               <motion.div 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
@@ -437,6 +437,38 @@ export default function Home() {
                 <p className="text-gray-700 leading-relaxed">
                   "평소처럼 스카이차 이용했을 뿐인데, 100만원 당첨 연락을 받고 깜짝 놀랐습니다. 
                   5% 페이백도 좋은데, 이런 이벤트까지 있다니 앞으로도 계속 이용할 겁니다."
+                </p>
+              </motion.div>
+
+              {/* 3회 당첨자 */}
+              <motion.div 
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative"
+                variants={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 }
+                }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                  NEW
+                </div>
+                <div className="mb-6 relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF1744] to-[#F50057] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                    3
+                  </div>
+                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🎉</div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  김○○ 사장님
+                </h3>
+                <p className="text-sm text-[#FF6B00] font-bold mb-4">
+                  경기 | 소방공사
+                </p>
+                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-700 leading-relaxed">
+                  "마침 결혼기념일이라 아내에게 선물을 고민하던 참이었는데, 
+                  100만원 당첨되어 정말 기쁩니다. 감사한 마음으로 잘 쓰겠습니다!"
                 </p>
               </motion.div>
             </div>

@@ -54,7 +54,7 @@ const bounceIn = {
 }
 
 export default function MillionPage() {
-  const [currentParticipants, setCurrentParticipants] = useState(300)
+  const [currentParticipants, setCurrentParticipants] = useState(343)
   const [isEventStarted, setIsEventStarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -304,7 +304,7 @@ export default function MillionPage() {
                   실제 당첨자 명단
                   <span className="ml-2">🏆</span>
                 </h4>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid md:grid-cols-3 gap-4">
                   <motion.div 
                     className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-lg p-5 text-center border-2 border-yellow-400/50"
                     whileHover={{ scale: 1.03, borderColor: "rgba(250, 204, 21, 0.8)" }}
@@ -323,7 +323,25 @@ export default function MillionPage() {
                       🎬 추첨 영상 보기
                     </motion.a>
                   </motion.div>
-                  <motion.div 
+                  <motion.div
+                    className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg p-5 text-center border-2 border-blue-400/50"
+                    whileHover={{ scale: 1.03, borderColor: "rgba(96, 165, 250, 0.8)" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-yellow-300 font-bold text-base mb-2">🥈 제2회</div>
+                    <div className="text-white font-black text-xl mb-3">226번 김OO님</div>
+                    <motion.a
+                      href="https://youtu.be/B5AzSMFVfp8"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-bold text-sm transition-all duration-300"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      🎬 추첨 영상 보기
+                    </motion.a>
+                  </motion.div>
+                  <motion.div
                     className="bg-gradient-to-br from-red-500/20 to-pink-500/20 rounded-lg p-5 text-center border-2 border-red-400/50 relative overflow-hidden"
                     whileHover={{ scale: 1.03, borderColor: "rgba(248, 113, 113, 0.8)" }}
                     transition={{ duration: 0.2 }}
@@ -331,23 +349,24 @@ export default function MillionPage() {
                     <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse">
                       NEW
                     </div>
-                    <div className="text-yellow-300 font-bold text-base mb-2">🥈 제2회</div>
-                    <div className="text-white font-black text-xl mb-3">226번 김OO님</div>
+                    <div className="text-yellow-300 font-bold text-base mb-2">🥉 제3회</div>
+                    <div className="text-white font-black text-xl mb-3">46번 김OO님</div>
+                    <div className="text-white/80 text-sm mb-3">소방공사</div>
                     <motion.a
-                      href="https://youtu.be/B5AzSMFVfp8"
+                      href="https://www.youtube.com/live/d5XzGUZBwos?si=6WgOcyzWCIkzQvT8"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full font-bold text-sm transition-all duration-300 shadow-lg"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      animate={{ 
+                      animate={{
                         boxShadow: [
                           "0 0 20px rgba(239, 68, 68, 0.5)",
                           "0 0 30px rgba(239, 68, 68, 0.8)",
                           "0 0 20px rgba(239, 68, 68, 0.5)"
                         ]
                       }}
-                      transition={{ 
+                      transition={{
                         boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" }
                       }}
                     >
@@ -365,7 +384,7 @@ export default function MillionPage() {
                 variants={fadeInUp}
               >
                 <span className="text-black font-black text-sm md:text-base">
-                  🔥 제3회 진행 중 | 역대 2명 당첨!
+                  🔥 제4회 진행 중 | 역대 3명 당첨!
                 </span>
               </motion.div>
               <motion.h1 
@@ -453,7 +472,7 @@ export default function MillionPage() {
               )}
               </motion.div>
 
-              {/* 제3회 진행 중 배너 */}
+              {/* 제4회 진행 중 배너 */}
               <motion.div 
                 className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-xl p-6 mb-6 text-center relative overflow-hidden"
                 variants={fadeInUp}
@@ -474,14 +493,14 @@ export default function MillionPage() {
                     <span className="text-white font-bold text-sm">🔥 현재 진행 중</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
-                    ⭐ 제3회 100만원 추첨 이벤트 ⭐
+                    ⭐ 제4회 100만원 추첨 이벤트 ⭐
                   </h3>
                   <p className="text-white/90 text-base md:text-lg font-semibold mb-3">
                     지금 참여하면 당신이 다음 주인공!
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                     <span className="text-white text-sm font-medium bg-black/20 px-3 py-1 rounded-full">
-                      💰 역대 당첨자 2명 배출!
+                      💰 역대 당첨자 3명 배출!
                     </span>
                     <span className="text-white text-sm font-medium bg-black/20 px-3 py-1 rounded-full">
                       🎯 다음은 당신 차례!
@@ -807,7 +826,7 @@ export default function MillionPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 }}
               >
-                <span className="text-white font-bold text-sm">🎯 제3회 이벤트</span>
+                <span className="text-white font-bold text-sm">🎯 제4회 이벤트</span>
               </motion.div>
               <motion.h3 
                 className="text-3xl font-bold mb-6"
@@ -891,10 +910,10 @@ export default function MillionPage() {
                   ease: "easeInOut"
                 }}
               >
-                ⚡ 제3회 참여자 모집 중!
+                ⚡ 제4회 참여자 모집 중!
               </motion.div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                🌟 제3회 주인공, 바로 당신일 수 있습니다!
+                🌟 제4회 주인공, 바로 당신일 수 있습니다!
               </h2>
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 <motion.div 
@@ -904,7 +923,7 @@ export default function MillionPage() {
                 >
                   <div className="text-4xl mb-4">💫</div>
                   <h3 className="text-xl font-bold mb-2">매달 새로운 기회</h3>
-                  <p className="text-white/80">제1회, 제2회 당첨자 배출!<br />제3회는 당신 차례!</p>
+                  <p className="text-white/80">제1회, 제2회, 제3회 당첨자 배출!<br />제4회는 당신 차례!</p>
                 </motion.div>
                 <motion.div 
                   className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-yellow-400/50"
