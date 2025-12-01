@@ -382,7 +382,7 @@ export default function Home() {
 
             {/* Review Cards */}
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* 1회 당첨자 */}
+              {/* 2회 당첨자 */}
               <motion.div 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
                 variants={{
@@ -394,38 +394,9 @@ export default function Home() {
               >
                 <div className="mb-6 relative">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                    1
-                  </div>
-                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">👑</div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  박○○ 사장님
-                </h3>
-                <p className="text-sm text-[#FF6B00] font-bold mb-4">
-                  경기 | 건설업
-                </p>
-                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p className="text-gray-700 leading-relaxed">
-                  "처음엔 반신반의했는데 정말 100만원을 받았어요! 
-                  5프로 페이백에 이런 혜택까지, 이제 스카이차는 우리 회사 필수템입니다."
-                </p>
-              </motion.div>
-
-              {/* 2회 당첨자 */}
-              <motion.div 
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                variants={{
-                  initial: { opacity: 0, scale: 0.9 },
-                  whileInView: { opacity: 1, scale: 1 }
-                }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="mb-6 relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B00] to-[#FF9234] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
                     2
                   </div>
-                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🏆</div>
+                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">👑</div>
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   김○○ 사장님
@@ -442,6 +413,35 @@ export default function Home() {
 
               {/* 3회 당첨자 */}
               <motion.div 
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                variants={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 }
+                }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-6 relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B00] to-[#FF9234] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                    3
+                  </div>
+                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🏆</div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  김○○ 사장님
+                </h3>
+                <p className="text-sm text-[#FF6B00] font-bold mb-4">
+                  경기 | 소방공사
+                </p>
+                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-700 leading-relaxed">
+                  "마침 결혼기념일이라 아내에게 선물을 고민하던 참이었는데, 
+                  100만원 당첨되어 정말 기쁩니다. 감사한 마음으로 잘 쓰겠습니다!"
+                </p>
+              </motion.div>
+
+              {/* 4회 당첨자 (NEW) */}
+              <motion.div 
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative"
                 variants={{
                   initial: { opacity: 0, scale: 0.9 },
@@ -455,20 +455,20 @@ export default function Home() {
                 </div>
                 <div className="mb-6 relative">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#FF1744] to-[#F50057] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                    3
+                    4
                   </div>
                   <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🎉</div>
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  김○○ 사장님
+                  허○ 사장님
                 </h3>
                 <p className="text-sm text-[#FF6B00] font-bold mb-4">
-                  경기 | 소방공사
+                  페인트 시공
                 </p>
                 <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
                 <p className="text-gray-700 leading-relaxed">
-                  "마침 결혼기념일이라 아내에게 선물을 고민하던 참이었는데, 
-                  100만원 당첨되어 정말 기쁩니다. 감사한 마음으로 잘 쓰겠습니다!"
+                  "덕분에 가족들과 맛있는 것도 먹고 행복한 시간 보냈습니다. 
+                  생각지도 못한 큰 행운 정말 감사드리고, 앞으로도 잘 쓰겠습니다!"
                 </p>
               </motion.div>
             </div>

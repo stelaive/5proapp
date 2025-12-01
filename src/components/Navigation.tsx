@@ -190,7 +190,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       >
         <div className="w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           {/* 로고와 타이틀 */}
-          <a href="https://5프로.com" target="_blank" rel="noopener noreferrer" className="flex items-center flex-shrink-0 group">
+          <Link href="/" className="flex items-center flex-shrink-0 group">
             <Image
               src="/images/스로고1.png"
               alt="스카이차 로고"
@@ -205,7 +205,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
             } text-lg sm:text-xl`}>
               5프로돌려주는스카이차
             </h1>
-          </a>
+          </Link>
           
           {/* 데스크톱 메뉴 */}
           <div className="hidden md:flex items-center space-x-6">
