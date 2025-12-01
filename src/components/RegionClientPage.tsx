@@ -99,6 +99,8 @@ export default function RegionClientPage({ location }: RegionClientPageProps) {
                         href = '/locations/gunpo';
                       } else if (city.slug === 'suwon') {
                         href = '/locations/suwon';
+                      } else if (city.slug === 'gangnam') {
+                        href = '/locations/gangnam';
                       } else {
                         href = `/locations/${location.slug}/${city.slug}`;
                       }
@@ -129,6 +131,8 @@ export default function RegionClientPage({ location }: RegionClientPageProps) {
                   href = '/locations/gunpo';
                 } else if (city.slug === 'suwon') {
                   href = '/locations/suwon';
+                } else if (city.slug === 'gangnam') {
+                  href = '/locations/gangnam';
                 } else {
                   href = `/locations/${location.slug}/${city.slug}`;
                 }
