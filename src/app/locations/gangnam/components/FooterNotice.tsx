@@ -1,3 +1,5 @@
+'use client'
+
 import type { RegionData } from '@/lib/regionData'
 
 interface FooterNoticeProps {

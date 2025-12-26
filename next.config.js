@@ -10,12 +10,8 @@ const nextConfig = {
     ],
     unoptimized: true
   },
-  // Turbopack 루트 디렉토리 설정 (lockfile 경고 해결)
-  experimental: {
-    turbo: {
-      root: process.cwd()
-    }
-  }
+  // Next.js 16에서는 experimental.turbo가 더 이상 지원되지 않습니다
+  // Turbopack은 기본적으로 활성화되어 있습니다
 }
 
 module.exports = nextConfig 
