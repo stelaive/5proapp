@@ -61,7 +61,14 @@ export default function ExpectationSection() {
             </div>
             <motion.button
               onClick={handleAppDownload}
-              className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300"
+              className="text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300"
+              style={{ backgroundColor: '#42d9de' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#3bc4c9';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#42d9de';
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

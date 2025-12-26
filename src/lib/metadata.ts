@@ -12,7 +12,7 @@ const SITE_INFO = {
   siteUrl: 'https://xn--5-w30fr74e.com', // ✅ 실제 도메인 설정 완료!
   ogImage: '/images/5프로.png',
   businessName: '5프로돌려주는스카이차',
-  businessPhone: '1877-9001',
+  businessPhone: '1877-3924',
   businessEmail: 'man7866@naver.com',
   keywords: '스카이차, 스카이차가격, 스카이차요금, 스카이차요금표, 고소작업차, 건설, 욕실리모델링, 유품정리, CCTV, 철거, 닥트공사, 전기공사, 외벽청소, 설비, 인테리어, 조경공사, 전등교체, 금속공사, 에어컨, 페인트, 판넬, 지붕공사, 간판, 실리콘코킹, 태양광설치, 타일시공, 방수공사, 창호공사, 페이백, 100만원추첨, 친구초대, 일거리장터, 업종별마케팅노하우, 외벽작업, 고소작업, 장비대여,1톤스카이차, 3.5톤스카이차, 5톤스카이차'
 }
@@ -144,8 +144,8 @@ export const PAGE_METADATA = {
   // 고객센터 페이지
   support: generatePageMetadata({
     title: '고객센터 FAQ',
-    description: '스카이차 이용 관련 자주 묻는 질문과 답변. 궁금한 점이 있으시면 1877-9001로 언제든 연락주세요.',
-    keywords: 'FAQ, 고객센터, 문의사항, 이용방법, 1877-9001',
+    description: '스카이차 이용 관련 자주 묻는 질문과 답변. 궁금한 점이 있으시면 1877-3924로 언제든 연락주세요.',
+    keywords: 'FAQ, 고객센터, 문의사항, 이용방법, 1877-3924',
     path: '/support'
   })
 }

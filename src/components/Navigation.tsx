@@ -162,12 +162,12 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
   ]
 
   const navLinkClasses = (key: string) => 
-    `font-medium transition-colors duration-300 hover:text-orange-500 whitespace-nowrap ${
+    `font-medium transition-colors duration-300 whitespace-nowrap ${
       currentPage === key 
-        ? 'text-orange-500' 
+        ? 'text-[#42d9de]' 
         : isScrolled || isDarkMode
-          ? 'text-gray-700' 
-          : 'text-white'
+          ? 'text-gray-700 hover:text-[#42d9de]' 
+          : 'text-white hover:text-[#42d9de]'
     }`;
 
   return (
@@ -276,15 +276,15 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
                 justifyContent: 'center'
               }}
             >
-              <div aria-hidden="true" className="w-6 h-6 flex flex-col justify-around">
+              <div aria-hidden="true" className="relative w-6 h-6 flex flex-col justify-center items-center">
                 <span className={`absolute block w-6 h-0.5 transition-all duration-300 ${
                   isScrolled || isDarkMode 
                     ? 'bg-gray-900' 
                     : 'bg-white'
                 } ${
-                  isMenuOpen ? 'rotate-45 top-3' : 'top-1'
+                  isMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
                 }`}></span>
-                <span className={`absolute block w-6 h-0.5 transition-all duration-300 top-3 ${
+                <span className={`absolute block w-6 h-0.5 transition-all duration-300 translate-y-0 ${
                   isScrolled || isDarkMode 
                     ? 'bg-gray-900' 
                     : 'bg-white'
@@ -296,7 +296,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
                     ? 'bg-gray-900' 
                     : 'bg-white'
                 } ${
-                  isMenuOpen ? '-rotate-45 top-3' : 'top-5'
+                  isMenuOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
                 }`}></span>
               </div>
             </button>
@@ -318,26 +318,26 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       >
         <div className="flex flex-col space-y-4">
           {navItems.slice(0, 2).map((item) => (
-              <Link key={item.key} href={item.href} onClick={closeMenu} className="text-gray-800 hover:text-orange-500 font-semibold py-2 text-lg">{item.label}</Link>
+              <Link key={item.key} href={item.href} onClick={closeMenu} className="text-gray-800 hover:text-[#42d9de] font-semibold py-2 text-lg">{item.label}</Link>
           ))}
 
           {/* 모바일 전국 스카이차 찾기 아코디언 */}
           <div>
             <button 
               onClick={() => setMobileLocationMenuOpen(!mobileLocationMenuOpen)}
-              className="w-full flex justify-between items-center text-gray-800 hover:text-orange-500 font-semibold py-2 text-lg"
+              className="w-full flex justify-between items-center text-gray-800 hover:text-[#42d9de] font-semibold py-2 text-lg"
             >
               <span>전국 스카이차 찾기</span>
               <ChevronDownIcon className={`w-5 h-5 transition-transform duration-200 ${mobileLocationMenuOpen ? 'rotate-180' : ''}`} />
             </button>
             {mobileLocationMenuOpen && (
-              <div className="pl-4 mt-2 flex flex-col space-y-2 border-l-2 border-orange-200">
+              <div className="pl-4 mt-2 flex flex-col space-y-2 border-l-2" style={{ borderColor: '#42d9de' }}>
                 {LOCATIONS_DATA.map((location) => (
                   <Link 
                     key={location.id} 
                     href={`/locations/${location.slug}`} 
                     onClick={closeMenu}
-                    className="text-gray-600 hover:text-orange-500 py-1 pl-2"
+                    className="text-gray-600 hover:text-[#42d9de] py-1 pl-2"
                   >
                     {location.name}
                   </Link>
@@ -347,7 +347,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           </div>
 
           {navItems.slice(2).map((item) => (
-            <Link key={item.key} href={item.href} onClick={closeMenu} className="text-gray-800 hover:text-orange-500 font-semibold py-2 text-lg">{item.label}</Link>
+            <Link key={item.key} href={item.href} onClick={closeMenu} className="text-gray-800 hover:text-[#42d9de] font-semibold py-2 text-lg">{item.label}</Link>
           ))}
         </div>
       </div>

@@ -106,7 +106,7 @@ const faqData: FAQItem[] = [
     category: '📞 고객센터 이용',
     questions: [
       {
-        Q: '고객센터(1877-9001)는 언제든지 통화 가능한가요? 운영 시간이 궁금해요!',
+        Q: '고객센터(1877-3924)는 언제든지 통화 가능한가요? 운영 시간이 궁금해요!',
         A: '네, 사장님! 저희 고객센터는 24시간 연중무휴, 언제든지 사장님의 연락을 기다리고 있습니다! 한밤중이든 새벽이든, 궁금한 점이나 필요한 사항이 있으시면 주저하지 마시고 바로 전화 주세요!',
         tag: '[문의]'
       },
@@ -331,7 +331,7 @@ export default function SupportPage() {
               <p className="text-lg mb-2">문제가 아직 해결되지 않거나 궁금한게 있으시면 직통전화로 연락주세요</p>
               <p className="text-xl font-bold mb-1">5프로돌려주는스카이차 고객센터</p>
               <a 
-                href="tel:18779001"
+                href="tel:18773924"
                 className="text-2xl font-bold hover:text-blue-200 transition-colors cursor-pointer inline-block"
               >
                 1877 - 9001

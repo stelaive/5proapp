@@ -2,7 +2,7 @@
 
 export default function HeroSection() {
   const handleCallNow = () => {
-    window.location.href = 'tel:1877-9001'
+    window.location.href = 'tel:1877-3924'
   }
 
   const handleAppDownload = () => {
@@ -51,7 +51,7 @@ export default function HeroSection() {
             onClick={handleCallNow}
             className="w-full max-w-sm sm:max-w-md bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 sm:py-6 px-6 sm:px-8 rounded-2xl text-lg sm:text-xl md:text-2xl transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl mb-4 leading-tight"
           >
-            📞 1877-9001<br className="sm:hidden" />
+            📞 1877-3924<br className="sm:hidden" />
             <span className="hidden sm:inline"> </span>지금 바로 예약하기
           </button>
         </div>

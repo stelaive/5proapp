@@ -19,7 +19,7 @@ const SITE_INFO = {
   
   // 회사/서비스 정보
   businessName: '5프로돌려주는스카이차',
-  businessPhone: '1877-9001',
+  businessPhone: '1877-3924',
   businessEmail: 'man7866@naver.com',
   
   // 주요 키워드 (검색 최적화용 - 네이버 예티 AI 최적화)

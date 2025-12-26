@@ -47,11 +47,18 @@ export default function FloatingDownload() {
     >
       <button
         onClick={handleAppDownload}
-        className="flex items-center space-x-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 px-4 py-3 text-sm"
+        className="flex items-center space-x-2 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl active:scale-95 px-4 py-3 text-sm"
         style={{
+          backgroundColor: '#42d9de',
           // 터치 영역 최소 크기 보장
           minHeight: '44px',
           minWidth: '44px'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = '#3bc4c9';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = '#42d9de';
         }}
       >
         <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">

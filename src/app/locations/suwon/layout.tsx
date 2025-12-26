@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     // [수정] title과 일관성을 맞춥니다.
     title: '수원스카이차 | 5% 캐시백 고소작업차 임대',
     description:
-      '수원 전지역 스카이차 임대, 5% 캐시백! 1톤, 3.5톤, 5톤 고소작업차 당일 배차. 1877-9001',
+      '수원 전지역 스카이차 임대, 5% 캐시백! 1톤, 3.5톤, 5톤 고소작업차 당일 배차. 1877-3924',
     url: 'https://5프로.com/locations/suwon',
     siteName: '5프로스카이차',
     locale: 'ko_KR',
@@ -64,7 +64,7 @@ export default function SuwonLayout({
         'name': '수원'
     },
     priceRange: '₩250,000–₩1,200,000', // [수정] 실제 가격 범위를 더 명확하게
-    telephone: '1877-9001',
+    telephone: '1877-3924',
     url: 'https://5프로.com/locations/suwon',
     image: 'https://5프로.com/images/5프로.png',
     description:

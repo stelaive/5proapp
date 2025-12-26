@@ -2,7 +2,7 @@
 
 export default function HeroSection() {
   const handleCallNow = () => {
-    window.location.href = 'tel:1877-9001'
+    window.location.href = 'tel:1877-3924'
   }
 
   return (
@@ -20,7 +20,7 @@ export default function HeroSection() {
           <div className="text-center">
             <p className="text-lg text-red-600 mb-4 font-bold">▶ 긴급 출동 전화</p>
             <div className="text-6xl md:text-8xl font-bold text-red-600 mb-4">
-              1877-9001
+              1877-3924
             </div>
             <p className="text-lg text-gray-600 mb-6">
               24시간 상담 가능, 안양 전지역 30분내 도착

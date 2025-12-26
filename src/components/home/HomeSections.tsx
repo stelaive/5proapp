@@ -137,7 +137,14 @@ export default function HomeSections() {
                 </p>
                 <Link 
                   href="/whyhere"
-                  className="inline-block bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-all"
+                  className="inline-block text-white px-8 py-4 rounded-full font-bold transition-all"
+                  style={{ backgroundColor: '#42d9de' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#3bc4c9';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#42d9de';
+                  }}
                 >
                   5% 페이백 자세히 보기
                 </Link>
@@ -197,7 +204,14 @@ export default function HomeSections() {
                 </p>
                 <Link 
                   href="/million"
-                  className="inline-block bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-all"
+                  className="inline-block text-white px-8 py-4 rounded-full font-bold transition-all"
+                  style={{ backgroundColor: '#42d9de' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#3bc4c9';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#42d9de';
+                  }}
                 >
                   100만원 추첨 자세히 보기
                 </Link>
@@ -230,7 +244,14 @@ export default function HomeSections() {
                 </p>
                 <Link 
                   href="/reward"
-                  className="inline-block bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-all"
+                  className="inline-block text-white px-8 py-4 rounded-full font-bold transition-all"
+                  style={{ backgroundColor: '#42d9de' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#3bc4c9';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#42d9de';
+                  }}
                 >
                   친구 초대 자세히 보기
                 </Link>
@@ -460,21 +481,28 @@ export default function HomeSections() {
               어? 영상을 봐도 모르겠다구요? 갸우뚱❓
             </h2>
             <p className="text-xl font-bold text-red-500 mb-4">
-              괜찮아요! 그럴 땐 주저 말고 <span className="text-3xl text-yellow-400">1877-9001</span>로 바로 전화 주세요! 📞
+              괜찮아요! 그럴 땐 주저 말고 <span className="text-3xl text-yellow-400">1877-3924</span>로 바로 전화 주세요! 📞
             </p>
             <p className="text-lg mb-8 text-white">
               친절한 저희가 처음부터 끝까지! 시원~하게 도와드릴게요. 🤗<br />
               여러분의 즐거운 앱 생활, 저희가 책임지고 응원합니다! 파이팅! 💪
             </p>
             <a 
-              href="tel:18779001"
-              className="inline-block bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transform hover:scale-105 transition-all"
+              href="tel:18773924"
+              className="inline-block text-white px-10 py-4 rounded-full font-bold text-lg transform hover:scale-105 transition-all"
               style={{ 
+                backgroundColor: '#42d9de',
                 color: '#ffffff !important',
                 textDecoration: 'none !important',
                 display: 'inline-block !important',
                 zIndex: 10,
                 position: 'relative'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#3bc4c9';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#42d9de';
               }}
             >
               <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>

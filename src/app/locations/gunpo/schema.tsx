@@ -54,7 +54,7 @@ export const offerJsonLd = {
   "seller": {
     "@type": "LocalBusiness",
     "name": "5프로스카이차 군포지점",
-    "telephone": "1877-9001",
+    "telephone": "1877-3924",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "군포시",

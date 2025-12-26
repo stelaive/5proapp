@@ -507,7 +507,14 @@ export default function WhyHere() {
               >
                               <motion.button 
                 onClick={handleAppDownload}
-                className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-12 py-6 rounded-full text-xl font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl border-2 border-white"
+                className="inline-block text-white px-12 py-6 rounded-full text-xl font-bold transition-all duration-300 shadow-xl hover:shadow-2xl border-2 border-white"
+                style={{ backgroundColor: '#42d9de' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#3bc4c9';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#42d9de';
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 animate={{ 

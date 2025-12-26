@@ -16,7 +16,7 @@ export default function BenefitCards() {
                   <span className="text-3xl text-white">💰</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                  오더 완료 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">5%</span> 캐시백
+                  오더 완료 <span className="text-[#42d9de]">5%</span> 캐시백
                 </h3>
                 <p className="text-gray-600">
                   작업 완료 즉시<br />
@@ -28,7 +28,7 @@ export default function BenefitCards() {
             {/* 카드 2 */}
             <div className="bg-white p-8 rounded-2xl shadow-lg border-2 border-sky-orange-200">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}>
                   <span className="text-3xl text-white">🎰</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">
@@ -48,7 +48,7 @@ export default function BenefitCards() {
                   <span className="text-3xl text-white">👥</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                  친구 5명 초대 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">5만원</span> 보너스
+                  친구 5명 초대 <span className="text-[#42d9de]">5만원</span> 보너스
                 </h3>
                 <p className="text-gray-600">
                   좋은 건 나누고<br />

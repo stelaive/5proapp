@@ -5,7 +5,7 @@ import { Phone, MapPin, Award, UserCheck, CheckCircle, Smile, ThumbsUp } from 'l
 
 export default function ManagerProfileSection() {
   const handleCallNow = () => {
-    window.location.href = 'tel:1877-9001'
+    window.location.href = 'tel:1877-3924'
   }
 
   return (

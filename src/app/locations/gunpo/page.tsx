@@ -47,7 +47,7 @@ export default function GunpoPage() {
         title={gunpoCopy.hero.headline}
         subtitle={gunpoCopy.hero.sub}
         ctaText1={gunpoCopy.hero.btnTel}
-        ctaLink1="tel:1877-9001"
+        ctaLink1="tel:1877-3924"
         ctaText2={gunpoCopy.hero.btnChat}
         ctaLink2="https://open.kakao.com/o/sA763Sbg"
         imageUrl="/images/고기싸롱 간판 설치 작업.png"
@@ -77,9 +77,9 @@ export default function GunpoPage() {
         title={gunpoCopy.cta.title}
         description={gunpoCopy.cta.subtitle}
         buttonText={gunpoCopy.cta.button}
-        phone="1877-9001"
+        phone="1877-3924"
       />
-      <StickyCTA phone="1877-9001" chatLink="https://open.kakao.com/o/sA763Sbg" />
+      <StickyCTA phone="1877-3924" chatLink="https://open.kakao.com/o/sA763Sbg" />
     </>
   )
 } 

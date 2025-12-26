@@ -4,7 +4,7 @@ import { handleAppDownload } from '../_utils/download';
 
 export default function CalloutBanner() {
   return (
-    <section className="py-16 bg-gradient-to-r from-red-500 to-orange-500 text-white">
+    <section className="py-16 text-white" style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}>
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-6">지금 바로 제5회 100만원 주인공 도전!</h2>
         <div className="flex flex-col items-center text-xl mb-8">

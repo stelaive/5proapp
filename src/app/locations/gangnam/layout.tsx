@@ -1,13 +1,20 @@
 import type { Metadata } from 'next'
+import { GANGNAM_DATA } from '@/lib/regionData'
+
+const data = GANGNAM_DATA;
 
 export const metadata: Metadata = {
-  title: '강남구 스카이차 | 1877-9001 | 5% 페이백해주는 스카이차',
-  description: '서울 강남구, 논현동, 역삼동, 청담동 스카이차 빠른 배차. 작업 완료 시 5% 현금 페이백 + 매달 100만원 추첨 기회까지! 1877-9001',
-  keywords: '강남구스카이차, 강남스카이차, 역삼동스카이차, 논현동스카이차, 청담동스카이차, 신사동스카이차, 압구정스카이차, 삼성동스카이차, 대치동스카이차, 강남스카이차가격, 스카이차비용, 1톤스카이차, 2.5톤스카이차, 3.5톤스카이차, 5톤스카이차, 굴절스카이차',
+  title: `${data.nameKo} 스카이차 | ${data.phone} | 5% 페이백해주는 스카이차`,
+  description: `서울 ${data.nameKo}, ${data.subAreas.join(', ')} 스카이차 빠른 배차. 작업 완료 시 5% 현금 페이백 + 매달 100만원 추첨 기회까지! ${data.phone}`,
+  keywords: `${data.nameKo}스카이차, ${data.subAreas.map(area => `${area}스카이차`).join(', ')}, 강남스카이차가격, 스카이차비용, 1톤스카이차, 2.5톤스카이차, 3.5톤스카이차, 5톤스카이차, 굴절스카이차`,
   openGraph: {
-    title: '강남구 스카이차 | 1877-9001 | 5% 페이백',
-    description: '강남 전지역 30분 내 배차. 쓰고 돌려받는 5% 캐시백 혜택을 지금 확인하세요.',
+    title: `${data.nameKo} 스카이차 | ${data.phone} | 5% 페이백`,
+    description: `${data.nameKo} 전지역 30분 내 배차. 쓰고 돌려받는 5% 캐시백 혜택을 지금 확인하세요.`,
     images: ['/images/5프로.png'],
+    url: `https://xn--5-w30fr74e.com/locations/gangnam`,
+  },
+  alternates: {
+    canonical: `https://xn--5-w30fr74e.com/locations/gangnam`,
   },
 }
 
@@ -18,4 +25,3 @@ export default function GangnamLayout({
 }) {
   return <>{children}</>
 }
-

@@ -47,7 +47,7 @@ const pages = [
   {
     slug: 'support',
     title: '고객센터 FAQ - 자주 묻는 질문과 답변',
-    description: '스카이차 이용 관련 자주 묻는 질문과 답변. 궁금한 점이 있으시면 1877-9001로 언제든 연락주세요.',
+    description: '스카이차 이용 관련 자주 묻는 질문과 답변. 궁금한 점이 있으시면 1877-3924로 언제든 연락주세요.',
     lastModified: new Date('2024-12-19'),
   },
 ]

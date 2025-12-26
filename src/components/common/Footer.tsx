@@ -5,7 +5,7 @@ import { Phone, MessageSquare, Mail } from 'lucide-react';
 const Footer: React.FC = () => {
   const companyInfo = {
     name: '5프로돌려주는스카이차',
-    phone: '1877-9001',
+    phone: '1877-3924',
     textNumber: '010-2497-2433',
     email: 'man7866@naver.com',
   };

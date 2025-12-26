@@ -314,10 +314,10 @@ export default function Marketing() {
             사장님의 가게 정보, 이렇게 바뀝니다
           </motion.h2>
           <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
               {/* Before */}
               <motion.div 
-                className="text-center"
+                className="text-center flex-1 max-w-sm"
                 {...fadeInUp}
                 transition={{ duration: 0.8 }}
               >
@@ -337,23 +337,16 @@ export default function Marketing() {
 
               {/* Arrow */}
               <motion.div 
-                className="text-center md:block hidden"
+                className="flex items-center justify-center flex-shrink-0"
                 {...fadeInUp}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className="text-4xl text-blue-600">→</div>
-              </motion.div>
-              <motion.div 
-                className="text-center md:hidden block"
-                {...fadeInUp}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <div className="text-4xl text-blue-600">↓</div>
+                <div className="text-4xl md:text-5xl" style={{ color: '#42d9de' }}>→</div>
               </motion.div>
 
               {/* After */}
               <motion.div 
-                className="text-center"
+                className="text-center flex-1 max-w-sm"
                 initial={{ opacity: 0, clipPath: "inset(100% 0 0 0)" }}
                 whileInView={{ 
                   opacity: 1, 
@@ -368,10 +361,10 @@ export default function Marketing() {
                     <div className="text-green-600">⭐ 별점 4.8</div>
                     <div className="text-blue-600">📷 고품질 사진</div>
                     <div className="text-purple-600">📝 상세 정보</div>
-                    <div className="text-orange-600">📞 문의 급증</div>
+                    <div style={{ color: '#42d9de' }}>📞 문의 급증</div>
                   </div>
                 </div>
-                <p className="text-lg font-bold text-blue-600">
+                <p className="text-lg font-bold" style={{ color: '#42d9de' }}>
                   우리 앱 노하우 적용 후 ✨
                 </p>
               </motion.div>

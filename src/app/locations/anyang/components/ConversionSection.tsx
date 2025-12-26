@@ -4,7 +4,7 @@ import { Smartphone, Phone, Clock, Award, Gift, AlertTriangle } from 'lucide-rea
 
 export default function ConversionSection() {
   const handleCallNow = () => {
-    window.location.href = 'tel:1877-9001'
+    window.location.href = 'tel:1877-3924'
   }
 
   const handleAppDownload = () => {
@@ -69,7 +69,7 @@ export default function ConversionSection() {
               <span>[전화로 빠른 예약] 하셔도 모든 혜택 챙겨드려요!</span>
             </div>
           </button>
-          <p className="text-yellow-200 text-lg mt-2">☎️ 1877-9001 (24시간 상담 가능)</p>
+          <p className="text-yellow-200 text-lg mt-2">☎️ 1877-3924 (24시간 상담 가능)</p>
         </div>
         
         {/* 긴급 연락 */}

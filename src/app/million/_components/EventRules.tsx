@@ -176,12 +176,15 @@ export default function EventRules() {
               <motion.div 
                 className={`p-8 rounded-xl text-center transition-all duration-500 ${
                   currentParticipants >= 1501 
-                    ? 'bg-gradient-to-r from-orange-400 to-red-600 text-white animate-pulse border-2 border-orange-500' 
+                    ? 'text-white animate-pulse border-2'
                     : 'bg-white border-3 border-dashed border-gray-400 text-gray-700'
                 }`}
                 variants={scaleIn}
                 whileHover={{ scale: 1.05 }}
-                style={currentParticipants < 1501 ? { 
+                style={currentParticipants >= 1501 ? {
+                  background: 'linear-gradient(to right, #42d9de, #3bc4c9)',
+                  borderColor: '#42d9de'
+                } : currentParticipants < 1501 ? { 
                   borderWidth: '3px',
                   borderStyle: 'dashed'
                 } : {}}
@@ -213,7 +216,8 @@ export default function EventRules() {
 
           {/* 현재 참여자 수 */}
           <motion.div 
-            className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-8 rounded-2xl text-center mb-12"
+            className="text-white p-8 rounded-2xl text-center mb-12"
+            style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

@@ -20,7 +20,7 @@ export default function StepSection() {
               예약은 전화로.
             </h3>
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-              1877-9001로 전화해서<br className="sm:hidden" /> 필요한 장비와 시간을<br className="sm:hidden" /> 말씀해주세요.<br />
+              1877-3924로 전화해서<br className="sm:hidden" /> 필요한 장비와 시간을<br className="sm:hidden" /> 말씀해주세요.<br />
               저희의 정직한 가격과<br className="sm:hidden" /> 5% 페이백은<br className="sm:hidden" /> 자동으로 적용됩니다.
             </p>
           </div>

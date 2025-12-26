@@ -472,7 +472,14 @@ export default function Marketplace() {
           
           <motion.button 
             onClick={handleAppDownload}
-            className="bg-orange-500 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-orange-600 transition-all inline-flex items-center gap-3"
+            className="text-white px-8 py-4 rounded-full text-xl font-bold transition-all inline-flex items-center gap-3"
+            style={{ backgroundColor: '#42d9de' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#3bc4c9';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#42d9de';
+            }}
             whileHover={{ 
               scale: 1.05,
               transition: { duration: 0.2 }

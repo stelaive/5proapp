@@ -55,7 +55,7 @@ export default function PricingPage() {
       </motion.div>
 
       {/* 전화 연결 섹션 */}
-      <section className="py-16 bg-gradient-to-br from-orange-500 to-red-600 text-white">
+      <section className="py-16 text-white" style={{ background: 'linear-gradient(to bottom right, #42d9de, #3bc4c9)' }}>
         <div className="container mx-auto px-4 text-center">
           <motion.div 
             className="max-w-3xl mx-auto"
@@ -68,10 +68,11 @@ export default function PricingPage() {
               24시간 상담 가능! 지금 바로 전화주세요.
                 </p>
                 <a 
-                  href="tel:18779001"
-              className="inline-block bg-white text-orange-500 px-10 py-4 rounded-full font-bold text-xl hover:bg-gray-100 transform hover:scale-105 transition-all shadow-lg"
+                  href="tel:18773924"
+              className="inline-block bg-white px-10 py-4 rounded-full font-bold text-xl hover:bg-gray-100 transform hover:scale-105 transition-all shadow-lg"
+              style={{ color: '#42d9de' }}
             >
-              <span>1877-9001 전화걸기</span>
+              <span>1877-3924 전화걸기</span>
                 </a>
           </motion.div>
         </div>

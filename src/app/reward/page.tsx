@@ -465,7 +465,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="bg-gray-200 rounded-full h-3 mb-4">
-                <div className="bg-gradient-to-r from-red-500 to-orange-500 h-3 rounded-full w-1/3"></div>
+                <div className="h-3 rounded-full w-1/3" style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}></div>
               </div>
               <div className="flex justify-between text-sm text-gray-600 font-bold">
                 <span>앱 설치</span>
@@ -533,7 +533,8 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                     whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   >
                     <motion.div 
-                      className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-3xl"
+                      className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-3xl"
+                      style={{ backgroundColor: '#42d9de' }}
                       animate={{ 
                         scale: [1, 1.1, 1]
                       }}
@@ -828,7 +829,8 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
             </motion.div>
 
             <motion.div 
-              className="bg-gradient-to-r from-yellow-400 to-red-500 text-white p-10 rounded-2xl"
+              className="text-white p-10 rounded-2xl"
+              style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -932,10 +934,13 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                             ${tier.isActive 
                               ? 'bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-lg' 
                               : isCurrentTarget
-                              ? 'bg-gradient-to-br from-yellow-400 to-orange-500 text-white shadow-lg border-2 border-white'
+                              ? 'text-white shadow-lg border-2 border-white'
                               : 'bg-white/20 text-white hover:bg-white/30'
                             }
                           `}
+                          style={isCurrentTarget && !tier.isActive ? {
+                            background: 'linear-gradient(to bottom right, #42d9de, #3bc4c9)'
+                          } : undefined}
                           whileHover={{ scale: 1.05 }}
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -1041,7 +1046,14 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               <div className="text-center">
                 <button 
                   onClick={downloadApp}
-                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-12 py-5 rounded-full font-bold text-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                  className="text-white px-12 py-5 rounded-full font-bold text-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                  style={{ backgroundColor: '#42d9de' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#3bc4c9';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#42d9de';
+                  }}
                 >
                   📱 지금 바로 앱 설치하기
                 </button>
@@ -1166,7 +1178,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
       </section>
 
       {/* 최종 CTA 섹션 */}
-      <section className="py-20 bg-gradient-to-r from-red-600 to-orange-500 text-white">
+      <section className="py-20 text-white" style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}>
         <div className="container mx-auto px-6 text-center">
           <motion.h2 
             className="text-4xl md:text-6xl font-bold mb-8 font-jalnan leading-tight"
