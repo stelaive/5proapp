@@ -22,9 +22,9 @@ export default function BookingProcess({ data }: BookingProcessProps) {
             {data.bookingSteps.map((step) => (
               <div 
                 key={step.step}
-                className="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-orange-200 transition-colors text-center"
+                className="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-[#42d9de]/30 transition-colors text-center"
               >
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xl md:text-2xl mx-auto mb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 text-white rounded-full flex items-center justify-center font-bold text-xl md:text-2xl mx-auto mb-4" style={{ backgroundColor: '#42d9de' }}>
                   {step.step}
                 </div>
                 <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">

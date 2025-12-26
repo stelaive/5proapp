@@ -529,7 +529,11 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 {/* 2단계: 초대 코드 공유 */}
                 <SwiperSlide>
                   <motion.div 
-                    className="bg-gradient-to-r from-orange-50 to-yellow-50 p-8 md:p-12 rounded-2xl border-2 border-orange-200 text-center"
+                    className="p-8 md:p-12 rounded-2xl border-2 text-center"
+                    style={{ 
+                      background: 'linear-gradient(to right, rgba(66, 217, 222, 0.1), rgba(59, 196, 201, 0.1))',
+                      borderColor: 'rgba(66, 217, 222, 0.3)'
+                    }}
                     whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   >
                     <motion.div 
@@ -546,7 +550,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                     >
                       2
                     </motion.div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-6 text-orange-600 leading-tight">초대 코드로 친구들 초대!</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight" style={{ color: '#42d9de' }}>초대 코드로 친구들 초대!</h3>
                     <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                       아직 저희 서비스를 이용 안 해본 동료 사장님들께 내 초대 코드를 공유하세요. 친구가 앱 설치 후 일감 1건만 완료하면 OK!
                     </p>
@@ -556,11 +560,16 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 {/* 3단계: 친구 5명 달성 시 현금 5만원 */}
                 <SwiperSlide>
                   <motion.div 
-                    className="bg-gradient-to-r from-yellow-50 to-green-50 p-8 md:p-12 rounded-2xl border-2 border-yellow-200 text-center"
+                    className="p-8 md:p-12 rounded-2xl border-2 text-center"
+                    style={{ 
+                      background: 'linear-gradient(to right, rgba(66, 217, 222, 0.1), rgba(59, 196, 201, 0.15))',
+                      borderColor: 'rgba(66, 217, 222, 0.3)'
+                    }}
                     whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   >
                     <motion.div 
-                      className="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-3xl"
+                      className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-3xl"
+                      style={{ backgroundColor: '#42d9de' }}
                       animate={{ 
                         scale: [1, 1.1, 1]
                       }}
@@ -774,7 +783,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 >
                   🔄
                 </motion.div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-orange-600">5명씩 계속</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-3" style={{ color: '#42d9de' }}>5명씩 계속</h3>
                 <motion.p 
                   className="text-3xl font-bold text-blue-500 mb-2"
                   animate={{ 
@@ -1012,7 +1021,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-bold text-xl md:text-2xl mb-6 text-orange-600">💰 보너스 관리</h4>
+                      <h4 className="font-bold text-xl md:text-2xl mb-6" style={{ color: '#42d9de' }}>💰 보너스 관리</h4>
                       <ul className="space-y-3 text-gray-700 text-lg leading-relaxed">
                         <li>• 친구별 참여 상태 확인</li>
                         <li>• 보너스 지급 내역 조회</li>

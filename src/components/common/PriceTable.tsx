@@ -52,7 +52,7 @@ export default function PriceTable({
 
   // 기본 계산기 옵션
   const defaultCalculatorOptions = [
-    { label: '1-3.5톤 반나절', price: 350000, color: 'bg-orange-500 hover:bg-orange-600' },
+    { label: '1-3.5톤 반나절', price: 350000, color: 'bg-[#42d9de] hover:bg-[#3bc4c9]' },
     { label: '1-3.5톤 하루', price: 550000, color: 'bg-blue-500 hover:bg-blue-600' },
     { label: '5톤 반나절', price: 450000, color: 'bg-green-500 hover:bg-green-600' },
     { label: '5톤 하루', price: 650000, color: 'bg-purple-500 hover:bg-purple-600' },
@@ -126,7 +126,7 @@ export default function PriceTable({
                   👉 {region}사장님 통장으로 입금될 캐시백: {calculateCashback(selectedPrice.price).toLocaleString()}원!
                 </div>
                 <p className="text-lg text-gray-600">실제 사용액: <span className="font-bold text-green-600">{(selectedPrice.price - calculateCashback(selectedPrice.price)).toLocaleString()}원</span></p>
-                <p className="text-xs text-gray-500 mt-4">* 페이백은 작업 완료 후 3일 이내 지급됩니다</p>
+                <p className="text-xs text-gray-500 mt-4">* 페이백은 작업 완료 후 즉시 적립됩니다 (취소/부분취소/추가비 제외)</p>
               </div>
             )}
           </div>
@@ -146,10 +146,25 @@ export default function PriceTable({
           <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-bold text-green-900 mb-4">특별 혜택</h3>
             <ul className="space-y-3 text-green-800">
-              <li>• 모든 요금제에 <strong>5% 현금 페이백</strong> 자동 적용!</li>
+              <li>• 모든 요금제에 <strong>결제금액의 5% 포인트/현금 페이백</strong> 자동 적용!</li>
               <li>• {region} 전 지역 <strong>30분 내 배차</strong>를 목표로 합니다.</li>
               <li>• 24시간 긴급 출동 서비스가 항상 준비되어 있습니다.</li>
             </ul>
+          </div>
+        </div>
+
+        {/* PRD 6-3: 요금표 하단 고정 문구 */}
+        <div className="mt-8 bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
+          <div className="space-y-2 text-sm md:text-base text-gray-700">
+            <p className="font-semibold">
+              • 작업시간 초과 시 1시간당 5만원 추가
+            </p>
+            <p className="font-semibold">
+              • 지역별 추가비 없음
+            </p>
+            <p>
+              • 현장 여건(작업 높이, 진입/주차 여건, 야간/주말 작업 등)에 따라 추가 비용이 발생할 수 있습니다.
+            </p>
           </div>
         </div>
       </div>

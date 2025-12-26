@@ -30,8 +30,8 @@ export default function AppSection() {
 
         <div className="space-y-8 sm:space-y-12 max-w-4xl mx-auto">
           {/* 혜택 1 - 100만원 추첨 */}
-          <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 p-6 sm:p-8 bg-yellow-50 rounded-2xl">
-            <div className="w-20 h-20 sm:w-24 sm:h-24 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+          <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 p-6 sm:p-8 rounded-2xl" style={{ background: 'linear-gradient(to right, rgba(66, 217, 222, 0.1), rgba(59, 196, 201, 0.1))' }}>
+            <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#42d9de' }}>
               <span className="text-3xl sm:text-4xl">💰</span>
             </div>
             <div className="text-center md:text-left">
@@ -56,9 +56,36 @@ export default function AppSection() {
                 부가 혜택 ②:<br className="sm:hidden" /> 내 돈, 내역 확인
               </h3>
               <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-                물론, 작업마다 쌓이는<br className="sm:hidden" /> 5% 페이백과<br className="sm:hidden" /> 과거 작업 내역도<br />
+                물론, 작업마다 쌓이는<br className="sm:hidden" /> 결제금액의 5% 포인트/현금 페이백과<br className="sm:hidden" /> 과거 작업 내역도<br />
                 앱에서 언제든<br className="sm:hidden" /> 투명하게 확인하실 수 있습니다.
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 하단 고정 문구 - PRD 6-2 */}
+        <div className="mt-12 bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-gray-200">
+          <div className="space-y-4 text-center md:text-left">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="space-y-2">
+                <p className="text-gray-700 font-semibold text-sm md:text-base">
+                  <span className="text-[#42d9de] font-bold">• 참여 조건:</span> 월 1건 이상 작업 완료 시 자동 참여
+                </p>
+                <p className="text-gray-700 font-semibold text-sm md:text-base">
+                  <span className="text-[#42d9de] font-bold">• 추첨 일시:</span> 매달 말일 오후 7시
+                </p>
+                <p className="text-gray-700 font-semibold text-sm md:text-base">
+                  <span className="text-[#42d9de] font-bold">• 발표 방식:</span> 유튜브 생방송 + 공지
+                </p>
+              </div>
+              <a
+                href="https://youtube.com/@tv-jj1km?si=rEg3ME5jW9QHh1xV"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#42d9de] text-white px-6 py-3 rounded-full font-bold hover:bg-[#3bc4c9] transition-all duration-300 shadow-md hover:shadow-lg min-h-[44px] text-sm md:text-base"
+              >
+                <span>🎥 추첨 영상 보기</span>
+              </a>
             </div>
           </div>
         </div>

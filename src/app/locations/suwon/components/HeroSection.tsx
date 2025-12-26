@@ -26,7 +26,7 @@ export default function HeroSection() {
         {/* 메인 헤드라인 */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight px-2">
           이 가격에,<br className="sm:hidden" />
-          <span className="text-yellow-500"> 5% 페이백</span><br className="sm:hidden" />까지.
+          <span className="text-[#42d9de]"> 5% 페이백</span><br className="sm:hidden" />까지.
         </h1>
 
         {/* 서브 헤드라인 */}
@@ -36,7 +36,7 @@ export default function HeroSection() {
 
         {/* 본문 텍스트 */}
         <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-4 max-w-3xl mx-auto px-4 leading-relaxed">
-          수원스카이차는 전화든 앱이든,<br className="sm:hidden" /> 시세보다 5만원 낮은 가격과<br className="sm:hidden" /> 5% 페이백을 약속합니다.
+          수원스카이차는 전화든 앱이든,<br className="sm:hidden" /> 시세보다 5만원 낮은 가격과<br className="sm:hidden" /> 결제금액의 5% 포인트/현금 페이백을 약속합니다.
         </p>
         <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-12 px-4">
           (이것이 저희의 기본 원칙입니다.)
@@ -49,7 +49,14 @@ export default function HeroSection() {
           </p>
           <button
             onClick={handleCallNow}
-            className="w-full max-w-sm sm:max-w-md bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 sm:py-6 px-6 sm:px-8 rounded-2xl text-lg sm:text-xl md:text-2xl transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl mb-4 leading-tight"
+            className="w-full max-w-sm sm:max-w-md text-white font-bold py-4 sm:py-6 px-6 sm:px-8 rounded-2xl text-lg sm:text-xl md:text-2xl transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl mb-4 leading-tight"
+            style={{ backgroundColor: '#42d9de' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#3bc4c9';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#42d9de';
+            }}
           >
             📞 1877-3924<br className="sm:hidden" />
             <span className="hidden sm:inline"> </span>지금 바로 예약하기

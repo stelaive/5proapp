@@ -58,7 +58,7 @@ export default function HeroSection() {
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center text-sm text-gray-600"> 
           <div className="flex items-center">
             <span className="text-green-600 mr-2">✔</span>
-            5% 현금 페이백 추가
+            결제금액의 5% 포인트/현금 페이백
           </div>
           <div className="flex items-center">
             <span className="text-green-600 mr-2">✔</span>

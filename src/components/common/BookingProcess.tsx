@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import { staggerContainer, fadeInUp } from '@/lib/animations';
 
 const steps = [
-  { icon: <Phone size={32} />, title: "전화/카톡 상담", description: "현장 상황에 맞는 최적의 장비와 시간을 상담합니다." },
-  { icon: <Calendar size={32} />, title: "예약 확정", description: "원하시는 날짜와 시간에 맞춰 예약을 확정합니다." },
-  { icon: <Truck size={32} />, title: "신속 배차", description: "약속된 시간에 정확히 현장으로 출동합니다." },
+  { icon: <Phone size={32} />, title: "위치 / 층수", description: "작업 위치와 층수를 알려주세요." },
+  { icon: <Calendar size={32} />, title: "작업 내용 / 시간", description: "작업 내용과 예상 시간을 안내해주세요." },
+  { icon: <Truck size={32} />, title: "전화 상담 후 확정 → 출동", description: "전화 상담으로 최종 확정 후 현장 출동합니다." },
 ];
 
 const BookingProcess: React.FC = () => {
@@ -31,6 +31,31 @@ const BookingProcess: React.FC = () => {
               <p className="text-gray-600">{step.description}</p>
             </motion.div>
           ))}
+        </div>
+
+        {/* 통화 전 준비물 - PRD 6-5 */}
+        <div className="mt-12 max-w-3xl mx-auto bg-blue-50 rounded-xl p-6 md:p-8 border-2 border-blue-200">
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+            📋 통화 전 준비물
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4 text-left">
+            <div className="flex items-start gap-2">
+              <span className="text-[#42d9de] font-bold">•</span>
+              <span className="text-gray-700">주소</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-[#42d9de] font-bold">•</span>
+              <span className="text-gray-700">층수</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-[#42d9de] font-bold">•</span>
+              <span className="text-gray-700">작업 내용</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-[#42d9de] font-bold">•</span>
+              <span className="text-gray-700">사진 (있으면 빠름)</span>
+            </div>
+          </div>
         </div>
       </div>
     </motion.section>

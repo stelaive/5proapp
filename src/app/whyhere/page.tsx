@@ -463,7 +463,11 @@ export default function WhyHere() {
               </motion.p>
 
               <motion.div 
-                className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 p-12 rounded-2xl mb-16 shadow-lg"
+                className="border-2 p-12 rounded-2xl mb-16 shadow-lg"
+                style={{ 
+                  background: 'linear-gradient(to bottom right, rgba(66, 217, 222, 0.1), rgba(59, 196, 201, 0.1))',
+                  borderColor: 'rgba(66, 217, 222, 0.3)'
+                }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}

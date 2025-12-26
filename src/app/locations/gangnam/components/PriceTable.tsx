@@ -35,7 +35,7 @@ export default function PriceTable({ data }: PriceTableProps) {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {data.pricing.items.map((item, index) => (
-                  <tr key={index} className="hover:bg-orange-50 transition-colors">
+                  <tr key={index} className="hover:bg-[#42d9de]/10 transition-colors">
                     <td className="py-3 md:py-4 px-3 md:px-4 font-bold text-gray-800 text-sm md:text-base">
                       {item.tonnage}
                     </td>
@@ -57,10 +57,18 @@ export default function PriceTable({ data }: PriceTableProps) {
             </table>
           </div>
           
-          {/* 하단 고지 */}
-          <div className="p-4 bg-gray-50 text-left text-xs md:text-sm text-gray-500">
-            <p className="mb-2">* 부가세 별도 금액입니다.</p>
-            <p>{data.pricing.notice}</p>
+          {/* 하단 고지 - PRD 6-3 */}
+          <div className="p-4 md:p-6 bg-gray-50 text-left text-xs md:text-sm text-gray-600 space-y-2">
+            <p className="font-semibold text-gray-700">* 부가세 별도 금액입니다.</p>
+            <p className="font-semibold">
+              • 작업시간 초과 시 1시간당 5만원 추가
+            </p>
+            <p className="font-semibold">
+              • 지역별 추가비 없음
+            </p>
+            <p>
+              • {data.pricing.notice}
+            </p>
           </div>
         </div>
 

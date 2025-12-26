@@ -8,10 +8,10 @@ import useScrollVisibility from '@/hooks/useScrollVisibility';
 
 interface StickyCTAProps {
   phone: string;
-  chatLink: string;
+  chatLink?: string; // 옵셔널로 유지 (기존 코드 호환성)
 }
 
-const StickyCTA: React.FC<StickyCTAProps> = ({ phone, chatLink }) => {
+const StickyCTA: React.FC<StickyCTAProps> = ({ phone }) => {
   const isVisible = useScrollVisibility(200); // 200px 스크롤 후 나타남
   const shouldReduceMotion = useReducedMotion();
 
@@ -36,20 +36,12 @@ const StickyCTA: React.FC<StickyCTAProps> = ({ phone, chatLink }) => {
       role="complementary"
       aria-label="빠른 상담 연결"
     >
-      <div className="flex justify-around items-center gap-4">
+      <div className="flex justify-center items-center">
         <Link
-          href={`tel:${phone}`}
-          className="flex-1 text-center bg-primary text-white font-bold py-3 px-4 rounded-xl"
+          href={`tel:${phone.replace(/-/g, '')}`}
+          className="w-full max-w-md text-center bg-[#42d9de] text-white font-bold py-4 px-6 rounded-xl hover:bg-[#3bc4c9] transition-all duration-300 shadow-lg min-h-[44px] flex items-center justify-center"
         >
-          전화 상담
-        </Link>
-        <Link
-          href={chatLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 text-center bg-yellow-400 text-black font-bold py-3 px-4 rounded-xl"
-        >
-          카톡 상담
+          📞 지금 전화하기
         </Link>
       </div>
     </motion.div>
