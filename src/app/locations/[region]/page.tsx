@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import RegionClientPage from '@/components/RegionClientPage';
 
 type Props = {
-  params: { region: string };
+  params: Promise<{ region: string }>;
 };
 
 export async function generateStaticParams() {
@@ -14,8 +14,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function RegionPage({ params }: Props) {
-  const { region } = params;
+export default async function RegionPage({ params }: Props) {
+  const { region } = await params;
   const location = LOCATIONS_DATA.find((loc) => loc.slug === region);
 
   if (!location) {

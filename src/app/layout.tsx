@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 // ============================================
@@ -42,15 +42,6 @@ export const metadata: Metadata = {
   icons: {
     icon: '/images/logo_favicon.ico',
     apple: '/images/logo_favicon.ico',
-  },
-  
-  // 모바일 화면 설정
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: 'cover'
   },
   
   // 검색엔진 최적화 (SEO)
@@ -119,6 +110,17 @@ export const metadata: Metadata = {
     'article:section': '건설업체, 스카이차, 건설장비',
     'article:tag': SITE_INFO.keywords,
   }
+}
+
+// ============================================
+// 📱 Viewport 설정 (Next.js 16 요구사항)
+// ============================================
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover'
 }
 
 export default function RootLayout({

@@ -2,11 +2,11 @@ import { LOCATIONS_DATA } from '@/lib/locationsData';
 import type { Metadata } from 'next';
 
 type Props = {
-  params: { region: string };
+  params: Promise<{ region: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const regionSlug = params.region;
+  const { region: regionSlug } = await params;
   const location = LOCATIONS_DATA.find((loc) => loc.slug === regionSlug);
 
   const title = location 

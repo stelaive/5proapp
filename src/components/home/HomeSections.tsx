@@ -1,0 +1,490 @@
+'use client'
+
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+// 애니메이션 variants
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.8 },
+  viewport: { once: true, margin: "-100px" }
+};
+
+const slideInFromRight = {
+  initial: { 
+    x: 100,
+    opacity: 0 
+  },
+  whileInView: { 
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      duration: 1,
+      bounce: 0.3
+    }
+  },
+  viewport: { once: true }
+};
+
+export default function HomeSections() {
+  const handleAppDownload = () => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    
+    if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod')) {
+      window.open('https://apps.apple.com/kr/app/5-%EB%8F%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%B0%A8/id6747275589', '_blank');
+    } else if (userAgent.includes('android')) {
+      window.open('https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaignid=web_share', '_blank');
+    } else {
+      window.open('https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaignid=web_share', '_blank');
+    }
+  };
+
+  return (
+    <>
+      {/* 핵심 기능 소개 섹션 */}
+      <section id="core-features" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            {...fadeInUp}
+          >
+            <h2 className="text-4xl font-bold mb-8 text-gray-800 font-jalnan">
+              사장님, 아직도 여러 곳에 전화 돌리세요?
+            </h2>
+            <p className="text-xl text-gray-600 mb-16">
+              이제 <span className="text-red-500 font-bold">한 번의 클릭</span>으로 모든 것이 해결됩니다!
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <motion.div 
+                className="bg-white rounded-xl p-8 shadow-lg"
+                variants={{
+                  initial: { opacity: 0, y: 50 },
+                  whileInView: { opacity: 1, y: 0 }
+                }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-6xl mb-6">📲</div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">앱으로 간편하게</h3>
+                <p className="text-lg text-gray-600 mb-4 font-bold">오더 접수</p>
+                <p className="text-gray-600">
+                  복잡한 전화 통화 없이<br />
+                  앱에서 원터치로 신청
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white rounded-xl p-8 shadow-lg"
+                variants={{
+                  initial: { opacity: 0, y: 50 },
+                  whileInView: { opacity: 1, y: 0 }
+                }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-6xl mb-6">🙋‍♂️</div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">전문가가</h3>
+                <p className="text-lg text-red-500 mb-4 font-bold">책임 배차</p>
+                <p className="text-gray-600">
+                  24시간 콜센터에서<br />
+                  최적의 장비를 즉시 배정
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white rounded-xl p-8 shadow-lg"
+                variants={{
+                  initial: { opacity: 0, y: 50 },
+                  whileInView: { opacity: 1, y: 0 }
+                }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-6xl mb-6">💰</div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">작업 후</h3>
+                <p className="text-lg text-red-500 mb-4 font-bold">자동 리워드</p>
+                <p className="text-gray-600">
+                  복잡한 절차 없이<br />
+                  페이백이 바로 지급
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 5% 페이백 섹션 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div {...fadeInUp}>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 font-jalnan">
+                  일 다 하면<br />
+                  묻고 따불...아니,<br />
+                  묻지도 않고 <span className="text-red-500">5%</span> 현금!
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  땀 흘려 일하신 소중한 하루,<br />
+                  저희가 그 노고에 작은 힘이라도 보태드릴게요.<br />
+                  스카이차 작업 끝나면, 이용료의 <span className="text-red-500 font-bold">5%</span>는<br />
+                  묻지도 따지지도 않고 사장님 손에 바로 현금으로!
+                </p>
+                <Link 
+                  href="/whyhere"
+                  className="inline-block bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-all"
+                >
+                  5% 페이백 자세히 보기
+                </Link>
+              </motion.div>
+              <motion.div
+                variants={slideInFromRight}
+                initial="initial"
+                whileInView="whileInView"
+                className="relative w-full h-[400px]"
+              >
+                <Image
+                  src="/images/포인트 확인하기.png"
+                  alt="5% 페이백 시스템"
+                  fill
+                  className="object-contain"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 100만원 추첨 섹션 */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                variants={slideInFromRight}
+                initial="initial"
+                whileInView="whileInView"
+                className="relative w-full h-[400px] order-2 md:order-1"
+              >
+                <Image
+                  src="/images/100만원추첨기.png"
+                  alt="100만원 추첨 이벤트"
+                  fill
+                  className="object-contain"
+                />
+              </motion.div>
+              <motion.div {...fadeInUp} className="order-1 md:order-2">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 font-jalnan">
+                  매달 터지는<br />
+                  <span className="text-red-500">100만원</span>! 이번엔<br />
+                  사장님이 주인공?
+                </h2>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  스카이/크레인 오더 <span className="text-red-500 font-bold">1건</span>이면 자동 응모!<br />
+                  매달 터지는 <span className="text-red-500 font-bold">100만원</span>, 주인공은 바로 당신?
+                </p>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  참여자가 늘수록 당첨자도 UP! 행운의 확률은 그대로!<br />
+                  <span className="text-red-500 font-bold">(500분의 1 약속!🤙)</span>
+                </p>
+                <p className="text-xl text-gray-800 font-bold mb-8">
+                  공정한 기회, 짜릿한 행운! 매달 1일, 기대해도 좋아요!
+                </p>
+                <Link 
+                  href="/million"
+                  className="inline-block bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-all"
+                >
+                  100만원 추첨 자세히 보기
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 친구 초대 섹션 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div {...fadeInUp}>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 font-jalnan">
+                  좋은 동료에게<br />
+                  추천만 했을 뿐인데<br />
+                  통장에 <span className="text-red-500">5만원</span> 착!
+                </h2>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  아는 동료분께 저희 스카이차 살짝 추천하고,<br />
+                  그 친구 <span className="text-red-500 font-bold">5명</span>이 딱! 한 번씩만 이용하면?<br />
+                  사장님 통장엔 현금 <span className="text-red-500 font-bold">5만원</span>이 바로 꽂혀요!<br />
+                  <span className="text-red-500 font-bold">(무한반복 가능!💰)</span>
+                </p>
+                <p className="text-xl text-gray-800 font-bold mb-8">
+                  좋은 건 나누고, 현금은 쌓이고!<br />
+                  이게 바로 인싸 사장님의 길!
+                </p>
+                <Link 
+                  href="/reward"
+                  className="inline-block bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition-all"
+                >
+                  친구 초대 자세히 보기
+                </Link>
+              </motion.div>
+              <motion.div
+                variants={slideInFromRight}
+                initial="initial"
+                whileInView="whileInView"
+                className="relative w-full h-[400px]"
+              >
+                <Image
+                  src="/images/친구초대이벤트.png"
+                  alt="친구 초대 이벤트"
+                  fill
+                  className="object-contain"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 100만원 당첨자 섹션 */}
+      <section id="lotto-winner-section" className="py-20 bg-[#FFF8F2] relative overflow-hidden">
+        {/* Confetti decorations */}
+        <div className="absolute top-10 left-10 text-4xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>🎊</div>
+        <div className="absolute top-20 right-20 text-3xl animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}>✨</div>
+        <div className="absolute bottom-20 left-20 text-3xl animate-bounce" style={{ animationDelay: '1s', animationDuration: '2.8s' }}>🎉</div>
+        <div className="absolute bottom-10 right-10 text-4xl animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '3.2s' }}>💫</div>
+        
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="max-w-5xl mx-auto text-center"
+            {...fadeInUp}
+          >
+            {/* Title area */}
+            <div className="mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 font-jalnan">
+                🎉 이번 달 100만원 주인공이 탄생했습니다!
+              </h2>
+              <p className="text-xl text-gray-600">
+                누군가는 꿈이 아닌 현실로!
+              </p>
+            </div>
+
+            {/* Review Cards */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {/* 2회 당첨자 */}
+              <motion.div 
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                variants={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 }
+                }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-6 relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                    2
+                  </div>
+                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">👑</div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  김○○ 사장님
+                </h3>
+                <p className="text-sm text-[#FF6B00] font-bold mb-4">
+                  서울 | 에어컨 설치업
+                </p>
+                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-700 leading-relaxed">
+                  "평소처럼 스카이차 이용했을 뿐인데, 100만원 당첨 연락을 받고 깜짝 놀랐습니다. 
+                  5% 페이백도 좋은데, 이런 이벤트까지 있다니 앞으로도 계속 이용할 겁니다."
+                </p>
+              </motion.div>
+
+              {/* 3회 당첨자 */}
+              <motion.div 
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+                variants={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 }
+                }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-6 relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B00] to-[#FF9234] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                    3
+                  </div>
+                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🏆</div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  김○○ 사장님
+                </h3>
+                <p className="text-sm text-[#FF6B00] font-bold mb-4">
+                  경기 | 소방공사
+                </p>
+                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-700 leading-relaxed">
+                  "마침 결혼기념일이라 아내에게 선물을 고민하던 참이었는데, 
+                  100만원 당첨되어 정말 기쁩니다. 감사한 마음으로 잘 쓰겠습니다!"
+                </p>
+              </motion.div>
+
+              {/* 4회 당첨자 (NEW) */}
+              <motion.div 
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative"
+                variants={{
+                  initial: { opacity: 0, scale: 0.9 },
+                  whileInView: { opacity: 1, scale: 1 }
+                }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
+                  NEW
+                </div>
+                <div className="mb-6 relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF1744] to-[#F50057] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                    4
+                  </div>
+                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🎉</div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  허○ 사장님
+                </h3>
+                <p className="text-sm text-[#FF6B00] font-bold mb-4">
+                  페인트 시공
+                </p>
+                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
+                <p className="text-gray-700 leading-relaxed">
+                  "덕분에 가족들과 맛있는 것도 먹고 행복한 시간 보냈습니다. 
+                  생각지도 못한 큰 행운 정말 감사드리고, 앞으로도 잘 쓰겠습니다!"
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Reward explanation */}
+            <motion.div
+              className="bg-gradient-to-r from-[#FFD9A0] to-[#FFE8C7] rounded-2xl p-6 mb-8 shadow-md"
+              variants={{
+                initial: { opacity: 0, y: 30 },
+                whileInView: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-xl md:text-2xl font-bold text-gray-800">
+                💰 매달 말일, <span className="text-[#FF6B00]">1건 이상 작업자</span> 중 <span className="text-[#FF6B00]">1분께 100만원</span> 증정!
+              </p>
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.button
+              onClick={handleAppDownload}
+              className="relative overflow-hidden bg-gradient-to-r from-[#FF6B00] to-[#FF9234] text-white px-12 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
+              variants={{
+                initial: { opacity: 0, y: 30 },
+                whileInView: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                boxShadow: "0 0 30px rgba(255, 107, 0, 0.6)" 
+              }}
+            >
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                🔥 다음 100만원 주인공 도전하기
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FF9234] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </motion.button>
+
+            {/* Celebration coins animation hint */}
+            <div className="mt-8 flex justify-center gap-4">
+              <span className="text-4xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '2s' }}>💰</span>
+              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.2s', animationDuration: '2.2s' }}>💸</span>
+              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.4s', animationDuration: '2.4s' }}>💵</span>
+              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.6s', animationDuration: '2.6s' }}>💴</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 다운로드 가이드 섹션 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            {...fadeInUp}
+          >
+            <h2 className="text-3xl font-bold mb-8 text-gray-800 font-jalnan">
+              ✨ 여러분, 주목! 더 쉬운 방법을 가져왔어요! ✨
+            </h2>
+            <p className="text-lg text-gray-600 mb-6">
+              혹시 아직도 다운로드가 살짝~ 어렵게 느껴지시나요? 🤔<br />
+              걱정 마세요! 그런 여러분을 위해 저희가 특별히 준비한 선물이 있답니다! 🎁
+            </p>
+            <p className="text-xl text-red-500 font-bold mb-8">
+              🎬 짜잔! 유튜브에 다운로드 가이드 영상을 올렸어요!
+            </p>
+            <p className="text-lg text-gray-600 mb-8">
+              이제 글 대신 영상으로! 🤩 화면을 보면서 천천히 따라 하면 누구나 쉽게 성공!<br />
+              마치 게임 튜토리얼처럼 재미있게 만들었으니, 지금 바로 확인해보세요! 😉
+            </p>
+            <div className="aspect-w-16 aspect-h-9 max-w-3xl mx-auto mb-8">
+              <iframe
+                className="w-full h-[400px] rounded-xl shadow-lg"
+                src="https://www.youtube.com/embed/qf1nEUhWFbc"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 연락처 섹션 */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            {...fadeInUp}
+          >
+            <h2 className="text-3xl font-bold mb-8 font-jalnan text-white">
+              어? 영상을 봐도 모르겠다구요? 갸우뚱❓
+            </h2>
+            <p className="text-xl font-bold text-red-500 mb-4">
+              괜찮아요! 그럴 땐 주저 말고 <span className="text-3xl text-yellow-400">1877-9001</span>로 바로 전화 주세요! 📞
+            </p>
+            <p className="text-lg mb-8 text-white">
+              친절한 저희가 처음부터 끝까지! 시원~하게 도와드릴게요. 🤗<br />
+              여러분의 즐거운 앱 생활, 저희가 책임지고 응원합니다! 파이팅! 💪
+            </p>
+            <a 
+              href="tel:18779001"
+              className="inline-block bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transform hover:scale-105 transition-all"
+              style={{ 
+                color: '#ffffff !important',
+                textDecoration: 'none !important',
+                display: 'inline-block !important',
+                zIndex: 10,
+                position: 'relative'
+              }}
+            >
+              <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>
+                지금 바로 전화하기
+              </span>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  )
+}
+
