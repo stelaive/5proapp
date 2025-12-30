@@ -20,7 +20,7 @@ export default function GangnamPage() {
       <HeroSection data={data} />
       
       {/* 2. 혜택 카드 */}
-      <BenefitCards />
+      <BenefitCards data={data} />
       
       {/* 3. 요금표 */}
       <PriceTable data={data} />

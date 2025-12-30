@@ -1,8 +1,14 @@
 'use client'
 
-export default function HeroSection() {
+import type { RegionData } from '@/lib/regionData'
+
+interface HeroSectionProps {
+  data: RegionData;
+}
+
+export default function HeroSection({ data }: HeroSectionProps) {
   const handleCallNow = () => {
-    window.location.href = 'tel:1877-3924'
+    window.location.href = `tel:${data.phone}`
   }
 
   return (
@@ -10,28 +16,42 @@ export default function HeroSection() {
       <div className="max-w-4xl mx-auto text-center">
         {/* 신속함 강조 헤드라인 */}
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-          안양시 전지역 스카이차<br />
-          <span className="text-red-600">30분내 긴급 배차!</span><br />
+          {data.nameKo} 전지역 스카이차<br />
+          <span className="text-[#42d9de]">30분내 긴급 배차!</span><br />
           <span className="text-2xl md:text-3xl text-gray-600">지금 바로 전화하세요</span>
         </h1>
 
         {/* 대표 전화번호 표시 */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 max-w-2xl mx-auto border-4 border-red-500">
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 max-w-2xl mx-auto border-4 border-[#42d9de]">
           <div className="text-center">
-            <p className="text-lg text-red-600 mb-4 font-bold">▶ 긴급 출동 전화</p>
-            <div className="text-6xl md:text-8xl font-bold text-red-600 mb-4">
-              1877-3924
+            <p className="text-lg text-[#42d9de] mb-4 font-bold">▶ 긴급 출동 전화</p>
+            <div className="text-6xl md:text-8xl font-bold text-[#42d9de] mb-4">
+              {data.phone}
             </div>
             <p className="text-lg text-gray-600 mb-6">
-              24시간 상담 가능, 안양 전지역 30분내 도착
+              24시간 상담 가능, {data.nameKo} 전지역 30분내 도착
             </p>
             <button
               onClick={handleCallNow}
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-6 px-8 rounded-xl text-2xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="w-full text-white font-bold py-6 px-8 rounded-xl text-2xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              style={{ backgroundColor: '#42d9de' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#3bc4c9';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#42d9de';
+              }}
             >
               ▶ 전화로 즉시 예약
             </button>
           </div>
+        </div>
+
+        {/* 지역 리스트 - SEO 최적화 */}
+        <div className="mb-8 p-4 bg-gray-50 rounded-xl max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-gray-500 leading-relaxed">
+            {data.subAreas.join(' · ')} 등 {data.nameKo} 전역 어디든 신속하게 달려갑니다.
+          </p>
         </div>
 
         {/* 가격 비교 (기존 내용보다 간소화) */}

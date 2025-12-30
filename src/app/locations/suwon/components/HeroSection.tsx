@@ -1,8 +1,14 @@
 'use client'
 
-export default function HeroSection() {
+import type { RegionData } from '@/lib/regionData'
+
+interface HeroSectionProps {
+  data: RegionData;
+}
+
+export default function HeroSection({ data }: HeroSectionProps) {
   const handleCallNow = () => {
-    window.location.href = 'tel:1877-3924'
+    window.location.href = `tel:${data.phone}`
   }
 
   const handleAppDownload = () => {
@@ -36,10 +42,12 @@ export default function HeroSection() {
 
         {/* 본문 텍스트 */}
         <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-4 max-w-3xl mx-auto px-4 leading-relaxed">
-          수원스카이차는 전화든 앱이든,<br className="sm:hidden" /> 시세보다 5만원 낮은 가격과<br className="sm:hidden" /> 결제금액의 5% 포인트/현금 페이백을 약속합니다.
+          {data.nameKo} 스카이차는 전화든 앱이든,<br className="sm:hidden" /> 시세보다 5만원 낮은 가격과<br className="sm:hidden" /> 결제금액의 5% 포인트/현금 페이백을 약속합니다.
         </p>
-        <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-12 px-4">
-          (이것이 저희의 기본 원칙입니다.)
+        
+        {/* 지역 리스트 - SEO 최적화 */}
+        <p className="text-sm md:text-base text-gray-500 mb-12 px-4 max-w-2xl mx-auto">
+          {data.subAreas.join(' · ')} 등 {data.nameKo} 전 지역 어디든 30분 이내 신속하게 배차해 드립니다.
         </p>
 
         {/* 메인 CTA - 전화 예약 */}

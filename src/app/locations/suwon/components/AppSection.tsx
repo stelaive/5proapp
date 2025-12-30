@@ -1,6 +1,12 @@
 'use client'
 
-export default function AppSection() {
+import type { RegionData } from '@/lib/regionData'
+
+interface AppSectionProps {
+  data: RegionData;
+}
+
+export default function AppSection({ data }: AppSectionProps) {
   const handleAppDownload = () => {
     const userAgent = navigator.userAgent.toLowerCase();
     
@@ -39,7 +45,7 @@ export default function AppSection() {
                 압도적 혜택 ①:<br className="sm:hidden" /> 100만원 추첨 이벤트
               </h3>
               <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-                수원스카이차를 이용해주신<br className="sm:hidden" /> 감사함에 보답하고자,<br />
+                {data.nameKo} 스카이차를 이용해주신<br className="sm:hidden" /> 감사함에 보답하고자,<br />
                 앱 설치 후 첫 작업을 완료하신<br className="sm:hidden" /> 모든 사장님께<br className="sm:hidden" /> 100만원의 행운을 드립니다.<br />
                 사장님께 이 기회를 드리기 위해<br className="sm:hidden" /> 앱을 만들었습니다.
               </p>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeInUp } from '@/lib/animations';
+import type { RegionData } from '@/lib/regionData'
 
 interface HeroProps {
   title: string;
@@ -13,30 +14,31 @@ interface HeroProps {
   ctaText2: string;
   ctaLink2: string;
   imageUrl: string;
+  data?: RegionData;
 }
 
-const Hero: React.FC<HeroProps> = ({ title, subtitle, ctaText1, ctaLink1, ctaText2, ctaLink2, imageUrl }) => {
+const Hero: React.FC<HeroProps> = ({ title, subtitle, ctaText1, ctaLink1, ctaText2, ctaLink2, imageUrl, data }) => {
   // 사용자 기기 감지하여 앱스토어 링크 결정
   const getAppStoreLink = () => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent;
       if (/iPad|iPhone|iPod/.test(userAgent)) {
         // iOS 기기 - App Store 링크
-        return 'https://apps.apple.com/kr/app/스카이차-견적/id6443631999';
+        return 'https://apps.apple.com/kr/app/5-%EB%8F%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%B0%A8/id6747275589';
       } else if (/Android/.test(userAgent)) {
         // Android 기기 - Google Play Store 링크
-        return 'https://play.google.com/store/apps/details?id=com.skycar.app';
+        return 'https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaignid=web_share';
       }
     }
     // 기본값 또는 서버사이드 렌더링시 - Play Store
-    return 'https://play.google.com/store/apps/details?id=com.skycar.app';
+    return 'https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaignid=web_share';
   };
 
   return (
     <section className="relative h-[70vh] min-h-[500px] text-white">
       <Image
         src={imageUrl}
-        alt="군포 스카이차 작업 배경"
+        alt={data ? `${data.nameKo} ${data.subAreas.slice(0, 2).join(' ')} 스카이차 작업 현장` : title}
         fill
         style={{ objectFit: 'cover' }}
         quality={90}

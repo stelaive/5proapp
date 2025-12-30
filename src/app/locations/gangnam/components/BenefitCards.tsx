@@ -1,25 +1,30 @@
 import Image from 'next/image'
+import type { RegionData } from '@/lib/regionData'
 
-export default function BenefitCards() {
+interface BenefitCardsProps {
+  data: RegionData;
+}
+
+export default function BenefitCards({ data }: BenefitCardsProps) {
   return (
     <section className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 font-jalnan">
-            왜 <span className="text-orange-500">'5프로 스카이차'</span>를 써야 할까요?
+            왜 <span className="text-[#42d9de]">'5프로 스카이차'</span>를 써야 할까요?
           </h2>
           <p className="text-base md:text-lg text-gray-600">
-            전화 한 통이면 해결! 앱으로 부르면 혜택이 쏟아집니다.
+            전화 한 통이면 {data.nameKo} 어디든 해결! 앱으로 부르면 혜택이 쏟아집니다.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
           {/* 혜택 1: 5% 페이백 */}
-          <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-orange-200 transition-colors">
+          <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-[#42d9de]/30 transition-colors">
             <div className="relative h-40 md:h-48 mb-6">
               <Image
                 src="/images/포인트 확인하기.png"
-                alt="5% 페이백"
+                alt={`${data.nameKo} 스카이차 결제금액 5% 페이백 혜택 안내`}
                 fill
                 className="object-contain"
                 unoptimized
@@ -36,18 +41,18 @@ export default function BenefitCards() {
           </div>
 
           {/* 혜택 2: 100만원 이벤트 */}
-          <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-orange-200 transition-colors">
+          <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-[#42d9de]/30 transition-colors">
             <div className="relative h-40 md:h-48 mb-6">
               <Image
                 src="/images/100만원추첨기.png"
-                alt="100만원 추첨"
+                alt={`${data.nameKo} 스카이차 이용 고객 대상 매달 100만원 추첨 이벤트`}
                 fill
                 className="object-contain"
                 unoptimized
               />
             </div>
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-              🎰 매달 <span className="text-red-500">100만원</span> 행운 추첨
+              🎰 매달 <span className="text-[#42d9de]">100만원</span> 행운 추첨
             </h3>
             <p className="text-gray-600 leading-relaxed text-sm md:text-base">
               작업 1건만 해도 자동으로 응모 완료!<br />

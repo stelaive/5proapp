@@ -14,7 +14,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/anyang/ChatGPT Image 2025년 7월 20일 오후 05_44_09.png"
-          alt={`${data.nameKo} 스카이차 배경`}
+          alt={`${data.nameKo} ${data.subAreas.slice(0, 3).join(', ')} 스카이차 전문 배차 서비스`}
           fill
           className="object-cover opacity-30"
           priority
@@ -38,8 +38,13 @@ export default function HeroSection({ data }: HeroSectionProps) {
         </h1>
         
         {/* 서브 카피 */}
-        <p className="text-lg md:text-xl text-gray-300 mb-8">
+        <p className="text-lg md:text-xl text-gray-300 mb-4">
           {data.hero.subCopy}
+        </p>
+        
+        {/* 지역 리스트 - SEO 최적화 */}
+        <p className="text-sm md:text-base text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+          {data.subAreas.join(' · ')} 등 {data.nameKo} 전 지역 어디든 30분 이내 신속하게 배차해 드립니다.
         </p>
         
         {/* 메인 전화번호 CTA - 최우선 */}

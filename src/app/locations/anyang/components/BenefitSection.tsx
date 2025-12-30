@@ -2,11 +2,19 @@
 
 import Link from 'next/link'
 import { Percent, Gift, Tag, ArrowRight } from 'lucide-react'
+import type { RegionData } from '@/lib/regionData'
 
-export default function BenefitSection() {
+interface BenefitSectionProps {
+  data: RegionData;
+}
+
+export default function BenefitSection({ data }: BenefitSectionProps) {
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 font-jalnan">
+          {data.nameKo} 사장님들이 5프로를 찾는 이유
+        </h2>
         {/* 혜택 카드 */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-red-500">
