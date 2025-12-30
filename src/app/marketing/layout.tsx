@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/common/Footer'
+import FloatingDownload from '@/components/FloatingDownload'
 
 export const metadata: Metadata = {
   title: '업종별 마케팅 노하우 | 5프로돌려주는스카이차',
@@ -31,8 +34,13 @@ export default function MarketingLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      {children}
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Navigation currentPage="marketing" />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <FloatingDownload />
+    </div>
   )
-} 
+}

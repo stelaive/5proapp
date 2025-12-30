@@ -1,7 +1,7 @@
 'use client';
 
 import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import Footer from '@/components/common/Footer';
 import FloatingDownload from '@/components/FloatingDownload';
 import HeroSection from './_components/HeroSection';
 import BenefitCards from './_components/BenefitCards';
@@ -14,9 +14,7 @@ import CalloutBanner from './_components/CalloutBanner';
 
 export default function MillionPage() {
   return (
-    <main>
-      <Navigation currentPage="million" />
-      
+    <div>
       {/* 히어로 섹션 (타이머, 당첨자 리스트) */}
       <HeroSection />
 
@@ -40,9 +38,6 @@ export default function MillionPage() {
 
       {/* 하단 콜아웃 배너 */}
       <CalloutBanner />
-
-      <FloatingDownload />
-      <Footer />
-    </main>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
+import Footer from '@/components/common/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 
 // SEO 메타데이터 확장

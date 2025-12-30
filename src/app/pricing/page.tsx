@@ -1,8 +1,5 @@
 'use client'
 import React, { useState } from 'react'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
-import FloatingDownload from '@/components/FloatingDownload'
 import { motion } from 'framer-motion'
 import PriceTable from '@/components/common/PriceTable'
 import { defaultPriceData } from '@/lib/priceData'
@@ -17,9 +14,7 @@ const fadeInUp = {
 
 export default function PricingPage() {
   return (
-    <main className="bg-gray-50 min-h-screen">
-      <Navigation currentPage="pricing" />
-      
+    <div className="bg-gray-50">
       {/* 히어로 섹션 */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
         <div className="container mx-auto px-4">
@@ -77,9 +72,6 @@ export default function PricingPage() {
           </motion.div>
         </div>
       </section>
-
-      <FloatingDownload />
-      <Footer />
-    </main>
+    </div>
   )
-} 
+}

@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/common/Footer'
+import FloatingDownload from '@/components/FloatingDownload'
 
 export const metadata: Metadata = {
   title: '100만원 현금 추첨 이벤트 | 5프로돌려주는스카이차',
@@ -52,14 +55,19 @@ export default function MillionLayout({
     },
   };
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
+      <Navigation currentPage="million" />
       {/* Event 구조화 데이터 */}
       <Script
         id="ld-json-event"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
       />
-      {children}
-    </>
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <FloatingDownload />
+    </div>
   )
-} 
+}

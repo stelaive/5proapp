@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/common/Footer'
+import FloatingDownload from '@/components/FloatingDownload'
 
 export const metadata: Metadata = {
   title: '왜 5프로돌려주는스카이차인가? | 5프로돌려주는스카이차',
@@ -31,8 +34,13 @@ export default function WhyhereLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      {children}
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Navigation currentPage="whyhere" />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <FloatingDownload />
+    </div>
   )
-} 
+}

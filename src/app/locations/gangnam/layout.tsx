@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import { GANGNAM_DATA } from '@/lib/regionData'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/common/Footer'
+import FloatingDownload from '@/components/FloatingDownload'
 
 const data = GANGNAM_DATA;
 
@@ -23,5 +26,14 @@ export default function GangnamLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <>{children}</>
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navigation currentPage="locations" />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <FloatingDownload />
+    </div>
+  )
 }

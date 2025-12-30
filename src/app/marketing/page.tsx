@@ -1,9 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
-import FloatingDownload from '@/components/FloatingDownload'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -133,9 +130,7 @@ export default function Marketing() {
   };
 
   return (
-    <main style={{ color: '#374151' }}>
-      <Navigation currentPage="marketing" />
-      
+    <div style={{ color: '#374151' }}>
       {/* Hero Section */}
       <section id="hero" className="relative pt-32 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 z-0">
@@ -514,9 +509,6 @@ export default function Marketing() {
           </motion.div>
         </div>
       </motion.section>
-
-      <FloatingDownload />
-      <Footer />
-    </main>
-  )
-} 
+    </div>
+  );
+}

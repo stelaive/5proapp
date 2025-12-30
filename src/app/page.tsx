@@ -1,6 +1,6 @@
 import React from 'react'
 import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
+import Footer from '@/components/common/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 import HeroSection from '@/components/home/HeroSection'
 import HomeSections from '@/components/home/HomeSections'
@@ -10,17 +10,19 @@ import HomeSections from '@/components/home/HomeSections'
 
 export default function Home() {
   return (
-    <main>
+    <div className="flex flex-col min-h-screen">
       <Navigation currentPage="home" />
       
-      {/* 히어로 섹션 (클라이언트 컴포넌트: 애니메이션/인터랙션) */}
-      <HeroSection />
+      <main className="flex-grow">
+        {/* 히어로 섹션 (클라이언트 컴포넌트: 애니메이션/인터랙션) */}
+        <HeroSection />
 
-      {/* 나머지 섹션들 (클라이언트 컴포넌트: 애니메이션/인터랙션) */}
-      <HomeSections />
+        {/* 나머지 섹션들 (클라이언트 컴포넌트: 애니메이션/인터랙션) */}
+        <HomeSections />
+      </main>
 
-      <FloatingDownload />
       <Footer />
-    </main>
+      <FloatingDownload />
+    </div>
   )
 }

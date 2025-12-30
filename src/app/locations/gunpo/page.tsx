@@ -5,7 +5,6 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { CheckCircle, Zap, Gift, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
-import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 import { GUNPO_DATA } from '@/lib/regionData'
 import LocalAreaList from '@/components/common/LocalAreaList'
@@ -50,7 +49,6 @@ export default function GunpoPage() {
 
   return (
     <>
-      <Navigation currentPage="locations" />
       <DispatchStatusBanner />
       <Hero
         title={gunpoCopy.hero.headline}

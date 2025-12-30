@@ -1,5 +1,6 @@
 import { getRegionData } from '@/lib/regionData';
 import type { Metadata } from 'next';
+import Footer from '@/components/common/Footer';
 
 type Props = {
   params: Promise<{ region: string }>;
@@ -46,5 +47,12 @@ export default function RegionLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
-} 
+  return (
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+    </div>
+  );
+}

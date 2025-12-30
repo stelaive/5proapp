@@ -1,9 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
-import FloatingDownload from '@/components/FloatingDownload'
 import { motion } from 'framer-motion'
 
 // 스크롤바 숨기기 스타일 추가
@@ -125,9 +122,7 @@ export default function Marketplace() {
   };
 
   return (
-    <main>
-      <Navigation currentPage="marketplace" />
-      
+    <div>
       {/* Hero Section */}
       <section className="relative pt-24 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 z-0">
@@ -492,15 +487,8 @@ export default function Marketplace() {
             <span>내 현장 동료 만나러 가입하기</span>
             <span className="text-2xl">→</span>
           </motion.button>
-          
-          <div className="mt-16 pt-8 border-t border-gray-700 text-gray-500 text-sm">
-            <p>© 2024 일거리장터. All rights reserved.</p>
-          </div>
         </div>
       </section>
-
-      <FloatingDownload />
-      <Footer />
-    </main>
+    </div>
   );
-} 
+}

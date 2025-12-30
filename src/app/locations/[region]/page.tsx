@@ -1,7 +1,5 @@
 import { LOCATIONS_DATA } from '@/lib/regionData';
 import { notFound } from 'next/navigation';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import RegionClientPage from '@/components/RegionClientPage';
 
 type Props = {
@@ -23,10 +21,8 @@ export default async function RegionPage({ params }: Props) {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <Navigation currentPage="locations" isDarkMode={true} />
+    <div className="bg-gray-50">
       <RegionClientPage location={location} />
-      <Footer />
     </div>
   );
 } 

@@ -2,9 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
-import FloatingDownload from '@/components/FloatingDownload'
 import { motion } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
@@ -186,9 +183,8 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
   }
 
   return (
-    <main>
+    <div>
       <style dangerouslySetInnerHTML={{ __html: swiperStyles }} />
-      <Navigation currentPage="reward" />
       
       {/* 히어로 섹션 */}
       <section className="relative min-h-screen flex items-center text-white overflow-hidden pt-16 md:pt-20">
@@ -1261,9 +1257,6 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
           </motion.div>
         </div>
       )}
-
-      <FloatingDownload />
-      <Footer />
-    </main>
+    </div>
   )
-} 
+}

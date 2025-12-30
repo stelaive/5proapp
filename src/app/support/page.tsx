@@ -1,10 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface FAQItem {
@@ -24,16 +20,6 @@ const headerMenus = [
   { label: '일거리장터', key: 'marketplace', isActive: false },
   { label: '앱기능', key: 'features', isActive: false },
   { label: '고객센터', key: 'support', isActive: false },
-];
-
-const navMenus = [
-  { name: '홈', href: '/' },
-  { name: '여긴뭐야', href: '/whyhere' },
-  { name: '100만원받기', href: '/million' },
-  { name: '친구초대', href: '/reward' },
-  { name: '일거리장터', href: '/marketplace' },
-  { name: '업종별마케팅', href: '/marketing' },
-  { name: '고객센터', href: '/support' }
 ];
 
 const categoryMapping = {
@@ -62,7 +48,7 @@ const faqData: FAQItem[] = [
       },
       {
         Q: '\'반나절\'과 \'하루\' 작업의 기준 시간은 각각 몇 시간인가요? 만약 기준 시간을 조금 넘기면 비용은 어떻게 계산되나요?',
-        A: '네, 작업 시간 기준은 명확하게 정해져 있어요! 반나절은 4시간, 하루는 8시간을 기준으로 합니다. 만약 작업이 길어져 기준 시간을 초과하게 되면, 시간당 15만원의 추가금이 발생합니다. 작업 시작 전에 예상 시간을 충분히 고려해주세요!',
+        A: '네, 작업 시간 기준은 명확하게 정해져 있어요! 반나절은 4시간, 하루은 8시간을 기준으로 합니다. 만약 작업이 길어져 기준 시간을 초과하게 되면, 시간당 15만원의 추가금이 발생합니다. 작업 시작 전에 예상 시간을 충분히 고려해주세요!',
         tag: '[기준]'
       },
       {
@@ -246,9 +232,7 @@ export default function SupportPage() {
   );
 
   return (
-    <main className="min-h-screen bg-gray-50 text-black">
-      <Navigation currentPage="support" isDarkMode={true} />
-
+    <div className="bg-gray-50 text-black">
       <div className="pt-16">
         <div className="bg-white shadow-sm mb-6">
           <div className="max-w-7xl mx-auto px-4">
@@ -323,24 +307,6 @@ export default function SupportPage() {
             </div>
           ))}
         </div>
-
-        {/* CTA 섹션 */}
-        <div className="bg-blue-500 py-12">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="text-white text-center">
-              <p className="text-lg mb-2">문제가 아직 해결되지 않거나 궁금한게 있으시면 직통전화로 연락주세요</p>
-              <p className="text-xl font-bold mb-1">5프로돌려주는스카이차 고객센터</p>
-              <a 
-                href="tel:18773924"
-                className="text-2xl font-bold hover:text-blue-200 transition-colors cursor-pointer inline-block"
-              >
-                1877 - 9001
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <Footer />
       </div>
 
       {/* 모바일 카테고리 모달 */}
@@ -393,6 +359,6 @@ export default function SupportPage() {
           </>
         )}
       </AnimatePresence>
-    </main>
+    </div>
   );
-} 
+}

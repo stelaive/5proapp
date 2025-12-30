@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/common/Footer'
+import FloatingDownload from '@/components/FloatingDownload'
 
 export const metadata: Metadata = {
   title: '친구 초대 이벤트 | 5프로돌려주는스카이차',
@@ -31,8 +34,13 @@ export default function RewardLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      {children}
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Navigation currentPage="reward" />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <FloatingDownload />
+    </div>
   )
-} 
+}

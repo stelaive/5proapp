@@ -1,8 +1,7 @@
-// file: src/components/common/Footer.tsx
 import React from 'react';
 import { Phone, MessageSquare, Mail } from 'lucide-react';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const companyInfo = {
     name: '5프로돌려주는스카이차',
     phone: '1877-3924',
@@ -11,41 +10,36 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-400">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div className="md:col-span-1">
-            <h2 className="text-xl font-bold text-white">{companyInfo.name}</h2>
-          </div>
-          <div className="md:col-span-1">
-            <div>
-              <h3 className="font-bold text-white mb-4">연락처</h3>
-              <div className="space-y-2">
-                <p className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2 text-green-500" />
-                  <span className="text-gray-400">대표전화:</span>
-                  <span className="ml-2 text-white">{companyInfo.phone}</span>
-                </p>
-                <p className="flex items-center">
-                  <MessageSquare className="w-4 h-4 mr-2 text-blue-500" />
-                  <span className="text-gray-400">문자수신전용:</span>
-                  <span className="ml-2 text-white">{companyInfo.textNumber}</span>
-                </p>
-                <p className="flex items-center">
-                  <Mail className="w-4 h-4 mr-2 text-orange-500" />
-                  <span className="text-gray-400">이메일:</span>
-                  <span className="ml-2 text-white">{companyInfo.email}</span>
-                </p>
-              </div>
+    <footer className="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+      <div className="container mx-auto px-4 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-white mb-6 font-jalnan">{companyInfo.name}</h2>
+          
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-8 text-sm">
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-[#42d9de]" />
+              <span className="text-gray-500">대표전화:</span>
+              <span className="text-white font-bold">{companyInfo.phone}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-[#42d9de]" />
+              <span className="text-gray-500">문자전용:</span>
+              <span className="text-white font-bold">{companyInfo.textNumber}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="w-4 h-4 text-[#42d9de]" />
+              <span className="text-gray-500">이메일:</span>
+              <span className="text-white font-bold">{companyInfo.email}</span>
             </div>
           </div>
-        </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-          <p className="text-gray-400">&copy; {new Date().getFullYear()} {companyInfo.name}. All rights reserved.</p>
+          
+          <div className="pt-8 border-t border-gray-800 text-xs text-gray-500">
+            <p>© {new Date().getFullYear()} {companyInfo.name}. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>
   );
 };
 
-export default Footer; 
+export default Footer;

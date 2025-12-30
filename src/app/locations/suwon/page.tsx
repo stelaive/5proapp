@@ -1,5 +1,3 @@
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
 import { SUWON_DATA } from '@/lib/regionData'
 import HeroSection from './components/HeroSection'
 import StepSection from './components/StepSection'
@@ -14,8 +12,7 @@ export default function SuwonPage() {
   const data = SUWON_DATA;
 
   return (
-    <main className="min-h-screen">
-      <Navigation currentPage="locations" />
+    <div className="bg-white">
       <DispatchStatusBanner />
       <HeroSection data={data} />
       
@@ -31,7 +28,6 @@ export default function SuwonPage() {
       <AppSection data={data} />
       <PricingSection />
       <LocalAreaList nameKo={data.nameKo} subAreas={data.subAreas} />
-      <Footer />
-    </main>
+    </div>
   )
 }

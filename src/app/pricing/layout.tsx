@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/common/Footer'
+import FloatingDownload from '@/components/FloatingDownload'
 
 export const metadata: Metadata = {
   title: '스카이차 가격표 | 5프로돌려주는스카이차',
   description: '경기도 어디든 당일 출동! 바가지 없는 투명한 스카이차 가격표 + 5% 현금 즉시 돌려받기! 1톤~5톤 고소작업차 지금 전화하세요',
   keywords: '스카이차, 스카이차가격, 스카이차요금표, 스카이차대여비용, 1톤스카이차, 1톤스카이차가격, 3.5톤스카이차, 3.5톤스카이차가격, 5톤스카이차, 5톤스카이차가격, 굴절스카이차, 스카이차량, 바가지차, 스카이장비, 스카이임대료, 스카이사다리차, 2.5톤스카이, 스카이가격, 3.5톤스카이, 고소차, 스카이일대, 스카이대여, 1톤스카이비용, 고소작업, 에어컨실외기교체, 고소작업차가격, 스카이차반나절가격, 스카이차하루가격, 스카이차월단위대여, 스카이차추가요금, 수원스카이차가격, 용인스카이차가격, 화성스카이차가격, 평택스카이차가격, 성남스카이차가격, 시흥스카이차가격, 스카이차5%페이백, 스카이차할인, 저렴한스카이차, 스카이차견적, 투명한스카이차가격, 합리적스카이차요금, 코킹작업, 강남스카이차, 용인스카이, 이천스카이차, 외벽페인트, 안산스카이차, 성남스카이, 경기광주스카이, 양주스카이차, 의정부스카이차, 김포스카이차, 송파스카이차, 평택스카이, 건물외벽청소',
-      openGraph: {
-      title: '스카이차 가격표 | 5프로돌려주는스카이차',
-      description: '경기도 어디든 당일 출동! 바가지 없는 투명한 스카이차 가격표 + 5% 현금 즉시 돌려받기!',
+  openGraph: {
+    title: '스카이차 가격표 | 5프로돌려주는스카이차',
+    description: '경기도 어디든 당일 출동! 바가지 없는 투명한 스카이차 가격표 + 5% 현금 즉시 돌려받기!',
     url: 'https://xn--5-w30fr74e.com/pricing',
     images: [
       {
@@ -31,8 +34,13 @@ export default function PricingLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
-      {children}
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Navigation currentPage="pricing" />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <FloatingDownload />
+    </div>
   )
-} 
+}

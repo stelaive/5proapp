@@ -1,5 +1,3 @@
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
 import { GANGNAM_DATA } from '@/lib/regionData'
 import HeroSection from './components/HeroSection'
 import BenefitCards from './components/BenefitCards'
@@ -42,10 +40,7 @@ export default function GangnamPage() {
   ];
 
   return (
-    <main className="bg-white">
-      <Navigation currentPage="locations" />
-      
-      {/* 실시간 배차 현황 배너 (추가) */}
+    <div className="bg-white">
       <DispatchStatusBanner />
 
       {/* 1. Hero Section - 전화 CTA 최우선 */}
@@ -85,8 +80,6 @@ export default function GangnamPage() {
       
       {/* 7. 하단 고지 */}
       <FooterNotice data={data} />
-      
-      <Footer />
-    </main>
+    </div>
   );
 }
