@@ -1,4 +1,4 @@
-import { LOCATIONS_DATA } from '@/lib/locationsData';
+import { LOCATIONS_DATA } from '@/lib/regionData';
 import { notFound } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';

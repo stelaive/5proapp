@@ -1,6 +1,6 @@
 'use client';
 
-import { RegionGroup } from '@/lib/locationsData';
+import { RegionGroup } from '@/lib/regionData';
 
 interface FloatingRegionNavProps {
   groups: RegionGroup[];

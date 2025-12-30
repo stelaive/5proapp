@@ -6,6 +6,10 @@ import PricingSection from './components/PricingSection'
 import BenefitSection from './components/BenefitSection'
 import TrustSection from './components/TrustSection'
 import ManagerProfileSection from './components/ManagerProfileSection'
+import LocalAreaList from '@/components/common/LocalAreaList'
+import TrustEmblems from '@/components/common/TrustEmblems'
+import DispatchStatusBanner from '@/components/common/DispatchStatusBanner'
+import PriceCalculator from '@/components/common/PriceCalculator'
 
 export default function AnyangPage() {
   const data = ANYANG_DATA;
@@ -13,12 +17,23 @@ export default function AnyangPage() {
   return (
     <main className="min-h-screen">
       <Navigation currentPage="locations" />
+      <DispatchStatusBanner />
       <HeroSection data={data} />
+      <PriceCalculator />
       <PricingSection />
+      
+      {/* 신뢰 엠블럼 추가 */}
+      <section className="bg-gray-50 py-12">
+        <div className="container mx-auto px-4">
+          <TrustEmblems />
+        </div>
+      </section>
+
       <TrustSection />
       <BenefitSection data={data} />
       <ManagerProfileSection />
+      <LocalAreaList nameKo={data.nameKo} subAreas={data.subAreas} />
       <Footer />
     </main>
   )
-} 
+}

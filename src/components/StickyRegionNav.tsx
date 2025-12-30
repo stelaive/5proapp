@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Location } from '@/lib/locationsData';
+import { Location } from '@/lib/regionData';
 
 interface StickyRegionNavProps {
   location: Location;

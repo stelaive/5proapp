@@ -67,9 +67,12 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, ctaText1, ctaLink1, ctaTex
           <Link
             href={ctaLink1}
             aria-label={ctaText1}
-            className="bg-primary hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-2xl text-lg motion-safe:hover:scale-105 transition-transform shadow-lg"
+            className="bg-[#42d9de] hover:bg-[#3bc4c9] text-white font-bold py-5 px-10 rounded-2xl text-xl motion-safe:hover:scale-105 transition-all shadow-xl flex items-center gap-3 group"
           >
-            {ctaText1}
+            <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+              📞
+            </span>
+            {ctaText1.includes('전화') ? ctaText1 : `전문 기사 직통 전화: ${ctaText1}`}
           </Link>
         </motion.div>
         <motion.div variants={fadeInUp(0.8)} className="mt-6">

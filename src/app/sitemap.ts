@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { LOCATIONS_DATA } from '@/lib/locationsData'
+import { LOCATIONS_DATA } from '@/lib/regionData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://5프로.com' // 가독성을 위해 한글 도메인 사용

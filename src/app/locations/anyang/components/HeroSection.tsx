@@ -24,16 +24,16 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {/* 대표 전화번호 표시 */}
         <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 max-w-2xl mx-auto border-4 border-[#42d9de]">
           <div className="text-center">
-            <p className="text-lg text-[#42d9de] mb-4 font-bold">▶ 긴급 출동 전화</p>
+            <p className="text-lg text-[#42d9de] mb-4 font-bold">▶ {data.nameKo} 현장 기사 직통 연결</p>
             <div className="text-6xl md:text-8xl font-bold text-[#42d9de] mb-4">
               {data.phone}
             </div>
-            <p className="text-lg text-gray-600 mb-6">
-              24시간 상담 가능, {data.nameKo} 전지역 30분내 도착
+            <p className="text-lg text-gray-600 mb-6 font-semibold">
+              365일 24시간 상담 가능, {data.nameKo} 전지역 30분내 도착
             </p>
             <button
               onClick={handleCallNow}
-              className="w-full text-white font-bold py-6 px-8 rounded-xl text-2xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="w-full text-white font-bold py-6 px-8 rounded-xl text-2xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
               style={{ backgroundColor: '#42d9de' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#3bc4c9';

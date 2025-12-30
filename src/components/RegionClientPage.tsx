@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import StickyRegionNav from '@/components/StickyRegionNav';
 import BackToTopButton from '@/components/BackToTopButton';
-import { Location } from '@/lib/locationsData';
+import { Location } from '@/lib/regionData';
 
 interface RegionClientPageProps {
   location: Location;

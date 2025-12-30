@@ -65,6 +65,30 @@ export default function TrustSection({ data }: TrustSectionProps) {
               );
             })}
           </div>
+
+          {/* 추가: 플레이스/리뷰 버튼 */}
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="https://m.place.naver.com/place/18773924" // 실제 플레이스 링크로 변경 필요
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-white border-2 border-[#03C75A] text-[#03C75A] px-8 py-4 rounded-2xl font-bold hover:bg-[#03C75A]/5 transition-colors"
+            >
+              <span className="bg-[#03C75A] text-white w-6 h-6 rounded-md flex items-center justify-center text-xs">N</span>
+              네이버 실제 작업 후기 확인
+            </a>
+            <a 
+              href="https://www.google.com/maps" // 실제 구글 맵 링크로 변경 필요
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-white border-2 border-gray-200 text-gray-700 px-8 py-4 rounded-2xl font-bold hover:bg-gray-50 transition-colors"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.9 3.34-2.04 4.48-1.14 1.14-2.9 2.38-5.8 2.38-4.66 0-8.44-3.78-8.44-8.44s3.78-8.44 8.44-8.44c2.52 0 4.42.98 5.8 2.3l2.3-2.3C18.12 2.02 15.5 1 12.48 1 6.14 1 1 6.14 1 12.48S6.14 24 12.48 24c3.44 0 6.04-1.14 8.04-3.32 2.08-2.08 2.74-4.98 2.74-7.34 0-.52-.04-1.02-.12-1.42H12.48z"/>
+              </svg>
+              구글 지도 평점 보기
+            </a>
+          </div>
         </div>
       </div>
     </section>

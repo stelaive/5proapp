@@ -8,6 +8,10 @@ import { motion } from 'framer-motion'
 import Footer from '@/components/Footer'
 import Navigation from '@/components/Navigation'
 import { GUNPO_DATA } from '@/lib/regionData'
+import LocalAreaList from '@/components/common/LocalAreaList'
+import TrustEmblems from '@/components/common/TrustEmblems'
+import DispatchStatusBanner from '@/components/common/DispatchStatusBanner'
+import PriceCalculator from '@/components/common/PriceCalculator'
 
 // 컴포넌트 동적 임포트
 const Hero = dynamic(() => import('@/components/common/Hero'))
@@ -47,6 +51,7 @@ export default function GunpoPage() {
   return (
     <>
       <Navigation currentPage="locations" />
+      <DispatchStatusBanner />
       <Hero
         title={gunpoCopy.hero.headline}
         subtitle={gunpoCopy.hero.sub}
@@ -59,14 +64,14 @@ export default function GunpoPage() {
       />
       <Benefits benefits={benefitsWithIcons} data={data} />
       
-      {/* 지역 리스트 - SEO 최적화 */}
-      <section className="py-8 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-sm md:text-base text-gray-500 leading-relaxed">
-            {data.subAreas.join(' · ')} 등 {data.nameKo} 전 지역 30분 이내 신속 배차 가능합니다.
-          </p>
+      {/* 신뢰 엠블럼 추가 */}
+      <section className="bg-gray-50 py-12">
+        <div className="container mx-auto px-4">
+          <TrustEmblems />
         </div>
       </section>
+
+      <PriceCalculator />
 
       <VehicleSelector vehicles={gunpoCopy.vehicleSelector.vehicles} />
       <ExpertProfile
@@ -84,6 +89,10 @@ export default function GunpoPage() {
         region="군포"
         className="bg-gray-50"
       />
+      
+      {/* 지역 리스트 - SEO 최적화 */}
+      <LocalAreaList nameKo={data.nameKo} subAreas={data.subAreas} />
+      
       <BookingProcess />
       <Gallery images={gunpoCopy.gallery.images} />
       <Testimonials testimonials={gunpoCopy.testimonials.reviews} />
@@ -97,4 +106,4 @@ export default function GunpoPage() {
       <StickyCTA phone="1877-3924" chatLink="https://open.kakao.com/o/sA763Sbg" />
     </>
   )
-} 
+}

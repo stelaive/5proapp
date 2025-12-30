@@ -48,17 +48,17 @@ export default function HeroSection({ data }: HeroSectionProps) {
         </p>
         
         {/* 메인 전화번호 CTA - 최우선 */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-6 inline-block border border-white/20 max-w-md">
-          <p className="text-gray-300 mb-3 text-sm md:text-base">365일 24시간 신속 배차 문의</p>
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-6 inline-block border border-white/20 max-w-md w-full">
+          <p className="text-[#42d9de] font-bold mb-3 text-lg md:text-xl">현장 전문 기사님 직통 연결</p>
           <a 
             href={`tel:${data.phone.replace(/-/g, '')}`}
-            className="block min-h-[60px] md:min-h-[80px] flex items-center justify-center"
+            className="block min-h-[60px] md:min-h-[80px] flex items-center justify-center bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/10"
           >
             <span className="text-4xl md:text-6xl font-black text-yellow-400 hover:text-yellow-300 transition-colors">
               {data.phone}
             </span>
           </a>
-          <p className="text-xs md:text-sm text-gray-400 mt-3">👆 번호를 누르면 바로 연결됩니다</p>
+          <p className="text-xs md:text-sm text-gray-400 mt-3">👆 지금 누르시면 바로 연결됩니다 (24시간 가능)</p>
         </div>
 
         {/* 보조 CTA - 앱 다운로드 */}

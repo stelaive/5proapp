@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { LOCATIONS_DATA } from '@/lib/locationsData'
+import { LOCATIONS_DATA } from '@/lib/regionData'
 import { ChevronDownIcon } from './icons/ChevronDownIcon';
 
 interface NavigationProps {
