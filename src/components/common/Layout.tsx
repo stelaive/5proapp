@@ -1,9 +1,8 @@
-// file: src/components/common/Layout.tsx
 'use client';
 
 import React from 'react';
 import Navigation from '@/components/Navigation';
-import Footer from '@/components/common/Footer';
+import Footer from './Footer';
 import FloatingDownload from '@/components/FloatingDownload';
 
 interface LayoutProps {

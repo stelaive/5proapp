@@ -24,7 +24,7 @@ const BookingProcess: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <motion.div key={index} variants={fadeInUp(0.2 * (index + 1))} className="flex flex-col items-center">
-              <div className="bg-primary/10 text-primary p-4 rounded-full mb-4">
+              <div className="p-4 rounded-full mb-4" style={{ backgroundColor: 'rgba(66, 217, 222, 0.1)', color: '#42d9de' }}>
                 {step.icon}
               </div>
               <h3 className="text-xl font-bold mb-2">{step.title}</h3>

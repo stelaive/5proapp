@@ -10,14 +10,21 @@ interface CTAProps {
 
 const CTA: React.FC<CTAProps> = ({ title, description, buttonText, phone }) => {
   return (
-    <section className="py-16 bg-secondary text-white">
+    <section className="py-16 text-white" style={{ backgroundColor: '#004CFF' }}>
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-4">{title}</h2>
         <p className="mb-8">{description}</p>
         <a
           href={`tel:${phone}`}
           aria-label={buttonText}
-          className="bg-primary hover:bg-primary-700 text-white font-bold py-4 px-10 rounded-2xl text-xl transition-transform transform hover:scale-105"
+          className="text-white font-bold py-4 px-10 rounded-2xl text-xl transition-transform transform hover:scale-105"
+          style={{ backgroundColor: '#42d9de' }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#3bc4c9';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#42d9de';
+          }}
         >
           {buttonText}
         </a>

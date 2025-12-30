@@ -1,4 +1,6 @@
 // file: src/components/gunpo/Hero.tsx
+'use client'
+
 import React from 'react';
 import Image from 'next/image';
 
@@ -27,7 +29,14 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, ctaText, ctaLink, imageUrl
         <a
           href={ctaLink}
           aria-label={ctaText}
-          className="bg-primary hover:bg-primary-700 text-white font-bold py-3 px-8 rounded-2xl text-lg transition-transform transform hover:scale-105"
+          className="text-white font-bold py-3 px-8 rounded-2xl text-lg transition-transform transform hover:scale-105"
+          style={{ backgroundColor: '#42d9de' }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#3bc4c9';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#42d9de';
+          }}
         >
           {ctaText}
         </a>

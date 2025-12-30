@@ -31,11 +31,12 @@ const TopRibbon: React.FC<TopRibbonProps> = ({ text, linkUrl, linkLabel }) => {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="bg-secondary text-white text-center p-2 text-sm font-semibold motion-safe:animate-slideIn"
+      className="text-white text-center p-2 text-sm font-semibold motion-safe:animate-slideIn"
+      style={{ backgroundColor: '#004CFF' }}
       aria-live="polite"
     >
       <span>{text}</span>
-      <Link href={linkUrl} className="font-bold underline ml-4 hover:text-primary-200 transition-colors" aria-label={linkLabel}>
+      <Link href={linkUrl} className="font-bold underline ml-4 transition-colors" style={{ color: '#C0D3FF' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#E7EEFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#C0D3FF'; }} aria-label={linkLabel}>
         {linkLabel} &rarr;
       </Link>
     </motion.div>
