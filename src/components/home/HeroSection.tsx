@@ -50,14 +50,14 @@ export default function HeroSection() {
             loop
             playsInline
             className="object-cover w-full h-full"
-            poster="/images/스동8.gif" // 영상 로딩 전 보여줄 이미지
+            poster="/images/sky-car-animation-8.gif" // 영상 로딩 전 보여줄 이미지
           >
             <source src="/videos/hero-bg.webm" type="video/webm" />
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
         */}
         <Image
-          src="/images/스동8.gif"
+          src="/images/sky-car-animation-8.gif"
           alt="스카이차 작업 현장"
           fill
           className="object-cover"
@@ -130,7 +130,7 @@ export default function HeroSection() {
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex-shrink-0">
                   <Image
-                    src="/images/스카이차로고2.png"
+                    src="/images/sky-car-logo-v2.png"
                     alt="5프로돌려주는스카이차 앱 로고"
                     width={80}
                     height={80}

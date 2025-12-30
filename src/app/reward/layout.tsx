@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: 'https://xn--5-w30fr74e.com/reward',
     images: [
       {
-        url: '/images/5프로.png',
+        url: '/images/5pro-logo-main.png',
         width: 1200,
         height: 630,
         alt: '친구 초대 이벤트 - 5프로돌려주는스카이차',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '친구 초대 이벤트 | 5프로돌려주는스카이차',
     description: '친구 5명 초대하면 5만원 현금 지급! 무한 반복 가능한 특별 혜택으로 통장에 돈이 계속 쌓인다',
-    images: ['/images/5프로.png'],
+    images: ['/images/5pro-logo-main.png'],
   },
 }
 

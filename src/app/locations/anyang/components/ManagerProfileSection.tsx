@@ -21,7 +21,7 @@ export default function ManagerProfileSection() {
             <div className="flex-shrink-0">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden bg-gray-200">
                 <Image
-                  src="/images/anyang/ChatGPT Image 2025년 7월 20일 오후 05_44_09.png"
+                  src="/images/anyang/anyang-sky-car-night-work.png"
                   alt="정민현 기사 프로필 사진"
                   width={160}
                   height={160}

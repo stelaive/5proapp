@@ -22,11 +22,11 @@ const SITE_INFO = {
   siteUrl: 'https://your-domain.com', // 👈 여기를 실제 주소로!
   
   // 🖼️ SNS 공유시 나오는 대표 이미지
-  ogImage: '/images/5프로.png', // ✅ 새로운 대표 이미지로 설정됨
+  ogImage: '/images/5pro-logo-main.png', // ✅ 새로운 대표 이미지로 설정됨
   
   // 🏢 회사 정보
   businessName: '5프로돌려주는스카이차',
-  businessPhone: '1877-9001',
+  businessPhone: '1877-3924',
   businessEmail: 'man7866@naver.com',
   
   // 🔍 검색 키워드 (띄어쓰기 없이 콤마로 구분)
@@ -115,7 +115,7 @@ export const metadata = PAGE_METADATA.pricing
 
 ## 🆘 도움이 필요하면?
 
-1. **전화 문의**: 1877-9001
+1. **전화 문의**: 1877-3924
 2. **이메일**: man7866@naver.com
 3. **개발자에게**: "SEO 설정 도와주세요!" 라고 요청
 

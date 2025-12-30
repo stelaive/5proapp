@@ -23,7 +23,7 @@ export default function BenefitCards({ data }: BenefitCardsProps) {
           <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-[#42d9de]/30 transition-colors">
             <div className="relative h-40 md:h-48 mb-6">
               <Image
-                src="/images/포인트 확인하기.png"
+                src="/images/app-check-points.png"
                 alt={`${data.nameKo} 스카이차 결제금액 5% 페이백 혜택 안내`}
                 fill
                 className="object-contain"
@@ -44,7 +44,7 @@ export default function BenefitCards({ data }: BenefitCardsProps) {
           <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-gray-100 hover:border-[#42d9de]/30 transition-colors">
             <div className="relative h-40 md:h-48 mb-6">
               <Image
-                src="/images/100만원추첨기.png"
+                src="/images/1-million-won-lottery-machine.png"
                 alt={`${data.nameKo} 스카이차 이용 고객 대상 매달 100만원 추첨 이벤트`}
                 fill
                 className="object-contain"

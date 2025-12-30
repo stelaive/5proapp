@@ -132,7 +132,7 @@ export default function Marketplace() {
       <section className="relative pt-24 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/일거리장터히어로섹션.gif"
+            src="/images/app-marketplace-hero.gif"
             alt="일거리 장터 배경"
             fill
             className="object-cover opacity-60"

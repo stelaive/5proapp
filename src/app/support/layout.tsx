@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: 'https://xn--5-w30fr74e.com/support',
     images: [
       {
-        url: '/images/5프로.png',
+        url: '/images/5pro-logo-main.png',
         width: 1200,
         height: 630,
         alt: '고객지원 - 5프로돌려주는스카이차',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '고객지원 | 5프로돌려주는스카이차',
     description: '24시간 고객센터 1877-3924 운영! 스카이차 문의부터 페이백 신청까지 친절한 상담 서비스',
-    images: ['/images/5프로.png'],
+    images: ['/images/5pro-logo-main.png'],
   },
 }
 

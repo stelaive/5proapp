@@ -156,7 +156,7 @@ export default function HomeSections() {
                 className="relative w-full h-[400px]"
               >
                 <Image
-                  src="/images/포인트 확인하기.png"
+                  src="/images/app-check-points.png"
                   alt="5% 페이백 시스템"
                   fill
                   className="object-contain"
@@ -179,7 +179,7 @@ export default function HomeSections() {
                 className="relative w-full h-[400px] order-2 md:order-1"
               >
                 <Image
-                  src="/images/100만원추첨기.png"
+                  src="/images/1-million-won-lottery-machine.png"
                   alt="100만원 추첨 이벤트"
                   fill
                   className="object-contain"
@@ -263,7 +263,7 @@ export default function HomeSections() {
                 className="relative w-full h-[400px]"
               >
                 <Image
-                  src="/images/친구초대이벤트.png"
+                  src="/images/friend-invite-event-banner.png"
                   alt="친구 초대 이벤트"
                   fill
                   className="object-contain"

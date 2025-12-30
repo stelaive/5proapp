@@ -35,7 +35,7 @@ export default function WhyHere() {
           transition={{ duration: 20, ease: "linear" }}
         >
           <Image
-            src="/images/sky4.png"
+            src="/images/sky-car-visual-4.png"
             alt="스카이차 작업 현장"
             fill
             className="object-cover opacity-40"
@@ -173,7 +173,7 @@ export default function WhyHere() {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="/images/sky4.png"
+                  src="/images/sky-car-visual-4.png"
                   alt="스카이차 이미지"
                   width={800}
                   height={400}

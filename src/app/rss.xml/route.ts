@@ -82,7 +82,7 @@ function generateRSS() {
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml" />
     <image>
-      <url>${siteUrl}/images/5프로.png</url>
+      <url>${siteUrl}/images/5pro-logo-main.png</url>
       <title>5프로돌려주는스카이차</title>
       <link>${siteUrl}</link>
       <width>144</width>

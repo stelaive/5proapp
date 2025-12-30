@@ -57,25 +57,25 @@ export const WINNER_HISTORY = [
 
 export const SLIDES_DATA = [
   {
-    image: "/images/어플화면_390x844.png",
+    image: "/images/app-main-wallet-screen.png",
     title: "1. 앱 홈",
     description: "앱을 설치하고 회원가입",
     alt: "앱 홈 화면"
   },
   {
-    image: "/images/직통전화표시.PNG",
+    image: "/images/app-direct-call-indicator.png",
     title: "2. 오더 넘기기", 
     description: "스카이차 작업 1건 완료",
     alt: "오더 넘기기"
   },
   {
-    image: "/images/오더접수확인하기.PNG",
+    image: "/images/app-order-check-screen.png",
     title: "3. 추첨표 확인",
     description: "자동으로 추첨 대상자 등록",
     alt: "추첨표"
   },
   {
-    image: "/images/당첨 확인.PNG",
+    image: "/images/app-winner-confirmation.png",
     title: "4. 당첨 알림",
     description: "매월 말일 당첨자 발표",
     alt: "당첨 알림"

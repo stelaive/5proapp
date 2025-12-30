@@ -54,7 +54,7 @@ export default function GunpoPage() {
         ctaLink1={`tel:${data.phone}`}
         ctaText2={gunpoCopy.hero.btnChat}
         ctaLink2="https://apps.apple.com/kr/app/5-%EB%8F%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%B0%A8/id6747275589"
-        imageUrl="/images/고기싸롱 간판 설치 작업.png"
+        imageUrl="/images/gunpo-sky-car-signboard-installation.png"
         data={data}
       />
       <Benefits benefits={benefitsWithIcons} data={data} />
@@ -73,7 +73,7 @@ export default function GunpoPage() {
         name={gunpoCopy.technician.name}
         title={gunpoCopy.technician.title}
         bio={gunpoCopy.technician.bio}
-        imageUrl="/images/김민철.png"
+        imageUrl="/images/technician-kim-min-chul.png"
         experienceYears={parseInt(gunpoCopy.technician.experience)}
       />
       <PriceTable

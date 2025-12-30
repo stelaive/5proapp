@@ -15,7 +15,7 @@ const SITE_INFO = {
   siteUrl: 'https://xn--5-w30fr74e.com', // ✅ 실제 도메인 설정 완료!
   
   // 대표 이미지 (SNS 공유시 나타나는 이미지)
-  ogImage: '/images/스로고1.png', // ✅ 새로운 로고 이미지로 업데이트!
+  ogImage: '/images/sky-car-logo-icon.png', // ✅ 새로운 로고 이미지로 업데이트!
   
   // 회사/서비스 정보
   businessName: '5프로돌려주는스카이차',

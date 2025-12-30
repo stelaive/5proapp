@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: 'https://xn--5-w30fr74e.com/whyhere',
     images: [
       {
-        url: '/images/5프로.png',
+        url: '/images/5pro-logo-main.png',
         width: 1200,
         height: 630,
         alt: '왜 5프로돌려주는스카이차인가? - 5프로돌려주는스카이차',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '왜 5프로돌려주는스카이차인가? | 5프로돌려주는스카이차',
     description: '기존 스카이차 업체와 차별화된 혜택! 5% 페이백 + 100만원 추첨 + 친구 초대 혜택까지 한번에!',
-    images: ['/images/5프로.png'],
+    images: ['/images/5pro-logo-main.png'],
   },
 }
 

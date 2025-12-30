@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: 'https://xn--5-w30fr74e.com/marketing',
     images: [
       {
-        url: '/images/5프로.png',
+        url: '/images/5pro-logo-main.png',
         width: 1200,
         height: 630,
         alt: '업종별 마케팅 노하우 - 5프로돌려주는스카이차',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '업종별 마케팅 노하우 | 5프로돌려주는스카이차',
     description: '광고비 0원으로 신규 고객 모으는 비법! 에어컨·건설·전기·설비 등 18개 업종별 지도 마케팅 완벽 가이드',
-    images: ['/images/5프로.png'],
+    images: ['/images/5pro-logo-main.png'],
   },
 }
 

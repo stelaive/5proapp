@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://xn--5-w30fr74e.com/locations/${regionSlug}`,
       images: [
         {
-          url: '/images/5프로.png',
+          url: '/images/5pro-logo-main.png',
           width: 1200,
           height: 630,
           alt: `${data.nameKo} 스카이차 서비스 안내`,

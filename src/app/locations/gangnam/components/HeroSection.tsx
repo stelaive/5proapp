@@ -13,7 +13,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
       {/* 배경 이미지 */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/anyang/ChatGPT Image 2025년 7월 20일 오후 05_44_09.png"
+          src="/images/anyang/anyang-sky-car-night-work.png"
           alt={`${data.nameKo} ${data.subAreas.slice(0, 3).join(', ')} 스카이차 전문 배차 서비스`}
           fill
           className="object-cover opacity-30"

@@ -27,19 +27,19 @@
         "name": "1톤 스카이차",
         "specs": "최대 28m, 좁은 골목길 진입 가능",
         "price": "35만원부터",
-        "imageUrl": "/images/1톤스카이차.png"
+        "imageUrl": "/images/1ton-sky-car.png"
       },
       {
         "name": "3.5톤 스카이차", 
         "specs": "최대 45m, 가장 대중적인 모델",
         "price": "35만원부터",
-        "imageUrl": "/images/35스카이차.jpg"
+        "imageUrl": "/images/3-5ton-sky-car.jpg"
       },
       {
         "name": "5톤 스카이차",
         "specs": "최대 55m, 대형 현장 특화",
         "price": "45만원부터",
-        "imageUrl": "/images/5톤스카이.png"
+        "imageUrl": "/images/5ton-sky-car.png"
       }
     ]
   },
@@ -65,10 +65,10 @@
     "subtitle": "산본, 대야미, 금정동 등에서 완료한 실제 스카이차 작업 사례를 확인해보세요.",
     "categories": ["아파트 외벽", "상가 간판", "공장 지붕", "가로수 관리"],
     "images": [
-      { "src": "/images/gunpo/KakaoTalk_20250422_115812399_01.jpg", "alt": "스카이차 현장 작업 1" },
-      { "src": "/images/gunpo/KakaoTalk_20250422_115709227_10.jpg", "alt": "스카이차 현장 작업 2" },
-      { "src": "/images/gunpo/KakaoTalk_20250422_115615744_19.jpg", "alt": "스카이차 현장 작업 3" },
-      { "src": "/images/gunpo/스46.jpg", "alt": "스카이차 현장 작업 4" }
+      { "src": "/images/gunpo/gunpo-sky-car-work-3.jpg", "alt": "스카이차 현장 작업 1" },
+      { "src": "/images/gunpo/gunpo-sky-car-work-2.jpg", "alt": "스카이차 현장 작업 2" },
+      { "src": "/images/gunpo/gunpo-sky-car-work-1.jpg", "alt": "스카이차 현장 작업 3" },
+      { "src": "/images/gunpo/gunpo-sky-car-46.jpg", "alt": "스카이차 현장 작업 4" }
     ]
   },
   "testimonials": {

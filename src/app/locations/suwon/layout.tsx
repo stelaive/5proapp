@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://5프로.com/images/5프로.png',
+        url: 'https://5프로.com/images/5pro-logo-main.png',
         width: 1200,
         height: 630,
         alt: '수원 스카이차 5% 페이백',
@@ -66,7 +66,7 @@ export default function SuwonLayout({
     priceRange: '₩250,000–₩1,200,000', // [수정] 실제 가격 범위를 더 명확하게
     telephone: '1877-3924',
     url: 'https://5프로.com/locations/suwon',
-    image: 'https://5프로.com/images/5프로.png',
+    image: 'https://5프로.com/images/5pro-logo-main.png',
     description:
       '경기 수원 전지역(영통·팔달·장안·권선) 고소작업 스카이차 임대. 작업 완료 후 5% 즉시 캐시백, 매달 100만원 추첨 자동응모. 1톤·3.5톤·5톤 스카이차 당일 배차 가능.',
     address: {

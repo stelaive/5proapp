@@ -153,7 +153,7 @@ new_Next.js/
 │       ├── Footer.tsx          # 푸터 컴포넌트
 │       └── FloatingDownload.tsx # 플로팅 다운로드 버튼
 ├── public/
-│   ├── images/                 # 이미지 파일들
+│   ├── images/                 # 이미지 파일들 (SEO를 위해 영문 파일명 권장)
 │   └── fonts/                  # 폰트 파일들
 ├── package.json
 ├── tailwind.config.ts
@@ -197,7 +197,7 @@ npm start
 
 ## 🎨 디자인 특징
 
-- **브랜드 컬러**: 오렌지 계열 (#F97316, #EA580C, #C2410C)
+- **브랜드 컬러**: 민트/시안 계열 (#42d9de)
 - **타이포그래피**: 잘난체 + 시스템 폰트
 - **애니메이션**: CSS 트랜지션과 호버 효과
 - **반응형**: 모바일 우선 디자인
@@ -220,14 +220,14 @@ npm start
 
 ### 이미지 추가
 
-`public/images/` 폴더에 이미지를 추가하고 Next.js Image 컴포넌트를 사용하세요:
+`public/images/` 폴더에 이미지를 추가하고 Next.js Image 컴포넌트를 사용하세요. (SEO를 위해 `sky-car-work.jpg`와 같이 하이픈을 사용한 영문 이름을 권장합니다):
 
 ```tsx
 import Image from 'next/image'
 
 <Image
-  src="/images/your-image.png"
-  alt="설명"
+  src="/images/sky-car-work.jpg"
+  alt="강남구 역삼동 스카이차 외벽 작업 현장"
   width={800}
   height={400}
 />

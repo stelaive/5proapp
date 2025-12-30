@@ -140,7 +140,7 @@ export default function Marketing() {
       <section id="hero" className="relative pt-32 pb-20 bg-black text-white overflow-hidden min-h-screen flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/업종별마케팅노하우섹션.png"
+            src="/images/marketing-knowhow-by-industry.png"
             alt="현장 작업자가 스마트폰을 사용하는 모습"
             fill
             className="object-cover"

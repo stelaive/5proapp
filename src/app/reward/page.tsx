@@ -194,7 +194,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
       <section className="relative min-h-screen flex items-center text-white overflow-hidden pt-16 md:pt-20">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/친구초대히어로섹션.gif"
+            src="/images/friend-invite-hero.gif"
             alt="친구초대 히어로 배경"
             fill
             className="object-cover"
@@ -628,7 +628,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="aspect-[9/16] bg-gray-100 rounded-xl mb-6 overflow-hidden">
                     <Image
-                      src="/images/친구초대.gif"
+                      src="/images/app-friend-invite.gif"
                       alt="카카오톡으로 친구초대하는 과정"
                       width={270}
                       height={480}
@@ -654,7 +654,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="aspect-[9/16] bg-gray-100 rounded-xl mb-6 overflow-hidden">
                     <Image
-                      src="/images/초대내역.gif"
+                      src="/images/app-invite-history.gif"
                       alt="실시간 초대 현황 확인하는 화면"
                       width={270}
                       height={480}
@@ -680,7 +680,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="aspect-[9/16] bg-gray-100 rounded-xl mb-6 overflow-hidden">
                     <Image
-                      src="/images/출금신청.gif"
+                      src="/images/app-withdraw-request.gif"
                       alt="출금 신청하는 화면"
                       width={270}
                       height={480}

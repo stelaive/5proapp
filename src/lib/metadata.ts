@@ -10,7 +10,7 @@ const SITE_INFO = {
   title: '5프로돌려주는스카이차 ',
   description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,수원,용인,화성,평택,성남,시흥,인천,부평,남동구,파주,일산,남양주,경기도광주스카이차',
   siteUrl: 'https://xn--5-w30fr74e.com', // ✅ 실제 도메인 설정 완료!
-  ogImage: '/images/5프로.png',
+  ogImage: '/images/5pro-logo-main.png',
   businessName: '5프로돌려주는스카이차',
   businessPhone: '1877-3924',
   businessEmail: 'man7866@naver.com',

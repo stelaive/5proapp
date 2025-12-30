@@ -10,22 +10,22 @@ export default function TrustSection() {
   // 실제 현장 사진 (4장)
   const images = [
     {
-      src: '/images/anyang/KakaoTalk_20250422_115709227_25.jpg',
+      src: '/images/anyang/anyang-sky-car-apartment-work.jpg',
       title: '안양 비산동 스카이차 작업',
       caption: '동안구 비산동 외벽 보수 현장',
     },
     {
-      src: '/images/anyang/스39.jpg',
+      src: '/images/anyang/anyang-sky-car-39.jpg',
       title: '안양 만안구 간판 교체',
       caption: '만안구 안양동 간판 교체 작업',
     },
     {
-      src: '/images/anyang/스4.jpg',
+      src: '/images/anyang/anyang-sky-car-4.jpg',
       title: '평촌역 인근 외벽 작업',
       caption: '동안구 평촌동 상가 외벽',
     },
     {
-      src: '/images/anyang/ChatGPT Image 2025년 7월 24일 오전 11_57_39.png',
+      src: '/images/anyang/anyang-sky-car-day-work.png',
       title: '호계동 공장 지붕 공사',
       caption: '동안구 호계동 지붕 유지보수',
     },

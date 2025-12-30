@@ -14,7 +14,7 @@ export default function HeroSection() {
     <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden hero-section">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/달력에서_D_Day_타이머로.gif"
+          src="/images/app-calendar-d-day-timer.gif"
           alt="배경 이미지"
           fill
           className="object-cover opacity-40"

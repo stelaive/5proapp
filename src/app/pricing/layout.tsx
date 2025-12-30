@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: 'https://xn--5-w30fr74e.com/pricing',
     images: [
       {
-        url: '/images/5프로.png',
+        url: '/images/5pro-logo-main.png',
         width: 1200,
         height: 630,
         alt: '스카이차 가격표 - 5프로돌려주는스카이차',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '스카이차 가격표 | 5프로돌려주는스카이차',
     description: '경기도 어디든 당일 출동! 바가지 없는 투명한 스카이차 가격표 + 5% 현금 즉시 돌려받기!',
-    images: ['/images/5프로.png'],
+    images: ['/images/5pro-logo-main.png'],
   },
 }
 

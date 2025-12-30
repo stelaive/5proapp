@@ -192,7 +192,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           {/* 로고와 타이틀 */}
           <Link href="/" className="flex items-center flex-shrink-0 group">
             <Image
-              src="/images/스로고1.png"
+              src="/images/sky-car-logo-icon.png"
               alt="스카이차 로고"
               width={32}
               height={32}
