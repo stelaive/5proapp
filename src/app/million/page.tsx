@@ -69,22 +69,112 @@ export default function Million() {
           <div className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-yellow-300 opacity-25 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
           <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-white opacity-30 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
         </div>
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={staggerContainer}
+            >
+              <motion.h1 
+                className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white font-jalnan"
+                variants={fadeInUp}
+              >
+                1일마다 100만원,<br />
+                5%는 기본! 🎰
+              </motion.h1>
+              <motion.div 
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 mb-6"
+                variants={fadeInUp}
+              >
+                <p className="text-xl md:text-2xl text-yellow-300 font-bold">
+                  ✨ 업계 No.1 스카이차 플랫폼이 사장님들께 드리는 역대급 혜택!
+                </p>
+              </motion.div>
+              <motion.p 
+                className="text-lg md:text-xl mb-8 text-gray-200"
+                variants={fadeInUp}
+              >
+                오더 1건만 넘기면 500명 중 1명 확률 그대로<br />
+                매달 1일, 행운의 주인공이 되어보세요!
+              </motion.p>
+              
+              {/* D-Day 카운트다운 */}
+              <motion.div 
+                className="bg-gradient-to-r from-red-600 to-orange-500 p-6 rounded-xl mb-8"
+                variants={bounceIn}
+              >
+                <h3 className="text-white text-xl font-bold mb-4">8월 1일 첫 추첨까지</h3>
+                              {!isEventStarted ? (
+                <motion.div 
+                  className="grid grid-cols-4 gap-4 text-center"
+                  variants={staggerContainer}
+                >
+                  <motion.div 
+                    className="bg-white bg-opacity-20 rounded-lg p-3"
+                    variants={bounceIn}
+                  >
+                    <div className="text-2xl font-bold">{String(timeLeft.days).padStart(2, '0')}</div>
+                    <div className="text-sm">일</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white bg-opacity-20 rounded-lg p-3"
+                    variants={bounceIn}
+                  >
+                    <div className="text-2xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</div>
+                    <div className="text-sm">시간</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white bg-opacity-20 rounded-lg p-3"
+                    variants={bounceIn}
+                  >
+                    <div className="text-2xl font-bold">{String(timeLeft.minutes).padStart(2, '0')}</div>
+                    <div className="text-sm">분</div>
+                  </motion.div>
+                  <motion.div 
+                    className="bg-white bg-opacity-20 rounded-lg p-3"
+                    variants={bounceIn}
+                  >
+                    <div className="text-2xl font-bold">{String(timeLeft.seconds).padStart(2, '0')}</div>
+                    <div className="text-sm">초</div>
+                  </motion.div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <h3 className="text-3xl font-bold mb-6">D-DAY!</h3>
+                  <motion.a
+                    href="https://youtube.com/@tv-jj1km?si=rEg3ME5jW9QHh1xV"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    🎥 지금 바로 추첨생방송 보러가기
+                  </motion.a>
+                </motion.div>
+              )}
+              </motion.div>
 
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <AnimatedSection
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white font-jalnan">
-              매월 <span className="text-yellow-300">100만원</span> 추첨!
-            </h1>
-            <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed">
-              스카이차 1건으로 <span className="font-bold text-yellow-300">100만원</span> 도전! 500명 중 1명의 행운
-            </p>
-          </AnimatedSection>
+              <div className="flex justify-center">
+                <motion.button 
+                  className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300"
+                  variants={scaleIn}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  🎰 지금 바로 참여하기
+                </motion.button>
+              </div>
+            </motion.div>
 
-          <AnimatedSection
+            <motion.div 
+              className="relative"
               initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}

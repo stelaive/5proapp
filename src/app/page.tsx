@@ -70,22 +70,26 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30"></div>
         </div>
         <div className="container mx-auto px-4 pr-6">
-          <div className="max-w-5xl relative z-10" style={{ zIndex: 10 }}>
-            <AnimatedSection 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+          <motion.div 
+            className="max-w-5xl relative z-10"
+            style={{ zIndex: 10 }}
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+          >
+            <motion.h1 
+              className="text-3xl md:text-5xl font-bold mb-6 text-white font-jalnan"
+              style={{ lineHeight: '1.8' }}
+              variants={heroTextVariants}
+              transition={{ duration: 0.8 }}
             >
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white font-jalnan" style={{ lineHeight: '1.8' }}>
-                스카이차 쓰고 <span className="text-red-500">5%</span> 돌려받고,<br />
-                매월 <span className="text-red-500">100만원</span> 행운까지!
-              </h1>
-            </AnimatedSection>
-            
-            <AnimatedSection 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              스카이차 쓰고 <span className="text-red-500">5%</span> 돌려받고,<br />
+              매월 <span className="text-red-500">100만원</span> 행운까지!
+            </motion.h1>
+            <motion.p 
+              className="text-base md:text-xl mb-8 text-white leading-relaxed"
+              variants={heroTextVariants}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               <p className="text-base md:text-xl mb-8 text-white leading-relaxed">
                 작업 완료 즉시 자동 페이백!<br />

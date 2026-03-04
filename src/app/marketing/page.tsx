@@ -148,14 +148,31 @@ export default function Marketing() {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight text-white">
+          <motion.div 
+            className="max-w-4xl"
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+          >
+            <motion.h1 
+              className="text-5xl md:text-6xl font-bold mb-6 font-jalnan leading-tight text-white"
+              variants={heroTextVariants}
+              transition={{ duration: 0.8 }}
+            >
               일감을 부르는 지도 마케팅,<br />
-              <span className="text-3xl md:text-4xl text-white">
+              <motion.span 
+                className="text-3xl md:text-4xl text-white"
+                variants={heroTextVariants}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 사장님도 할 수 있습니다!
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white">
+              </motion.span>
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl mb-8 text-white"
+              variants={heroTextVariants}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               더 이상 비싼 광고비 태우지 마세요. 지도 앱 하나로 신규 고객이 찾아옵니다.
             </p>
                          <div className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all text-lg cursor-pointer inline-block">
