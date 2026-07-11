@@ -7,6 +7,8 @@ import { Icon } from '@/components/ui/icon'
 // 가격 데이터 타입 정의
 export interface PriceItem {
   equipment: string
+  shortTime?: number | string // 30분 단시간 요금 (해당 장비만)
+  oneHour?: number | string // 1시간 요금 (해당 장비만)
   halfDay: number | string
   fullDay: number | string
   additional: number | string
@@ -61,6 +63,12 @@ export default function PriceTable({
 
   const options = calculatorOptions || defaultCalculatorOptions
 
+  // 단시간(30분·1시간) 요금이 있는 장비가 하나라도 있으면 전용 컬럼을 노출한다.
+  const hasValue = (v: number | string | undefined | null) =>
+    v !== undefined && v !== null && v !== ''
+  const hasShortTime = priceData.some((item) => hasValue(item.shortTime))
+  const hasOneHour = priceData.some((item) => hasValue(item.oneHour))
+
   return (
     <section className={`py-16 ${className}`}>
       <div className="max-w-6xl mx-auto px-4">
@@ -78,6 +86,12 @@ export default function PriceTable({
               <thead>
                 <tr className="bg-blue-800 text-white">
                   <th className="p-4 font-bold">장비 구분</th>
+                  {hasShortTime && (
+                    <th className="p-4 font-bold">30분<span className="block text-xs font-normal">(단시간)</span></th>
+                  )}
+                  {hasOneHour && (
+                    <th className="p-4 font-bold">1시간<span className="block text-xs font-normal">(단시간)</span></th>
+                  )}
                   <th className="p-4 font-bold">반나절<span className="block text-xs font-normal">(오전/오후)</span></th>
                   <th className="p-4 font-bold">하루<span className="block text-xs font-normal">(8시간)</span></th>
                   <th className="p-4 font-bold">추가<span className="block text-xs font-normal">(시간당)</span></th>
@@ -88,6 +102,16 @@ export default function PriceTable({
                 {priceData.map((item, index) => (
                   <tr key={index} className="hover:bg-blue-50 transition-colors">
                     <td className="p-4 font-semibold text-gray-800">{item.equipment}</td>
+                    {hasShortTime && (
+                      <td className="p-4 text-blue-600 font-bold">
+                        {hasValue(item.shortTime) ? formatPrice(item.shortTime!) : '-'}
+                      </td>
+                    )}
+                    {hasOneHour && (
+                      <td className="p-4 text-blue-600 font-bold">
+                        {hasValue(item.oneHour) ? formatPrice(item.oneHour!) : '-'}
+                      </td>
+                    )}
                     <td className="p-4 text-blue-600 font-bold">{formatPrice(item.halfDay)}</td>
                     <td className="p-4 text-blue-600 font-bold">{formatPrice(item.fullDay)}</td>
                     <td className="p-4 text-gray-700 font-semibold">{formatPrice(item.additional)}</td>

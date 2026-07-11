@@ -5,29 +5,33 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Calculator, Info, Phone } from 'lucide-react';
 
 const PriceCalculator = () => {
-  const [floor, setFloor] = useState(1);
+  const [heightInput, setHeightInput] = useState('1');
+  const [heightUnit, setHeightUnit] = useState<'floor' | 'meter'>('floor');
   const [hours, setHours] = useState(1);
   const [estimatedPrice, setPrice] = useState(0);
   const [recommendedTon, setRecommendedTon] = useState('1톤 / 3.5톤');
 
   useEffect(() => {
-    let basePrice = 0;
-    let ton = '1톤 / 3.5톤';
+    const raw = parseFloat(heightInput);
+    const value = isNaN(raw) ? 0 : raw;
+    // 미터로 입력한 경우 약 3m를 1층으로 환산해 장비를 추천한다.
+    const floorEquivalent = heightUnit === 'meter' ? value / 3 : value;
+    const isHeavy = floorEquivalent > 10;
 
-    if (hours === 1) {
-      basePrice = floor > 10 ? 350000 : 250000;
-      ton = floor > 10 ? '5톤' : '1톤 / 3.5톤';
+    let basePrice = 0;
+    if (hours === 0.5) {
+      basePrice = isHeavy ? 300000 : 200000;
+    } else if (hours === 1) {
+      basePrice = isHeavy ? 300000 : 250000;
     } else if (hours <= 4) {
-      basePrice = floor > 10 ? 450000 : 350000;
-      ton = floor > 10 ? '5톤' : '1톤 / 3.5톤';
+      basePrice = isHeavy ? 450000 : 350000;
     } else {
-      basePrice = floor > 10 ? 650000 : 550000;
-      ton = floor > 10 ? '5톤' : '1톤 / 3.5톤';
+      basePrice = isHeavy ? 650000 : 550000;
     }
 
     setPrice(basePrice);
-    setRecommendedTon(ton);
-  }, [floor, hours]);
+    setRecommendedTon(isHeavy ? '5톤' : '1톤 / 3.5톤');
+  }, [heightInput, heightUnit, hours]);
 
   return (
     <section className="py-20 bg-[#F97316]/5">
@@ -44,43 +48,61 @@ const PriceCalculator = () => {
               <div className="space-y-8">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-4 flex justify-between">
-                    작업 높이 (층수)
-                    <span className="text-[#F97316]">{floor}층</span>
+                    작업 높이
+                    <span className="text-[#F97316]">
+                      {heightInput || 0}{heightUnit === 'floor' ? '층' : 'm'}
+                    </span>
                   </label>
-                  <input
-                    type="range"
-                    min="1"
-                    max="20"
-                    value={floor}
-                    onChange={(e) => setFloor(parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#F97316]"
-                  />
-                  <div className="flex justify-between text-xs text-gray-400 mt-2">
-                    <span>1층</span>
-                    <span>10층</span>
-                    <span>20층</span>
+                  <div className="flex gap-2">
+                    <input
+                      type="number"
+                      min="1"
+                      inputMode="numeric"
+                      value={heightInput}
+                      onChange={(e) => setHeightInput(e.target.value)}
+                      placeholder={heightUnit === 'floor' ? '예: 3 (층)' : '예: 9 (m)'}
+                      className="flex-1 min-w-0 px-4 py-3 rounded-xl border border-gray-200 text-gray-900 font-bold focus:outline-none focus:ring-2 focus:ring-[#F97316]/40 focus:border-[#F97316]"
+                    />
+                    <div className="flex rounded-xl bg-gray-100 p-1">
+                      {(['floor', 'meter'] as const).map((u) => (
+                        <button
+                          key={u}
+                          onClick={() => setHeightUnit(u)}
+                          className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${
+                            heightUnit === u
+                              ? 'bg-[#F97316] text-white shadow'
+                              : 'text-gray-500 hover:text-gray-700'
+                          }`}
+                        >
+                          {u === 'floor' ? '층수' : '미터'}
+                        </button>
+                      ))}
+                    </div>
                   </div>
+                  <p className="text-xs text-gray-400 mt-2">
+                    작업할 높이를 층수 또는 미터(m)로 입력하세요.
+                  </p>
                 </div>
 
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-4 flex justify-between">
                     예상 작업 시간
                     <span className="text-[#F97316]">
-                      {hours === 1 ? '1시간' : hours === 4 ? '반나절 (4시간)' : '하루 (8시간)'}
+                      {hours === 0.5 ? '30분' : hours === 1 ? '1시간' : hours === 4 ? '반나절 (4시간)' : '하루 (8시간)'}
                     </span>
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {[1, 4, 8].map((h) => (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {[0.5, 1, 4, 8].map((h) => (
                       <button
                         key={h}
                         onClick={() => setHours(h)}
                         className={`py-3 px-2 rounded-xl text-sm font-bold transition-all ${
-                          hours === h 
-                            ? 'bg-[#F97316] text-white shadow-lg shadow-[#F97316]/30' 
+                          hours === h
+                            ? 'bg-[#F97316] text-white shadow-lg shadow-[#F97316]/30'
                             : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                         }`}
                       >
-                        {h === 1 ? '1시간' : h === 4 ? '반나절' : '하루'}
+                        {h === 0.5 ? '30분' : h === 1 ? '1시간' : h === 4 ? '반나절' : '하루'}
                       </button>
                     ))}
                   </div>

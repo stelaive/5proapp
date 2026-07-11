@@ -3,8 +3,8 @@ import { PriceItem } from '@/components/common/PriceTable'
 
 // 기본 가격 데이터 (전국 공통)
 export const defaultPriceData: PriceItem[] = [
-  { equipment: '1톤 ~ 3.5톤', halfDay: 350000, fullDay: 550000, additional: 150000, monthly: 12000000 },
-  { equipment: '5톤 (45m)', halfDay: 450000, fullDay: 650000, additional: 200000, monthly: 14000000 },
+  { equipment: '1톤 ~ 3.5톤', shortTime: 200000, oneHour: 250000, halfDay: 350000, fullDay: 550000, additional: 150000, monthly: 12000000 },
+  { equipment: '5톤 (45m)', shortTime: 300000, oneHour: 300000, halfDay: 450000, fullDay: 650000, additional: 200000, monthly: 14000000 },
   { equipment: '8톤 (54m)', halfDay: 700000, fullDay: 900000, additional: '협의', monthly: '협의' },
   { equipment: '17톤 (58~65m)', halfDay: 1000000, fullDay: 1200000, additional: '협의', monthly: '협의' },
   { equipment: '19톤 (75m)', halfDay: 1300000, fullDay: 1800000, additional: '협의', monthly: '협의' },

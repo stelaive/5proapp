@@ -5,7 +5,6 @@ import FloatingDownload from '@/components/FloatingDownload'
 import HeroSection from '@/components/home/HeroSection'
 import ProblemSection from '@/components/home/sections/ProblemSection'
 import ServiceSection from '@/components/home/sections/ServiceSection'
-import AreaSection from '@/components/home/sections/AreaSection'
 import FaqSection from '@/components/home/sections/FaqSection'
 import CtaSection from '@/components/home/sections/CtaSection'
 
@@ -22,8 +21,6 @@ export default function Home() {
         <ProblemSection />
         {/* 3. 서비스(해결) */}
         <ServiceSection />
-        {/* 3-1. 출동 가능 지역 (로컬 SEO) */}
-        <AreaSection />
         {/* 4. FAQ */}
         <FaqSection />
         {/* 5. CTA */}
