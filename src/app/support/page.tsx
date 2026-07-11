@@ -37,7 +37,7 @@ const faqData: FAQItem[] = [
     questions: [
       {
         Q: '앱에 안내된 스카이차 시간당/반나절/하루 대여 비용은 전국 동일 조건인가요? 배차 가능 지역은 어디인가요?',
-        A: '현재 저희 스카이차 배차 서비스는 경기, 서울, 인천, 천안, 아산, 대전, 청주 지역에서 이용 가능하십니다! 안내된 대여 비용은 해당 지역 내에서는 동일하게 적용됩니다. 서비스 지역은 계속 확대해 나갈 예정이니 기대해주세요!',
+        A: '현재 저희 스카이차 배차 서비스는 제주도를 제외한 전국 어디든 이용 가능합니다! 서울·경기·인천은 물론 대전·충청·강원·경상·전라 등 전국으로 24시간 배차해 드리며, 안내된 대여 비용은 전국 동일하게 적용됩니다.',
         tag: '[요금]'
       },
       {
@@ -102,12 +102,12 @@ const faqData: FAQItem[] = [
       },
       {
         Q: '페이백은 언제, 어떤 방식으로 지급되나요?',
-        A: '가장 빠르고 편리하게 받으실 수 있도록, 작업 완료 즉시! 페이백 금액을 사장님의 통장으로 바로 보내드리거나 현금으로 직접 드립니다. 기다릴 필요 없이 바로 페이백 혜택을 누리세요!',
+        A: '작업이 완료되면 이용 금액의 5%가 앱에 포인트로 바로 적립됩니다. 앱에서 출금 신청을 하시면 등록해주신 계좌로 현금을 보내드려요. 복잡한 절차 없이 간편하게 받으세요!',
         tag: '[지급]'
       },
       {
-        Q: '통장으로 페이백을 받고 싶은데, 미리 계좌를 등록해야 하나요? 아니면 현장에서 바로 처리되나요?',
-        A: '걱정 마세요! 작업 완료 후 현장에서 페이백 지급 방식을 선택하실 수 있습니다. 통장으로 받기를 원하시면 현장에서 바로 계좌 정보를 알려주시면 해당 계좌로 신속하게 입금해 드립니다. 사장님의 편의가 최우선입니다!',
+        Q: '페이백은 어떻게 현금으로 받나요? 계좌를 미리 등록해야 하나요?',
+        A: '페이백은 앱에 포인트로 적립되기 때문에 현장에서 따로 계좌를 알려주실 필요가 없습니다. 앱에서 출금 신청을 하실 때 계좌를 등록하시면 해당 계좌로 현금을 보내드려요. 미리 등록해두시면 더 빠르게 받으실 수 있습니다!',
         tag: '[방법]'
       },
       {
@@ -195,8 +195,25 @@ export default function SupportPage() {
     section => section.category === categoryMapping[activeCategory as keyof typeof categoryMapping]
   );
 
+  // AEO: 전체 FAQ를 FAQPage 구조화 데이터로 (검색 답변박스·리치결과)
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqData.flatMap((section) =>
+      section.questions.map((q) => ({
+        '@type': 'Question',
+        name: q.Q,
+        acceptedAnswer: { '@type': 'Answer', text: q.A },
+      }))
+    ),
+  };
+
   return (
     <div className="bg-gray-50 text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="pt-16">
         <div className="bg-white shadow-sm mb-6">
           <div className="max-w-7xl mx-auto px-4">

@@ -29,7 +29,7 @@ const STEPS: { icon: IconName; step: string; title: string; desc: string }[] = [
     icon: 'Truck',
     step: 'STEP 2',
     title: '24시간 책임 배차',
-    desc: '고정된 요금으로, 경기 전역 어디든 바로 배차해요.',
+    desc: '고정된 요금으로, 전국 어디든 바로 배차해요.',
   },
   {
     icon: 'Wallet',

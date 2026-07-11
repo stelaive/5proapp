@@ -30,6 +30,15 @@ const SITE_INFO = {
 // 💡 메타데이터 설정 (고급 사용자만 수정)
 // ============================================
 export const metadata: Metadata = {
+  // OG/트위터 이미지 등 상대경로를 절대경로로 해석하기 위한 기준 URL
+  metadataBase: new URL(SITE_INFO.siteUrl),
+  // 정규 URL (punycode 도메인으로 일원화)
+  alternates: {
+    canonical: '/',
+    languages: {
+      'ko-KR': '/',
+    },
+  },
   // 기본 제목과 설명
   title: {
     default: SITE_INFO.title,
@@ -140,14 +149,31 @@ export default function RootLayout({
     "telephone": SITE_INFO.businessPhone,
     "email": SITE_INFO.businessEmail,
     "serviceType": "건설장비 대여 서비스",
-    "areaServed": {
-      "@type": "Place",
-      "name": "대한민국 전국"
-    },
+    "areaServed": [
+      { "@type": "Country", "name": "대한민국 (제주도 제외)" },
+      { "@type": "AdministrativeArea", "name": "서울특별시" },
+      { "@type": "AdministrativeArea", "name": "경기도" },
+      { "@type": "AdministrativeArea", "name": "인천광역시" },
+      { "@type": "City", "name": "강남구" },
+      { "@type": "City", "name": "안양시" },
+      { "@type": "City", "name": "수원시" },
+      { "@type": "City", "name": "군포시" }
+    ],
     "priceRange": "$$",
     "paymentAccepted": "현금, 계좌이체",
     "currenciesAccepted": "KRW",
     "openingHours": "Mo-Su 00:00-24:00",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    // 동일 엔티티의 외부 채널 (앱스토어) — GEO/로컬 엔티티 신뢰 강화
+    "sameAs": [
+      "https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp",
+      "https://apps.apple.com/kr/app/5-%EB%8F%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%B0%A8/id6747275589"
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "스카이차 대여 서비스",
@@ -193,13 +219,9 @@ export default function RootLayout({
         
         {/* ============================================ */}
         {/* 🔗 사이트 연결 최적화 */}
+        {/* canonical/hreflang은 metadata.alternates에서 일원 관리 (punycode 도메인) */}
         {/* ============================================ */}
-        <link rel="canonical" href={SITE_INFO.siteUrl} />
-        <link rel="alternate" hrefLang="ko" href={SITE_INFO.siteUrl} />
-        
-        {/* 한글 도메인 지원 */}
-        <link rel="alternate" hrefLang="ko" href="https://5프로.com" />
-        
+
         {/* ============================================ */}
         {/* 📞 연락처 자동 감지 설정 */}
         {/* ============================================ */}

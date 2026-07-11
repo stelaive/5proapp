@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     title: '수원스카이차 | 5% 캐시백 고소작업차 임대',
     description:
       '수원 전지역 스카이차 임대, 5% 캐시백! 1톤, 3.5톤, 5톤 고소작업차 당일 배차. 1877-3924',
-    url: 'https://5프로.com/locations/suwon',
+    url: 'https://xn--5-w30fr74e.com/locations/suwon',
     siteName: '5프로스카이차',
     locale: 'ko_KR',
     type: 'website',
     images: [
       {
-        url: 'https://5프로.com/images/5pro-logo-main.png',
+        url: 'https://xn--5-w30fr74e.com/images/5pro-logo-main.png',
         width: 1200,
         height: 630,
         alt: '수원 스카이차 5% 페이백',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://5프로.com/locations/suwon',
+    canonical: 'https://xn--5-w30fr74e.com/locations/suwon',
   },
   robots: {
     index: true,
@@ -65,8 +65,8 @@ export default function SuwonLayout({
     },
     priceRange: '₩250,000–₩1,200,000', // [수정] 실제 가격 범위를 더 명확하게
     telephone: '1877-3924',
-    url: 'https://5프로.com/locations/suwon',
-    image: 'https://5프로.com/images/5pro-logo-main.png',
+    url: 'https://xn--5-w30fr74e.com/locations/suwon',
+    image: 'https://xn--5-w30fr74e.com/images/5pro-logo-main.png',
     description:
       '경기 수원 전지역(영통·팔달·장안·권선) 고소작업 스카이차 임대. 작업 완료 후 5% 즉시 캐시백. 1톤·3.5톤·5톤 스카이차 당일 배차 가능.',
     address: {

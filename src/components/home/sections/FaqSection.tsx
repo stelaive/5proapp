@@ -9,7 +9,7 @@ const BRAND = '#F97316'
 const FAQS = [
   {
     q: '5% 페이백은 언제, 어떻게 받나요?',
-    a: '작업이 완료되면 이용료의 5%가 앱 지갑에 현금으로 자동 적립됩니다. 적립된 금액은 원하실 때 바로 출금하실 수 있어요.',
+    a: '작업이 완료되면 이용료의 5%가 앱에 포인트로 적립됩니다. 앱에서 출금 신청하시면 등록하신 계좌로 현금으로 보내드려요.',
   },
   {
     q: '요금이 부르는 대로 바뀌진 않나요?',
@@ -17,11 +17,11 @@ const FAQS = [
   },
   {
     q: '어느 지역까지 출동하나요?',
-    a: '경기 전역으로 24시간 출동합니다. 지역과 상황에 따라 배차 시간이 달라질 수 있으니, 급하실 때는 전화로 문의해 주세요.',
+    a: '제주도를 제외한 전국 어디든 24시간 출동합니다. 지역과 상황에 따라 배차 시간이 달라질 수 있으니, 급하실 때는 전화로 문의해 주세요.',
   },
   {
     q: '예약 취소나 변경은 어떻게 하나요?',
-    a: '앱 또는 전화로 즉시 취소·변경하실 수 있습니다. 자세한 취소 규정은 예약 시 안내해 드려요.',
+    a: '예약 취소·변경은 전화로만 가능합니다. 대표번호로 연락 주시면 바로 처리해 드려요. 자세한 취소 규정은 예약 시 안내해 드립니다.',
   },
   {
     q: '꼭 앱을 써야 하나요?',
@@ -30,8 +30,26 @@ const FAQS = [
 ]
 
 export default function FaqSection() {
+  // AEO: 검색 답변박스·리치결과용 FAQPage 구조화 데이터
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  }
+
   return (
     <section aria-labelledby="faq-heading" className="bg-gray-50 py-16 md:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="container mx-auto px-4">
         <motion.div
           className="mx-auto max-w-2xl text-center"

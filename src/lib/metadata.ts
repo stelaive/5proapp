@@ -8,7 +8,7 @@ import type { Metadata } from 'next'
 // 기본 사이트 정보 (layout.tsx와 동일하게 유지)
 const SITE_INFO = {
   title: '5프로돌려주는스카이차 ',
-  description: '스카이차비용,스카이차가격,스카이차요금,3.5톤스카이차,1톤스카이차,5톤스카이차,수원,용인,화성,평택,성남,시흥,인천,부평,남동구,파주,일산,남양주,경기도광주스카이차',
+  description: '스카이차(고소작업차) 대여 이용료의 5%를 작업 완료 후 현금으로 돌려드립니다. 1톤~19톤 투명한 요금, 24시간 출동. 전화·앱으로 바로 예약하세요.',
   siteUrl: 'https://xn--5-w30fr74e.com', // ✅ 실제 도메인 설정 완료!
   ogImage: '/images/5pro-logo-main.png',
   businessName: '5프로돌려주는스카이차',
@@ -42,7 +42,12 @@ export function generatePageMetadata({
     title: fullTitle,
     description,
     keywords: keywords ? `${keywords}, ${SITE_INFO.keywords}` : SITE_INFO.keywords,
-    
+
+    // 페이지별 정규 URL (metadataBase 상속 → 상대경로)
+    alternates: {
+      canonical: path,
+    },
+
     // Open Graph (카카오톡, 페이스북 등)
     openGraph: {
       title: fullTitle,

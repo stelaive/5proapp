@@ -27,7 +27,7 @@ export default function CtaSection() {
           viewport={{ once: true, margin: '-80px' }}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/15 px-3 py-1.5 text-sm font-semibold text-orange-300">
-            24시간 언제든 · 경기 전역
+            24시간 언제든 · 전국 출동
           </span>
           <h2
             id="cta-heading"

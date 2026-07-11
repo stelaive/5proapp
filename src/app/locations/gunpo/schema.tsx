@@ -13,10 +13,10 @@ export const faqJsonLd = {
     },
     {
       "@type": "Question",
-      "name": "5% 캐시백은 언제 받을 수 있나요?",
+      "name": "5% 페이백은 언제 받을 수 있나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "작업 완료 후 3일 이내에 고객님 계좌로 직접 입금해드립니다. 별도 신청 절차는 필요 없어요."
+        "text": "작업이 완료되면 이용료의 5%가 앱에 포인트로 적립됩니다. 앱에서 출금 신청하시면 등록하신 계좌로 현금으로 보내드려요."
       }
     },
     {
@@ -118,8 +118,8 @@ export const offerJsonLd = {
     ]
   },
   "availability": "InStock",
-  "validFrom": "2024-01-01",
-  "validThrough": "2024-12-31",
+  "validFrom": "2025-01-01",
+  "validThrough": "2026-12-31",
   "eligibleRegion": {
     "@type": "Place",
     "name": "군포시 전지역"

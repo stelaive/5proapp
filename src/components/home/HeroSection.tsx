@@ -62,7 +62,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/15 px-3 py-1.5 text-sm font-semibold text-orange-300"
             >
               <span className="h-2 w-2 rounded-full bg-orange-400 motion-safe:animate-pulse" />
-              24시간 출동 · 경기 전역
+              24시간 출동 · 전국 어디나
             </motion.span>
 
             {/* 헤드라인 — 단일 메시지, 5% 강조 */}

@@ -92,18 +92,8 @@ export default function RegionClientPage({ location }: RegionClientPageProps) {
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                     {group.cities.map((city) => {
-                      let href;
-                      if (city.slug === 'anyang') {
-                        href = '/locations/anyang';
-                      } else if (city.slug === 'gunpo') {
-                        href = '/locations/gunpo';
-                      } else if (city.slug === 'suwon') {
-                        href = '/locations/suwon';
-                      } else if (city.slug === 'gangnam') {
-                        href = '/locations/gangnam';
-                      } else {
-                        href = `/locations/${location.slug}/${city.slug}`;
-                      }
+                      // 모든 도시 페이지는 flat 경로(/locations/{slug})로 존재
+                      const href = `/locations/${city.slug}`;
 
                       return (
                         <Link
@@ -124,18 +114,8 @@ export default function RegionClientPage({ location }: RegionClientPageProps) {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
               {location.cities?.map((city) => {
-                let href;
-                if (city.slug === 'anyang') {
-                  href = '/locations/anyang';
-                } else if (city.slug === 'gunpo') {
-                  href = '/locations/gunpo';
-                } else if (city.slug === 'suwon') {
-                  href = '/locations/suwon';
-                } else if (city.slug === 'gangnam') {
-                  href = '/locations/gangnam';
-                } else {
-                  href = `/locations/${location.slug}/${city.slug}`;
-                }
+                // 모든 도시 페이지는 flat 경로(/locations/{slug})로 존재
+                const href = `/locations/${city.slug}`;
 
                 return (
                   <Link

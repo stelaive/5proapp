@@ -1,15 +1,16 @@
 import { MetadataRoute } from 'next'
-import { LOCATIONS_DATA } from '@/lib/regionData'
+import { LOCATIONS_DATA, LIVE_CITY_SLUGS } from '@/lib/regionData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://5프로.com' // 가독성을 위해 한글 도메인 사용
-  
+  // 정규 도메인: punycode로 일원화 (canonical·robots와 일치)
+  const baseUrl = 'https://xn--5-w30fr74e.com'
+
   // lastModified를 실제 페이지 업데이트 날짜로 고정
   // 검색엔진에게 정확한 정보를 제공하여 크롤링 효율성 향상
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: '2025-08-01', // 메인 페이지 주요 업데이트 날짜
+      lastModified: '2026-07-11', // 메인 페이지 전면 리디자인
       changeFrequency: 'daily',
       priority: 1.0,
     },
@@ -57,25 +58,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // 2) 지역별 동적 페이지 생성 (/locations/{slug})
-  // 실제로 서비스 중인(콘텐츠가 준비된) 도시 슬러그 목록만 포함
-  const LIVE_CITY_SLUGS = new Set(['anyang', 'gunpo', 'suwon'])
+  // 2) 광역 지역 허브 페이지 (/locations/{region}) — generateStaticParams로 생성됨
+  const REGION_HUB_SLUGS = ['seoul', 'gyeonggi', 'incheon']
+  const regionHubPages: MetadataRoute.Sitemap = REGION_HUB_SLUGS.map((slug) => ({
+    url: `${baseUrl}/locations/${slug}`,
+    lastModified: '2026-07-11',
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }))
+
+  // 3) 도시별 페이지 (/locations/{slug})
+  // 전용 페이지가 존재하는 도시만 포함 (regionData.LIVE_CITY_SLUGS = 단일 소스)
+  const liveSet = new Set(LIVE_CITY_SLUGS)
+
+  // 지역별 페이지의 실제 업데이트 날짜 매핑 (없으면 기본값)
+  const locationUpdateDates: Record<string, string> = {
+    'gangnam': '2026-07-11',
+    'seocho': '2026-07-12',
+    'anyang': '2026-07-11',
+    'gunpo': '2026-07-11',
+    'suwon': '2026-07-11',
+  }
+  const DEFAULT_DATE = '2026-07-12' // 서울 자치구 일괄 생성일
 
   const locationPages: MetadataRoute.Sitemap = []
-
-  // 지역별 페이지의 실제 업데이트 날짜 매핑
-  const locationUpdateDates: Record<string, string> = {
-    'anyang': '2025-07-24', // 안양 페이지 최종 업데이트
-    'gunpo': '2025-07-26',  // 군포 페이지 최종 업데이트 (schema.tsx 포함)
-    'suwon': '2025-07-18'   // 수원 페이지 최종 업데이트
-  }
+  const seen = new Set<string>() // slug 중복 방지 (예: 서울·인천 '중구'가 동일 slug 'junggu')
 
   LOCATIONS_DATA.forEach((loc) => {
     const processCity = (city: { slug: string }) => {
-      if (LIVE_CITY_SLUGS.has(city.slug)) {
+      if (liveSet.has(city.slug) && !seen.has(city.slug)) {
+        seen.add(city.slug)
         locationPages.push({
           url: `${baseUrl}/locations/${city.slug}`,
-          lastModified: locationUpdateDates[city.slug] || '2025-07-01', // 실제 업데이트 날짜 사용
+          lastModified: locationUpdateDates[city.slug] || DEFAULT_DATE,
           changeFrequency: 'monthly',
           priority: 0.8,
         })
@@ -89,5 +104,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   })
 
-  return [...staticPages, ...locationPages]
+  return [...staticPages, ...regionHubPages, ...locationPages]
 } 

@@ -13,8 +13,60 @@ const fadeInUp = {
 };
 
 export default function PricingPage() {
+  // G5: 실제 요금(defaultPriceData) 기반 Service/Offer 구조화 데이터
+  const priceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: '스카이차 대여',
+    serviceType: '스카이차(고소작업차) 대여',
+    description: '1톤~19톤 스카이차 대여. 작업 완료 후 이용료의 5%를 현금으로 페이백.',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: '5프로돌려주는스카이차',
+      telephone: '1877-3924',
+    },
+    offers: {
+      '@type': 'OfferCatalog',
+      name: '스카이차 장비별 이용요금 (하루 기준)',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          name: '1톤~3.5톤 스카이차 (30분 단시간)',
+          priceCurrency: 'KRW',
+          price: '200000',
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: '200000',
+            priceCurrency: 'KRW',
+            referenceQuantity: { '@type': 'QuantitativeValue', value: 30, unitText: '분' },
+          },
+          availability: 'https://schema.org/InStock',
+        },
+        ...defaultPriceData
+          .filter((p) => typeof p.fullDay === 'number')
+          .map((p) => ({
+            '@type': 'Offer',
+            name: `${p.equipment} 스카이차 (하루)`,
+            priceCurrency: 'KRW',
+            price: String(p.fullDay),
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: String(p.fullDay),
+              priceCurrency: 'KRW',
+              referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitText: '일(8시간)' },
+            },
+            availability: 'https://schema.org/InStock',
+          })),
+      ],
+    },
+  }
+
   return (
     <div className="bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(priceJsonLd) }}
+      />
       {/* 히어로 섹션 */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
         <div className="container mx-auto px-4">
@@ -48,6 +100,13 @@ export default function PricingPage() {
           className="bg-white"
         />
       </motion.div>
+
+      {/* 30분 단시간 최소요금 안내 */}
+      <div className="container mx-auto px-4">
+        <p className="mx-auto -mt-6 mb-2 max-w-4xl rounded-xl border border-orange-100 bg-orange-50 px-5 py-4 text-center text-sm font-medium text-gray-700">
+          ⏱️ <span className="font-bold" style={{ color: '#F97316' }}>1톤~3.5톤 30분 단시간 작업은 20만원</span>부터 이용 가능합니다.
+        </p>
+      </div>
 
       {/* 전화 연결 섹션 */}
       <section className="py-16 text-white" style={{ background: 'linear-gradient(to bottom right, #F97316, #EA580C)' }}>

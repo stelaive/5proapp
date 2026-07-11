@@ -16,9 +16,8 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
-# 사이트맵 위치 알려주기
+# 사이트맵 위치 (정규 도메인 punycode 하나로 통일)
 Sitemap: https://xn--5-w30fr74e.com/sitemap.xml
-Sitemap: https://5프로.com/sitemap.xml
 
 # RSS 피드 위치
 # RSS: https://xn--5-w30fr74e.com/rss.xml 
