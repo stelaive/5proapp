@@ -4,20 +4,14 @@ import { NextResponse } from 'next/server'
 const pages = [
   {
     slug: '',
-    title: '5프로돌려주는스카이차 - 스카이차 쓰고 5% 돌려받고 매월 100만원 행운까지!',
-    description: '스카이차 쓸 때마다 이용료의 5%가 현금으로 바로 돌아옵니다. 매월 100만원 추첨 이벤트까지! 24시간 콜센터, 투명한 가격의 믿을 수 있는 스카이차 서비스입니다.',
+    title: '5프로돌려주는스카이차 - 스카이차 쓰면 이용료 5%를 현금으로 돌려드립니다',
+    description: '스카이차 쓸 때마다 이용료의 5%가 현금으로 바로 돌아옵니다. 24시간 콜센터, 투명한 가격의 믿을 수 있는 스카이차 서비스입니다.',
     lastModified: new Date('2024-12-19'),
   },
   {
     slug: 'pricing',
     title: '스카이차 가격표 - 투명하고 합리적인 요금제',
     description: '1톤부터 19톤까지 투명한 스카이차 가격표. 반나절, 하루, 월단위 이용료와 5% 페이백 혜택까지! 지금 확인하세요.',
-    lastModified: new Date('2024-12-19'),
-  },
-  {
-    slug: 'million',
-    title: '매월 100만원 추첨 이벤트 - 스카이차 이용고객 대상',
-    description: '스카이차 이용 고객 대상 매월 100만원 현금 추첨! 오더 1건만으로 자동 응모. 500분의 1 확률로 행운의 주인공이 되세요!',
     lastModified: new Date('2024-12-19'),
   },
   {
@@ -74,7 +68,7 @@ function generateRSS() {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title><![CDATA[5프로돌려주는스카이차]]></title>
-    <description><![CDATA[스카이차 쓰고 5% 돌려받고 매월 100만원 행운까지! 24시간 콜센터, 투명한 가격의 믿을 수 있는 스카이차 서비스입니다.]]></description>
+    <description><![CDATA[스카이차 쓰면 이용료의 5%를 현금으로 돌려드립니다. 24시간 콜센터, 투명한 가격의 믿을 수 있는 스카이차 서비스입니다.]]></description>
     <link>${siteUrl}</link>
     <language>ko-KR</language>
     <managingEditor>man7866@naver.com (5프로돌려주는스카이차)</managingEditor>

@@ -50,7 +50,7 @@ const RegionGallery = ({ title, subtitle, images }: RegionGalleryProps) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   {image.category && (
-                    <span className="inline-block px-3 py-1 bg-[#42d9de] text-white text-xs font-bold rounded-full mb-3 self-start">
+                    <span className="inline-block px-3 py-1 bg-[#F97316] text-white text-xs font-bold rounded-full mb-3 self-start">
                       {image.category}
                     </span>
                   )}

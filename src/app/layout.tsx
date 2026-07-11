@@ -70,7 +70,7 @@ export const metadata: Metadata = {
         url: `${SITE_INFO.siteUrl}${SITE_INFO.ogImage}`,
         width: 1200,
         height: 630,
-        alt: '5프로돌려주는스카이차 - 5% 현금 페이백과 100만원 추첨 이벤트',
+        alt: '5프로돌려주는스카이차 - 스카이차 이용료 5% 현금 페이백',
       }
     ],
   },
@@ -159,14 +159,6 @@ export default function RootLayout({
             "name": "스카이차 대여",
             "description": "1톤~19톤 스카이차 대여 서비스, 5% 현금 페이백 제공"
           }
-        },
-        {
-          "@type": "Offer", 
-          "itemOffered": {
-            "@type": "Service",
-            "name": "100만원 추첨 이벤트",
-            "description": "매월 진행되는 100만원 현금 추첨 이벤트"
-          }
         }
       ]
     },
@@ -246,8 +238,8 @@ export default function RootLayout({
               scroll-behavior: smooth;
             }
             
-            /* 전화번호 링크 스타일 - 강제 가시성 보장 */
-            a[href^="tel:"] {
+            /* 전화번호 링크 스타일 - 강제 가시성 보장 (.tel-raw 는 제외: 자체 레이아웃 유지) */
+            a[href^="tel:"]:not(.tel-raw) {
               color: #ffffff !important;
               background-color: #F97316 !important;
               text-decoration: none !important;
@@ -264,7 +256,7 @@ export default function RootLayout({
             }
             
             /* 전화번호 링크 호버 효과 */
-            a[href^="tel:"]:hover {
+            a[href^="tel:"]:not(.tel-raw):hover {
               background-color: #ea580c !important;
               color: #ffffff !important;
               text-decoration: none !important;
@@ -273,8 +265,8 @@ export default function RootLayout({
             }
             
             /* 전화번호 링크 내부 텍스트 강제 스타일 */
-            a[href^="tel:"] span,
-            a[href^="tel:"] * {
+            a[href^="tel:"]:not(.tel-raw) span,
+            a[href^="tel:"]:not(.tel-raw) * {
               color: #ffffff !important;
               font-weight: bold !important;
               text-shadow: none !important;
@@ -282,10 +274,10 @@ export default function RootLayout({
             }
             
             /* 모든 상태에서 전화번호 링크 텍스트 보장 */
-            a[href^="tel:"]:visited,
-            a[href^="tel:"]:link,
-            a[href^="tel:"]:active,
-            a[href^="tel:"]:focus {
+            a[href^="tel:"]:not(.tel-raw):visited,
+            a[href^="tel:"]:not(.tel-raw):link,
+            a[href^="tel:"]:not(.tel-raw):active,
+            a[href^="tel:"]:not(.tel-raw):focus {
               color: #ffffff !important;
               text-decoration: none !important;
             }
@@ -326,7 +318,7 @@ export default function RootLayout({
           `
         }} />
       </head>
-      <body className="font-sans">
+      <body className="font-sans pb-[calc(64px+env(safe-area-inset-bottom,0px))] md:pb-0">
         {children}
       </body>
     </html>

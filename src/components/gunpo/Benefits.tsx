@@ -17,7 +17,7 @@ const Benefits: React.FC<BenefitsProps> = ({ benefits }) => {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {benefits.map((benefit, index) => (
           <div key={index} className="text-center p-6 bg-white rounded-2xl shadow-md">
-            <div className="flex justify-center mb-4" style={{ color: '#42d9de' }}>{benefit.icon}</div>
+            <div className="flex justify-center mb-4" style={{ color: '#F97316' }}>{benefit.icon}</div>
             <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
             <p className="text-gray-600">{benefit.description}</p>
           </div>

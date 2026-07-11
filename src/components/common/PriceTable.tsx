@@ -2,6 +2,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { Icon } from '@/components/ui/icon'
 
 // 가격 데이터 타입 정의
 export interface PriceItem {
@@ -52,7 +53,7 @@ export default function PriceTable({
 
   // 기본 계산기 옵션
   const defaultCalculatorOptions = [
-    { label: '1-3.5톤 반나절', price: 350000, color: 'bg-[#42d9de] hover:bg-[#3bc4c9]' },
+    { label: '1-3.5톤 반나절', price: 350000, color: 'bg-[#F97316] hover:bg-[#EA580C]' },
     { label: '1-3.5톤 하루', price: 550000, color: 'bg-blue-500 hover:bg-blue-600' },
     { label: '5톤 반나절', price: 450000, color: 'bg-green-500 hover:bg-green-600' },
     { label: '5톤 하루', price: 650000, color: 'bg-purple-500 hover:bg-purple-600' },
@@ -119,7 +120,7 @@ export default function PriceTable({
             </div>
             {selectedPrice && (
               <div className="bg-yellow-50 border-2 border-yellow-300 rounded-xl p-6 text-center">
-                <div className="text-5xl mb-4">💰</div>
+                <div className="text-5xl mb-4"><Icon name="Wallet" size={48} /></div>
                 <h4 className="text-xl font-bold text-gray-800 mb-2">{selectedPrice.type} 선택</h4>
                 <p className="text-lg text-gray-700">이용료: <span className="font-bold">{selectedPrice.price.toLocaleString()}원</span></p>
                 <div className="text-2xl font-bold text-red-600 my-3">

@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { Icon } from '@/components/ui/icon'
 
 // Swiper 커스텀 스타일
 const swiperStyles = `
@@ -344,7 +345,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-4xl md:text-5xl mb-2">🏠</div>
+              <div className="text-4xl md:text-5xl mb-2"><Icon name="Home" size={44} /></div>
               <p className="text-sm font-medium">창호</p>
             </motion.div>
             
@@ -353,7 +354,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-4xl md:text-5xl mb-2">🎨</div>
+              <div className="text-4xl md:text-5xl mb-2"><Icon name="Palette" size={44} /></div>
               <p className="text-sm font-medium">도장</p>
             </motion.div>
             
@@ -362,7 +363,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-4xl md:text-5xl mb-2">⚡</div>
+              <div className="text-4xl md:text-5xl mb-2"><Icon name="Zap" size={44} /></div>
               <p className="text-sm font-medium">전기</p>
             </motion.div>
             
@@ -371,7 +372,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-4xl md:text-5xl mb-2">🔧</div>
+              <div className="text-4xl md:text-5xl mb-2"><Icon name="Wrench" size={44} /></div>
               <p className="text-sm font-medium">금속</p>
             </motion.div>
             
@@ -380,7 +381,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-4xl md:text-5xl mb-2">🔥</div>
+              <div className="text-4xl md:text-5xl mb-2"><Icon name="Flame" size={44} /></div>
               <p className="text-sm font-medium">용접</p>
             </motion.div>
             
@@ -389,7 +390,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="text-4xl md:text-5xl mb-2">💧</div>
+              <div className="text-4xl md:text-5xl mb-2"><Icon name="Droplet" size={44} /></div>
               <p className="text-sm font-medium">방수</p>
             </motion.div>
           </motion.div>
@@ -461,7 +462,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="bg-gray-200 rounded-full h-3 mb-4">
-                <div className="h-3 rounded-full w-1/3" style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}></div>
+                <div className="h-3 rounded-full w-1/3" style={{ background: 'linear-gradient(to right, #F97316, #EA580C)' }}></div>
               </div>
               <div className="flex justify-between text-sm text-gray-600 font-bold">
                 <span>앱 설치</span>
@@ -527,14 +528,14 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                   <motion.div 
                     className="p-8 md:p-12 rounded-2xl border-2 text-center"
                     style={{ 
-                      background: 'linear-gradient(to right, rgba(66, 217, 222, 0.1), rgba(59, 196, 201, 0.1))',
-                      borderColor: 'rgba(66, 217, 222, 0.3)'
+                      background: 'linear-gradient(to right, rgba(249, 115, 22, 0.1), rgba(59, 196, 201, 0.1))',
+                      borderColor: 'rgba(249, 115, 22, 0.3)'
                     }}
                     whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   >
                     <motion.div 
                       className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-3xl"
-                      style={{ backgroundColor: '#42d9de' }}
+                      style={{ backgroundColor: '#F97316' }}
                       animate={{ 
                         scale: [1, 1.1, 1]
                       }}
@@ -546,7 +547,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                     >
                       2
                     </motion.div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight" style={{ color: '#42d9de' }}>초대 코드로 친구들 초대!</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight" style={{ color: '#F97316' }}>초대 코드로 친구들 초대!</h3>
                     <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                       아직 저희 서비스를 이용 안 해본 동료 사장님들께 내 초대 코드를 공유하세요. 친구가 앱 설치 후 일감 1건만 완료하면 OK!
                     </p>
@@ -558,14 +559,14 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                   <motion.div 
                     className="p-8 md:p-12 rounded-2xl border-2 text-center"
                     style={{ 
-                      background: 'linear-gradient(to right, rgba(66, 217, 222, 0.1), rgba(59, 196, 201, 0.15))',
-                      borderColor: 'rgba(66, 217, 222, 0.3)'
+                      background: 'linear-gradient(to right, rgba(249, 115, 22, 0.1), rgba(59, 196, 201, 0.15))',
+                      borderColor: 'rgba(249, 115, 22, 0.3)'
                     }}
                     whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   >
                     <motion.div 
                       className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-3xl"
-                      style={{ backgroundColor: '#42d9de' }}
+                      style={{ backgroundColor: '#F97316' }}
                       animate={{ 
                         scale: [1, 1.1, 1]
                       }}
@@ -742,7 +743,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                     ease: "easeInOut"
                   }}
                 >
-                  👥
+                  <Icon name="Users" size={48} />
                 </motion.div>
                 <h3 className="text-xl md:text-2xl font-bold mb-3 text-red-600">친구 5명 초대</h3>
                 <motion.p 
@@ -777,9 +778,9 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                     ease: "easeInOut"
                   }}
                 >
-                  🔄
+                  <Icon name="RefreshCw" size={48} />
                 </motion.div>
-                <h3 className="text-xl md:text-2xl font-bold mb-3" style={{ color: '#42d9de' }}>5명씩 계속</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-3" style={{ color: '#F97316' }}>5명씩 계속</h3>
                 <motion.p 
                   className="text-3xl font-bold text-blue-500 mb-2"
                   animate={{ 
@@ -813,7 +814,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                     ease: "easeInOut"
                   }}
                 >
-                  🤝
+                  <Icon name="Handshake" size={48} />
                 </motion.div>
                 <h3 className="text-xl md:text-2xl font-bold mb-3 text-green-600">친구도 WIN!</h3>
                 <motion.p 
@@ -835,7 +836,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
 
             <motion.div 
               className="text-white p-10 rounded-2xl"
-              style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}
+              style={{ background: 'linear-gradient(to right, #F97316, #EA580C)' }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -944,7 +945,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                             }
                           `}
                           style={isCurrentTarget && !tier.isActive ? {
-                            background: 'linear-gradient(to bottom right, #42d9de, #3bc4c9)'
+                            background: 'linear-gradient(to bottom right, #F97316, #EA580C)'
                           } : undefined}
                           whileHover={{ scale: 1.05 }}
                           initial={{ opacity: 0, y: 20 }}
@@ -953,10 +954,10 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                           transition={{ duration: 0.3, delay: index * 0.1 }}
                         >
                           {tier.isActive && (
-                            <div className="text-xl mb-1">✅</div>
+                            <div className="text-xl mb-1"><Icon name="CheckCircle" size={24} /></div>
                           )}
                           {isCurrentTarget && (
-                            <div className="text-xl mb-1">🎯</div>
+                            <div className="text-xl mb-1"><Icon name="Target" size={24} /></div>
                           )}
                           <p className="text-xl font-bold mb-1">{tier.friendCount}명</p>
                           <p className="text-sm font-medium">
@@ -1017,7 +1018,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-bold text-xl md:text-2xl mb-6" style={{ color: '#42d9de' }}>💰 보너스 관리</h4>
+                      <h4 className="font-bold text-xl md:text-2xl mb-6" style={{ color: '#F97316' }}>💰 보너스 관리</h4>
                       <ul className="space-y-3 text-gray-700 text-lg leading-relaxed">
                         <li>• 친구별 참여 상태 확인</li>
                         <li>• 보너스 지급 내역 조회</li>
@@ -1030,19 +1031,19 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
 
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 <div className="text-center p-8 bg-white rounded-xl shadow-md">
-                  <div className="text-5xl mb-6">💬</div>
+                  <div className="text-5xl mb-6"><Icon name="MessageCircle" size={48} /></div>
                   <h4 className="font-bold mb-4 text-xl">카카오톡 공유</h4>
                   <p className="text-gray-600 text-lg leading-relaxed">앱에서 바로 카카오톡으로 초대</p>
                 </div>
                 
                 <div className="text-center p-8 bg-white rounded-xl shadow-md">
-                  <div className="text-5xl mb-6">📊</div>
+                  <div className="text-5xl mb-6"><Icon name="BarChart3" size={48} /></div>
                   <h4 className="font-bold mb-4 text-xl">실시간 현황</h4>
                   <p className="text-gray-600 text-lg leading-relaxed">초대 진행상황 실시간 확인</p>
                 </div>
                 
                 <div className="text-center p-8 bg-white rounded-xl shadow-md">
-                  <div className="text-5xl mb-6">💳</div>
+                  <div className="text-5xl mb-6"><Icon name="CreditCard" size={48} /></div>
                   <h4 className="font-bold mb-4 text-xl">즉시 지급</h4>
                   <p className="text-gray-600 text-lg leading-relaxed">조건 달성 시 자동 입금</p>
                 </div>
@@ -1052,12 +1053,12 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 <button 
                   onClick={downloadApp}
                   className="text-white px-12 py-5 rounded-full font-bold text-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                  style={{ backgroundColor: '#42d9de' }}
+                  style={{ backgroundColor: '#F97316' }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#3bc4c9';
+                    e.currentTarget.style.backgroundColor = '#EA580C';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#42d9de';
+                    e.currentTarget.style.backgroundColor = '#F97316';
                   }}
                 >
                   📱 지금 바로 앱 설치하기
@@ -1081,15 +1082,11 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 <h3 className="text-2xl md:text-3xl font-bold mb-8 text-green-600">😄 동료들에게는</h3>
                 <ul className="space-y-6 text-lg md:text-xl">
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-4 text-2xl">✅</span>
+                    <span className="text-green-500 mr-4 text-2xl"><Icon name="CheckCircle" size={28} /></span>
                     <span className="text-gray-700 leading-relaxed">믿음직한 5%돌려주는스카이차 소개</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-4 text-2xl">✅</span>
-                    <span className="text-gray-700 leading-relaxed">매달 100만원 추첨 기회</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-green-500 mr-4 text-2xl">✅</span>
+                    <span className="text-green-500 mr-4 text-2xl"><Icon name="CheckCircle" size={28} /></span>
                     <span className="text-gray-700 leading-relaxed">"고맙다"는 말까지</span>
                   </li>
                 </ul>
@@ -1099,15 +1096,15 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 <h3 className="text-2xl md:text-3xl font-bold mb-8 text-red-600">💰 사장님께는</h3>
                 <ul className="space-y-6 text-lg md:text-xl">
                   <li className="flex items-start">
-                    <span className="text-red-500 mr-4 text-2xl">💵</span>
+                    <span className="text-red-500 mr-4 text-2xl"><Icon name="Banknote" size={28} /></span>
                     <span className="text-gray-700 leading-relaxed">짭짤한 현금 보너스</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-red-500 mr-4 text-2xl">💵</span>
+                    <span className="text-red-500 mr-4 text-2xl"><Icon name="Banknote" size={28} /></span>
                     <span className="text-gray-700 leading-relaxed">무한 반복 지급</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-red-500 mr-4 text-2xl">💵</span>
+                    <span className="text-red-500 mr-4 text-2xl"><Icon name="Banknote" size={28} /></span>
                     <span className="text-gray-700 leading-relaxed">인맥을 현금으로 변환</span>
                   </li>
                 </ul>
@@ -1183,7 +1180,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
       </section>
 
       {/* 최종 CTA 섹션 */}
-      <section className="py-20 text-white" style={{ background: 'linear-gradient(to right, #42d9de, #3bc4c9)' }}>
+      <section className="py-20 text-white" style={{ background: 'linear-gradient(to right, #F97316, #EA580C)' }}>
         <div className="container mx-auto px-6 text-center">
           <motion.h2 
             className="text-4xl md:text-6xl font-bold mb-8 font-jalnan leading-tight"
@@ -1235,7 +1232,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 onClick={openPlayStore}
                 className="w-full bg-green-500 text-white py-4 px-6 rounded-xl font-bold text-lg hover:bg-green-600 transition-colors duration-200 flex items-center justify-center space-x-3"
               >
-                <span>🤖</span>
+                <span><Icon name="Bot" size={20} /></span>
                 <span>Google Play 스토어</span>
               </button>
               
@@ -1243,7 +1240,7 @@ https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaigni
                 onClick={openAppStore}
                 className="w-full bg-gray-900 text-white py-4 px-6 rounded-xl font-bold text-lg hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center space-x-3"
               >
-                <span>🍎</span>
+                <span><Icon name="Apple" size={20} /></span>
                 <span>App Store</span>
               </button>
             </div>

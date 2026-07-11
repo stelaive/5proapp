@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Smile, Zap, Award } from 'lucide-react'
+import { Icon } from '@/components/ui/icon'
 
 export default function TrustSection() {
   const [currentImage, setCurrentImage] = useState(0)
@@ -56,7 +57,7 @@ export default function TrustSection() {
               안양 서비스 지역
             </h3>
             <div className="bg-blue-50 rounded-lg p-6 mb-6 text-center">
-              <div className="text-5xl mb-3">🗺️</div>
+              <div className="text-5xl mb-3"><Icon name="Map" size={48} /></div>
               <h4 className="text-xl font-bold text-blue-700 mb-3">안양시 전 지역 완벽 커버</h4>
               <div className="grid grid-cols-2 gap-4 text-sm mb-4">
                 <div className="bg-blue-100 rounded-md p-3">

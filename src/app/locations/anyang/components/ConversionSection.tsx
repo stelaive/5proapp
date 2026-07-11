@@ -25,7 +25,7 @@ export default function ConversionSection() {
         {/* 혜택 요약 */}
         <div className="bg-blue-700/80 backdrop-blur-sm rounded-2xl p-8 mb-12">
           <h3 className="text-2xl font-bold mb-6 text-yellow-300">🎁 받을 수 있는 혜택</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-lg">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-lg">
             <div className="flex items-center justify-center space-x-2">
               <Award className="w-6 h-6 text-yellow-300" />
               <span>즉시 50,000원 할인</span>
@@ -38,13 +38,9 @@ export default function ConversionSection() {
               <Clock className="w-6 h-6 text-yellow-300" />
               <span>30분내 배차</span>
             </div>
-            <div className="flex items-center justify-center space-x-2 col-span-2 md:col-span-1">
+            <div className="flex items-center justify-center space-x-2">
               <Award className="w-6 h-6 text-yellow-300" />
               <span>12년 경력 전문가</span>
-            </div>
-            <div className="flex items-center justify-center space-x-2 col-span-2 md:col-span-2">
-              <Gift className="w-6 h-6 text-yellow-300" />
-              <span>매달 100만 원 추첨</span>
             </div>
           </div>
         </div>
@@ -57,7 +53,7 @@ export default function ConversionSection() {
           >
             <div className="flex items-center justify-center">
               <Smartphone className="w-7 h-7 mr-3" />
-              <span>[앱으로 예약] 하고 5% 페이백 + 100만원 행운까지!</span>
+              <span>[앱으로 예약] 하고 5% 페이백까지!</span>
             </div>
           </button>
           <button

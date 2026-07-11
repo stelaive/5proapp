@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { Icon, type IconName } from '@/components/ui/icon'
 
 // 스크롤바 숨기기 스타일 추가
 const scrollbarHideStyle = {
@@ -14,29 +15,29 @@ const scrollbarHideStyle = {
 
 // 업종 데이터
 const industries = [
-  { name: '에어컨', icon: '❄️', posts: 12345, todayPosts: 56 },
-  { name: '욕실리모델링', icon: '🚿', posts: 9876, todayPosts: 43 },
-  { name: '유품정리', icon: '📦', posts: 7654, todayPosts: 32 },
-  { name: 'CCTV', icon: '📹', posts: 6543, todayPosts: 28 },
-  { name: '건설', icon: '🏗️', posts: 8765, todayPosts: 38 },
-  { name: '철거', icon: '🏚️', posts: 5432, todayPosts: 25 },
-  { name: '닥트공사', icon: '🔧', posts: 4321, todayPosts: 22 },
-  { name: '전기공사', icon: '⚡', posts: 3456, todayPosts: 18 },
-  { name: '외벽청소', icon: '🧹', posts: 2345, todayPosts: 15 },
-  { name: '설비', icon: '🔨', posts: 3456, todayPosts: 20 },
-  { name: '인테리어', icon: '🏠', posts: 7890, todayPosts: 35 },
-  { name: '조경공사', icon: '🌳', posts: 6789, todayPosts: 30 },
-  { name: '전등교체', icon: '💡', posts: 4567, todayPosts: 24 },
-  { name: '금속공사', icon: '⚒️', posts: 5678, todayPosts: 27 },
-  { name: '페인트', icon: '🎨', posts: 3456, todayPosts: 19 },
-  { name: '판넬', icon: '🏢', posts: 2345, todayPosts: 16 },
-  { name: '지붕공사', icon: '🏡', posts: 4321, todayPosts: 23 },
-  { name: '간판', icon: '🚧', posts: 3456, todayPosts: 21 },
-  { name: '실리콘코킹', icon: '🔨', posts: 3456, todayPosts: 21 },
-  { name: '태양광설치', icon: '☀️', posts: 3456, todayPosts: 21 },
-  { name: '타일시공', icon: '🔲', posts: 3456, todayPosts: 21 },
-  { name: '방수공사', icon: '💧', posts: 3456, todayPosts: 21 },
-  { name: '창호공사', icon: '🪟', posts: 3456, todayPosts: 21 }
+  { name: '에어컨', icon: 'Snowflake', posts: 12345, todayPosts: 56 },
+  { name: '욕실리모델링', icon: 'ShowerHead', posts: 9876, todayPosts: 43 },
+  { name: '유품정리', icon: 'Package', posts: 7654, todayPosts: 32 },
+  { name: 'CCTV', icon: 'Cctv', posts: 6543, todayPosts: 28 },
+  { name: '건설', icon: 'HardHat', posts: 8765, todayPosts: 38 },
+  { name: '철거', icon: 'Hammer', posts: 5432, todayPosts: 25 },
+  { name: '닥트공사', icon: 'Wrench', posts: 4321, todayPosts: 22 },
+  { name: '전기공사', icon: 'Zap', posts: 3456, todayPosts: 18 },
+  { name: '외벽청소', icon: 'Brush', posts: 2345, todayPosts: 15 },
+  { name: '설비', icon: 'Hammer', posts: 3456, todayPosts: 20 },
+  { name: '인테리어', icon: 'Home', posts: 7890, todayPosts: 35 },
+  { name: '조경공사', icon: 'TreePine', posts: 6789, todayPosts: 30 },
+  { name: '전등교체', icon: 'Lightbulb', posts: 4567, todayPosts: 24 },
+  { name: '금속공사', icon: 'Hammer', posts: 5678, todayPosts: 27 },
+  { name: '페인트', icon: 'Palette', posts: 3456, todayPosts: 19 },
+  { name: '판넬', icon: 'Building2', posts: 2345, todayPosts: 16 },
+  { name: '지붕공사', icon: 'House', posts: 4321, todayPosts: 23 },
+  { name: '간판', icon: 'TrafficCone', posts: 3456, todayPosts: 21 },
+  { name: '실리콘코킹', icon: 'Hammer', posts: 3456, todayPosts: 21 },
+  { name: '태양광설치', icon: 'Sun', posts: 3456, todayPosts: 21 },
+  { name: '타일시공', icon: 'Grid3x3', posts: 3456, todayPosts: 21 },
+  { name: '방수공사', icon: 'Droplet', posts: 3456, todayPosts: 21 },
+  { name: '창호공사', icon: 'AppWindow', posts: 3456, todayPosts: 21 }
 ];
 
 // 게시판 탭 데이터
@@ -196,7 +197,7 @@ export default function Marketplace() {
                 transition: { duration: 0.3 }
               }}
             >
-              <div className="text-6xl mb-6 text-orange-500 transform group-hover:scale-110 transition-transform duration-300">🤝</div>
+              <div className="text-6xl mb-6 text-orange-500 transform group-hover:scale-110 transition-transform duration-300"><Icon name="Handshake" size={56} /></div>
               <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-orange-500 transition-colors">
                 일거리 나누기 (품앗이)
               </h3>
@@ -216,7 +217,7 @@ export default function Marketplace() {
                 transition: { duration: 0.3 }
               }}
             >
-              <div className="text-6xl mb-6 text-orange-500 transform group-hover:scale-110 transition-transform duration-300">💡</div>
+              <div className="text-6xl mb-6 text-orange-500 transform group-hover:scale-110 transition-transform duration-300"><Icon name="Lightbulb" size={56} /></div>
               <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-orange-500 transition-colors">
                 기술/정보 공유
               </h3>
@@ -247,7 +248,7 @@ export default function Marketplace() {
                 }}
                 variants={scaleIn}
               >
-                <div className="text-5xl mb-4 text-orange-500">🤝</div>
+                <div className="text-5xl mb-4 text-orange-500"><Icon name="Handshake" size={48} /></div>
                 <h3 className="text-xl font-bold mb-3 text-gray-800">
                   일거리 나누기 (품앗이)
                 </h3>
@@ -265,7 +266,7 @@ export default function Marketplace() {
                 }}
                 variants={scaleIn}
               >
-                <div className="text-5xl mb-4 text-orange-500">💡</div>
+                <div className="text-5xl mb-4 text-orange-500"><Icon name="Lightbulb" size={48} /></div>
                 <h3 className="text-xl font-bold mb-3 text-gray-800">
                   기술/정보 공유
                 </h3>
@@ -425,7 +426,7 @@ export default function Marketplace() {
                 onClick={() => alert(`현재 ${industry.name} 전문가 ${Math.floor(Math.random() * 200 + 50)}명이 활동 중입니다`)}
               >
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">
-                  {industry.icon}
+                  <Icon name={industry.icon as IconName} size={40} />
                 </div>
                 <h3 className="text-sm font-medium text-gray-800 group-hover:text-orange-500 transition-colors">
                   {industry.name}
@@ -468,12 +469,12 @@ export default function Marketplace() {
           <motion.button 
             onClick={handleAppDownload}
             className="text-white px-8 py-4 rounded-full text-xl font-bold transition-all inline-flex items-center gap-3"
-            style={{ backgroundColor: '#42d9de' }}
+            style={{ backgroundColor: '#F97316' }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3bc4c9';
+              e.currentTarget.style.backgroundColor = '#EA580C';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#42d9de';
+              e.currentTarget.style.backgroundColor = '#F97316';
             }}
             whileHover={{ 
               scale: 1.05,
@@ -485,7 +486,7 @@ export default function Marketplace() {
             viewport={{ once: true }}
           >
             <span>내 현장 동료 만나러 가입하기</span>
-            <span className="text-2xl">→</span>
+            <span className="text-2xl"><Icon name="ArrowRight" size={28} /></span>
           </motion.button>
         </div>
       </section>

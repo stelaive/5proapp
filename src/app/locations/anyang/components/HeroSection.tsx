@@ -1,6 +1,7 @@
 'use client'
 
 import type { RegionData } from '@/lib/regionData'
+import { Icon } from '@/components/ui/icon'
 
 interface HeroSectionProps {
   data: RegionData;
@@ -17,15 +18,15 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {/* 신속함 강조 헤드라인 */}
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
           {data.nameKo} 전지역 스카이차<br />
-          <span className="text-[#42d9de]">30분내 긴급 배차!</span><br />
+          <span className="text-[#F97316]">30분내 긴급 배차!</span><br />
           <span className="text-2xl md:text-3xl text-gray-600">지금 바로 전화하세요</span>
         </h1>
 
         {/* 대표 전화번호 표시 */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 max-w-2xl mx-auto border-4 border-[#42d9de]">
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 max-w-2xl mx-auto border-4 border-[#F97316]">
           <div className="text-center">
-            <p className="text-lg text-[#42d9de] mb-4 font-bold">▶ {data.nameKo} 현장 기사 직통 연결</p>
-            <div className="text-6xl md:text-8xl font-bold text-[#42d9de] mb-4">
+            <p className="text-lg text-[#F97316] mb-4 font-bold">▶ {data.nameKo} 현장 기사 직통 연결</p>
+            <div className="text-6xl md:text-8xl font-bold text-[#F97316] mb-4">
               {data.phone}
             </div>
             <p className="text-lg text-gray-600 mb-6 font-semibold">
@@ -34,12 +35,12 @@ export default function HeroSection({ data }: HeroSectionProps) {
             <button
               onClick={handleCallNow}
               className="w-full text-white font-bold py-6 px-8 rounded-xl text-2xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
-              style={{ backgroundColor: '#42d9de' }}
+              style={{ backgroundColor: '#F97316' }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#3bc4c9';
+                e.currentTarget.style.backgroundColor = '#EA580C';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#42d9de';
+                e.currentTarget.style.backgroundColor = '#F97316';
               }}
             >
               ▶ 전화로 즉시 예약
@@ -77,15 +78,15 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {/* 추가 혜택 미리보기 */}
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center text-sm text-gray-600"> 
           <div className="flex items-center">
-            <span className="text-green-600 mr-2">✔</span>
+            <span className="text-green-600 mr-2"><Icon name="Check" size={20} /></span>
             결제금액의 5% 포인트/현금 페이백
           </div>
           <div className="flex items-center">
-            <span className="text-green-600 mr-2">✔</span>
+            <span className="text-green-600 mr-2"><Icon name="Check" size={20} /></span>
             안양 전지역 30분내 배차
           </div>
           <div className="flex items-center">
-            <span className="text-green-600 mr-2">✔</span>
+            <span className="text-green-600 mr-2"><Icon name="Check" size={20} /></span>
             6년 경력 전문가
           </div>
         </div>

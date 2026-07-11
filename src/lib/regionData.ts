@@ -68,10 +68,7 @@ export interface RegionData {
   };
   
   footerNotice: {
-    lottery: string;
-    payment: string;
     exclusion: string;
-    announcement: string;
   };
 }
 
@@ -246,10 +243,7 @@ export const GANGNAM_DATA: RegionData = {
   },
   
   footerNotice: {
-    lottery: '월 1건 이상 작업 완료 시 자동 응모',
-    payment: '매달 말일 19시 유튜브 라이브 추첨',
-    exclusion: '취소/부분취소/추가비 제외 가능',
-    announcement: '유튜브 + 공지'
+    exclusion: '취소/부분취소/추가비 제외 가능'
   }
 };
 

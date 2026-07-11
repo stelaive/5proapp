@@ -35,7 +35,7 @@ export default function PriceTable({ data }: PriceTableProps) {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {data.pricing.items.map((item, index) => (
-                  <tr key={index} className="hover:bg-[#42d9de]/10 transition-colors">
+                  <tr key={index} className="hover:bg-[#F97316]/10 transition-colors">
                     <td className="py-3 md:py-4 px-3 md:px-4 font-bold text-gray-800 text-sm md:text-base">
                       {item.tonnage}
                     </td>

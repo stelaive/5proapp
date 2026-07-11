@@ -1,9 +1,10 @@
-'use client'
+﻿'use client'
 
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { Icon } from '@/components/ui/icon'
 
 // 애니메이션 variants
 const fadeInUp = {
@@ -59,9 +60,10 @@ export default function HomeSections() {
               이제 <span className="text-red-500 font-bold">한 번의 클릭</span>으로 모든 것이 해결됩니다!
             </p>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            {/* 모바일: 가로 스와이프 슬라이더 / 데스크톱(md+): 3열 그리드 */}
+            <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scrollbar-hide -mx-4 px-4 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 md:pb-0">
               <motion.div 
-                className="bg-white rounded-xl p-8 shadow-lg"
+                className="snap-center shrink-0 w-[78%] sm:w-[45%] md:w-auto bg-white rounded-xl p-6 md:p-8 shadow-lg"
                 variants={{
                   initial: { opacity: 0, y: 50 },
                   whileInView: { opacity: 1, y: 0 }
@@ -69,7 +71,7 @@ export default function HomeSections() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-6xl mb-6">📲</div>
+                <div className="text-6xl mb-6"><Icon name="Smartphone" size={56} /></div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">앱으로 간편하게</h3>
                 <p className="text-lg text-gray-600 mb-4 font-bold">오더 접수</p>
                 <p className="text-gray-600">
@@ -79,7 +81,7 @@ export default function HomeSections() {
               </motion.div>
 
               <motion.div 
-                className="bg-white rounded-xl p-8 shadow-lg"
+                className="snap-center shrink-0 w-[78%] sm:w-[45%] md:w-auto bg-white rounded-xl p-6 md:p-8 shadow-lg"
                 variants={{
                   initial: { opacity: 0, y: 50 },
                   whileInView: { opacity: 1, y: 0 }
@@ -87,7 +89,7 @@ export default function HomeSections() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="text-6xl mb-6">🙋‍♂️</div>
+                <div className="text-6xl mb-6"><Icon name="Hand" size={56} /></div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">전문가가</h3>
                 <p className="text-lg text-red-500 mb-4 font-bold">책임 배차</p>
                 <p className="text-gray-600">
@@ -97,7 +99,7 @@ export default function HomeSections() {
               </motion.div>
 
               <motion.div 
-                className="bg-white rounded-xl p-8 shadow-lg"
+                className="snap-center shrink-0 w-[78%] sm:w-[45%] md:w-auto bg-white rounded-xl p-6 md:p-8 shadow-lg"
                 variants={{
                   initial: { opacity: 0, y: 50 },
                   whileInView: { opacity: 1, y: 0 }
@@ -105,7 +107,7 @@ export default function HomeSections() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <div className="text-6xl mb-6">💰</div>
+                <div className="text-6xl mb-6"><Icon name="Wallet" size={56} /></div>
                 <h3 className="text-2xl font-bold mb-4 text-gray-800">작업 후</h3>
                 <p className="text-lg text-red-500 mb-4 font-bold">자동 리워드</p>
                 <p className="text-gray-600">
@@ -138,12 +140,12 @@ export default function HomeSections() {
                 <Link 
                   href="/whyhere"
                   className="inline-block text-white px-8 py-4 rounded-full font-bold transition-all"
-                  style={{ backgroundColor: '#42d9de' }}
+                  style={{ backgroundColor: '#F97316' }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#3bc4c9';
+                    e.currentTarget.style.backgroundColor = '#EA580C';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#42d9de';
+                    e.currentTarget.style.backgroundColor = '#F97316';
                   }}
                 >
                   5% 페이백 자세히 보기
@@ -161,60 +163,6 @@ export default function HomeSections() {
                   fill
                   className="object-contain"
                 />
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 100만원 추첨 섹션 */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                variants={slideInFromRight}
-                initial="initial"
-                whileInView="whileInView"
-                className="relative w-full h-[400px] order-2 md:order-1"
-              >
-                <Image
-                  src="/images/1-million-won-lottery-machine.png"
-                  alt="100만원 추첨 이벤트"
-                  fill
-                  className="object-contain"
-                />
-              </motion.div>
-              <motion.div {...fadeInUp} className="order-1 md:order-2">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 font-jalnan">
-                  매달 터지는<br />
-                  <span className="text-red-500">100만원</span>! 이번엔<br />
-                  사장님이 주인공?
-                </h2>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  스카이/크레인 오더 <span className="text-red-500 font-bold">1건</span>이면 자동 응모!<br />
-                  매달 터지는 <span className="text-red-500 font-bold">100만원</span>, 주인공은 바로 당신?
-                </p>
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  참여자가 늘수록 당첨자도 UP! 행운의 확률은 그대로!<br />
-                  <span className="text-red-500 font-bold">(500분의 1 약속!🤙)</span>
-                </p>
-                <p className="text-xl text-gray-800 font-bold mb-8">
-                  공정한 기회, 짜릿한 행운! 매달 1일, 기대해도 좋아요!
-                </p>
-                <Link 
-                  href="/million"
-                  className="inline-block text-white px-8 py-4 rounded-full font-bold transition-all"
-                  style={{ backgroundColor: '#42d9de' }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#3bc4c9';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#42d9de';
-                  }}
-                >
-                  100만원 추첨 자세히 보기
-                </Link>
               </motion.div>
             </div>
           </div>
@@ -245,12 +193,12 @@ export default function HomeSections() {
                 <Link 
                   href="/reward"
                   className="inline-block text-white px-8 py-4 rounded-full font-bold transition-all"
-                  style={{ backgroundColor: '#42d9de' }}
+                  style={{ backgroundColor: '#F97316' }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#3bc4c9';
+                    e.currentTarget.style.backgroundColor = '#EA580C';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#42d9de';
+                    e.currentTarget.style.backgroundColor = '#F97316';
                   }}
                 >
                   친구 초대 자세히 보기
@@ -274,170 +222,8 @@ export default function HomeSections() {
         </div>
       </section>
 
-      {/* 100만원 당첨자 섹션 */}
-      <section id="lotto-winner-section" className="py-20 bg-[#FFF8F2] relative overflow-hidden">
-        {/* Confetti decorations */}
-        <div className="absolute top-10 left-10 text-4xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>🎊</div>
-        <div className="absolute top-20 right-20 text-3xl animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.5s' }}>✨</div>
-        <div className="absolute bottom-20 left-20 text-3xl animate-bounce" style={{ animationDelay: '1s', animationDuration: '2.8s' }}>🎉</div>
-        <div className="absolute bottom-10 right-10 text-4xl animate-bounce" style={{ animationDelay: '0.3s', animationDuration: '3.2s' }}>💫</div>
-        
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="max-w-5xl mx-auto text-center"
-            {...fadeInUp}
-          >
-            {/* Title area */}
-            <div className="mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800 font-jalnan">
-                🎉 이번 달 100만원 주인공이 탄생했습니다!
-              </h2>
-              <p className="text-xl text-gray-600">
-                누군가는 꿈이 아닌 현실로!
-              </p>
-            </div>
-
-            {/* Review Cards */}
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* 2회 당첨자 */}
-              <motion.div 
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                variants={{
-                  initial: { opacity: 0, scale: 0.9 },
-                  whileInView: { opacity: 1, scale: 1 }
-                }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="mb-6 relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#FFD700] to-[#FFA500] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                    2
-                  </div>
-                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">👑</div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  김○○ 사장님
-                </h3>
-                <p className="text-sm text-[#FF6B00] font-bold mb-4">
-                  서울 | 에어컨 설치업
-                </p>
-                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p className="text-gray-700 leading-relaxed">
-                  "평소처럼 스카이차 이용했을 뿐인데, 100만원 당첨 연락을 받고 깜짝 놀랐습니다. 
-                  5% 페이백도 좋은데, 이런 이벤트까지 있다니 앞으로도 계속 이용할 겁니다."
-                </p>
-              </motion.div>
-
-              {/* 3회 당첨자 */}
-              <motion.div 
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300"
-                variants={{
-                  initial: { opacity: 0, scale: 0.9 },
-                  whileInView: { opacity: 1, scale: 1 }
-                }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="mb-6 relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B00] to-[#FF9234] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                    3
-                  </div>
-                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🏆</div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  김○○ 사장님
-                </h3>
-                <p className="text-sm text-[#FF6B00] font-bold mb-4">
-                  경기 | 소방공사
-                </p>
-                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p className="text-gray-700 leading-relaxed">
-                  "마침 결혼기념일이라 아내에게 선물을 고민하던 참이었는데, 
-                  100만원 당첨되어 정말 기쁩니다. 감사한 마음으로 잘 쓰겠습니다!"
-                </p>
-              </motion.div>
-
-              {/* 4회 당첨자 (NEW) */}
-              <motion.div 
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 relative"
-                variants={{
-                  initial: { opacity: 0, scale: 0.9 },
-                  whileInView: { opacity: 1, scale: 1 }
-                }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full animate-pulse">
-                  NEW
-                </div>
-                <div className="mb-6 relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#FF1744] to-[#F50057] rounded-full mx-auto flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                    4
-                  </div>
-                  <div className="absolute -top-2 -right-2 text-3xl animate-pulse">🎉</div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  허○ 사장님
-                </h3>
-                <p className="text-sm text-[#FF6B00] font-bold mb-4">
-                  페인트 시공
-                </p>
-                <div className="text-3xl mb-4">⭐⭐⭐⭐⭐</div>
-                <p className="text-gray-700 leading-relaxed">
-                  "덕분에 가족들과 맛있는 것도 먹고 행복한 시간 보냈습니다. 
-                  생각지도 못한 큰 행운 정말 감사드리고, 앞으로도 잘 쓰겠습니다!"
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Reward explanation */}
-            <motion.div
-              className="bg-gradient-to-r from-[#FFD9A0] to-[#FFE8C7] rounded-2xl p-6 mb-8 shadow-md"
-              variants={{
-                initial: { opacity: 0, y: 30 },
-                whileInView: { opacity: 1, y: 0 }
-              }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-xl md:text-2xl font-bold text-gray-800">
-                💰 매달 말일, <span className="text-[#FF6B00]">1건 이상 작업자</span> 중 <span className="text-[#FF6B00]">1분께 100만원</span> 증정!
-              </p>
-            </motion.div>
-
-            {/* CTA Button */}
-            <motion.button
-              onClick={handleAppDownload}
-              className="relative overflow-hidden bg-gradient-to-r from-[#FF6B00] to-[#FF9234] text-white px-12 py-5 rounded-full font-bold text-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group"
-              variants={{
-                initial: { opacity: 0, y: 30 },
-                whileInView: { opacity: 1, y: 0 }
-              }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              whileHover={{ 
-                boxShadow: "0 0 30px rgba(255, 107, 0, 0.6)" 
-              }}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                🔥 다음 100만원 주인공 도전하기
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FF9234] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </motion.button>
-
-            {/* Celebration coins animation hint */}
-            <div className="mt-8 flex justify-center gap-4">
-              <span className="text-4xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '2s' }}>💰</span>
-              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.2s', animationDuration: '2.2s' }}>💸</span>
-              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.4s', animationDuration: '2.4s' }}>💵</span>
-              <span className="text-4xl animate-bounce" style={{ animationDelay: '0.6s', animationDuration: '2.6s' }}>💴</span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* 다운로드 가이드 섹션 */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" data-hide-floating>
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
@@ -491,7 +277,7 @@ export default function HomeSections() {
               href="tel:18773924"
               className="inline-block text-white px-10 py-4 rounded-full font-bold text-lg transform hover:scale-105 transition-all"
               style={{ 
-                backgroundColor: '#42d9de',
+                backgroundColor: '#F97316',
                 color: '#ffffff !important',
                 textDecoration: 'none !important',
                 display: 'inline-block !important',
@@ -499,10 +285,10 @@ export default function HomeSections() {
                 position: 'relative'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#3bc4c9';
+                e.currentTarget.style.backgroundColor = '#EA580C';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#42d9de';
+                e.currentTarget.style.backgroundColor = '#F97316';
               }}
             >
               <span style={{ color: '#ffffff !important', fontWeight: 'bold !important' }}>

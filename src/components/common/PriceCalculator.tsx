@@ -30,13 +30,13 @@ const PriceCalculator = () => {
   }, [floor, hours]);
 
   return (
-    <section className="py-20 bg-[#42d9de]/5">
+    <section className="py-20 bg-[#F97316]/5">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-[#42d9de]/20">
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-[#F97316]/20">
           <div className="flex flex-col md:flex-row">
             {/* 왼쪽: 컨트롤 섹션 */}
             <div className="flex-1 p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100">
-              <div className="flex items-center gap-2 mb-8 text-[#42d9de]">
+              <div className="flex items-center gap-2 mb-8 text-[#F97316]">
                 <Calculator className="w-6 h-6" />
                 <h3 className="text-2xl font-bold text-gray-900 font-jalnan">실시간 예상 요금 계산기</h3>
               </div>
@@ -45,7 +45,7 @@ const PriceCalculator = () => {
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-4 flex justify-between">
                     작업 높이 (층수)
-                    <span className="text-[#42d9de]">{floor}층</span>
+                    <span className="text-[#F97316]">{floor}층</span>
                   </label>
                   <input
                     type="range"
@@ -53,7 +53,7 @@ const PriceCalculator = () => {
                     max="20"
                     value={floor}
                     onChange={(e) => setFloor(parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#42d9de]"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#F97316]"
                   />
                   <div className="flex justify-between text-xs text-gray-400 mt-2">
                     <span>1층</span>
@@ -65,7 +65,7 @@ const PriceCalculator = () => {
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-4 flex justify-between">
                     예상 작업 시간
-                    <span className="text-[#42d9de]">
+                    <span className="text-[#F97316]">
                       {hours === 1 ? '1시간' : hours === 4 ? '반나절 (4시간)' : '하루 (8시간)'}
                     </span>
                   </label>
@@ -76,7 +76,7 @@ const PriceCalculator = () => {
                         onClick={() => setHours(h)}
                         className={`py-3 px-2 rounded-xl text-sm font-bold transition-all ${
                           hours === h 
-                            ? 'bg-[#42d9de] text-white shadow-lg shadow-[#42d9de]/30' 
+                            ? 'bg-[#F97316] text-white shadow-lg shadow-[#F97316]/30' 
                             : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                         }`}
                       >
@@ -105,7 +105,7 @@ const PriceCalculator = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="text-5xl font-black text-[#42d9de] font-jalnan"
+                    className="text-5xl font-black text-[#F97316] font-jalnan"
                   >
                     {estimatedPrice.toLocaleString()}원
                   </motion.div>
@@ -117,13 +117,13 @@ const PriceCalculator = () => {
 
               <div className="space-y-4">
                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-                  <p className="text-xs text-[#42d9de] mb-1 font-bold">5% 페이백 적용 시</p>
+                  <p className="text-xs text-[#F97316] mb-1 font-bold">5% 페이백 적용 시</p>
                   <p className="text-xl font-bold">실질가 {(estimatedPrice * 0.95).toLocaleString()}원</p>
                 </div>
 
                 <a 
                   href="tel:18773924"
-                  className="w-full bg-[#42d9de] hover:bg-[#3bc4c9] text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-2 transition-all shadow-xl shadow-[#42d9de]/20"
+                  className="w-full bg-[#F97316] hover:bg-[#EA580C] text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-2 transition-all shadow-xl shadow-[#F97316]/20"
                 >
                   <Phone className="w-5 h-5 fill-current" />
                   지금 바로 예약하기

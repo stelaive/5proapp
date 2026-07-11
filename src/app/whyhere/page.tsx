@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { Icon } from '@/components/ui/icon'
 
 export default function WhyHere() {
   // 앱 다운로드 함수
@@ -57,14 +58,6 @@ export default function WhyHere() {
                 className="block"
               >
                 "아니, 스카이차 쓰는데<br className="md:hidden" /> 5%를 바로 돌려준다고?
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.5 }}
-                className="block"
-              >
-                매달 100만원 이벤트까지?
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
@@ -238,7 +231,7 @@ export default function WhyHere() {
                       viewport={{ once: true }}
                       style={{ lineHeight: '1.7' }}
                     >
-                      <span className="text-red-500 mr-3 text-lg">✓</span>
+                      <span className="text-red-500 mr-3 text-lg"><Icon name="Check" size={20} /></span>
                       <span className="text-gray-700">"{item}"</span>
                     </motion.li>
                   ))}
@@ -364,8 +357,7 @@ export default function WhyHere() {
                     viewport={{ once: true }}
                   >
                     <p className="text-xl text-gray-700 font-bold mb-2">
-                      ✔️ <span className="text-red-500 font-black">5%</span> 즉시 페이백<br />
-                      ✔️ 매달 <span className="text-red-500 font-black">100만원</span> 이벤트
+                      ✔️ <span className="text-red-500 font-black">5%</span> 즉시 페이백
                     </p>
                     <p className="text-lg text-gray-700">
                       이거, 단순 미끼 아니에요.
@@ -459,8 +451,8 @@ export default function WhyHere() {
               <motion.div 
                 className="border-2 p-12 rounded-2xl mb-16 shadow-lg"
                 style={{ 
-                  background: 'linear-gradient(to bottom right, rgba(66, 217, 222, 0.1), rgba(59, 196, 201, 0.1))',
-                  borderColor: 'rgba(66, 217, 222, 0.3)'
+                  background: 'linear-gradient(to bottom right, rgba(249, 115, 22, 0.1), rgba(59, 196, 201, 0.1))',
+                  borderColor: 'rgba(249, 115, 22, 0.3)'
                 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -489,7 +481,7 @@ export default function WhyHere() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center justify-center">
-                  <div className="text-3xl mr-4">💝</div>
+                  <div className="text-3xl mr-4"><Icon name="Gift" size={32} /></div>
                   <p className="text-lg sm:text-xl text-gray-800 font-medium italic">
                     "저의 진심이 사장님의 현장에 닿기를 바랍니다."
                   </p>
@@ -506,12 +498,12 @@ export default function WhyHere() {
                 <motion.button 
                   onClick={handleAppDownload}
                   className="inline-block text-white px-12 py-6 rounded-full text-xl font-bold transition-all duration-300 shadow-xl hover:shadow-2xl border-2 border-white"
-                  style={{ backgroundColor: '#42d9de' }}
+                  style={{ backgroundColor: '#F97316' }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#3bc4c9';
+                    e.currentTarget.style.backgroundColor = '#EA580C';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#42d9de';
+                    e.currentTarget.style.backgroundColor = '#F97316';
                   }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

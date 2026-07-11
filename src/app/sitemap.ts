@@ -14,12 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/million`,
-      lastModified: '2025-07-28', // 100만원 이벤트 페이지 최종 업데이트
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/pricing`,
       lastModified: '2025-07-25', // 가격표 최종 업데이트
       changeFrequency: 'monthly',

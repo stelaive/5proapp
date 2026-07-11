@@ -39,7 +39,7 @@ const StickyCTA: React.FC<StickyCTAProps> = ({ phone }) => {
       <div className="flex justify-center items-center">
         <Link
           href={`tel:${phone.replace(/-/g, '')}`}
-          className="w-full max-w-md text-center bg-[#42d9de] text-white font-bold py-4 px-6 rounded-xl hover:bg-[#3bc4c9] transition-all duration-300 shadow-lg min-h-[44px] flex items-center justify-center"
+          className="w-full max-w-md text-center bg-[#F97316] text-white font-bold py-4 px-6 rounded-xl hover:bg-[#EA580C] transition-all duration-300 shadow-lg min-h-[44px] flex items-center justify-center"
         >
           📞 지금 전화하기
         </Link>

@@ -21,7 +21,7 @@ const LocalAreaList = ({ nameKo, subAreas }: LocalAreaListProps) => {
           {subAreas.map((area) => (
             <span 
               key={area}
-              className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 font-medium hover:border-[#42d9de] hover:text-[#42d9de] transition-colors shadow-sm"
+              className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-700 font-medium hover:border-[#F97316] hover:text-[#F97316] transition-colors shadow-sm"
             >
               {area} 스카이차
             </span>

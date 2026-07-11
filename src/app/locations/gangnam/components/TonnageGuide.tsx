@@ -22,17 +22,17 @@ export default function TonnageGuide({ data }: TonnageGuideProps) {
             {data.tonnageGuide.map((guide, index) => (
               <div 
                 key={index}
-                className="bg-gray-50 rounded-xl p-6 border-2 border-gray-100 hover:border-[#42d9de]/30 transition-colors"
+                className="bg-gray-50 rounded-xl p-6 border-2 border-gray-100 hover:border-[#F97316]/30 transition-colors"
               >
                 <div className="text-center mb-4">
-                  <span className="inline-block text-white px-4 py-2 rounded-full font-bold text-lg md:text-xl" style={{ backgroundColor: '#42d9de' }}>
+                  <span className="inline-block text-white px-4 py-2 rounded-full font-bold text-lg md:text-xl" style={{ backgroundColor: '#F97316' }}>
                     {guide.ton}
                   </span>
                 </div>
                 <ul className="space-y-2">
                   {guide.examples.map((example, idx) => (
                     <li key={idx} className="text-gray-600 text-sm md:text-base flex items-center">
-                      <span className="text-[#42d9de] mr-2">•</span>
+                      <span className="text-[#F97316] mr-2">•</span>
                       {example}
                     </li>
                   ))}

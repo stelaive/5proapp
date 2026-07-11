@@ -6,6 +6,7 @@ import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import { Icon } from '@/components/ui/icon'
 
 interface Platform {
   name: string;
@@ -55,7 +56,7 @@ export default function PlatformSwiper({ platforms }: PlatformSwiperProps) {
               <ul className="space-y-2 text-left text-sm">
                 {platform.features.map((feature, i) => (
                   <li key={i} className="flex items-center text-gray-700">
-                    <span className="mr-2" style={{ color: platform.color }}>✓</span>
+                    <span className="mr-2" style={{ color: platform.color }}><Icon name="Check" size={18} /></span>
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}

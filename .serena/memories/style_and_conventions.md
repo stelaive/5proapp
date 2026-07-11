@@ -13,7 +13,7 @@
 
 ## Styling
 - **Tailwind CSS**: Use Tailwind utility classes for styling.
-- **Brand Color**: Use `#42d9de` (Cyan/Turquoise) as the primary brand color. Avoid using the old orange color unless specifically requested.
+- **Brand Color**: Use `#F97316` (Orange, hover `#EA580C`) as the primary brand color across buttons, accents, icons, and gradients.
 - **Typography**: Jalnan font for headings, system fonts for body text.
 
 ## Naming Conventions

@@ -6,7 +6,7 @@ const DispatchStatusBanner = () => {
   const currentCity = "수원/강남/안양/군포";
   
   return (
-    <div className="bg-[#42d9de] overflow-hidden py-2 border-b border-white/10">
+    <div className="bg-[#F97316] overflow-hidden py-2 border-b border-white/10">
       <div className="flex whitespace-nowrap animate-marquee">
         {[1, 2, 3, 4, 5].map((i) => (
           <div key={i} className="flex items-center mx-4 text-white text-sm font-bold">

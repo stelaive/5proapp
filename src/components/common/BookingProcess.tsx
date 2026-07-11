@@ -24,7 +24,7 @@ const BookingProcess: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <motion.div key={index} variants={fadeInUp(0.2 * (index + 1))} className="flex flex-col items-center">
-              <div className="p-4 rounded-full mb-4" style={{ backgroundColor: 'rgba(66, 217, 222, 0.1)', color: '#42d9de' }}>
+              <div className="p-4 rounded-full mb-4" style={{ backgroundColor: 'rgba(249, 115, 22, 0.1)', color: '#F97316' }}>
                 {step.icon}
               </div>
               <h3 className="text-xl font-bold mb-2">{step.title}</h3>
@@ -40,19 +40,19 @@ const BookingProcess: React.FC = () => {
           </h3>
           <div className="grid md:grid-cols-2 gap-4 text-left">
             <div className="flex items-start gap-2">
-              <span className="text-[#42d9de] font-bold">•</span>
+              <span className="text-[#F97316] font-bold">•</span>
               <span className="text-gray-700">주소</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-[#42d9de] font-bold">•</span>
+              <span className="text-[#F97316] font-bold">•</span>
               <span className="text-gray-700">층수</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-[#42d9de] font-bold">•</span>
+              <span className="text-[#F97316] font-bold">•</span>
               <span className="text-gray-700">작업 내용</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-[#42d9de] font-bold">•</span>
+              <span className="text-[#F97316] font-bold">•</span>
               <span className="text-gray-700">사진 (있으면 빠름)</span>
             </div>
           </div>

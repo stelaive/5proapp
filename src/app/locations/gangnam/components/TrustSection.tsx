@@ -23,7 +23,7 @@ export default function TrustSection({ data }: TrustSectionProps) {
       icon: Award,
       title: '기사 경력',
       description: data.trust.driverExperience,
-      color: 'text-[#42d9de]'
+      color: 'text-[#F97316]'
     },
     {
       icon: Wrench,
@@ -52,7 +52,7 @@ export default function TrustSection({ data }: TrustSectionProps) {
               return (
                 <div 
                   key={index}
-                  className="bg-gray-50 rounded-xl p-6 text-center border-2 border-gray-100 hover:border-[#42d9de]/30 transition-colors"
+                  className="bg-gray-50 rounded-xl p-6 text-center border-2 border-gray-100 hover:border-[#F97316]/30 transition-colors"
                 >
                   <Icon className={`w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 ${item.color}`} />
                   <h3 className="font-bold text-gray-900 mb-2 text-base md:text-lg">

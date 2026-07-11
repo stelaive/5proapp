@@ -44,9 +44,12 @@ body {
 @layer base {
   html {
     @apply scroll-smooth;
+    /* 슬라이드 인 애니메이션(translateX) 등으로 인한 가로 오버플로 차단 (전 브라우저) */
+    overflow-x: hidden;
   }
   body {
     @apply bg-white text-gray-800 antialiased;
+    overflow-x: hidden;
   }
 }
 
@@ -179,58 +182,8 @@ nav[style*="position: fixed"] {
 
 /* 네비게이션 개선됨 - 컴포넌트에서 직접 처리 */
 
-/* 히어로 섹션 스타일 */
-.hero-content {
-    text-align: left;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 4rem;
-}
-
-.hero-content h2 {
-    font-family: 'Jalnan', sans-serif;
-    line-height: 1.3;
-    max-width: 600px;
-}
-
-.hero-content p {
-    max-width: 600px;
-}
-
-.download-container {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.download-btn {
-    max-width: 320px;
-    width: 100%;
-}
-
-.hero-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 80px;
-}
-
-.hero-content h2 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-
-@media (max-width: 768px) {
-    .hero-content h2 {
-        font-size: 2rem;
-    }
-}
+/* 히어로 섹션 스타일: 레거시 .hero-content/.hero-section 규칙 제거됨
+   (히어로는 이제 컴포넌트의 Tailwind 클래스로 일원화 관리) */
 
 /* 히어로 섹션 애니메이션 */
 @keyframes fadeInUp {
@@ -242,18 +195,6 @@ nav[style*="position: fixed"] {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.hero-content > * {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.hero-content > *:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.hero-content > *:nth-child(3) {
-    animation-delay: 0.4s;
 }
 
 /* 프리미엄 효과 */

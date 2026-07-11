@@ -32,7 +32,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {/* 메인 헤드라인 */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight px-2">
           이 가격에,<br className="sm:hidden" />
-          <span className="text-[#42d9de]"> 5% 페이백</span><br className="sm:hidden" />까지.
+          <span className="text-[#F97316]"> 5% 페이백</span><br className="sm:hidden" />까지.
         </h1>
 
         {/* 서브 헤드라인 */}
@@ -58,12 +58,12 @@ export default function HeroSection({ data }: HeroSectionProps) {
           <button
             onClick={handleCallNow}
             className="w-full max-w-sm sm:max-w-md text-white font-bold py-4 sm:py-6 px-6 sm:px-8 rounded-2xl text-lg sm:text-xl md:text-2xl transition-all duration-200 transform hover:scale-105 shadow-xl hover:shadow-2xl mb-4 leading-tight"
-            style={{ backgroundColor: '#42d9de' }}
+            style={{ backgroundColor: '#F97316' }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3bc4c9';
+              e.currentTarget.style.backgroundColor = '#EA580C';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#42d9de';
+              e.currentTarget.style.backgroundColor = '#F97316';
             }}
           >
             📞 1877-3924<br className="sm:hidden" />
@@ -74,14 +74,13 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {/* 2차 행동 유도 */}
         <div className="mb-8 px-4">
           <p className="text-sm sm:text-base md:text-lg italic text-gray-600 mb-6 leading-relaxed">
-            단, 100만원의 주인공은<br className="sm:hidden" /> 앱 사용자 중에서만<br className="sm:hidden" /> 나옵니다.
+            5% 페이백 적립 내역은<br className="sm:hidden" /> 앱에서<br className="sm:hidden" /> 확인하실 수 있습니다.
           </p>
           <button
             onClick={handleAppDownload}
             className="w-full max-w-sm sm:max-w-md bg-black hover:bg-gray-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg md:text-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl leading-tight"
           >
-            100만원 행운 잡으러 가기<br className="sm:hidden" />
-            <span className="text-sm sm:text-base">(앱 다운로드)</span>
+            앱 다운로드 하기
           </button>
         </div>
       </div>

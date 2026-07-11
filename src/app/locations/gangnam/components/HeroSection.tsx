@@ -27,7 +27,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
         {/* 배지 */}
         <span 
           className="inline-block text-white px-4 py-2 rounded-full font-bold text-sm mb-4"
-          style={{ backgroundColor: '#42d9de' }}
+          style={{ backgroundColor: '#F97316' }}
         >
           서울 {data.nameKo} 전지역 배차 가능 🚀
         </span>
@@ -49,7 +49,7 @@ export default function HeroSection({ data }: HeroSectionProps) {
         
         {/* 메인 전화번호 CTA - 최우선 */}
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-6 inline-block border border-white/20 max-w-md w-full">
-          <p className="text-[#42d9de] font-bold mb-3 text-lg md:text-xl">현장 전문 기사님 직통 연결</p>
+          <p className="text-[#F97316] font-bold mb-3 text-lg md:text-xl">현장 전문 기사님 직통 연결</p>
           <a 
             href={`tel:${data.phone.replace(/-/g, '')}`}
             className="block min-h-[60px] md:min-h-[80px] flex items-center justify-center bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/10"
@@ -68,12 +68,12 @@ export default function HeroSection({ data }: HeroSectionProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:shadow-lg transform hover:scale-105 transition-all min-h-[44px] flex items-center justify-center"
-            style={{ backgroundColor: '#42d9de' }}
+            style={{ backgroundColor: '#F97316' }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#3bc4c9';
+              e.currentTarget.style.backgroundColor = '#EA580C';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#42d9de';
+              e.currentTarget.style.backgroundColor = '#F97316';
             }}
           >
             앱 설치하고 5% 할인받기

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { staggerContainer, fadeInUp } from '@/lib/animations';
+import { Icon } from '@/components/ui/icon';
 import type { RegionData } from '@/lib/regionData'
 
 interface HeroProps {
@@ -67,10 +68,10 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, ctaText1, ctaLink1, ctaTex
           <Link
             href={ctaLink1}
             aria-label={ctaText1}
-            className="bg-[#42d9de] hover:bg-[#3bc4c9] text-white font-bold py-5 px-10 rounded-2xl text-xl motion-safe:hover:scale-105 transition-all shadow-xl flex items-center gap-3 group"
+            className="bg-[#F97316] hover:bg-[#EA580C] text-white font-bold py-5 px-10 rounded-2xl text-xl motion-safe:hover:scale-105 transition-all shadow-xl flex items-center gap-3 group"
           >
             <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-              📞
+              <Icon name="Phone" size={20} />
             </span>
             {ctaText1.includes('전화') ? ctaText1 : `전문 기사 직통 전화: ${ctaText1}`}
           </Link>

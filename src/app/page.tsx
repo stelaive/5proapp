@@ -3,24 +3,31 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/common/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 import HeroSection from '@/components/home/HeroSection'
-import HomeSections from '@/components/home/HomeSections'
+import ProblemSection from '@/components/home/sections/ProblemSection'
+import ServiceSection from '@/components/home/sections/ServiceSection'
+import FaqSection from '@/components/home/sections/FaqSection'
+import CtaSection from '@/components/home/sections/CtaSection'
 
-// 메인 페이지는 이제 Server Component입니다.
-// 메타데이터 등 서버 사이드 로직을 여기서 처리할 수 있습니다.
-
+// 메인 페이지는 Server Component. 각 섹션은 애니메이션/인터랙션을 위한 클라이언트 컴포넌트.
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navigation currentPage="home" />
-      
-      <main className="flex-grow">
-        {/* 히어로 섹션 (클라이언트 컴포넌트: 애니메이션/인터랙션) */}
-        <HeroSection />
 
-        {/* 나머지 섹션들 (클라이언트 컴포넌트: 애니메이션/인터랙션) */}
-        <HomeSections />
+      <main className="flex-grow">
+        {/* 1. 히어로 */}
+        <HeroSection />
+        {/* 2. 문제 제기 */}
+        <ProblemSection />
+        {/* 3. 서비스(해결) */}
+        <ServiceSection />
+        {/* 4. FAQ */}
+        <FaqSection />
+        {/* 5. CTA */}
+        <CtaSection />
       </main>
 
+      {/* 6. 푸터 */}
       <Footer />
       <FloatingDownload />
     </div>

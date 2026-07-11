@@ -50,7 +50,7 @@ export const offerJsonLd = {
   "@context": "https://schema.org",
   "@type": "Offer",
   "name": "군포 스카이차 임대 서비스",
-  "description": "군포 지역 전문 스카이차 임대, 작업완료 후 5% 캐시백, 매달 100만원 추첨 자동응모",
+  "description": "군포 지역 전문 스카이차 임대, 작업완료 후 5% 캐시백",
   "seller": {
     "@type": "LocalBusiness",
     "name": "5프로스카이차 군포지점",

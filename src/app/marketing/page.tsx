@@ -4,6 +4,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Icon } from '@/components/ui/icon'
 
 // Swiper 관련 import를 클라이언트 사이드에서만 로드
 const PlatformSwiper = dynamic(() => import('@/components/PlatformSwiper'), {
@@ -220,7 +221,7 @@ export default function Marketing() {
                    }}
                    transition={{ duration: 0.6 }}
                  >
-                   <span className="text-red-500 text-xl md:text-2xl mr-3 flex-shrink-0">✅</span>
+                   <span className="text-red-500 text-xl md:text-2xl mr-3 flex-shrink-0"><Icon name="CheckCircle" size={24} /></span>
                    <p className="text-sm md:text-xl text-gray-700 leading-tight">{text}</p>
                  </motion.div>
                ))}
@@ -286,7 +287,7 @@ export default function Marketing() {
                   <ul className="space-y-3 text-left">
                     {platform.features.map((feature, i) => (
                       <li key={i} className="flex items-start text-gray-700 text-sm">
-                        <span className="mr-2 mt-1 flex-shrink-0" style={{ color: platform.color }}>✓</span>
+                        <span className="mr-2 mt-1 flex-shrink-0" style={{ color: platform.color }}><Icon name="Check" size={18} /></span>
                         <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
@@ -317,7 +318,7 @@ export default function Marketing() {
                 transition={{ duration: 0.8 }}
               >
                 <div className="bg-gray-100 rounded-xl p-8 mb-4 shadow-lg" style={{ color: '#374151' }}>
-                  <div className="text-6xl mb-4">😞</div>
+                  <div className="text-6xl mb-4"><Icon name="Frown" size={56} /></div>
                   <div className="space-y-2 text-left">
                     <div className="text-gray-400">⭐ 별점 없음</div>
                     <div className="text-gray-400">📷 사진 없음</div>
@@ -336,7 +337,7 @@ export default function Marketing() {
                 {...fadeInUp}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className="text-4xl md:text-5xl" style={{ color: '#42d9de' }}>→</div>
+                <div className="text-4xl md:text-5xl" style={{ color: '#F97316' }}><Icon name="ArrowRight" size={44} /></div>
               </motion.div>
 
               {/* After */}
@@ -351,15 +352,15 @@ export default function Marketing() {
                 viewport={{ once: true }}
               >
                 <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-8 mb-4 shadow-lg" style={{ color: '#374151' }}>
-                  <div className="text-6xl mb-4">🤩</div>
+                  <div className="text-6xl mb-4"><Icon name="Smile" size={56} /></div>
                   <div className="space-y-2 text-left">
                     <div className="text-green-600">⭐ 별점 4.8</div>
                     <div className="text-blue-600">📷 고품질 사진</div>
                     <div className="text-purple-600">📝 상세 정보</div>
-                    <div style={{ color: '#42d9de' }}>📞 문의 급증</div>
+                    <div style={{ color: '#F97316' }}>📞 문의 급증</div>
                   </div>
                 </div>
-                <p className="text-lg font-bold" style={{ color: '#42d9de' }}>
+                <p className="text-lg font-bold" style={{ color: '#F97316' }}>
                   우리 앱 노하우 적용 후 ✨
                 </p>
               </motion.div>

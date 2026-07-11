@@ -30,12 +30,12 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, ctaText, ctaLink, imageUrl
           href={ctaLink}
           aria-label={ctaText}
           className="text-white font-bold py-3 px-8 rounded-2xl text-lg transition-transform transform hover:scale-105"
-          style={{ backgroundColor: '#42d9de' }}
+          style={{ backgroundColor: '#F97316' }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#3bc4c9';
+            e.currentTarget.style.backgroundColor = '#EA580C';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#42d9de';
+            e.currentTarget.style.backgroundColor = '#F97316';
           }}
         >
           {ctaText}
