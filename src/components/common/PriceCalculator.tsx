@@ -34,9 +34,9 @@ const PriceCalculator = () => {
   }, [heightInput, heightUnit, hours]);
 
   return (
-    <section className="py-20 bg-[#F97316]/5">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-[#F97316]/20">
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
           <div className="flex flex-col md:flex-row">
             {/* 왼쪽: 컨트롤 섹션 */}
             <div className="flex-1 p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100">
@@ -109,9 +109,9 @@ const PriceCalculator = () => {
                 </div>
               </div>
 
-              <div className="mt-8 p-4 bg-blue-50 rounded-xl flex gap-3">
-                <Info className="w-5 h-5 text-blue-500 shrink-0" />
-                <p className="text-xs text-blue-700 leading-relaxed">
+              <div className="mt-8 p-4 bg-gray-50 rounded-xl flex gap-3">
+                <Info className="w-5 h-5 text-[#F97316] shrink-0" />
+                <p className="text-xs text-gray-500 leading-relaxed">
                   위 요금은 기본 요금이며, 현장 진입 여건, 야간/주말 작업 등에 따라 실제 견적은 달라질 수 있습니다.
                 </p>
               </div>

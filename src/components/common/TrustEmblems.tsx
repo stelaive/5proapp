@@ -1,17 +1,17 @@
 import React from 'react';
-import { Shield, Award, CheckCircle, FileCheck } from 'lucide-react';
+import { Clock, Truck, CheckCircle, FileCheck } from 'lucide-react';
 
 const TrustEmblems = () => {
   const emblems = [
     {
-      icon: <Shield className="w-8 h-8 text-[#F97316]" />,
-      title: "영업배상책임보험",
-      desc: "최대 10억 보상 가입"
+      icon: <Clock className="w-8 h-8 text-[#F97316]" />,
+      title: "24시간 긴급출동",
+      desc: "전국 어디나 신속 대응"
     },
     {
-      icon: <Award className="w-8 h-8 text-[#F97316]" />,
-      title: "정식 허가 업체",
-      desc: "국토부 정식 등록"
+      icon: <Truck className="w-8 h-8 text-[#F97316]" />,
+      title: "당일 배차 가능",
+      desc: "1.5·5톤 스카이차 보유"
     },
     {
       icon: <CheckCircle className="w-8 h-8 text-[#F97316]" />,

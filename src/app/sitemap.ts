@@ -27,12 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/marketing`,
-      lastModified: '2025-07-20', // 마케팅 페이지 업데이트
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/marketplace`,
       lastModified: '2025-07-22', // 마켓플레이스 업데이트
       changeFrequency: 'weekly',

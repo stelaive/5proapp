@@ -27,12 +27,6 @@ const pages = [
     lastModified: new Date('2024-12-19'),
   },
   {
-    slug: 'marketing',
-    title: '업종별 마케팅 노하우 - 스카이차 사업 성공 비법',
-    description: '스카이차 사업 성공을 위한 업종별 마케팅 전략과 노하우. 네이버, 구글, 카카오 활용법까지 모든 비법을 공개합니다.',
-    lastModified: new Date('2024-12-19'),
-  },
-  {
     slug: 'whyhere',
     title: '여긴뭐야? 5% 페이백 서비스 소개',
     description: '5프로돌려주는스카이차가 무엇인지 궁금하세요? 5% 페이백 시스템부터 특별 혜택까지 모든 것을 알려드립니다.',

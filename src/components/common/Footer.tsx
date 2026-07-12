@@ -9,7 +9,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-400 border-t border-gray-800">
+    <footer className="bg-gray-50 text-gray-500 border-t border-gray-200">
       <div className="container mx-auto px-6 py-10">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           {/* 브랜드 */}
@@ -23,8 +23,8 @@ const Footer = () => {
               unoptimized
             />
             <div className="flex flex-col">
-              <span className="text-white font-bold font-jalnan">{companyInfo.name}</span>
-              <span className="text-xs text-gray-500 mt-1">
+              <span className="text-gray-900 font-bold font-jalnan">{companyInfo.name}</span>
+              <span className="text-xs text-gray-400 mt-1">
                 © {new Date().getFullYear()} {companyInfo.name}. All Rights Reserved.
               </span>
             </div>
@@ -33,12 +33,12 @@ const Footer = () => {
           {/* 연락처 */}
           <div className="flex flex-col gap-1.5 text-sm text-left">
             <span>
-              <span className="text-gray-500">대표번호</span>{' '}
-              <span className="text-white font-bold">{companyInfo.phone}</span>
+              <span className="text-gray-400">대표번호</span>{' '}
+              <span className="text-gray-900 font-bold">{companyInfo.phone}</span>
             </span>
             <span>
-              <span className="text-gray-500">문자수신전용</span>{' '}
-              <span className="text-white font-bold">{companyInfo.textNumber}</span>
+              <span className="text-gray-400">문자수신전용</span>{' '}
+              <span className="text-gray-900 font-bold">{companyInfo.textNumber}</span>
             </span>
           </div>
         </div>

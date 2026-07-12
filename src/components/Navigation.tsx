@@ -156,7 +156,6 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     { href: '/pricing', label: '스카이차가격표', key: 'pricing' },
     { href: '/reward', label: '친구초대', key: 'reward' },
     { href: '/marketplace', label: '일거리장터', key: 'marketplace' },
-    { href: '/marketing', label: '업종별마케팅', key: 'marketing' },
     { href: '/support', label: '고객센터', key: 'support' },
   ]
 

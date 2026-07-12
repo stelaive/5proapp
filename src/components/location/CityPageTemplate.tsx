@@ -4,11 +4,10 @@ import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { RegionData } from '@/lib/regionData'
-import TrustEmblems from '@/components/common/TrustEmblems'
 import PriceCalculator from '@/components/common/PriceCalculator'
-import LocalAreaList from '@/components/common/LocalAreaList'
-import RegionGallery from '@/components/common/RegionGallery'
 import LocationJsonLd from '@/components/seo/LocationJsonLd'
+
+const HERO_BADGES = ['24시간 긴급출동', '당일 배차 가능', '무사고 10년+', '특수장비 검사완료']
 
 const BRAND = '#F97316'
 const BRAND_HOVER = '#EA580C'
@@ -121,7 +120,7 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
               </a>
             </div>
             <ul className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-gray-400">
-              {['정식 등록 업체', '작업 완료 후 5% 현금', '전화·앱 예약 모두 5%'].map((t) => (
+              {HERO_BADGES.map((t) => (
                 <li key={t} className="inline-flex items-center gap-1.5">
                   <svg className="h-4 w-4 shrink-0" style={{ color: BRAND }} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -134,27 +133,9 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
         </div>
       </section>
 
-      {/* 1.5 지역 소개 (답변형 로컬 서술 — AEO/GEO + 중복 해소) */}
-      {data.localIntro && (
-        <section aria-labelledby="city-intro" className="bg-white pt-12 md:pt-16">
-          <div className="container mx-auto px-4">
-            <p id="city-intro" className="mx-auto max-w-3xl text-center text-base leading-relaxed text-gray-700 md:text-lg">
-              {data.localIntro}
-            </p>
-          </div>
-        </section>
-      )}
-
-      {/* 2. 신뢰 엠블럼 */}
-      <section className="bg-gray-50 py-12">
-        <div className="container mx-auto px-4">
-          <TrustEmblems />
-        </div>
-      </section>
-
-      {/* 3. 요금 계산기 + 요금표 */}
+      {/* 섹션 2. 요금 (계산기 + 요금표) — 하나의 회색존으로 통합 */}
       <PriceCalculator />
-      <section aria-labelledby="city-price" className="bg-white py-16 md:py-20">
+      <section aria-labelledby="city-price" className="bg-gray-50 pt-0 pb-16">
         <div className="container mx-auto px-4">
           <motion.div className="mx-auto max-w-3xl text-center" {...fadeInUp}>
             <p className="mb-3 text-sm font-bold" style={{ color: BRAND }}>투명한 요금</p>
@@ -190,22 +171,8 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
         </div>
       </section>
 
-      {/* 4. 5% 페이백 강조 */}
-      <section className="py-14" style={{ background: `linear-gradient(135deg, ${BRAND}, ${BRAND_HOVER})` }}>
-        <div className="container mx-auto px-4 text-center text-white">
-          <motion.div className="mx-auto max-w-2xl" {...fadeInUp}>
-            <h2 className="font-jalnan text-2xl font-bold md:text-3xl">
-              {data.nameKo}에서도 이용료의 5%, 현금으로!
-            </h2>
-            <p className="mt-3 text-base text-white/90">
-              작업이 끝나면 이용료의 5%가 앱에 포인트로 적립돼요. 앱에서 출금하면 계좌로 현금 지급.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 5. 이용 3단계 */}
-      <section aria-labelledby="city-steps" className="bg-gray-50 py-16 md:py-20">
+      {/* 섹션 3. 이용 방법 + 5% 페이백 강조 카드 */}
+      <section aria-labelledby="city-steps" className="bg-white py-16">
         <div className="container mx-auto px-4">
           <motion.div className="mx-auto max-w-2xl text-center" {...fadeInUp}>
             <h2 id="city-steps" className="font-jalnan text-2xl font-bold text-gray-900 md:text-3xl">이용 방법</h2>
@@ -214,7 +181,7 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
             {data.bookingSteps.map((step, i) => (
               <motion.div
                 key={step.step}
-                className="rounded-2xl border border-gray-100 bg-white p-7 text-center"
+                className="rounded-2xl border border-gray-100 bg-white p-7 text-center shadow-sm"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -228,19 +195,86 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
               </motion.div>
             ))}
           </div>
+
+          {/* 5% 페이백 — 전체폭 밴드 → 강조 카드로 축소 */}
+          <motion.div
+            className="mx-auto mt-8 max-w-4xl rounded-3xl px-6 py-8 text-center text-white shadow-lg"
+            style={{ background: `linear-gradient(135deg, ${BRAND}, ${BRAND_HOVER})` }}
+            {...fadeInUp}
+          >
+            <h3 className="font-jalnan text-xl font-bold md:text-2xl">
+              {data.nameKo}에서도 이용료의 5%, 현금으로!
+            </h3>
+            <p className="mt-2 text-sm text-white/90 md:text-base">
+              작업이 끝나면 이용료의 5%가 앱에 포인트로 적립돼요. 앱에서 출금하면 계좌로 현금 지급.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* 6. 출동 지역(동 리스트) — 로컬 SEO */}
-      <LocalAreaList nameKo={data.nameKo} subAreas={data.subAreas} />
+      {/* 섹션 4. 우리 동네 커버리지 (지역소개 + 동네 리스트 + 작업 사례) */}
+      <section aria-labelledby="city-coverage" className="bg-gray-50 py-16 border-t border-gray-100">
+        <div className="container mx-auto px-4">
+          <motion.div className="mx-auto max-w-3xl text-center" {...fadeInUp}>
+            <h2 id="city-coverage" className="font-jalnan text-2xl font-bold text-gray-900 md:text-3xl">
+              {data.nameKo} 전 지역 신속 배차
+            </h2>
+            {data.localIntro && (
+              <p className="mt-4 text-base leading-relaxed text-gray-600 md:text-lg">{data.localIntro}</p>
+            )}
+          </motion.div>
 
-      {/* 7. 작업 사례 갤러리 (이미지 있을 때만) */}
-      {data.gallery && data.gallery.length > 0 && (
-        <RegionGallery title={`${data.nameKo} 실제 현장 작업 사례`} images={data.gallery} />
-      )}
+          {/* 동네 칩 */}
+          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
+            {data.subAreas.map((area) => (
+              <span
+                key={area}
+                className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-[#F97316] hover:text-[#F97316]"
+              >
+                {area} 스카이차
+              </span>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-sm text-gray-500">
+            * {data.subAreas[0]} 외 {data.nameKo} 전 지역 30분 이내 도착을 목표로 하고 있습니다.
+          </p>
 
-      {/* 8. FAQ */}
-      <section aria-labelledby="city-faq" className="bg-white py-16 md:py-20">
+          {/* 작업 사례 (이미지 있을 때만) */}
+          {data.gallery && data.gallery.length > 0 && (
+            <div className="mx-auto mt-12 max-w-5xl">
+              <h3 className="mb-6 text-center text-lg font-bold text-gray-900">{data.nameKo} 실제 현장 작업 사례</h3>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {data.gallery.map((image, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="group relative overflow-hidden rounded-2xl bg-gray-100 shadow-sm"
+                  >
+                    <div className="relative aspect-[4/3]">
+                      <Image src={image.src} alt={image.alt} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+                    <div className="bg-white p-4">
+                      <p className="font-bold text-gray-900">{image.alt}</p>
+                      {(image.location || image.date) && (
+                        <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
+                          {image.location && <span>{image.location}</span>}
+                          {image.date && <span>{image.date}</span>}
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* 섹션 5. FAQ */}
+      <section aria-labelledby="city-faq" className="bg-white py-16">
         <div className="container mx-auto px-4">
           <motion.div className="mx-auto max-w-2xl text-center" {...fadeInUp}>
             <h2 id="city-faq" className="font-jalnan text-2xl font-bold text-gray-900 md:text-3xl">자주 묻는 질문</h2>
@@ -261,8 +295,8 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
         </div>
       </section>
 
-      {/* 9. CTA */}
-      <section aria-labelledby="city-cta" className="bg-[#0B0B0C] py-16 md:py-20">
+      {/* 마무리 CTA (다크 북엔드) */}
+      <section aria-labelledby="city-cta" className="bg-[#0B0B0C] py-14">
         <div className="container mx-auto px-4 text-center">
           <motion.div className="mx-auto max-w-2xl" {...fadeInUp}>
             <h2 id="city-cta" className="font-jalnan text-2xl font-bold text-white md:text-3xl">
@@ -284,14 +318,8 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
                 {data.phone} 전화 예약
               </a>
             </div>
+            <p className="mx-auto mt-8 max-w-xl text-xs leading-relaxed text-gray-500">※ {data.footerNotice.exclusion}</p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* 10. 하단 고지 */}
-      <section className="bg-gray-100 py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-xs leading-relaxed text-gray-500">※ {data.footerNotice.exclusion}</p>
         </div>
       </section>
     </div>

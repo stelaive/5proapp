@@ -13,6 +13,10 @@ const scrollbarHideStyle = {
   }
 } as React.CSSProperties
 
+// 일거리장터 앱 스토어 URL
+const JOBHUB_ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.jobhubapp&pcampaignid=web_share';
+const JOBHUB_IOS_URL = 'https://apps.apple.com/kr/app/%EC%9D%BC%EA%B1%B0%EB%A6%AC%EC%9E%A5%ED%84%B0/id6759076369';
+
 // 업종 데이터
 const industries = [
   { name: '에어컨', icon: 'Snowflake', posts: 12345, todayPosts: 56 },
@@ -40,42 +44,12 @@ const industries = [
   { name: '창호공사', icon: 'AppWindow', posts: 3456, todayPosts: 21 }
 ];
 
-// 게시판 탭 데이터
-const boardTabs = [
-  {
-    name: '자유수다',
-    posts: [
-      { title: '오늘 현장에서 있었던 일...', comments: 23, likes: 45 },
-      { title: '장비 추천좀 해주세요', comments: 15, likes: 32 },
-      { title: '신입 기술자분들 필독!', comments: 18, likes: 28 }
-    ]
-  },
-  {
-    name: '질문답변',
-    posts: [
-      { title: '이런 상황일 때는 어떻게...?', comments: 34, likes: 56 },
-      { title: '자격증 준비 꿀팁', comments: 28, likes: 42 },
-      { title: '공구 사용법 질문', comments: 19, likes: 35 }
-    ]
-  }
-];
-
-// 긴급 일거리 데이터
-const urgentJobs = [
-  {
-    location: '서울 강남구',
-    date: '2024-03-20',
-    pay: '450,000원',
-    type: '전기 공사',
-    deadline: 1
-  },
-  {
-    location: '경기 성남시',
-    date: '2024-03-21',
-    pay: '380,000원',
-    type: '설비 공사',
-    deadline: 2
-  }
+// 중고장터 매물 예시 데이터
+const usedItems = [
+  { name: '진공펌프 (냉동공조용)', price: '85,000원', location: '경기 수원', tag: '거의 새것', icon: 'Wrench' },
+  { name: '고소작업 안전벨트 세트', price: '45,000원', location: '서울 강서', tag: '판매중', icon: 'HardHat' },
+  { name: '타일 절단기', price: '120,000원', location: '인천 부평', tag: '판매중', icon: 'Grid3x3' },
+  { name: '전동 드릴 세트', price: '65,000원', location: '경기 성남', tag: '예약중', icon: 'Drill' }
 ];
 
 // 애니메이션 variants
@@ -106,19 +80,16 @@ const slideIn = {
 };
 
 export default function Marketplace() {
-  // 앱 다운로드 함수
+  // 일거리장터 앱 다운로드 함수 (플랫폼 자동 감지)
   const handleAppDownload = () => {
     const userAgent = navigator.userAgent.toLowerCase();
-    
+
     if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ipod')) {
       // iOS 기기 - 앱스토어로 이동
-      window.open('https://apps.apple.com/kr/app/5-%EB%8F%8C%EB%A0%A4%EC%A3%BC%EB%8A%94-%EC%8A%A4%EC%B9%B4%EC%9D%B4%EC%B0%A8/id6747275589', '_blank');
-    } else if (userAgent.includes('android')) {
-      // Android 기기 - 플레이스토어로 이동
-      window.open('https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaignid=web_share', '_blank');
+      window.open(JOBHUB_IOS_URL, '_blank');
     } else {
-      // 데스크톱이나 기타 기기 - 안드로이드 스토어로 기본 이동
-      window.open('https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp&pcampaignid=web_share', '_blank');
+      // Android 및 데스크톱/기타 기기 - 플레이스토어로 기본 이동
+      window.open(JOBHUB_ANDROID_URL, '_blank');
     }
   };
 
@@ -163,6 +134,38 @@ export default function Marketplace() {
                 대한민국 현장 전문가들의 필수 커뮤니티,<br />일거리장터
               </span>
             </motion.p>
+
+            {/* 앱 다운로드 버튼 */}
+            <motion.div
+              className="flex flex-col sm:flex-row items-center md:items-start gap-4"
+              variants={fadeInUp}
+            >
+              <a
+                href={JOBHUB_ANDROID_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Google Play에서 일거리장터 다운로드"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full text-lg font-bold text-white transition-transform hover:scale-105 active:scale-95"
+                style={{ backgroundColor: '#F97316' }}
+              >
+                <svg width="22" height="22" viewBox="0 0 512 512" fill="currentColor" aria-hidden="true">
+                  <path d="M48 59.49v393a4.33 4.33 0 0 0 7.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0 0 48 59.49zM345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.62 3.58-5 7.06l201.13 192.32zM84.08 472.39c-3.64 3.48.56 9.46 5 7.06l.16-.09L345.8 338l-60.61-57.95zM449.38 231l-71.65-39.46L310.36 256l67.37 64.43L449.38 281c19.49-10.77 19.49-39.23 0-50z"/>
+                </svg>
+                <span>Google Play 다운로드</span>
+              </a>
+              <a
+                href={JOBHUB_IOS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="App Store에서 일거리장터 다운로드"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full text-lg font-bold text-white border-2 border-white/70 bg-white/10 backdrop-blur-sm transition-transform hover:scale-105 active:scale-95"
+              >
+                <svg width="22" height="22" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
+                  <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                </svg>
+                <span>App Store 다운로드</span>
+              </a>
+            </motion.div>
           </div>
         </motion.div>
       </section>
@@ -434,6 +437,99 @@ export default function Marketplace() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* 메인 섹션 4: 중고장터 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            className="text-4xl font-bold text-center mb-6 font-jalnan text-gray-800"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
+            폐업 장비도, 특수 장비도<br className="md:hidden" /> 여기서 사고팔아요
+          </motion.h2>
+          <motion.p
+            className="text-center text-gray-600 mb-12 text-lg leading-relaxed"
+            initial={fadeInUp.initial}
+            whileInView={fadeInUp.animate}
+            viewport={{ once: true }}
+          >
+            동네 중고앱엔 수요가 없던 진공펌프·특수 공구도,<br className="hidden md:block" />
+            기술자들이 모인 <span className="font-bold text-orange-500">중고장터</span>에선 제값 받고 팔고 합리적으로 삽니다.
+          </motion.p>
+
+          {/* 데스크톱: 4열 그리드 / 모바일: 가로 스와이프 */}
+          <motion.div
+            className="hidden md:grid md:grid-cols-4 gap-6 max-w-5xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {usedItems.map((item, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-xl overflow-hidden cursor-pointer group"
+                style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}
+                variants={scaleIn}
+                whileHover={{ y: -5, boxShadow: '0 12px 30px rgba(0,0,0,0.15)', transition: { duration: 0.3 } }}
+                onClick={() => alert('로그인 후 확인하실 수 있습니다')}
+              >
+                <div className="h-32 flex items-center justify-center bg-gray-100 text-gray-400 group-hover:text-orange-500 transition-colors">
+                  <Icon name={item.icon as IconName} size={48} />
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-bold px-2 py-1 rounded-full bg-orange-50 text-orange-500">{item.tag}</span>
+                    <span className="text-xs text-gray-400">{item.location}</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-gray-800 mb-1 truncate">{item.name}</h3>
+                  <p className="text-lg font-extrabold text-gray-900">{item.price}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="md:hidden max-w-sm mx-auto">
+            <motion.div
+              className="flex overflow-x-auto space-x-4 pb-4 px-1"
+              style={{ scrollSnapType: 'x mandatory', ...scrollbarHideStyle }}
+              initial={fadeInUp.initial}
+              whileInView={fadeInUp.animate}
+              viewport={{ once: true }}
+            >
+              {usedItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl overflow-hidden flex-shrink-0 w-44"
+                  style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.08)', scrollSnapAlign: 'start' }}
+                  onClick={() => alert('로그인 후 확인하실 수 있습니다')}
+                >
+                  <div className="h-28 flex items-center justify-center bg-gray-100 text-gray-400">
+                    <Icon name={item.icon as IconName} size={42} />
+                  </div>
+                  <div className="p-3">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-50 text-orange-500">{item.tag}</span>
+                      <span className="text-[10px] text-gray-400">{item.location}</span>
+                    </div>
+                    <h3 className="text-sm font-bold text-gray-800 mb-1 truncate">{item.name}</h3>
+                    <p className="text-base font-extrabold text-gray-900">{item.price}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+            <div className="text-center mt-4">
+              <p className="text-gray-400 text-sm">← 옆으로 넘겨보세요 →</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-8 text-gray-500 text-sm">
+            ※ 위 매물은 예시입니다. 실제 거래는 앱 출시 후 이용 가능합니다.
+          </div>
         </div>
       </section>
 
