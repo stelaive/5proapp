@@ -3,7 +3,7 @@ import { LOCATIONS_DATA, LIVE_CITY_SLUGS } from '@/lib/regionData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // 정규 도메인: punycode로 일원화 (canonical·robots와 일치)
-  const baseUrl = 'https://xn--5-w30fr74e.com'
+  const baseUrl = 'https://www.5prosky.com'
 
   // lastModified를 실제 페이지 업데이트 날짜로 고정
   // 검색엔진에게 정확한 정보를 제공하여 크롤링 효율성 향상

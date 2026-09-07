@@ -20,7 +20,7 @@
 | 서비스명 | 5프로돌려주는스카이차 |
 | 대표번호 | 1877-3924 (전화 예약·상담) |
 | 문자수신전용 | 010-2497-2433 |
-| 도메인 | https://xn--5-w30fr74e.com (한글: 5프로.com) |
+| 도메인 | https://www.5prosky.com |
 | 앱 (Android) | Google Play — `com.steve.kim.sadariapp` |
 | 앱 (iOS) | App Store — id `6747275589` |
 | 운영 시간 | 24시간 |

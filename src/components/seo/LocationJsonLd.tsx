@@ -1,7 +1,7 @@
 import React from 'react'
 import { LOCATIONS_DATA, type RegionData } from '@/lib/regionData'
 
-const SITE_URL = 'https://xn--5-w30fr74e.com'
+const SITE_URL = 'https://www.5prosky.com'
 
 // 슬러그로 상위 광역 지역(서울/경기/인천) 찾기 — 브레드크럼용
 function findParentRegion(citySlug: string): { name: string; slug: string } | null {

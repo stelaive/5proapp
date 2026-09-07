@@ -9,7 +9,7 @@ import type { Metadata } from 'next'
 const SITE_INFO = {
   title: '5프로돌려주는스카이차 ',
   description: '스카이차(고소작업차) 대여 이용료의 5%를 작업 완료 후 현금으로 돌려드립니다. 1톤~19톤 투명한 요금, 24시간 출동. 전화·앱으로 바로 예약하세요.',
-  siteUrl: 'https://xn--5-w30fr74e.com', // ✅ 실제 도메인 설정 완료!
+  siteUrl: 'https://www.5prosky.com', // ✅ 실제 도메인 설정 완료!
   ogImage: '/images/5pro-logo-main.png',
   businessName: '5프로돌려주는스카이차',
   businessPhone: '1877-3924',

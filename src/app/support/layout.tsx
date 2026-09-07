@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '고객지원 | 5프로돌려주는스카이차',
     description: '24시간 고객센터 1877-3924 운영! 스카이차 문의부터 페이백 신청까지 친절한 상담 서비스',
-    url: 'https://xn--5-w30fr74e.com/support',
+    url: 'https://www.5prosky.com/support',
     images: [
       {
         url: '/images/5pro-logo-main.png',

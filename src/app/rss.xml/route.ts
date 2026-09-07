@@ -40,7 +40,7 @@ const pages = [
   },
 ]
 
-const siteUrl = 'https://xn--5-w30fr74e.com'
+const siteUrl = 'https://www.5prosky.com'
 
 function generateRSSItem(page: typeof pages[0]) {
   const url = page.slug === '' ? siteUrl : `${siteUrl}/${page.slug}`

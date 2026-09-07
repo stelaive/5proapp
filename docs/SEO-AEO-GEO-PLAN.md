@@ -92,7 +92,7 @@
 ### 5.1 SEO (검색)
 | 과제 | 내용 | 대상 파일 | 우선 |
 |---|---|---|---|
-| 정규 도메인 통일 | 모든 URL을 punycode(`xn--5-w30fr74e.com`)로 일원화, sitemap/robots/canonical 정합 | `sitemap.ts`, `robots.txt`, `metadata.ts`, `layout.tsx` | P0 |
+| 정규 도메인 통일 | 모든 URL을 `www.5prosky.com`으로 일원화, sitemap/robots/canonical 정합 | `sitemap.ts`, `robots.txt`, `metadata.ts`, `layout.tsx` | P0 |
 | metadataBase 설정 | `metadataBase: new URL(siteUrl)` | `layout.tsx` | P0 |
 | 사이트맵 정합화 | 실제 라이브 도시(강남 포함)·광역 페이지 반영, lastModified 현실화 | `sitemap.ts` | P0 |
 | description 자연문화 | 키워드 나열 → 사람이 읽는 요약문(핵심 키워드 자연 포함) | `metadata.ts` | P2 |

@@ -32,13 +32,13 @@
 
 ## 주요 페이지
 
-- 홈: https://xn--5-w30fr74e.com/
-- 요금표: https://xn--5-w30fr74e.com/pricing
-- 서비스 소개(5% 페이백): https://xn--5-w30fr74e.com/whyhere
-- 친구 초대 보상: https://xn--5-w30fr74e.com/reward
-- 고객센터 FAQ: https://xn--5-w30fr74e.com/support
-- 지역 페이지(서울 25개 자치구 전체): https://xn--5-w30fr74e.com/locations/{구} 형태로 제공. 예) /locations/gangnam (강남구), /locations/seocho (서초구), /locations/songpa (송파구), /locations/mapo (마포구), /locations/yongsan (용산구), /locations/gangseo (강서구), /locations/nowon (노원구), /locations/gwanak (관악구) 등 강남·강동·강북·강서·관악·광진·구로·금천·노원·도봉·동대문·동작·마포·서대문·서초·성동·성북·송파·양천·영등포·용산·은평·종로·중구·중랑구
-- 지역 페이지(경기): https://xn--5-w30fr74e.com/locations/suwon (수원), /locations/anyang (안양), /locations/gunpo (군포)
+- 홈: https://www.5prosky.com/
+- 요금표: https://www.5prosky.com/pricing
+- 서비스 소개(5% 페이백): https://www.5prosky.com/whyhere
+- 친구 초대 보상: https://www.5prosky.com/reward
+- 고객센터 FAQ: https://www.5prosky.com/support
+- 지역 페이지(서울 25개 자치구 전체): https://www.5prosky.com/locations/{구} 형태로 제공. 예) /locations/gangnam (강남구), /locations/seocho (서초구), /locations/songpa (송파구), /locations/mapo (마포구), /locations/yongsan (용산구), /locations/gangseo (강서구), /locations/nowon (노원구), /locations/gwanak (관악구) 등 강남·강동·강북·강서·관악·광진·구로·금천·노원·도봉·동대문·동작·마포·서대문·서초·성동·성북·송파·양천·영등포·용산·은평·종로·중구·중랑구
+- 지역 페이지(경기): https://www.5prosky.com/locations/suwon (수원), /locations/anyang (안양), /locations/gunpo (군포)
 
 ## 자주 묻는 질문 (요약)
 

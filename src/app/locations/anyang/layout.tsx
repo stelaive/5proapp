@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     title: '안양스카이차 | 5프로돌려주는스카이차 (고소작업차)',
     description:
       '경기 안양 전지역(동안·만안) 고소작업 스카이차 임대 25만원! 현장 완료 후 5% 즉시 캐시백. 1톤·3.5톤·5톤 스카이차 당일 배차·1877-3924 상담, 카톡 링크로 간편 예약 가능, 지금 바로 문의하세요',
-    url: 'https://xn--5-w30fr74e.com/locations/anyang',
+    url: 'https://www.5prosky.com/locations/anyang',
     siteName: '5프로스카이차',
     locale: 'ko_KR',
     type: 'website',
     images: [
       {
-        url: 'https://xn--5-w30fr74e.com/region/anyang/anyang-sky-35t.jpg',
+        url: 'https://www.5prosky.com/region/anyang/anyang-sky-35t.jpg',
         width: 1200,
         height: 630,
         alt: '안양 3.5톤 스카이차 외부간판 설치',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://xn--5-w30fr74e.com/locations/anyang',
+    canonical: 'https://www.5prosky.com/locations/anyang',
   },
   robots: {
     index: true,
@@ -56,8 +56,8 @@ export default function AnyangLayout({
     areaServed: '안양, 경기도',
     priceRange: '₩250,000–₩350,000',
     telephone: '1877-3924',
-    url: 'https://xn--5-w30fr74e.com/locations/anyang',
-    image: 'https://xn--5-w30fr74e.com/region/anyang/anyang-sky-35t.jpg',
+    url: 'https://www.5prosky.com/locations/anyang',
+    image: 'https://www.5prosky.com/region/anyang/anyang-sky-35t.jpg',
     description:
       '경기 안양 전지역(동안·만안) 고소작업 스카이차 임대 25만원! 작업 완료 후 5% 즉시 캐시백. 1톤·3.5톤·5톤 스카이차 당일 배차.',
     address: {

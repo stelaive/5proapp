@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      url: `https://xn--5-w30fr74e.com/locations/${regionSlug}`,
+      url: `https://www.5prosky.com/locations/${regionSlug}`,
       images: [
         {
           url: '/images/5pro-logo-main.png',

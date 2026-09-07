@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     title: `${data.nameShort}스카이차 | ${data.phone} | 5% 페이백`,
     description: `${data.nameKo} 전지역 30분 내 배차. 쓰고 돌려받는 5% 캐시백 혜택을 지금 확인하세요.`,
     images: ['/images/5pro-logo-main.png'],
-    url: `https://xn--5-w30fr74e.com/locations/gangnam`,
+    url: `https://www.5prosky.com/locations/gangnam`,
   },
   alternates: {
-    canonical: `https://xn--5-w30fr74e.com/locations/gangnam`,
+    canonical: `https://www.5prosky.com/locations/gangnam`,
   },
 }
 

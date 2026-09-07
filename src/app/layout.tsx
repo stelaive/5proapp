@@ -12,7 +12,7 @@ const SITE_INFO = {
   description: '경기도 스카이차 대여 최저가! 1톤~5톤 스카이차 요금표, 수원·용인·화성·평택 당일 출동, 5% 현금 페이백',
   
   // 사이트 주소 (실제 배포 주소로 변경하세요!)
-  siteUrl: 'https://xn--5-w30fr74e.com', // ✅ 실제 도메인 설정 완료!
+  siteUrl: 'https://www.5prosky.com', // ✅ 실제 도메인 설정 완료!
   
   // 대표 이미지 (SNS 공유시 나타나는 이미지)
   ogImage: '/images/sky-car-logo-icon.png', // ✅ 새로운 로고 이미지로 업데이트!
@@ -32,7 +32,7 @@ const SITE_INFO = {
 export const metadata: Metadata = {
   // OG/트위터 이미지 등 상대경로를 절대경로로 해석하기 위한 기준 URL
   metadataBase: new URL(SITE_INFO.siteUrl),
-  // 정규 URL (punycode 도메인으로 일원화)
+  // 정규 URL (www.5prosky.com 으로 일원화)
   alternates: {
     canonical: '/',
     languages: {

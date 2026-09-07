@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '일거리장터 | 5프로돌려주는스카이차',
     description: '일거리 찾기 어려워? 일거리장터에서 든든한 일감 확보하고 스카이차 이용하면 5% 현금 페이백까지!',
-    url: 'https://xn--5-w30fr74e.com/marketplace',
+    url: 'https://www.5prosky.com/marketplace',
     images: [
       {
         url: '/images/5pro-logo-main.png',

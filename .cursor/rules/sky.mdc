@@ -15,7 +15,7 @@ vercel 배포
 — 8월부터 코딩·영어 학습 집중(웹 제작은 유지보수만)
 
 [URL / 디렉터리 구조]
-도메인: https://5프로.com
+도메인: https://www.5prosky.com
 경로: /지역슬러그/ (예: /gunpo/)
 Next.js 폴더: src/app/(region)/[slug]/page.tsx + 공용 regionData.ts
 스키마: regionData = { slug:"gunpo", nameKo:"군포", nameEn:"Gunpo" … }

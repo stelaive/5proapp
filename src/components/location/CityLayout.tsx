@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/common/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 
-const SITE_URL = 'https://xn--5-w30fr74e.com'
+const SITE_URL = 'https://www.5prosky.com'
 
 /**
  * 도시(자치구) 페이지 공통 레이아웃.

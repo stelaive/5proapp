@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${data.nameShort}스카이차 | ${data.phone} | 5% 페이백`,
     description: `${data.nameKo} 전지역 30분 내 배차. 쓰고 돌려받는 5% 캐시백 혜택을 지금 확인하세요.`,
-    url: 'https://xn--5-w30fr74e.com/locations/seocho',
+    url: 'https://www.5prosky.com/locations/seocho',
     siteName: '5프로스카이차',
     locale: 'ko_KR',
     type: 'website',
     images: [
       {
-        url: 'https://xn--5-w30fr74e.com/images/5pro-logo-main.png',
+        url: 'https://www.5prosky.com/images/5pro-logo-main.png',
         width: 1200,
         height: 630,
         alt: '서초 스카이차 5% 페이백',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://xn--5-w30fr74e.com/locations/seocho',
+    canonical: 'https://www.5prosky.com/locations/seocho',
   },
   robots: {
     index: true,
@@ -65,8 +65,8 @@ export default function SeochoLayout({
     },
     priceRange: '₩250,000–₩650,000',
     telephone: data.phone,
-    url: 'https://xn--5-w30fr74e.com/locations/seocho',
-    image: 'https://xn--5-w30fr74e.com/images/5pro-logo-main.png',
+    url: 'https://www.5prosky.com/locations/seocho',
+    image: 'https://www.5prosky.com/images/5pro-logo-main.png',
     description:
       '서울 서초구(서초·잠원·반포·방배·양재·내곡동) 고소작업 스카이차 임대. 작업 완료 후 5% 즉시 캐시백. 1톤·3.5톤·5톤 스카이차 당일 배차.',
     address: {
