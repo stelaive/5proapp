@@ -237,8 +237,35 @@ export default function RootLayout({
         {/* ============================================ */}
         {/* 🎨 브라우저 스타일 설정 */}
         {/* ============================================ */}
+        {/* 애니메이션 진입 전 상태(opacity:0)로 화면이 비어 보이는 것을 방지.
+            JS가 실행되지 않으면 등장 애니메이션이 영영 돌지 않아 본문이 사라진다. */}
+        <noscript>
+          <style dangerouslySetInnerHTML={{
+            __html: `
+              [style*="opacity:0"], [style*="opacity: 0"] {
+                opacity: 1 !important;
+                transform: none !important;
+              }
+            `
+          }} />
+        </noscript>
+
         <style dangerouslySetInnerHTML={{
           __html: `
+            /* 모션 최소화 설정 사용자: 등장 애니메이션을 건너뛰고 즉시 표시 */
+            @media (prefers-reduced-motion: reduce) {
+              *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+              }
+              [style*="opacity:0"], [style*="opacity: 0"] {
+                opacity: 1 !important;
+                transform: none !important;
+              }
+            }
+
             /* 터치 및 선택 동작 최적화 */
             * {
               -webkit-touch-callout: none;

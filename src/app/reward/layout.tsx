@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: '친구 초대 보상 안내',
   description: '친구 5명을 초대하면 현금 5만원을 드립니다. 반복 참여 가능한 친구 초대 보상의 조건과 지급 방법을 확인하세요.',
   keywords: '친구 초대, 추천 보상, 스카이차 친구초대, 초대 보상금, 5% 페이백',
+  // 페이지 고유 정규 URL — 없으면 루트 layout의 canonical('/')을 상속해
+  // 이 페이지가 홈의 중복으로 취급된다.
+  alternates: {
+    canonical: '/reward',
+  },
   openGraph: {
     title: '친구 초대 보상 안내 | 5프로돌려주는스카이차',
     description: '친구 5명 초대하면 5만원 현금 지급! 무한 반복 가능한 특별 혜택으로 통장에 돈이 계속 쌓인다',

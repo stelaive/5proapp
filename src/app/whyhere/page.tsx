@@ -42,19 +42,19 @@ export default function WhyHere() {
         </motion.div>
         <div className="container mx-auto px-2 sm:px-4 h-screen flex flex-col justify-center relative">
           <div className="max-w-7xl mx-auto text-left relative z-10 px-2 sm:px-4">
-            <motion.h3 
+            <motion.p 
               className="text-lg md:text-xl mb-6 text-white/90 font-jalnan"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
             >
               여긴뭐야?
-            </motion.h3>
-            <div className="text-[24px] sm:text-[28px] md:text-[48px] font-black mb-6 leading-[1.6] md:leading-[1.8] text-white tracking-tight">
+            </motion.p>
+            <h1 className="text-[24px] sm:text-[28px] md:text-[48px] font-black mb-6 leading-[1.6] md:leading-[1.8] text-white tracking-tight">
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="block"
               >
                 "아니, 스카이차 쓰는데<br className="md:hidden" /> 5%를 바로 돌려준다고?
@@ -62,17 +62,17 @@ export default function WhyHere() {
               <motion.span
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 2 }}
+                transition={{ duration: 0.8, delay: 0.35 }}
                 className="block"
               >
                 도대체 어떻게 이게 가능한 겁니까?"
               </motion.span>
-            </div>
+            </h1>
             <motion.p 
               className="text-base sm:text-lg md:text-xl mt-8 text-white/90 font-jalnan"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.5 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
               이런 질문을 듣고 있습니다.
             </motion.p>
@@ -81,7 +81,7 @@ export default function WhyHere() {
             className="absolute bottom-[15%] sm:bottom-12 left-0 right-0 z-20 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
           >
             <p className="text-sm text-white/80 inline-flex items-center justify-center font-jalnan">
               비결이 궁금하다면?
@@ -110,7 +110,7 @@ export default function WhyHere() {
               className="w-24 h-1 bg-sky-orange-500 mx-auto mb-6"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              transition={{ duration: 1, delay: 0.1 }}
               viewport={{ once: true }}
             />
             <motion.p 

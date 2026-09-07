@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: '고객센터 FAQ',
   description: '스카이차 이용 관련 자주 묻는 질문과 답변. 요금 기준, 배차, 페이백 신청 방법을 정리했습니다. 고객센터 1877-3924.',
   keywords: '고객센터, 스카이차 문의, 자주 묻는 질문, 페이백 신청, 배차 문의, 1877-3924',
+  // 페이지 고유 정규 URL — 없으면 루트 layout의 canonical('/')을 상속해
+  // 이 페이지가 홈의 중복으로 취급된다.
+  alternates: {
+    canonical: '/support',
+  },
   openGraph: {
     title: '고객센터 FAQ | 5프로돌려주는스카이차',
     description: '24시간 고객센터 1877-3924 운영! 스카이차 문의부터 페이백 신청까지 친절한 상담 서비스',
