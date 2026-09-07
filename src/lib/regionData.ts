@@ -221,22 +221,25 @@ export const GANGNAM_DATA: RegionData = {
   pricing: {
     items: [
       {
+        // 공식 요금표(src/lib/priceData.ts defaultPriceData)와 값을 일치시킬 것.
+        // 여기서 어긋나면 /pricing 과 지역 페이지가 서로 다른 가격을 고지하게 된다.
         tonnage: '1톤 / 3.5톤',
         thirtyMin: 200000,
         oneHour: 250000,
-        additionalHour: 50000,
+        additionalHour: 150000,
         halfDay: 350000,
         fullDay: 550000
       },
       { 
         tonnage: '5톤', 
-        oneHour: 350000,
-        additionalHour: 50000,
+        thirtyMin: 300000,
+        oneHour: 300000,
+        additionalHour: 200000,
         halfDay: 450000, 
         fullDay: 650000 
       }
     ],
-    notice: '작업 높이, 시간 초과(+5만원/시간), 야간/주말, 현장 진입/주차 여건에 따라 추가 비용이 발생할 수 있습니다.'
+    notice: '작업 높이, 시간 초과(1톤~3.5톤 15만원/시간, 5톤 20만원/시간), 야간/주말, 현장 진입/주차 여건에 따라 추가 비용이 발생할 수 있습니다. 표시 금액은 부가세 별도입니다.'
   },
   
   tonnageGuide: [
