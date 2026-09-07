@@ -12,22 +12,18 @@ export const defaultPriceData: PriceItem[] = [
   { equipment: '5톤 굴절', halfDay: 1000000, fullDay: 1200000, additional: '협의', monthly: '협의' },
 ]
 
-// 군포 지역 가격 데이터
-export const gunpoPriceData: PriceItem[] = [
-  { equipment: '1톤 ~ 3.5톤', halfDay: 350000, fullDay: 550000, additional: 150000, monthly: 12000000 },
-  { equipment: '5톤 (45m)', halfDay: 450000, fullDay: 650000, additional: 200000, monthly: 14000000 },
-]
-
-// 안양 지역 가격 데이터 (기존과 동일)
+// ============================================
+// 지역별 가격 데이터
+// ============================================
+// 요금은 지역과 무관하게 전국 동일합니다. 따라서 지역별 배열을 따로 두지 않고
+// 모두 defaultPriceData를 가리킵니다.
+//
+// ⚠️ 지역마다 값을 복제해 두면 한쪽만 고쳐져 /pricing 과 지역 페이지가 서로 다른
+//    가격을 고지하게 됩니다. 실제로 그런 사고가 있었습니다.
+//    특정 지역 요금이 달라지는 경우에만 별도 배열을 만드세요.
+export const gunpoPriceData: PriceItem[] = defaultPriceData
 export const anyangPriceData: PriceItem[] = defaultPriceData
-
-// 수원 지역 가격 데이터 (실제 가격표 반영)
-export const suwonPriceData: PriceItem[] = [
-  { equipment: '1톤 ~ 3.5톤', halfDay: 350000, fullDay: 550000, additional: 250000, monthly: 12000000 },
-  { equipment: '5톤 (45m)', halfDay: 450000, fullDay: 650000, additional: 350000, monthly: 14000000 },
-  { equipment: '8톤 (54m)', halfDay: 700000, fullDay: 900000, additional: '협의', monthly: '협의' },
-  { equipment: '17톤 (58~65m)', halfDay: 1000000, fullDay: 1200000, additional: '협의', monthly: '협의' },
-]
+export const suwonPriceData: PriceItem[] = defaultPriceData
 
 // 지역별 계산기 옵션
 export const gunpoCalculatorOptions = [
