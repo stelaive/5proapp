@@ -5,7 +5,7 @@ import Layout from '@/components/common/Layout'
 
 // SEO 메타데이터 확장
 export const metadata: Metadata = {
-  title: '군포스카이차 | 5프로돌려주는스카이차 (고소작업차)',
+  title: '군포스카이차 (고소작업차)',
   description:
     '경기 군포 전지역(산본·대야미·금정동) 고소작업 스카이차 임대 25만원! 현장 완료 후 5% 즉시 캐시백. 1톤·3.5톤·5톤 스카이차 당일 배차·1877-3924 상담, 카톡 링크로 간편 예약 가능, 지금 바로 문의하세요',
   keywords: [

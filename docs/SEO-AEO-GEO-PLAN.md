@@ -40,7 +40,7 @@
 | # | 갭 | 근거 | 영향 | 우선순위 |
 |---|---|---|---|---|
 | G1 | **`metadataBase` 미설정** → OG/트위터 이미지가 `localhost:3000`으로 해석 | `next build` 경고 확인 | 공유 미리보기 깨짐 | **P0** |
-| G2 | **정규 도메인 표기 혼용** — sitemap은 `https://5프로.com`(비인코딩), canonical/metadata는 `xn--5-w30fr74e.com`(punycode), robots는 둘 다 등록 | `sitemap.ts` L5, `layout.tsx` canonical, `robots.txt` L20-21 | 정규화 신호 분산·중복 색인 | **P0** |
+| G2 | **정규 도메인 통일** — 2026-09-07 해소. 전 URL을 `https://www.5prosky.com`으로 일원화(구 도메인은 만료·회수 불가로 완전 폐기) | `sitemap.ts`, `layout.tsx` canonical, `robots.txt` | 정규화 신호 집중 | **해소** |
 | G3 | **사이트맵 ↔ 실제 페이지 불일치** — `gangnam` 페이지 존재하나 sitemap `LIVE_CITY_SLUGS`(anyang/gunpo/suwon)에 없음. 홈은 gangnam으로 내부링크. `/locations/[region]`(seoul/gyeonggi/incheon)도 sitemap 미포함 | `sitemap.ts` L62, `AreaSection.tsx` | 색인 누락·모순 | **P0** |
 | G4 | **FAQPage 구조화 데이터 없음** — 홈/`support`에 FAQ 콘텐츠 있으나 JSON-LD 미적용 | `FaqSection.tsx`, `support` | AEO(리치결과) 기회 상실 | **P1** |
 | G5 | **Service/Offer + 가격 스키마 부재** — `regionData`에 실제 요금 있으나 미활용 | `regionData.ts` pricing | 가격 리치결과·GEO 사실성 | **P1** |
@@ -141,10 +141,10 @@
 
 ## 8. 기술 SEO 체크리스트
 - [ ] `metadataBase` 설정 (G1)
-- [ ] 전 URL punycode 정규화, canonical 일관 (G2)
+- [x] 전 URL `www.5prosky.com` 정규화, canonical 일관 (G2)
 - [ ] sitemap 라이브 페이지 정합 + lastModified 현실화 (G3, G10)
 - [ ] robots.txt 사이트맵 1개(정규 도메인)로 정리
-- [ ] 404/리다이렉트 점검 (한글 도메인 ↔ punycode)
+- [ ] apex(`5prosky.com`) → `www` 301 리다이렉트 설정 및 404 점검 ※호스팅 대시보드 작업
 - [ ] 모바일 LCP < 2.5s, 가로 오버플로 0 (이미 전역 처리)
 - [ ] 구조화 데이터 리치결과 테스트 통과 (Google Rich Results Test)
 
@@ -185,7 +185,7 @@ FAQPage(G4) · Service/Offer 가격(G5) · BreadcrumbList(G6) · LocalBusiness N
 ## 12. 오픈 이슈 (운영 확인 필요)
 1. **정식 상호명 / 사업장 주소 / 위경도** — `LocalBusiness` address·geo 채우려면 필요 (G7).
 2. **페이백 지급 방식·요금 고정·취소 규정** 실제 정책 — FAQ/스키마 사실화.
-3. **정규 도메인 최종 결정** — punycode 도메인을 정식 canonical로 확정하는지.
+3. ~~**정규 도메인 최종 결정**~~ — 확정됨(2026-09-07): `https://www.5prosky.com`.
 4. **SNS/스토어 URL** — `sameAs` 채울 채널(인스타·블로그·플레이스 등).
 5. **우선 확장 도시** — 수도권(성남·용인·화성)과 대전·충남·충북·강원 등 전국(제주 제외) 중 어느 지역부터 심층 페이지화할지.
 

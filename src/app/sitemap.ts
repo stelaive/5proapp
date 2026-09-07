@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next'
 import { LOCATIONS_DATA, LIVE_CITY_SLUGS } from '@/lib/regionData'
+import { LATEST_NEWS_DATE } from '@/lib/newsData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // 정규 도메인: punycode로 일원화 (canonical·robots와 일치)
+  // 정규 도메인: www.5prosky.com으로 일원화 (canonical·robots와 일치)
   const baseUrl = 'https://www.5prosky.com'
 
   // lastModified를 실제 페이지 업데이트 날짜로 고정
@@ -31,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: '2025-07-22', // 마켓플레이스 업데이트
       changeFrequency: 'weekly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/news`,
+      lastModified: LATEST_NEWS_DATE, // 최신 소식 게시일과 자동 동기화
+      changeFrequency: 'weekly',
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/support`,

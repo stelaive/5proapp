@@ -7,7 +7,7 @@ import FloatingDownload from '@/components/FloatingDownload'
 // SEO 메타데이터 확장
 export const metadata: Metadata = {
   // [수정] 가장 중요한 키워드 '수원스카이차'를 맨 앞에 배치했습니다.
-  title: '수원스카이차 | 5% 캐시백 고소작업차 임대 (5프로돌려주는스카이차)',
+  title: '수원스카이차 · 5% 캐시백 고소작업차 임대',
   description:
     '수원 스카이차 임대 당일 배차, 25만원부터. 영통·팔달·장안·권선 등 수원 전지역 고소작업차, 1톤·3.5톤·5톤 보유. 작업 후 5% 즉시 캐시백. 지금 바로 상담하세요.',
   keywords: [

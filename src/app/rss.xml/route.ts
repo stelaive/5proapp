@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { NEWS_ITEMS } from '@/lib/newsData'
 
 // RSS 피드에 포함할 페이지들 정보
 const pages = [
@@ -40,6 +41,14 @@ const pages = [
   },
 ]
 
+// 소식 페이지의 개별 항목도 피드에 포함 (RSS의 본래 용도)
+const newsEntries = NEWS_ITEMS.map((item) => ({
+  slug: `news#${item.id}`,
+  title: item.title,
+  description: item.body[0] ?? '',
+  lastModified: new Date(item.date),
+}))
+
 const siteUrl = 'https://www.5prosky.com'
 
 function generateRSSItem(page: typeof pages[0]) {
@@ -56,7 +65,7 @@ function generateRSSItem(page: typeof pages[0]) {
 }
 
 function generateRSS() {
-  const rssItems = pages.map(generateRSSItem).join('')
+  const rssItems = [...newsEntries, ...pages].map(generateRSSItem).join('')
   
   return `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">

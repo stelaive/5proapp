@@ -11,7 +11,7 @@ const KEY_AREAS = ['서초동', '잠원동', '반포동', '방배동', '양재�
 
 export const metadata: Metadata = {
   // 핵심 키워드 '서초스카이차'(붙여쓰기)를 맨 앞에 배치
-  title: `${data.nameShort}스카이차 | ${data.phone} | 5% 페이백해주는 스카이차`,
+  title: `${data.nameShort}스카이차 | ${data.phone}`,
   description: `${data.localIntro} 작업 완료 시 5% 현금 페이백! ${data.phone}`,
   keywords: [
     `${data.nameShort}스카이차`,

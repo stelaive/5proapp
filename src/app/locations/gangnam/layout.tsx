@@ -7,7 +7,7 @@ import FloatingDownload from '@/components/FloatingDownload'
 const data = GANGNAM_DATA;
 
 export const metadata: Metadata = {
-  title: `${data.nameShort}스카이차 | ${data.phone} | 5% 페이백해주는 스카이차`,
+  title: `${data.nameShort}스카이차 | ${data.phone}`,
   description: `${data.localIntro} 작업 완료 시 5% 현금 페이백! ${data.phone}`,
   keywords: `${data.nameShort}스카이차, ${data.subAreas.map(area => `${area}스카이차`).join(', ')}, 강남스카이차가격, 스카이차비용, 1톤스카이차, 2.5톤스카이차, 3.5톤스카이차, 5톤스카이차, 굴절스카이차`,
   openGraph: {

@@ -5,11 +5,16 @@ import './globals.css'
 // 🔧 여기서 사이트 정보를 수정하세요!
 // ============================================
 const SITE_INFO = {
-  // 사이트 제목 (브라우저 탭에 나오는 제목)
+  // 브랜드명 (OG siteName·앱 이름 등에 사용)
   title: '5프로돌려주는스카이차',
+
+  // 홈 화면 제목 (검색결과에 노출되는 제목)
+  // ※ 하위 페이지는 metadata.title.template이 브랜드를 자동으로 붙이므로
+  //    각 페이지 layout에서 브랜드명을 다시 적지 말 것 (중복 출력됨)
+  homeTitle: '스카이차 대여·고소작업차 임대 | 5프로돌려주는스카이차',
   
   // 사이트 간단 설명 (검색결과에 나오는 설명)
-  description: '경기도 스카이차 대여 최저가! 1톤~5톤 스카이차 요금표, 수원·용인·화성·평택 당일 출동, 5% 현금 페이백',
+  description: '스카이차·고소작업차 대여. 1톤~19톤 장비로 제주 제외 전국 24시간 배차합니다. 반나절·하루 요금 기준 공개, 이용료 5% 현금 환급. 상담 1877-3924',
   
   // 사이트 주소 (실제 배포 주소로 변경하세요!)
   siteUrl: 'https://www.5prosky.com', // ✅ 실제 도메인 설정 완료!
@@ -22,8 +27,8 @@ const SITE_INFO = {
   businessPhone: '1877-3924',
   businessEmail: 'man7866@naver.com',
   
-  // 주요 키워드 (검색 최적화용 - 네이버 예티 AI 최적화)
-  keywords: '스카이차대여, 스카이차가격, 스카이차요금표, 고소작업차대여, 1톤스카이차, 3.5톤스카이차, 5톤스카이차, 수원스카이차대여, 용인스카이차, 화성스카이차가격, 평택고소작업차, 성남스카이차, 시흥외벽작업, 인천간판설치, 경기도스카이차, 안양스카이차, 부천고소작업차, 의정부스카이차대여, 고양스카이차업체, 파주외벽청소, 김포스카이차, 광명고소작업, 구리스카이차가격, 남양주스카이차, 하남고소작업차, 당일스카이차대여, 긴급스카이차, 24시간스카이차, 주말스카이차대여, 새벽스카이차, 야간고소작업, 창호공사스카이차, 도장작업스카이차, 전기공사고소작업차, 에어컨설치스카이차, 간판교체스카이차, 외벽청소고소작업, 지붕공사스카이차, 방수공사고소작업차, 태양광설치스카이차, 스카이차5%페이백, 스카이차현금돌려받기, 스카이차할인업체, 저렴한스카이차, 스카이차견적, 스카이차추천, 믿을만한스카이차업체, 스카이차후기'
+  // 주요 키워드 (핵심어만 유지 — 나열식 확장은 효과 없고 주제를 흐림)
+  keywords: '스카이차, 스카이차 대여, 스카이차 임대, 스카이차 가격, 스카이차 요금표, 고소작업차, 고소작업차 대여, 굴절 스카이차, 1톤 스카이차, 3.5톤 스카이차, 5톤 스카이차, 스카이차 견적, 스카이차 5% 페이백', 
 }
 
 // ============================================
@@ -41,7 +46,7 @@ export const metadata: Metadata = {
   },
   // 기본 제목과 설명
   title: {
-    default: SITE_INFO.title,
+    default: SITE_INFO.homeTitle,
     template: '%s | 5프로돌려주는스카이차' // 페이지별 제목 형식
   },
   description: SITE_INFO.description,
@@ -72,7 +77,7 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     url: SITE_INFO.siteUrl,
     siteName: SITE_INFO.businessName,
-    title: SITE_INFO.title,
+    title: SITE_INFO.homeTitle,
     description: SITE_INFO.description,
     images: [
       {
@@ -87,7 +92,7 @@ export const metadata: Metadata = {
   // 트위터 공유 최적화
   twitter: {
     card: 'summary_large_image',
-    title: SITE_INFO.title,
+    title: SITE_INFO.homeTitle,
     description: SITE_INFO.description,
     images: [`${SITE_INFO.siteUrl}${SITE_INFO.ogImage}`],
   },
@@ -219,7 +224,7 @@ export default function RootLayout({
         
         {/* ============================================ */}
         {/* 🔗 사이트 연결 최적화 */}
-        {/* canonical/hreflang은 metadata.alternates에서 일원 관리 (punycode 도메인) */}
+        {/* canonical/hreflang은 metadata.alternates에서 일원 관리 (www.5prosky.com) */}
         {/* ============================================ */}
 
         {/* ============================================ */}

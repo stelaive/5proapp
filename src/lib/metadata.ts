@@ -5,16 +5,21 @@
 
 import type { Metadata } from 'next'
 
+// ⚠️ 이 모듈은 현재 어느 페이지에서도 import 하지 않습니다(미사용).
+//    각 페이지는 자기 layout.tsx에 metadata를 직접 선언하고 있습니다.
+//    되살려 쓸 경우 generatePageMetadata의 title에는 브랜드명을 넣지 마세요 —
+//    루트 layout의 title.template이 자동으로 붙여 중복 출력됩니다.
+
 // 기본 사이트 정보 (layout.tsx와 동일하게 유지)
 const SITE_INFO = {
   title: '5프로돌려주는스카이차 ',
-  description: '스카이차(고소작업차) 대여 이용료의 5%를 작업 완료 후 현금으로 돌려드립니다. 1톤~19톤 투명한 요금, 24시간 출동. 전화·앱으로 바로 예약하세요.',
+  description: '스카이차·고소작업차 대여. 1톤~19톤 장비로 제주 제외 전국 24시간 배차합니다. 반나절·하루 요금 기준 공개, 이용료 5% 현금 환급. 상담 1877-3924',
   siteUrl: 'https://www.5prosky.com', // ✅ 실제 도메인 설정 완료!
   ogImage: '/images/5pro-logo-main.png',
   businessName: '5프로돌려주는스카이차',
   businessPhone: '1877-3924',
   businessEmail: 'man7866@naver.com',
-  keywords: '스카이차, 스카이차가격, 스카이차요금, 스카이차요금표, 고소작업차, 건설, 욕실리모델링, 유품정리, CCTV, 철거, 닥트공사, 전기공사, 외벽청소, 설비, 인테리어, 조경공사, 전등교체, 금속공사, 에어컨, 페인트, 판넬, 지붕공사, 간판, 실리콘코킹, 태양광설치, 타일시공, 방수공사, 창호공사, 페이백, 5%페이백, 친구초대, 일거리장터, 외벽작업, 고소작업, 장비대여,1톤스카이차, 3.5톤스카이차, 5톤스카이차'
+  keywords: '스카이차, 스카이차 대여, 스카이차 임대, 스카이차 가격, 스카이차 요금표, 고소작업차, 고소작업차 대여, 굴절 스카이차, 1톤 스카이차, 3.5톤 스카이차, 5톤 스카이차, 스카이차 견적, 스카이차 5% 페이백'
 }
 
 // ============================================
@@ -35,9 +40,11 @@ export function generatePageMetadata({
   image = SITE_INFO.ogImage,
   path
 }: PageMetadataOptions): Metadata {
-  const fullTitle = `${title} | ${SITE_INFO.businessName}`
+  const fullTitle = title // 브랜드명은 루트 layout의 title.template이 붙임
   const fullUrl = `${SITE_INFO.siteUrl}${path}`
   
+  const socialTitle = `${title} | ${SITE_INFO.businessName}`
+
   return {
     title: fullTitle,
     description,
@@ -50,7 +57,7 @@ export function generatePageMetadata({
 
     // Open Graph (카카오톡, 페이스북 등)
     openGraph: {
-      title: fullTitle,
+      title: socialTitle,
       description,
       url: fullUrl,
       siteName: SITE_INFO.businessName,
@@ -69,7 +76,7 @@ export function generatePageMetadata({
     // Twitter 공유
     twitter: {
       card: 'summary_large_image',
-      title: fullTitle,
+      title: socialTitle,
       description,
       images: [image],
     },
@@ -93,7 +100,7 @@ export const PAGE_METADATA = {
   // 홈페이지
   home: generatePageMetadata({
     title: '홈',
-    description: '스카이차 쓰면 이용료의 5%를 현금으로 돌려드립니다. 24시간 콜센터, 투명한 가격의 믿을 수 있는 스카이차 서비스입니다.',
+    description: '스카이차 이용료의 5%를 현금으로 돌려드립니다. 1톤~19톤 장비, 반나절·하루 요금 기준 공개. 상담 1877-3924',
     keywords: '스카이차, 페이백, 5%페이백, 건설장비, 고소작업',
     path: '/'
   }),
@@ -101,7 +108,7 @@ export const PAGE_METADATA = {
   // 가격표 페이지
   pricing: generatePageMetadata({
     title: '스카이차 가격표',
-    description: '1톤부터 19톤까지 투명한 스카이차 가격표. 반나절, 하루, 월단위 이용료와 5% 페이백 혜택까지! 지금 확인하세요.',
+    description: '스카이차 1톤~19톤 요금 기준과 추가 비용 조건을 안내합니다. 반나절 4시간·하루 8시간 기준. 이용료 5% 현금 환급.',
     keywords: '스카이차 가격, 대여료, 비용, 요금표, 1톤, 5톤, 8톤, 17톤, 19톤',
     path: '/pricing'
   }),
