@@ -1,13 +1,17 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
+import WorkGuide from '@/components/seo/WorkGuide'
+import { LOCATIONS_DATA } from '@/lib/regionData'
+import { PRICE_NOTICE } from '@/lib/seo'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { RegionData } from '@/lib/regionData'
 import PriceCalculator from '@/components/common/PriceCalculator'
 import LocationJsonLd from '@/components/seo/LocationJsonLd'
 
-const HERO_BADGES = ['24시간 긴급출동', '당일 배차 가능', '무사고 10년+', '특수장비 검사완료']
+const HERO_BADGES = ['현장 조건별 장비 상담', '시간별 요금 안내', '배차 일정 확인']
 
 const BRAND = '#F97316'
 const BRAND_HOVER = '#EA580C'
@@ -28,11 +32,11 @@ function buildCityFaq(data: RegionData): { q: string; a: string }[] {
   return [
     {
       q: `${data.nameKo}에서도 스카이차를 부를 수 있나요?`,
-      a: `네, ${data.nameKo} 전 지역으로 24시간 출동합니다. ${areas} 등 어디든 가장 가까운 차량을 신속하게 배차해 드려요.`,
+      a: `${areas} 등 ${data.nameKo} 현장의 주소와 작업 내용을 알려주세요. 장비 일정과 진입 조건을 확인한 뒤 배차 가능 여부를 안내합니다.`,
     },
     {
-      q: `${data.nameKo} 스카이차 요금은 얼마인가요?`,
-      a: `${first.tonnage}은 ${first.thirtyMin ? `30분 ${won(first.thirtyMin)}, ` : ''}1시간 ${won(first.oneHour)}, 반나절 ${won(first.halfDay)}, 하루 ${won(first.fullDay)}입니다. 톤수·시간 기준으로 요금이 사전에 정해져 있어 부르는 대로 달라지지 않아요. (부가세 별도)`,
+      q: `${data.nameKo} 스카이차 비용은 얼마인가요?`,
+      a: `${first.tonnage}은 ${first.thirtyMin ? `30분 ${won(first.thirtyMin)}, ` : ''}1시간 ${won(first.oneHour)}, 반나절 ${won(first.halfDay)}, 하루 ${won(first.fullDay)} 기준입니다. ${PRICE_NOTICE}`,
     },
     {
       q: '5% 페이백은 어떻게 받나요?',
@@ -50,6 +54,7 @@ function buildCityFaq(data: RegionData): { q: string; a: string }[] {
 }
 
 export default function CityPageTemplate({ data }: { data: RegionData }) {
+  const parent = LOCATIONS_DATA.find((location) => (location.groups?.flatMap((group) => group.cities) || location.cities || []).some((city) => city.slug === data.slug))
   const telHref = `tel:${data.phone.replace(/-/g, '')}`
   const standardFaq = data.faq && data.faq.length > 0 ? data.faq : buildCityFaq(data)
   // 구별 특화 FAQ가 있으면 표준 FAQ 앞에 병합 (FAQPage 스키마·화면 모두 반영)
@@ -93,15 +98,15 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
           <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/15 px-3 py-1.5 text-sm font-semibold text-orange-300">
               <span className="h-2 w-2 rounded-full bg-orange-400 motion-safe:animate-pulse" />
-              {data.nameKo} 24시간 출동
+              {data.nameKo} 스카이차 견적 상담
             </span>
             <h1 id="city-hero" className="mt-5 font-jalnan text-[2rem] font-bold leading-[1.25] md:text-5xl md:leading-[1.2]">
-              {data.nameShort}스카이차,
+              {data.nameShort}스카이차 대여,
               <br />
               <span style={{ color: BRAND }}>5%</span> 돌려받고 부르세요
             </h1>
             <p className="mt-5 text-base leading-relaxed text-gray-300 md:text-lg">
-              {data.hero.subCopy}
+              {data.subAreas.slice(0, 3).join('·')} 등 {data.nameKo} 간판작업·외벽 보수 장비 상담
               <br className="hidden sm:block" /> 작업 끝나면 이용료의 5%를 현금으로 돌려드려요.
             </p>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
@@ -134,13 +139,18 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
       </section>
 
       {/* 섹션 2. 요금 (계산기 + 요금표) — 하나의 회색존으로 통합 */}
+      <nav aria-label="현재 위치" className="mx-auto max-w-5xl px-4 py-5 text-sm text-gray-600">
+        <Link href="/" className="underline">홈</Link>
+        {parent && <> / <Link href={`/locations/${parent.slug}`} className="underline">{parent.name} 스카이차</Link></>}
+        {' / '}<span aria-current="page">{data.nameKo} 스카이차 대여</span>
+      </nav>
       <PriceCalculator />
       <section aria-labelledby="city-price" className="bg-gray-50 pt-0 pb-16">
         <div className="container mx-auto px-4">
           <motion.div className="mx-auto max-w-3xl text-center" {...fadeInUp}>
             <p className="mb-3 text-sm font-bold" style={{ color: BRAND }}>투명한 요금</p>
             <h2 id="city-price" className="font-jalnan text-2xl font-bold text-gray-900 md:text-3xl">
-              {data.nameShort}스카이차 요금표
+              {data.nameShort} 스카이차 비용·가격표
             </h2>
           </motion.div>
           <div className="mx-auto mt-8 max-w-2xl overflow-x-auto">
@@ -167,9 +177,12 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
               </tbody>
             </table>
           </div>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-xs leading-relaxed text-gray-400">{data.pricing.notice}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-gray-600">반나절 4시간·하루 8시간 기준. {data.pricing.notice}</p>
+          <p className="mt-5 text-center"><Link href="/pricing#cost-guide" className="font-semibold text-orange-800 underline underline-offset-4">전체 장비 스카이차비용·추가요금 확인</Link></p>
         </div>
       </section>
+
+      <WorkGuide region={data.nameKo} />
 
       {/* 섹션 3. 이용 방법 + 5% 페이백 강조 카드 */}
       <section aria-labelledby="city-steps" className="bg-white py-16">
@@ -231,12 +244,12 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
                 key={area}
                 className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm transition-colors hover:border-[#F97316] hover:text-[#F97316]"
               >
-                {area} 스카이차
+                {area}
               </span>
             ))}
           </div>
           <p className="mt-6 text-center text-sm text-gray-500">
-            * {data.subAreas[0]} 외 {data.nameKo} 전 지역 30분 이내 도착을 목표로 하고 있습니다.
+            * {data.nameKo} 현장 위치와 장비 일정에 따라 배차 가능 시간은 달라집니다.
           </p>
 
           {/* 작업 사례 (이미지 있을 때만) */}

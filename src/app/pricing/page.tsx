@@ -1,5 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
+import CostGuide from '@/components/seo/CostGuide'
+import RegionLinks from '@/components/seo/RegionLinks'
 import { motion } from 'framer-motion'
 import PriceTable from '@/components/common/PriceTable'
 import { defaultPriceData } from '@/lib/priceData'
@@ -21,26 +23,27 @@ export default function PricingPage() {
     serviceType: '스카이차(고소작업차) 대여',
     description: '1톤~19톤 스카이차 대여. 작업 완료 후 이용료의 5%를 현금으로 페이백.',
     provider: {
-      '@type': 'LocalBusiness',
+      '@type': 'Organization',
+      '@id': 'https://www.5prosky.com/#organization',
       name: '5프로돌려주는스카이차',
       telephone: '1877-3924',
     },
-    offers: {
+    url: 'https://www.5prosky.com/pricing',
+    hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: '스카이차 장비별 이용요금 (하루 기준)',
+      name: '스카이차 장비별 단시간·하루 이용요금',
       itemListElement: [
         {
           '@type': 'Offer',
           name: '1톤~3.5톤 스카이차 (30분 단시간)',
           priceCurrency: 'KRW',
-          price: '200000',
+          price: String(defaultPriceData[0].shortTime),
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
-            price: '200000',
+            price: String(defaultPriceData[0].shortTime),
             priceCurrency: 'KRW',
             referenceQuantity: { '@type': 'QuantitativeValue', value: 30, unitText: '분' },
           },
-          availability: 'https://schema.org/InStock',
         },
         ...defaultPriceData
           .filter((p) => typeof p.fullDay === 'number')
@@ -55,7 +58,6 @@ export default function PricingPage() {
               priceCurrency: 'KRW',
               referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitText: '일(8시간)' },
             },
-            availability: 'https://schema.org/InStock',
           })),
       ],
     },
@@ -75,10 +77,10 @@ export default function PricingPage() {
             {...fadeInUp}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6 font-jalnan">
-              스카이차 가격표
+              스카이차 가격표와 대여 비용
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              투명하고 합리적인 가격으로 최고의 서비스를 제공합니다
+              1시간·반나절·하루 스카이차비용과 현장별 견적 조건을 확인하세요
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 inline-block">
               <p className="text-lg font-bold text-yellow-300 mb-2">🎉 특별 혜택!</p>
@@ -94,7 +96,7 @@ export default function PricingPage() {
       <motion.div {...fadeInUp}>
         <PriceTable
           title="장비별 이용요금"
-          subtitle="투명하고 합리적인 가격으로 최고의 서비스를 제공합니다"
+          subtitle="1시간·반나절·하루 스카이차비용과 현장별 견적 조건을 확인하세요"
           priceData={defaultPriceData}
           region="전국"
           className="bg-white"
@@ -108,6 +110,9 @@ export default function PricingPage() {
         </p>
       </div>
 
+      <CostGuide />
+      <RegionLinks />
+
       {/* 전화 연결 섹션 */}
       <section className="py-16 text-white" style={{ background: 'linear-gradient(to bottom right, #F97316, #EA580C)' }}>
         <div className="container mx-auto px-4 text-center">
@@ -116,7 +121,7 @@ export default function PricingPage() {
             {...fadeInUp}
           >
             <h2 className="text-3xl font-bold mb-4 font-jalnan">
-              궁금한 점이 있으신가요?
+              내 현장 스카이차 견적이 필요하신가요?
             </h2>
             <p className="text-xl mb-8 opacity-90">
               24시간 상담 가능! 지금 바로 전화주세요.

@@ -1,9 +1,18 @@
 import { JUNGGU_DATA } from '@/lib/regionData'
-import { buildCityMetadata } from '@/lib/cityMetadata'
-import CityLayout from '@/components/location/CityLayout'
+import { cityMetadata } from '@/lib/seo'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/common/Footer'
+import FloatingDownload from '@/components/FloatingDownload'
 
-export const metadata = buildCityMetadata(JUNGGU_DATA)
+export const metadata = cityMetadata(JUNGGU_DATA)
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  return <CityLayout data={JUNGGU_DATA}>{children}</CityLayout>
+export default function CityLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Navigation currentPage="locations" />
+      <main className="flex-grow">{children}</main>
+      <Footer />
+      <FloatingDownload />
+    </div>
+  )
 }

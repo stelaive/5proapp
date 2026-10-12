@@ -1,4 +1,15 @@
 import React from 'react'
+import { pageMetadata } from '@/lib/seo'
+import WorkGuide from '@/components/seo/WorkGuide'
+import RegionLinks from '@/components/seo/RegionLinks'
+
+export const metadata = pageMetadata(
+  '스카이차 대여·고소작업차 임대 | 간판작업 견적',
+  '간판 설치·교체·철거, 외벽 보수에 필요한 스카이차 대여를 상담하세요. 작업 높이와 현장 조건에 맞는 장비, 스카이차비용·가격표와 지역별 배차 안내를 확인할 수 있습니다. 1877-3924.',
+  '/',
+  ['스카이차 대여', '고소작업차 임대', '간판작업 스카이차', '간판 교체 스카이차', '스카이차비용'],
+)
+
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/common/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
@@ -21,6 +32,8 @@ export default function Home() {
         <ProblemSection />
         {/* 3. 서비스(해결) */}
         <ServiceSection />
+        <WorkGuide />
+        <RegionLinks />
         {/* 4. FAQ */}
         <FaqSection />
         {/* 5. CTA */}

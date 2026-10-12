@@ -1,37 +1,14 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/common/Footer'
 import FloatingDownload from '@/components/FloatingDownload'
 
-export const metadata: Metadata = {
-  title: '스카이차 가격표·요금 기준',
-  description: '스카이차 1톤~19톤 요금 기준과 추가 비용 조건을 안내합니다. 반나절 4시간·하루 8시간 기준. 이용료 5% 현금 환급. 견적 상담 1877-3924',
-  keywords: '스카이차 가격, 스카이차 요금표, 스카이차 대여 비용, 반나절 요금, 하루 요금, 1톤 스카이차 가격, 3.5톤 스카이차 가격, 5톤 스카이차 가격, 고소작업차 요금, 스카이차 추가 요금, 스카이차 견적',
-  // 페이지 고유 정규 URL — 없으면 루트 layout의 canonical('/')을 상속해
-  // 이 페이지가 홈의 중복으로 취급된다.
-  alternates: {
-    canonical: '/pricing',
-  },
-  openGraph: {
-    title: '스카이차 가격표·요금 기준 | 5프로돌려주는스카이차',
-    description: '경기도 어디든 당일 출동! 바가지 없는 투명한 스카이차 가격표 + 5% 현금 즉시 돌려받기!',
-    url: 'https://www.5prosky.com/pricing',
-    images: [
-      {
-        url: '/images/5pro-logo-main.png',
-        width: 1200,
-        height: 630,
-        alt: '스카이차 가격표 - 5프로돌려주는스카이차',
-      }
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: '스카이차 가격표·요금 기준 | 5프로돌려주는스카이차',
-    description: '경기도 어디든 당일 출동! 바가지 없는 투명한 스카이차 가격표 + 5% 현금 즉시 돌려받기!',
-    images: ['/images/5pro-logo-main.png'],
-  },
-}
+export const metadata = pageMetadata(
+  '스카이차 가격표 · 스카이차비용·대여 견적',
+  '스카이차비용을 1톤~19톤 장비와 30분·1시간·반나절·하루 기준으로 확인하세요. 간판작업·외벽 보수의 대여 가격, 추가 비용과 견적 준비사항을 안내합니다. 상담 1877-3924.',
+  '/pricing',
+  ['스카이차가격', '스카이차비용', '스카이차 대여 비용', '스카이차 가격표', '간판작업 스카이차 비용', '스카이차 견적'],
+)
 
 export default function PricingLayout({
   children,

@@ -30,12 +30,14 @@ export async function generateStaticParams() {
   return params;
 }
 
-// 중첩 경로는 canonical 평면 경로(/locations/{city})로 301 리다이렉트한다.
+// 중첩 경로는 canonical 평면 경로(/locations/{city})로 308 리다이렉트한다.
 // 모든 도시 전용 페이지는 flat 경로에 존재하므로 중복 콘텐츠 없이 URL만 열어준다.
 export default async function NestedRegionCityPage({ params }: Props) {
   const { region, city } = await params;
 
-  if (!REGION_SLUGS.includes(region) || !LIVE_CITY_SET.has(city)) {
+  const parent = LOCATIONS_DATA.find((location) => location.slug === region);
+  const cities = parent?.groups?.flatMap((group) => group.cities) || parent?.cities || [];
+  if (!REGION_SLUGS.includes(region) || !LIVE_CITY_SET.has(city) || !cities.some((item) => item.slug === city)) {
     notFound();
   }
 

@@ -71,7 +71,7 @@ export default function HeroSection() {
               variants={item}
               className="mt-5 font-jalnan text-[2rem] font-bold leading-[1.25] md:text-5xl md:leading-[1.2]"
             >
-              스카이차 이용료{' '}
+              스카이차 대여, 이용료{' '}
               <span className="whitespace-nowrap">
                 <span
                   className="align-baseline text-[2.75rem] leading-none md:text-6xl"

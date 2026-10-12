@@ -61,13 +61,14 @@ export default function LocationJsonLd({ data }: { data: RegionData }) {
     description: `${data.nameKo} 전 지역 스카이차 대여. 작업 완료 후 이용료의 5%를 현금으로 페이백.`,
     url: cityUrl,
     provider: {
-      '@type': 'LocalBusiness',
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
       name: '5프로돌려주는스카이차',
       telephone: data.phone,
       areaServed: { '@type': 'Place', name: `${data.nameKo} 전지역` },
     },
     areaServed: { '@type': 'Place', name: data.nameKo },
-    offers: {
+    hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `${data.nameKo} 스카이차 톤수별 요금`,
       itemListElement: data.pricing.items.map((item) => ({
@@ -81,7 +82,6 @@ export default function LocationJsonLd({ data }: { data: RegionData }) {
           priceCurrency: 'KRW',
           referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitText: '시간' },
         },
-        availability: 'https://schema.org/InStock',
       })),
     },
   }

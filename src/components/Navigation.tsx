@@ -14,8 +14,6 @@ interface NavigationProps {
 export default function Navigation({ currentPage = 'home', isDarkMode = false }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMounted, setIsMounted] = useState(false)
-  const [isIOS, setIsIOS] = useState(false)
   const [locationMenuOpen, setLocationMenuOpen] = useState(false);
   const [mobileLocationMenuOpen, setMobileLocationMenuOpen] = useState(false);
   const locationMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -27,11 +25,6 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
     }
-    
-    setIsIOS(detectIOS())
-    
-    // 컴포넌트가 마운트되었음을 표시
-    setIsMounted(true)
     
     // 초기 상태 설정
     setIsMenuOpen(false)
@@ -47,31 +40,10 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
       setIsScrolled(currentScrollY > 50)
     }
 
-    // iOS Safari용 터치 이벤트 방지
-    const preventZoom = (e: TouchEvent) => {
-      if (e.touches.length > 1) {
-        e.preventDefault()
-      }
-    }
-
-    // iOS Safari용 뷰포트 고정 - 더 강력하게
-    const setViewportMeta = () => {
-      let viewport = document.querySelector('meta[name=viewport]')
-      if (!viewport) {
-        viewport = document.createElement('meta')
-        viewport.setAttribute('name', 'viewport')
-        document.head.appendChild(viewport)
-      }
-      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no')
-    }
-
     window.addEventListener('scroll', handleScroll)
-    document.addEventListener('touchstart', preventZoom, { passive: false })
-    setViewportMeta()
     
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      document.removeEventListener('touchstart', preventZoom)
     }
   }, [])
 
@@ -132,23 +104,6 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
     }
   }
 
-  // 마운트되지 않았으면 아무것도 렌더링하지 않음
-  if (!isMounted) {
-    return (
-      <nav className="fixed top-0 left-0 right-0 w-full z-[999999] bg-white/95 backdrop-blur-md shadow-lg">
-        <div className="w-full max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center">
-            <div className="w-8 h-8 bg-gray-200 rounded mr-2"></div>
-            <div className="h-6 bg-gray-200 rounded w-48"></div>
-          </div>
-          <div className="md:hidden">
-            <div className="w-10 h-10 bg-gray-200 rounded"></div>
-          </div>
-        </div>
-      </nav>
-    )
-  }
-
   const navItems = [
     { href: '/', label: '홈', key: 'home' },
     { href: '/whyhere', label: '여긴뭐야?', key: 'whyhere' },
@@ -197,13 +152,13 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
               height={32}
               className="mr-2 flex-shrink-0 transition-transform duration-200 group-hover:scale-105"
             />
-            <h1 className={`font-bold transition-colors duration-300 whitespace-nowrap group-hover:opacity-80 ${
+            <span className={`font-bold transition-colors duration-300 whitespace-nowrap group-hover:opacity-80 ${
               isScrolled || isDarkMode 
                 ? 'text-gray-900' 
                 : 'text-white'
             } text-lg sm:text-xl`}>
               5프로돌려주는스카이차
-            </h1>
+            </span>
           </Link>
           
           {/* 데스크톱 메뉴 */}

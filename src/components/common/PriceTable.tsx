@@ -2,6 +2,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { PRICE_NOTICE } from '@/lib/seo'
 import { Icon } from '@/components/ui/icon'
 
 // 가격 데이터 타입 정의
@@ -162,7 +163,7 @@ export default function PriceTable({
           <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-bold text-blue-900 mb-4">이용 안내</h3>
             <ul className="space-y-3 text-blue-800">
-              <li>• 모든 요금은 부가세가 포함된 금액입니다.</li>
+              <li>• 예약 전 부가세 포함 여부와 최종 결제금액을 확인해 주세요.</li>
               <li>• 작업 난이도 및 현장 여건에 따라 요금은 조정될 수 있습니다.</li>
               <li>• 현장 확인 후 정확한 최종 견적을 제공합니다.</li>
             </ul>
@@ -172,8 +173,8 @@ export default function PriceTable({
             <h3 className="text-xl font-bold text-green-900 mb-4">특별 혜택</h3>
             <ul className="space-y-3 text-green-800">
               <li>• 모든 요금제에 <strong>결제금액의 5% 포인트/현금 페이백</strong> 자동 적용!</li>
-              <li>• {region} 전 지역 <strong>30분 내 배차</strong>를 목표로 합니다.</li>
-              <li>• 24시간 긴급 출동 서비스가 항상 준비되어 있습니다.</li>
+              <li>• {region} 배차 가능 시간은 <strong>현장 위치와 장비 일정</strong>에 따라 안내합니다.</li>
+              <li>• 당일·야간 작업은 배차 가능 여부를 먼저 문의해 주세요.</li>
             </ul>
           </div>
         </div>
@@ -182,13 +183,13 @@ export default function PriceTable({
         <div className="mt-8 bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
           <div className="space-y-2 text-sm md:text-base text-gray-700">
             <p className="font-semibold">
-              • 작업시간 초과 시 1시간당 5만원 추가
+              • 시간 초과 시 위 표의 장비별 추가 요금을 적용하며, 협의 항목은 상담 시 확인합니다.
             </p>
             <p className="font-semibold">
-              • 지역별 추가비 없음
+              • 현장 주소와 작업 조건에 따른 추가 비용 유무를 견적에서 확인해 주세요.
             </p>
             <p>
-              • 현장 여건(작업 높이, 진입/주차 여건, 야간/주말 작업 등)에 따라 추가 비용이 발생할 수 있습니다.
+              {PRICE_NOTICE}
             </p>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import { PRICE_NOTICE } from './seo'
+
 // 지역별 상세 데이터 구조 (PRD 기반)
 
 export interface City {
@@ -190,7 +192,7 @@ export const LOCATIONS_DATA: Location[] = [
     slug: 'incheon',
     isGrouped: false,
     cities: [
-      { name: '중구', slug: 'junggu' },
+      { name: '중구', slug: 'incheon-junggu' },
       { name: '동구', slug: 'donggu' },
       { name: '미추홀구', slug: 'michuholgu' },
       { name: '연수구', slug: 'yeonsugu' },
@@ -239,7 +241,7 @@ export const GANGNAM_DATA: RegionData = {
         fullDay: 650000 
       }
     ],
-    notice: '작업 높이, 시간 초과(1톤~3.5톤 15만원/시간, 5톤 20만원/시간), 야간/주말, 현장 진입/주차 여건에 따라 추가 비용이 발생할 수 있습니다. 표시 금액은 부가세 별도입니다.'
+    notice: PRICE_NOTICE
   },
   
   tonnageGuide: [
@@ -276,7 +278,7 @@ export const GANGNAM_DATA: RegionData = {
   footerNotice: {
     exclusion: '취소/부분취소/추가비 제외 가능'
   },
-  localIntro: '강남구는 테헤란로 오피스 빌딩과 신사·압구정 상권이 밀집해 간판 교체, 외벽·유리 보수 등 고소작업 수요가 가장 많은 지역입니다. 역삼·삼성·논현동 등 어디든 현장 여건에 맞는 스카이차를 30분 내 배차합니다.',
+  localIntro: '강남구 테헤란로 오피스와 신사·압구정 상권의 간판 교체·외벽 보수용 스카이차를 상담합니다. 역삼·삼성·논현동 등의 현장 높이와 차량 설치 여건을 확인해 장비와 배차 가능 일정을 안내합니다.',
   localFaq: [
     { q: '강남 테헤란로 오피스 빌딩 간판·외벽 작업도 가능한가요?', a: '네. 고층 상업빌딩이 많은 강남 특성상 5톤 굴절 등 고소 장비를 상시 운용합니다. 건물 높이와 주소를 알려주시면 적합한 톤수로 배차합니다.' }
   ],
@@ -324,6 +326,8 @@ export const ANYANG_DATA: RegionData = {
     headline: '안양 스카이차',
     subCopy: '동안구·만안구 전 지역 신속 배차'
   },
+  localIntro: '안양시 동안구·만안구의 상가 간판 교체와 건물 외벽 작업을 상담합니다. 평촌·호계·안양동 등 현장 주소와 작업 높이, 진입 공간을 확인해 장비와 일정을 안내합니다.',
+  localFaq: [{ q: '안양 상가 간판 교체 견적에 필요한 정보는 무엇인가요?', a: '동안구·만안구의 정확한 주소, 간판 높이, 건물 앞 차량 설치 공간과 작업 시간을 알려주세요. 간판 시공 범위와 장비 대여 범위를 구분해 상담합니다.' }],
   gallery: [
     { src: '/images/anyang/anyang-sky-car-apartment-work.jpg', alt: '안양시 아파트 외벽 고소작업', location: '안양시', category: '아파트 작업' },
     { src: '/images/anyang/anyang-sky-car-day-work.png', alt: '안양시 주간 스카이차 현장 작업', location: '안양시', category: '주간 작업' },
@@ -343,6 +347,8 @@ export const SUWON_DATA: RegionData = {
     headline: '수원 스카이차',
     subCopy: '영통·팔달·권선·장안구 전 지역 대응'
   },
+  localIntro: '수원시 영통·팔달·권선·장안구의 간판작업과 외벽 보수용 스카이차를 상담합니다. 인계·영통·매탄동 등 작업 위치, 건물과 차량 사이 거리 및 진입 조건을 확인해 견적을 안내합니다.',
+  localFaq: [{ q: '수원에서 스카이차 비용을 상담하려면 무엇을 알려줘야 하나요?', a: '영통·팔달·권선·장안구 중 작업 주소와 희망 날짜, 작업 높이와 이용 시간을 알려주세요. 진입로와 건물 전면 사진이 있으면 현장 조건에 맞는 장비 확인에 도움이 됩니다.' }],
   gallery: undefined // 수원 전용 이미지 준비되면 추가 (강남 갤러리 상속 방지)
 };
 
@@ -358,6 +364,8 @@ export const GUNPO_DATA: RegionData = {
     headline: '군포 스카이차',
     subCopy: '산본·금정 전 지역 30분 내 도착'
   },
+  localIntro: '군포시 산본·금정·당동·당정동 등의 간판 설치·교체 및 외벽 작업을 상담합니다. 상가 앞 통행 공간과 차량 설치 위치를 확인하고 필요한 이용 시간에 맞춰 장비 견적을 안내합니다.',
+  localFaq: [{ q: '군포 산본 상가 간판작업은 어떻게 예약하나요?', a: '작업 주소, 간판 위치와 높이, 희망 작업 시간을 알려주세요. 상가 앞 보행자 통행과 차량 설치 공간을 함께 확인한 뒤 배차 가능 일정과 비용을 안내합니다.' }],
   gallery: [
     { src: '/images/gunpo-sky-car-signboard-installation.png', alt: '군포시 산본 간판 설치 고소작업', location: '군포시 산본', category: '간판설치' }
   ]

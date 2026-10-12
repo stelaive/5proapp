@@ -40,9 +40,6 @@ export const metadata: Metadata = {
   // 정규 URL (www.5prosky.com 으로 일원화)
   alternates: {
     canonical: '/',
-    languages: {
-      'ko-KR': '/',
-    },
   },
   // 기본 제목과 설명
   title: {
@@ -132,8 +129,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
   viewportFit: 'cover'
 }
 
@@ -147,13 +142,13 @@ export default function RootLayout({
   // ============================================
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
+    "@id": `${SITE_INFO.siteUrl}/#organization`,
     "name": SITE_INFO.businessName,
     "description": SITE_INFO.description,
     "url": SITE_INFO.siteUrl,
     "telephone": SITE_INFO.businessPhone,
     "email": SITE_INFO.businessEmail,
-    "serviceType": "건설장비 대여 서비스",
     "areaServed": [
       { "@type": "Country", "name": "대한민국 (제주도 제외)" },
       { "@type": "AdministrativeArea", "name": "서울특별시" },
@@ -164,16 +159,6 @@ export default function RootLayout({
       { "@type": "City", "name": "수원시" },
       { "@type": "City", "name": "군포시" }
     ],
-    "priceRange": "$$",
-    "paymentAccepted": "현금, 계좌이체",
-    "currenciesAccepted": "KRW",
-    "openingHours": "Mo-Su 00:00-24:00",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
     // 동일 엔티티의 외부 채널 (앱스토어) — GEO/로컬 엔티티 신뢰 강화
     "sameAs": [
       "https://play.google.com/store/apps/details?id=com.steve.kim.sadariapp",
@@ -193,11 +178,6 @@ export default function RootLayout({
         }
       ]
     },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": `${SITE_INFO.siteUrl}/search?q={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
   }
 
   return (

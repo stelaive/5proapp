@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { LOCATIONS_DATA, LIVE_CITY_SLUGS } from '@/lib/regionData'
+import { SEO_UPDATED_AT } from '@/lib/seo'
 import { LATEST_NEWS_DATE } from '@/lib/newsData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,13 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: '2026-07-11', // 메인 페이지 전면 리디자인
+      lastModified: SEO_UPDATED_AT, // 메인 검색 의도·본문 개선
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/pricing`,
-      lastModified: '2025-07-25', // 가격표 최종 업데이트
+      lastModified: SEO_UPDATED_AT, // 비용 안내·FAQ 개선
       changeFrequency: 'monthly',
       priority: 0.9,
     },
@@ -63,7 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const REGION_HUB_SLUGS = ['seoul', 'gyeonggi', 'incheon']
   const regionHubPages: MetadataRoute.Sitemap = REGION_HUB_SLUGS.map((slug) => ({
     url: `${baseUrl}/locations/${slug}`,
-    lastModified: '2026-07-11',
+    lastModified: SEO_UPDATED_AT,
     changeFrequency: 'weekly',
     priority: 0.7,
   }))
@@ -71,16 +72,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 3) 도시별 페이지 (/locations/{slug})
   // 전용 페이지가 존재하는 도시만 포함 (regionData.LIVE_CITY_SLUGS = 단일 소스)
   const liveSet = new Set(LIVE_CITY_SLUGS)
-
-  // 지역별 페이지의 실제 업데이트 날짜 매핑 (없으면 기본값)
-  const locationUpdateDates: Record<string, string> = {
-    'gangnam': '2026-07-11',
-    'seocho': '2026-07-12',
-    'anyang': '2026-07-11',
-    'gunpo': '2026-07-11',
-    'suwon': '2026-07-11',
-  }
-  const DEFAULT_DATE = '2026-07-12' // 서울 자치구 일괄 생성일
 
   const locationPages: MetadataRoute.Sitemap = []
   const seen = new Set<string>() // slug 중복 방지 (예: 서울·인천 '중구'가 동일 slug 'junggu')
@@ -91,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         seen.add(city.slug)
         locationPages.push({
           url: `${baseUrl}/locations/${city.slug}`,
-          lastModified: locationUpdateDates[city.slug] || DEFAULT_DATE,
+          lastModified: SEO_UPDATED_AT,
           changeFrequency: 'monthly',
           priority: 0.8,
         })
