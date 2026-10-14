@@ -82,7 +82,7 @@ export default function HeroSection() {
                 ,
               </span>
               <br />
-              현금으로 바로 돌려드려요
+              현금 페이백으로 돌려드려요
             </motion.h1>
 
             {/* 서브카피 — 확실성 강조 */}
@@ -90,8 +90,8 @@ export default function HeroSection() {
               variants={item}
               className="mt-5 text-base leading-relaxed text-gray-300 md:text-lg"
             >
-              작업 끝나면 묻지도 따지지도 않고,
-              <br className="hidden sm:block" /> 이용료의 5%를 바로 현금으로 드려요.
+              작업 완료 후 앱에 포인트로 적립하고,
+              <br className="hidden sm:block" /> 출금 신청 시 계좌로 현금을 지급합니다.
             </motion.p>
 
             {/* CTA — 단일 강조 + 보조 링크 */}
@@ -125,7 +125,7 @@ export default function HeroSection() {
               variants={item}
               className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-400"
             >
-              {['정식 등록 업체', '작업 완료 즉시 현금 지급', '전화·앱 예약 모두 5%'].map((t) => (
+              {['정식 등록 업체', '작업 후 적립·출금 신청', '전화·앱 예약 모두 5%'].map((t) => (
                 <li key={t} className="inline-flex items-center gap-1.5">
                   <svg className="h-4 w-4 shrink-0" style={{ color: BRAND }} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -172,7 +172,7 @@ export default function HeroSection() {
                       >%</span>
                       <div className="leading-tight">
                         <p className="text-sm font-bold text-gray-900">장비 사용 5% 페이백</p>
-                        <p className="text-xs text-gray-400">작업 완료 즉시 지급</p>
+                        <p className="text-xs text-gray-400">작업 완료 후 포인트 적립</p>
                       </div>
                     </div>
                     <span className="text-sm font-bold" style={{ color: BRAND }}>+17,500원</span>

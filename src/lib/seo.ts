@@ -3,7 +3,7 @@ import type { RegionData } from './regionData'
 
 export const SITE_URL = 'https://www.5prosky.com'
 export const BRAND_NAME = '5프로돌려주는스카이차'
-export const SEO_UPDATED_AT = '2026-10-12'
+export const SEO_UPDATED_AT = '2026-10-15'
 
 export function pageMetadata(title: string, description: string, path: string, keywords: string[]): Metadata {
   const sharedTitle = `${title} | ${BRAND_NAME}`

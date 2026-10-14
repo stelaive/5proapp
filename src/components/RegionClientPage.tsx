@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import AnswerSummary from '@/components/seo/AnswerSummary';
 import StickyRegionNav from '@/components/StickyRegionNav';
 import BackToTopButton from '@/components/BackToTopButton';
 import { Location, City, LIVE_CITY_SLUGS } from '@/lib/regionData';
@@ -99,6 +100,7 @@ export default function RegionClientPage({ location }: RegionClientPageProps) {
               {content.description}
             </p>
           </header>
+          <AnswerSummary kind="hub" name={location.name} />
           <nav aria-label="현재 위치" className="mb-8 text-sm text-gray-600"><Link className="underline" href="/">홈</Link> / <span aria-current="page">{location.name} 스카이차</span></nav>
           <section id="region-consultation" className="mb-10 scroll-mt-28 rounded-2xl border border-orange-100 bg-orange-50 p-6 md:p-8">
             <h2 className="text-2xl font-bold text-gray-900">{content.label} 간판작업·외벽 보수 장비 견적</h2>

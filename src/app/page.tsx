@@ -1,5 +1,7 @@
 import React from 'react'
+import { BRAND_NAME, SITE_URL } from '@/lib/seo'
 import { pageMetadata } from '@/lib/seo'
+import AnswerSummary from '@/components/seo/AnswerSummary'
 import WorkGuide from '@/components/seo/WorkGuide'
 import RegionLinks from '@/components/seo/RegionLinks'
 
@@ -23,11 +25,17 @@ import CtaSection from '@/components/home/sections/CtaSection'
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE_URL}/#website`,
+        name: BRAND_NAME, alternateName: '5프로스카이차', url: SITE_URL,
+        inLanguage: 'ko-KR', publisher: { '@id': `${SITE_URL}/#organization` },
+      }) }} />
       <Navigation currentPage="home" />
 
       <main className="flex-grow">
         {/* 1. 히어로 */}
         <HeroSection />
+        <AnswerSummary kind="home" />
         {/* 2. 문제 제기 */}
         <ProblemSection />
         {/* 3. 서비스(해결) */}

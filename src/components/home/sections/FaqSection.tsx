@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { PRICE_NOTICE } from '@/lib/seo'
 import { motion } from 'framer-motion'
 
 const BRAND = '#F97316'
@@ -13,7 +14,7 @@ const FAQS = [
   },
   {
     q: '요금이 부르는 대로 바뀌진 않나요?',
-    a: '톤수와 이용 시간 기준으로 요금이 사전에 정해져 있어, 그때그때 달라지지 않습니다. 예약 전 앱에서 예상 금액을 확인하실 수 있어요.',
+    a: PRICE_NOTICE,
   },
   {
     q: '어느 지역까지 출동하나요?',
@@ -30,7 +31,7 @@ const FAQS = [
 ]
 
 export default function FaqSection() {
-  // AEO: 검색 답변박스·리치결과용 FAQPage 구조화 데이터
+  // 화면과 같은 문답을 제공하는 구조화 데이터. 검색 기능이나 AI 인용을 보장하지 않는다.
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { BRAND_DEFINITION } from '@/lib/answerContent'
 
 // ============================================
 // 🔧 여기서 사이트 정보를 수정하세요!
@@ -145,7 +146,8 @@ export default function RootLayout({
     "@type": "Organization",
     "@id": `${SITE_INFO.siteUrl}/#organization`,
     "name": SITE_INFO.businessName,
-    "description": SITE_INFO.description,
+    "alternateName": "5프로스카이차",
+    "description": BRAND_DEFINITION,
     "url": SITE_INFO.siteUrl,
     "telephone": SITE_INFO.businessPhone,
     "email": SITE_INFO.businessEmail,

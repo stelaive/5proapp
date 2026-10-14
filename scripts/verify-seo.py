@@ -88,6 +88,9 @@ for path, page in pages.items():
     assert '/pricing' in page.links and 'tel:18773924' in page.links, (path, 'SSR navigation/CTA missing')
     text = ' '.join(page.text)
     assert '스카이차비용' in text and '간판' in text, (path, 'intent content missing')
+    assert 'answer-summary' in page.ids, (path, 'answer summary missing from initial HTML')
+    assert '5프로돌려주는스카이차(5프로스카이차)는' in text, (path, 'brand definition missing')
+    assert '2026-10-15' in text, (path, 'content date missing')
     for schema in page.schemas:
         if schema.get('@type') == 'FAQPage':
             for question in schema['mainEntity']:
@@ -104,6 +107,9 @@ for path, page in pages.items():
         assert '테헤란로' not in text and '강남구' not in descriptions[0], (path, 'copied Gangnam content')
 
 assert '스카이차비용' in ''.join(pages['/pricing'].title)
+pricing_text = ' '.join(pages['/pricing'].text)
+for fact in ['시장 평균', '가정 예시', '높이·거리·시간·설치 공간', '150,000원', '200,000원']:
+    assert fact in pricing_text, ('/pricing', 'missing evidence or boundary', fact)
 assert not any('/locations/junggu' == href for href in pages['/locations/incheon'].links)
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):

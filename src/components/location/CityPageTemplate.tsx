@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import AnswerSummary from '@/components/seo/AnswerSummary'
 import WorkGuide from '@/components/seo/WorkGuide'
 import { LOCATIONS_DATA } from '@/lib/regionData'
 import { PRICE_NOTICE } from '@/lib/seo'
@@ -107,7 +108,7 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
             </h1>
             <p className="mt-5 text-base leading-relaxed text-gray-300 md:text-lg">
               {data.subAreas.slice(0, 3).join('·')} 등 {data.nameKo} 간판작업·외벽 보수 장비 상담
-              <br className="hidden sm:block" /> 작업 끝나면 이용료의 5%를 현금으로 돌려드려요.
+              <br className="hidden sm:block" /> 작업 후 5% 포인트 적립, 앱에서 출금 신청하면 계좌로 지급합니다.
             </p>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <a
@@ -139,6 +140,7 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
       </section>
 
       {/* 섹션 2. 요금 (계산기 + 요금표) — 하나의 회색존으로 통합 */}
+      <AnswerSummary kind="region" data={data} />
       <nav aria-label="현재 위치" className="mx-auto max-w-5xl px-4 py-5 text-sm text-gray-600">
         <Link href="/" className="underline">홈</Link>
         {parent && <> / <Link href={`/locations/${parent.slug}`} className="underline">{parent.name} 스카이차</Link></>}

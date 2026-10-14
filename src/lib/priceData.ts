@@ -1,5 +1,5 @@
 // file: src/lib/priceData.ts
-import { PriceItem } from '@/components/common/PriceTable'
+import type { PriceItem } from '@/components/common/PriceTable'
 
 // 기본 가격 데이터 (전국 공통)
 export const defaultPriceData: PriceItem[] = [

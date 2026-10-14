@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import AnswerSummary from '@/components/seo/AnswerSummary'
 import CostGuide from '@/components/seo/CostGuide'
 import RegionLinks from '@/components/seo/RegionLinks'
 import { motion } from 'framer-motion'
@@ -79,21 +80,15 @@ export default function PricingPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 font-jalnan">
               스카이차 가격표와 대여 비용
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
-              1시간·반나절·하루 스카이차비용과 현장별 견적 조건을 확인하세요
-            </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 inline-block">
-              <p className="text-lg font-bold text-yellow-300 mb-2">🎉 특별 혜택!</p>
-              <p className="text-blue-100">
-                모든 이용료에서 <span className="text-yellow-300 font-bold text-xl">5% 캐시백</span> 자동 지급!
-              </p>
-            </div>
+
           </motion.div>
         </div>
       </section>
 
+      <AnswerSummary kind="pricing" />
+
       {/* 공통 가격표 컴포넌트 사용 */}
-      <motion.div {...fadeInUp}>
+      <motion.div id="equipment-prices" className="scroll-mt-24" {...fadeInUp}>
         <PriceTable
           title="장비별 이용요금"
           subtitle="1시간·반나절·하루 스카이차비용과 현장별 견적 조건을 확인하세요"
