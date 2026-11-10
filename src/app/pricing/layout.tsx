@@ -1,7 +1,7 @@
 import { pageMetadata } from '@/lib/seo'
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/common/Footer'
-import FloatingDownload from '@/components/FloatingDownload'
+import PricingHeader from './components/PricingHeader'
+import PricingFooter from './components/PricingFooter'
+import styles from './pricing.module.css'
 
 export const metadata = pageMetadata(
   '스카이차 가격표 · 스카이차비용·대여 견적',
@@ -16,13 +16,12 @@ export default function PricingLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navigation currentPage="pricing" />
-      <main className="flex-grow">
+    <div className={styles.page}>
+      <PricingHeader />
+      <main id="pricing-content">
         {children}
       </main>
-      <Footer />
-      <FloatingDownload />
+      <PricingFooter />
     </div>
   )
 }
