@@ -127,7 +127,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
   return (
     <>
       <nav 
-        className={`fixed top-0 left-0 right-0 w-full z-[999999] transition-all duration-300 ${
+        className={`site-navigation fixed top-0 left-0 right-0 w-full z-[999999] transition-all duration-300 ${
           isScrolled || isDarkMode
             ? 'bg-white/95 backdrop-blur-md shadow-lg' 
             : 'bg-white/10 backdrop-blur-sm'

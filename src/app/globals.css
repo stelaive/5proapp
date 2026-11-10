@@ -101,7 +101,7 @@ section {
 }
 
 /* 메인 페이지 네비게이션 강제 표시 */
-nav[style*="position: fixed"] {
+.site-navigation[style*="position: fixed"] {
     z-index: 999999 !important;
     position: fixed !important;
 }
@@ -116,25 +116,25 @@ nav[style*="position: fixed"] {
 /* 메인페이지에서만 모바일 네비게이션 강제 여백 */
 @media (max-width: 768px) {
     /* 모든 페이지에서 네비게이션 개선 */
-    nav {
+    .site-navigation {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
     
     /* 네비게이션 내부 컨테이너 */
-    nav > div {
+    .site-navigation > div {
         min-height: 60px !important;
         align-items: center !important;
     }
     
     /* 로고와 텍스트 컨테이너 */
-    nav a[class*="flex items-center"] {
+    .site-navigation a[class*="flex items-center"] {
         max-width: calc(100vw - 100px) !important;
         overflow: hidden !important;
     }
     
     /* 네비게이션 타이틀 텍스트 */
-    nav h1 {
+    .site-navigation h1 {
         font-size: 1rem !important;
         line-height: 1.2 !important;
         white-space: nowrap !important;
@@ -143,7 +143,7 @@ nav[style*="position: fixed"] {
     }
     
     @media (min-width: 640px) {
-        nav h1 {
+        .site-navigation h1 {
             font-size: 1.25rem !important;
         }
     }
@@ -156,7 +156,7 @@ nav[style*="position: fixed"] {
     }
     
     /* 모바일 사이드바 개선 - 선택자를 더 구체적으로 변경 */
-    nav > div > div[class*="fixed"][class*="right-0"][class*="h-full"] {
+    .site-navigation > div > div[class*="fixed"][class*="right-0"][class*="h-full"] {
         max-width: min(320px, 85vw) !important;
         width: 100% !important;
         box-shadow: -10px 0 25px rgba(0, 0, 0, 0.25) !important;
@@ -475,8 +475,8 @@ nav.nav-scrolled #menuBtn {
         -webkit-tap-highlight-color: transparent !important;
     }
     
-    /* 네비게이션 바 고정 */
-    nav[class*="fixed"] {
+    /* 상단 메뉴만 고정: 하단 CTA에 top: 0이 적용되면 화면 전체로 늘어난다. */
+    .site-navigation[class*="fixed"] {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;

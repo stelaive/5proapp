@@ -56,13 +56,13 @@ export default function FloatingDownload() {
       {/* ===== 모바일: 하단 풀너비 내비 바 (앱 다운로드 · 전화 걸기) ===== */}
       <nav
         aria-label="빠른 메뉴"
-        className="md:hidden fixed inset-x-0 bottom-0 z-[50000] grid grid-cols-2 items-stretch border-t border-gray-100 bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.08)]"
+        className="md:hidden fixed inset-x-0 bottom-0 z-[50000] flex items-stretch border-t border-gray-100 bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.08)]"
       >
         {/* 앱 다운로드 (보조) */}
         <button
           onClick={handleAppDownload}
           aria-label="앱 다운로드"
-          className="flex h-full flex-col text-center leading-none transition-colors active:bg-orange-50"
+          className="flex min-w-0 flex-1 flex-col text-center leading-none transition-colors active:bg-orange-50"
           style={{ color: BRAND_COLOR }}
         >
           {/* 콘텐츠는 탭 영역(64px) 안에서 세로 중앙 정렬 */}
@@ -80,7 +80,7 @@ export default function FloatingDownload() {
         <a
           href={`tel:${PHONE_NUMBER}`}
           aria-label="전화 걸기"
-          className="tel-raw flex h-full flex-col text-center leading-none text-white transition-colors active:brightness-95"
+          className="tel-raw flex min-w-0 flex-1 flex-col text-center leading-none text-white transition-colors active:brightness-95"
           style={{ backgroundColor: BRAND_COLOR, textDecoration: 'none' }}
         >
           {/* 콘텐츠는 탭 영역(64px) 안에서 세로 중앙 정렬 */}
