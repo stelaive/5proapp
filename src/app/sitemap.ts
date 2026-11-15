@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // lastModified를 실제 페이지 업데이트 날짜로 고정
   // 검색엔진에게 정확한 정보를 제공하여 크롤링 효율성 향상
+  // (SEO_UPDATED_AT = 최신 가격표 개편일. src/lib/seo.ts 한 곳에서 관리)
+  // ※ HTML 페이지가 아닌 /rss.xml 은 사이트맵에서 제외한다.
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -51,12 +53,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: '2025-06-10', // 소개 페이지 업데이트
       changeFrequency: 'monthly',
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/rss.xml`,
-      lastModified: '2025-07-01', // RSS 피드 설정 날짜
-      changeFrequency: 'daily',
-      priority: 0.3,
     },
   ]
 

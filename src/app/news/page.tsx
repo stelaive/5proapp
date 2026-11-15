@@ -64,7 +64,7 @@ export default function NewsPage() {
           </p>
           <a
             href="tel:1877-3924"
-            className="mt-3 inline-block rounded-lg px-5 py-2.5 text-base font-bold"
+            className="mt-3 inline-block rounded-lg bg-[#F97316] px-5 py-2.5 text-base font-bold text-white transition-colors hover:bg-[#EA580C]"
           >
             1877-3924
           </a>

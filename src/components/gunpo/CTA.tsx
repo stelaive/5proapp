@@ -17,7 +17,7 @@ const CTA: React.FC<CTAProps> = ({ title, description, buttonText, phone }) => {
         <a 
           href={`tel:${phone}`}
           aria-label={buttonText}
-          className="text-white font-bold py-4 px-10 rounded-2xl text-xl transition-transform transform hover:scale-105"
+          className="text-white font-bold py-4 px-10 rounded-2xl text-xl inline-block transition-transform transform hover:scale-105"
           style={{ backgroundColor: '#F97316' }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = '#EA580C';

@@ -35,7 +35,7 @@ export default function WorkGuide({ region }: { region?: string }) {
           </ul>
           <p className="mt-4 text-sm leading-relaxed text-gray-600">당일·야간 작업은 장비 일정과 현장 조건에 따라 가능 여부가 달라집니다. 상담 후 배차와 총비용을 확정해 주세요.</p>
           <div className="mt-6 flex flex-wrap items-center gap-5">
-            <a href="tel:18773924">현장 조건으로 견적 상담하기</a>
+            <a href="tel:18773924" className="tel-link">현장 조건으로 견적 상담하기</a>
             <Link href="/pricing#cost-guide" className="font-semibold text-orange-800 underline underline-offset-4">스카이차비용·시간별 가격표 확인</Link>
           </div>
         </div>
