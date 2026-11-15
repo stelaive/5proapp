@@ -147,7 +147,7 @@ export default function Navigation({ currentPage = 'home', isDarkMode = false }:
           <Link href="/" className="flex items-center flex-shrink-0 group">
             <Image
               src="/images/sky-car-logo-icon.png"
-              alt="스카이차 로고"
+              alt="5프로돌려주는스카이차 로고"
               width={32}
               height={32}
               className="mr-2 flex-shrink-0 transition-transform duration-200 group-hover:scale-105"
