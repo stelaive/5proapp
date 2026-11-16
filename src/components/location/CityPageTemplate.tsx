@@ -86,7 +86,7 @@ export default function CityPageTemplate({ data }: { data: RegionData }) {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/sky-car-visual-4.png"
-            alt=""
+            alt={`${data.nameKo} 스카이차 고소작업 현장`}
             fill
             priority
             sizes="100vw"

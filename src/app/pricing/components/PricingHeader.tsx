@@ -40,7 +40,7 @@ export default function PricingHeader() {
       <a className={styles.skipLink} href="#pricing-content">본문으로 바로가기</a>
       <div className={styles.headerInner}>
         <Link href="/" className={styles.brand} aria-label="5프로돌려주는스카이차 홈">
-          <Image src="/images/sky-car-logo-icon.png" alt="" width={38} height={44} priority />
+          <Image src="/images/sky-car-logo-icon.png" alt="5프로돌려주는스카이차 로고" width={38} height={44} priority />
           <span><strong>5프로돌려주는스카이차</strong><small>현장의 비용을 줄이는 5%의 차이</small></span>
         </Link>
         <nav className={styles.desktopNav} aria-label="가격 페이지 안내">

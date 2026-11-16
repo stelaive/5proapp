@@ -38,7 +38,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/sky-car-visual-4.png"
-          alt=""
+          alt="5프로돌려주는스카이차 고소작업 현장 - 스카이차 작업대에 올라간 작업자 두 명이 건물 지붕을 보수하는 모습"
           fill
           priority
           sizes="100vw"

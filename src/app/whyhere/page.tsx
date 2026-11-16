@@ -33,7 +33,7 @@ export default function WhyHere() {
         >
           <Image
             src="/images/sky-car-visual-4.png"
-            alt="스카이차 작업 현장"
+            alt="스카이차 작업대에 올라간 작업자가 건물 지붕을 보수하는 고소작업 현장"
             fill
             className="object-cover opacity-40"
             unoptimized
@@ -163,7 +163,7 @@ export default function WhyHere() {
               >
                 <Image
                   src="/images/sky-car-visual-4.png"
-                  alt="스카이차 이미지"
+                  alt="건물 지붕 작업을 위해 스카이차 붐대를 펼친 현장 모습"
                   width={800}
                   height={400}
                   className="mx-auto rounded-lg shadow-xl max-w-2xl w-full"
