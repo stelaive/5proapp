@@ -107,7 +107,7 @@ export default function RegionClientPage({ location }: RegionClientPageProps) {
             <p className="mt-4 leading-relaxed text-gray-700">{content.advice}</p>
             <p className="mt-4 leading-relaxed text-gray-700">스카이차 비용은 필요한 장비와 1시간·반나절·하루 등 이용 시간, 현장 조건에 따라 달라집니다. 간판 제작·설치 인력 등 시공비와 장비 이용료는 구분하여 확인해 주세요.</p>
             <div className="mt-6 flex flex-wrap items-center gap-5">
-              <a href="tel:18773924">{content.label} 배차·견적 전화 상담</a>
+              <a href="tel:18773924" className="tel-link">{content.label} 배차·견적 전화 상담</a>
               <Link href="/pricing#cost-guide" className="font-semibold text-orange-800 underline">스카이차비용·가격표 확인</Link>
               <Link href="/#sign-work" className="font-semibold text-orange-800 underline">간판작업 준비사항</Link>
             </div>

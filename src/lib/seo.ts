@@ -3,7 +3,16 @@ import type { RegionData } from './regionData'
 
 export const SITE_URL = 'https://www.5prosky.com'
 export const BRAND_NAME = '5프로돌려주는스카이차'
-export const SEO_UPDATED_AT = '2026-10-15'
+// 최신 콘텐츠 개편일 — 가격표 개편(2026-11-10) 반영. sitemap의 lastModified 기준값으로 쓰인다.
+export const SEO_UPDATED_AT = '2026-11-10'
+
+// 대표 공유 이미지(OG/Twitter) 단일 기준.
+// 루트 layout.tsx도 이 값을 그대로 쓰므로 이미지 경로는 여기 한 곳만 고치면 된다.
+// 5pro-logo-main.png: 1024×1024 로고. 375×481 아이콘(sky-car-logo-icon.png)보다 해상도가 높고
+// 가로/세로 비율이 SNS 카드에 무리 없이 들어가며, 나머지 페이지 layout들도 이미 이 이미지를 쓴다.
+export const OG_IMAGE = '/images/5pro-logo-main.png'
+export const OG_IMAGE_WIDTH = 1024
+export const OG_IMAGE_HEIGHT = 1024
 
 export function pageMetadata(title: string, description: string, path: string, keywords: string[]): Metadata {
   const sharedTitle = `${title} | ${BRAND_NAME}`
@@ -15,11 +24,11 @@ export function pageMetadata(title: string, description: string, path: string, k
     openGraph: {
       type: 'website', locale: 'ko_KR', siteName: BRAND_NAME,
       title: sharedTitle, description, url: `${SITE_URL}${path}`,
-      images: [{ url: '/images/5pro-logo-main.png', alt: BRAND_NAME }],
+      images: [{ url: OG_IMAGE, width: OG_IMAGE_WIDTH, height: OG_IMAGE_HEIGHT, alt: BRAND_NAME }],
     },
     twitter: {
       card: 'summary_large_image', title: sharedTitle, description,
-      images: ['/images/5pro-logo-main.png'],
+      images: [OG_IMAGE],
     },
   }
 }

@@ -67,6 +67,20 @@ body {
     .scrollbar-hide::-webkit-scrollbar {
         display: none;
     }
+
+    /* 본문 문장 속 전화번호(tel:) 링크
+       — 버튼이 아니라 글 안의 링크로 보이게 한다. 옆에 같이 놓이는
+         "스카이차비용·가격표 확인" 같은 링크와 같은 모양(orange-800/밑줄). */
+    .tel-link {
+        color: #9a3412;
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    .tel-link:hover {
+        color: #7c2d12;
+    }
 }
 
 /* 스크롤 동작 부드럽게 */

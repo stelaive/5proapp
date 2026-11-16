@@ -46,7 +46,7 @@ export default function CostGuide() {
         </div>
         <p className="mt-8 text-sm leading-relaxed text-gray-600">수치 출처: <Link href="/pricing#equipment-prices" className="underline">5프로스카이차 장비별 가격표</Link>. 예약·변경 안내는 <Link href="/support" className="underline">고객센터</Link>에서 확인하고, 현장별 최종 조건은 전화 상담으로 확정해 주세요.</p>
         <div className="mt-8 flex flex-wrap items-center gap-5">
-          <a href="tel:18773924">내 현장 스카이차비용 상담하기</a>
+          <a href="tel:18773924" className="tel-link">내 현장 스카이차비용 상담하기</a>
           <Link href="/#sign-work" className="font-semibold text-orange-800 underline underline-offset-4">간판작업 장비·견적 준비사항</Link>
         </div>
       </article>
